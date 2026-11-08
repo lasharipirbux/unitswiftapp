@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sun, Moon, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, Download } from 'lucide-react';
 import { CONVERTERS, CATEGORIES, CategoryId } from '../data/converters';
 import { LogoMark } from './LogoMark';
+
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+}
 
 interface LayoutProps {
   currentPath: string;
@@ -21,6 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({
   const [activeDesktopCategory, setActiveDesktopCategory] = useState<CategoryId | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpandedCategory, setMobileExpandedCategory] = useState<CategoryId | null>(null);
+  const [deferredInstallPrompt, setDeferredInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 
   const headerRef = useRef<HTMLElement | null>(null);
   const hoverOpenedTimestampRef = useRef<number>(0);
@@ -38,6 +44,34 @@ export const Layout: React.FC<LayoutProps> = ({
     closeTimeoutRef.current = window.setTimeout(() => {
       setActiveDesktopCategory(null);
     }, 140);
+  };
+
+  // Listen for browser PWA install availability (beforeinstallprompt)
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setDeferredInstallPrompt(e as BeforeInstallPromptEvent);
+    };
+
+    const handleAppInstalled = () => {
+      setDeferredInstallPrompt(null);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredInstallPrompt) return;
+    await deferredInstallPrompt.prompt();
+    const { outcome } = await deferredInstallPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setDeferredInstallPrompt(null);
+    }
   };
 
   // Close dropdown and mobile menu on outside click or Escape key
@@ -121,23 +155,23 @@ export const Layout: React.FC<LayoutProps> = ({
         ref={headerRef}
         className="sticky top-0 z-30 bg-white dark:bg-[#0F1626] border-b border-[#E2E8F0] dark:border-white/10"
       >
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-2 lg:gap-4 px-4 sm:px-6 h-16">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-1.5 lg:gap-3 px-4 sm:px-6 h-16">
           {/* Left: UnitSwift Logo */}
           <a
             href="/"
             onClick={(e) => handleLinkClick(e, '/')}
-            className="inline-flex items-center gap-2 text-xl font-bold tracking-tight text-[#1F2A44] dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2C94C]"
+            className="inline-flex items-center gap-2 text-lg lg:text-xl font-bold tracking-tight text-[#1F2A44] dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2C94C]"
           >
             <LogoMark className="w-7 h-7 shrink-0" />
             <span>UnitSwift</span>
           </a>
 
-          {/* Center (Desktop & Laptop >= 768px): 7 Category Links with Hover/Click Dropdown Panel */}
+          {/* Center (Desktop & Laptop >= 768px): 7 Category Links on a Single Line */}
           <nav
             aria-label="Unit Categories"
             onMouseEnter={clearCloseTimer}
             onMouseLeave={scheduleDesktopClose}
-            className="hidden md:flex items-center gap-0.5 lg:gap-2 xl:gap-3 min-w-0"
+            className="hidden md:flex items-center gap-0.5 lg:gap-1.5 xl:gap-2.5 whitespace-nowrap min-w-0"
           >
             {CATEGORIES.map((cat) => {
               const isOpen = activeDesktopCategory === cat.id;
@@ -149,7 +183,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   aria-haspopup="true"
                   onMouseEnter={() => handleDesktopCategoryMouseEnter(cat.id)}
                   onClick={() => handleDesktopCategoryClick(cat.id)}
-                  className={`inline-flex items-center gap-1 px-2 lg:px-3 py-2 rounded-lg text-xs lg:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-0.5 lg:gap-1 px-1.5 lg:px-2.5 py-2 rounded-lg text-xs lg:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                     isOpen
                       ? 'bg-[#F1F5F9] dark:bg-white/10 text-[#1F2A44] dark:text-[#F2C94C]'
                       : 'text-[#1F2A44] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5'
@@ -158,7 +192,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <span>{cat.name}</span>
                   <ChevronDown
                     aria-hidden="true"
-                    className={`w-3.5 h-3.5 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 ${
+                    className={`w-3.5 h-3.5 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 shrink-0 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -167,13 +201,25 @@ export const Layout: React.FC<LayoutProps> = ({
             })}
           </nav>
 
-          {/* Far Right: Dark Mode Button + Mobile-only (<768px) Menu Button */}
+          {/* Far Right: Optional Install App Button + Dark Mode Button + Mobile-only (<768px) Menu Button */}
           <div className="flex items-center gap-2 shrink-0">
+            {deferredInstallPrompt && (
+              <button
+                type="button"
+                onClick={handleInstallClick}
+                aria-label="Install UnitSwift app"
+                className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 text-xs font-semibold rounded-lg bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F2A44]"
+              >
+                <Download className="w-3.5 h-3.5 shrink-0" />
+                <span>Install app</span>
+              </button>
+            )}
+
             <button
               type="button"
               onClick={onToggleTheme}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#1F2A44] text-white dark:bg-[#F2C94C] dark:text-[#1F2A44] hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C]"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#1F2A44] text-white dark:bg-[#F2C94C] dark:text-[#1F2A44] hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C]"
             >
               {isDark ? (
                 <>
@@ -363,7 +409,7 @@ export const Layout: React.FC<LayoutProps> = ({
               </div>
             </div>
 
-            {/* Column 3: Navigation Column (Home, About, Contact) */}
+            {/* Column 3: Navigation Column (Home, About, Contact, Privacy Policy) */}
             <div className="min-w-[130px] space-y-2.5">
               <h2 className="text-xs font-bold uppercase tracking-wider text-[#1F2A44] dark:text-slate-200 mb-3">
                 Navigation
@@ -396,6 +442,15 @@ export const Layout: React.FC<LayoutProps> = ({
                     Contact
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/privacy-policy"
+                    onClick={(e) => handleLinkClick(e, '/privacy-policy')}
+                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -409,7 +464,7 @@ export const Layout: React.FC<LayoutProps> = ({
               <span aria-hidden="true" className="text-[#1F2A44] dark:text-slate-400">·</span>
               <span className="text-[#1F2A44] dark:text-slate-200">Free, fast, no sign-up.</span>
             </div>
-            <div className="flex items-center gap-6 font-semibold">
+            <div className="flex flex-wrap items-center gap-6 font-semibold">
               <a
                 href="/about"
                 onClick={(e) => handleLinkClick(e, '/about')}
@@ -423,6 +478,13 @@ export const Layout: React.FC<LayoutProps> = ({
                 className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
               >
                 Contact
+              </a>
+              <a
+                href="/privacy-policy"
+                onClick={(e) => handleLinkClick(e, '/privacy-policy')}
+                className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
+              >
+                Privacy Policy
               </a>
             </div>
           </div>

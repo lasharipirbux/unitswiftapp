@@ -2,21 +2,56 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { ConverterPage } from './pages/ConverterPage';
-import { AboutPage, ContactPage } from './pages/InfoPages';
+import { AboutPage, ContactPage, PrivacyPolicyPage } from './pages/InfoPages';
 import { findConverterBySlug } from './data/converters';
 import { RICH_CONVERTER_CONTENT } from './data/richConverterContent';
 import { updatePageSEO } from './utils/seo';
 
+const SESSION_PATH_KEY = 'unitswift_active_path';
+
 function normalizePath(rawPath: string): string {
   if (!rawPath || rawPath === '/') return '/';
-  const cleaned = rawPath.replace(/\/+$/, '');
+  const withoutHash = rawPath.split('#')[0] || '/';
+  const withoutQuery = withoutHash.split('?')[0] || '/';
+  const cleaned = withoutQuery.replace(/\/+$/, '');
+  if (!cleaned) return '/';
   return cleaned.startsWith('/') ? cleaned : `/${cleaned}`;
 }
 
+function getInitialPath(): string {
+  const urlPath = normalizePath(window.location.pathname);
+  if (urlPath !== '/') {
+    try {
+      sessionStorage.setItem(SESSION_PATH_KEY, urlPath);
+    } catch {
+      // Ignore storage errors
+    }
+    return urlPath;
+  }
+
+  // If the preview iframe reloaded at '/', restore the active converter path from sessionStorage
+  try {
+    const savedPath = sessionStorage.getItem(SESSION_PATH_KEY);
+    if (savedPath && savedPath !== '/') {
+      const normalizedSaved = normalizePath(savedPath);
+      if (
+        findConverterBySlug(normalizedSaved.slice(1)) ||
+        normalizedSaved === '/about' ||
+        normalizedSaved === '/contact' ||
+        normalizedSaved === '/privacy-policy'
+      ) {
+        return normalizedSaved;
+      }
+    }
+  } catch {
+    // Ignore storage errors
+  }
+
+  return '/';
+}
+
 export default function App() {
-  const [currentPath, setCurrentPath] = useState<string>(() =>
-    normalizePath(window.location.pathname)
-  );
+  const [currentPath, setCurrentPath] = useState<string>(getInitialPath);
   const [preservedInput, setPreservedInput] = useState<string | undefined>(undefined);
 
   // Default to light mode for every visitor regardless of device settings, and remember manual toggle choice
@@ -47,29 +82,85 @@ export default function App() {
     setIsDark((prev) => !prev);
   }, []);
 
-  // Listen to browser Back / Forward navigation
+  // Ensure initial history entry and URL match currentPath on mount, and listen to browser Back / Forward buttons
   useEffect(() => {
-    const onPopState = () => {
+    const initialNormalized = normalizePath(currentPath);
+    try {
+      sessionStorage.setItem(SESSION_PATH_KEY, initialNormalized);
+      if (normalizePath(window.location.pathname) !== initialNormalized || !window.history.state?.path) {
+        window.history.replaceState(
+          { path: initialNormalized, scrollToId: window.history.state?.scrollToId },
+          '',
+          initialNormalized
+        );
+      }
+    } catch {
+      // Ignore history/storage errors
+    }
+  }, []);
+
+  useEffect(() => {
+    const onPopState = (event: PopStateEvent) => {
+      const statePath = typeof event.state?.path === 'string' ? event.state.path : window.location.pathname;
+      const nextPath = normalizePath(statePath);
+      try {
+        sessionStorage.setItem(SESSION_PATH_KEY, nextPath);
+      } catch {
+        // Ignore storage errors
+      }
       setPreservedInput(undefined);
-      setCurrentPath(normalizePath(window.location.pathname));
+      setCurrentPath(nextPath);
+
+      const scrollToId = event.state?.scrollToId || (window.location.hash ? window.location.hash.slice(1) : undefined);
+      if (scrollToId) {
+        setTimeout(() => {
+          const el = document.getElementById(scrollToId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 40);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+      }
     };
+
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
   const navigate = useCallback(
     (to: string, options?: { preserveInput?: string; scrollToId?: string }) => {
-      const targetPath = normalizePath(to.split('#')[0] || '/');
+      const hashFromTo = to.includes('#') ? to.split('#')[1] : undefined;
+      const scrollTargetId = options?.scrollToId || hashFromTo;
+      const targetPath = normalizePath(to);
+
       setPreservedInput(options?.preserveInput);
 
-      if (targetPath !== currentPath) {
-        window.history.pushState({}, '', targetPath);
-        setCurrentPath(targetPath);
+      try {
+        sessionStorage.setItem(SESSION_PATH_KEY, targetPath);
+      } catch {
+        // Ignore storage errors
       }
 
-      if (options?.scrollToId) {
+      setCurrentPath((prevPath) => {
+        const currentUrlPath = normalizePath(window.location.pathname);
+        if (targetPath !== prevPath || targetPath !== currentUrlPath) {
+          try {
+            window.history.pushState(
+              { path: targetPath, scrollToId: scrollTargetId },
+              '',
+              targetPath
+            );
+          } catch {
+            // Ignore pushState errors
+          }
+        }
+        return targetPath;
+      });
+
+      if (scrollTargetId) {
         setTimeout(() => {
-          const el = document.getElementById(options.scrollToId!);
+          const el = document.getElementById(scrollTargetId);
           if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
@@ -78,7 +169,7 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
       }
     },
-    [currentPath]
+    []
   );
 
   // Resolve current route and update SEO title + meta description + FAQ schema
@@ -88,9 +179,9 @@ export default function App() {
   useEffect(() => {
     if (currentPath === '/') {
       updatePageSEO({
-        title: 'UnitSwift – Convert Any Unit in a Swift | Free Unit Converter',
+        title: 'UnitSwift – Convert Any Unit in a Swift | Free Converter',
         description:
-          'Convert weight, length, temperature, volume, and speed units instantly with UnitSwift. Free, fast, no sign-up unit converter.',
+          'Convert weight, length, temperature, volume, speed, area, and local units instantly with UnitSwift. Free, fast unit converter with 50 calculators.',
         path: '/',
       });
     } else if (activeConverter) {
@@ -103,17 +194,24 @@ export default function App() {
       });
     } else if (currentPath === '/about') {
       updatePageSEO({
-        title: 'About UnitSwift – Free, Fast Unit Converter By Naseeb',
+        title: 'About UnitSwift – Free Unit Converter Built by Naseeb',
         description:
-          'Learn how UnitSwift delivers instant, accurate unit conversions in your browser with no sign-up and no ads popups.',
+          'UnitSwift is a free unit converter with 50 calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.',
         path: '/about',
       });
     } else if (currentPath === '/contact') {
       updatePageSEO({
-        title: 'Contact UnitSwift – Suggest a Converter or Send Feedback',
+        title: 'Contact UnitSwift – Report an Issue or Request a Unit',
         description:
-          'Get in touch with Naseeb at UnitSwift to request new unit converters or share feedback.',
+          'Found a wrong conversion value or want a new converter added to UnitSwift? Write to us directly by email to share feedback or unit requests.',
         path: '/contact',
+      });
+    } else if (currentPath === '/privacy-policy') {
+      updatePageSEO({
+        title: 'Privacy Policy – UnitSwift Free Online Unit Converter',
+        description:
+          'Read the UnitSwift Privacy Policy. We do not collect personal data, all calculations happen in your browser, and future analytics or ads may use cookies.',
+        path: '/privacy-policy',
       });
     } else {
       updatePageSEO({
@@ -143,6 +241,8 @@ export default function App() {
         <AboutPage navigate={navigate} />
       ) : currentPath === '/contact' ? (
         <ContactPage navigate={navigate} />
+      ) : currentPath === '/privacy-policy' ? (
+        <PrivacyPolicyPage navigate={navigate} />
       ) : (
         <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-20 text-center space-y-4">
           <p className="text-xs font-mono-tabular font-semibold text-[#1F2A44]/60 dark:text-[#F2C94C]">

@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   Copy,
   Check,
-  ChevronRight,
   RotateCcw,
 } from 'lucide-react';
 import {
@@ -20,7 +19,7 @@ import { RICH_CONVERTER_CONTENT } from '../data/richConverterContent';
 interface ConverterPageProps {
   converter: ConverterPageConfig;
   initialInput?: string;
-  navigate: (to: string, options?: { preserveInput?: string }) => void;
+  navigate: (to: string, options?: { preserveInput?: string; scrollToId?: string }) => void;
 }
 
 const TABLE_VALUES = [1, 5, 10, 50, 100];
@@ -107,9 +106,9 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
     return [...sameCategory, ...otherCategories].slice(0, 8);
   }, [converter]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, scrollToId?: string) => {
     e.preventDefault();
-    navigate(path);
+    navigate(path, { scrollToId });
   };
 
   const displayTitle = isReversedInPlace
@@ -117,35 +116,41 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
     : converter.title;
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12">
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[#1F2A44]/65 dark:text-slate-400">
-        <a
-          href="/"
-          onClick={(e) => handleLinkClick(e, '/')}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
-        >
-          Home
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-        <a
-          href={`/#category-${converter.category}`}
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/', { preserveInput: undefined });
-          }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
-        >
-          {categoryInfo?.name || converter.category}
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white truncate">
-          {converter.shortTitle}
-        </span>
-      </nav>
-
-      {/* Page Header: Title and 2-Line Description */}
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
+      {/* Page Header: Small Breadcrumb Above Heading + H1 + Description */}
       <header className="space-y-3 max-w-3xl">
+        {/* Small Breadcrumb: "Home > Weight > kg to pounds" where each part is a link */}
+        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#1F2A44] dark:text-slate-300">
+          <a
+            href="/"
+            onClick={(e) => handleLinkClick(e, '/')}
+            className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
+          >
+            Home
+          </a>
+          <span aria-hidden="true" className="text-[#1F2A44]/50 dark:text-slate-400">
+            &gt;
+          </span>
+          <a
+            href={`/#category-${converter.category}`}
+            onClick={(e) => handleLinkClick(e, '/', `category-${converter.category}`)}
+            className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
+          >
+            {categoryInfo?.name || converter.category}
+          </a>
+          <span aria-hidden="true" className="text-[#1F2A44]/50 dark:text-slate-400">
+            &gt;
+          </span>
+          <a
+            href={`/${converter.slug}`}
+            aria-current="page"
+            onClick={(e) => handleLinkClick(e, `/${converter.slug}`)}
+            className="font-semibold text-[#1F2A44] dark:text-white hover:underline underline-offset-4 transition-colors"
+          >
+            {converter.shortTitle}
+          </a>
+        </nav>
+
         <div className="flex items-center gap-2 text-xs text-[#1F2A44]/65 dark:text-[#F2C94C] font-mono-tabular">
           <span>{categoryInfo?.name} Conversion</span>
           <span aria-hidden="true">·</span>

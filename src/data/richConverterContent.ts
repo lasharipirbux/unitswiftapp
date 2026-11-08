@@ -1,5 +1,5 @@
 export interface RichConverterContent {
-  slug: string;
+  slug?: string;
   whatIsHeading: string;
   whatIsParagraphs: string[];
   howToHeading: string;
@@ -1744,6 +1744,1128 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     relatedSlugs: ['ounce-to-pounds', 'pounds-to-kg', 'ounce-to-gram', 'gram-to-ounce'],
   },
+
+  'ounce-to-pounds': {
+    whatIsHeading: 'What Is Ounces to Pounds Conversion',
+    whatIsParagraphs: [
+      'Ounces to pounds conversion translates smaller avoirdupois weight subdivisions into whole or decimal pounds. Under the US Customary and British Imperial systems, 1 pound is divided into exactly 16 ounces, meaning 1 ounce equals 0.0625 pounds (1/16 lb).',
+      'Deli counters, coffee roasters, postal shipping terminals, and neonatal birth weight logs frequently measure items in ounces first and then convert the total into pounds for pricing per pound or freight billing brackets.',
+    ],
+    howToHeading: 'How to Convert Ounces to Pounds',
+    howToIntro:
+      'To convert ounces to pounds, divide the number of ounces by 16 (or multiply by 0.0625). If you want the result in whole pounds and leftover ounces, the integer quotient is the pounds and the remainder is the remaining ounces.',
+    formulaBox: 'pounds (lb) = ounces (oz) ÷ 16',
+    workedExampleTitle: 'Worked Example: Convert 40 Ounces of Ground Coffee to Pounds',
+    workedExampleBody:
+      'Suppose a bulk bag of roasted coffee beans is labeled 40 ounces and you want to know its weight in pounds. Divide 40 by 16: 40 ÷ 16 = 2.5 pounds. The 40-ounce bag weighs exactly 2.5 pounds (2 pounds and 8 ounces).',
+    quickRefValues: [4, 8, 12, 16, 20, 24, 32, 48, 64, 80],
+    commonMistakes: [
+      {
+        title: 'Dividing ounces by 10 or 12 instead of 16',
+        description:
+          'Unlike metric units (base 10) or inches in a foot (base 12), the avoirdupois pound contains 16 ounces. Always divide by 16.',
+      },
+      {
+        title: 'Reading 24 ounces as 2.4 pounds',
+        description:
+          '24 ounces is 1 pound plus 8 leftover ounces. Since 8 ounces is half a pound (8 ÷ 16 = 0.5), 24 ounces equals 1.5 pounds, not 2.4 pounds.',
+      },
+      {
+        title: 'Mixing liquid fluid ounces with weight ounces',
+        description:
+          'A 16-fluid-ounce bottle of honey weighs roughly 24 avoirdupois ounces (1.5 lb) because honey is denser than water. Only divide weight ounces by 16 to get pounds.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many pounds is 16 ounces?',
+        answer:
+          '16 ounces is exactly 1 pound.',
+      },
+      {
+        question: 'How many pounds is 8 ounces?',
+        answer:
+          '8 ounces equals 0.5 pounds (half a pound).',
+      },
+      {
+        question: 'How many pounds is 24 ounces?',
+        answer:
+          '24 ounces equals 1.5 pounds (24 ÷ 16 = 1.5 lb).',
+      },
+      {
+        question: 'How many pounds is 32 ounces?',
+        answer:
+          '32 ounces equals 2 pounds (32 ÷ 16 = 2 lb).',
+      },
+    ],
+    relatedSlugs: ['pounds-to-ounce', 'ounce-to-gram', 'pounds-to-kg', 'kg-to-ounce'],
+  },
+
+  'gram-to-kg': {
+    whatIsHeading: 'What Is Grams to Kilograms Conversion',
+    whatIsParagraphs: [
+      'Grams to kilograms conversion scales small metric mass measurements up to the base SI unit of mass, the kilogram. Because the prefix "kilo-" stands for one thousand, 1,000 grams equal 1 kilogram, and 1 gram equals 0.001 kilograms.',
+      'Bakers scaling dough formulas for commercial mixers, laboratories logging chemical reagent inventory, and courier warehouses summing individual item weights in grams all convert grams into kilograms for shipping manifests and nutritional summaries.',
+    ],
+    howToHeading: 'How to Convert Grams to Kilograms',
+    howToIntro:
+      'To convert grams to kilograms, divide the gram value by 1,000 (or shift the decimal point three places to the left).',
+    formulaBox: 'kilograms (kg) = grams (g) ÷ 1,000',
+    workedExampleTitle: 'Worked Example: Convert 2,750 Grams of Bread Flour to Kilograms',
+    workedExampleBody:
+      'A bakery recipe calls for 2,750 grams of bread flour, and the wholesale sack scale reads in kilograms. Divide 2,750 by 1,000: 2,750 ÷ 1,000 = 2.75 kilograms. You need 2.75 kg of flour.',
+    quickRefValues: [100, 250, 500, 750, 1000, 1500, 2000, 2500, 5000, 10000],
+    commonMistakes: [
+      {
+        title: 'Dividing by 100 instead of 1,000',
+        description:
+          'Unlike centimeters to meters (which divide by 100), grams to kilograms require dividing by 1,000. 500 grams is 0.5 kg, not 5 kg.',
+      },
+      {
+        title: 'Multiplying by 1,000 when converting up to kilograms',
+        description:
+          'Because a kilogram is much heavier than a gram, the numerical value in kilograms must be smaller than the value in grams.',
+      },
+      {
+        title: 'Dropping significant digits on precision lab weights',
+        description:
+          'When converting 45 grams to kilograms, keep both non-zero digits after the leading zero: 45 ÷ 1,000 = 0.045 kg, not 0.45 kg.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kilograms is 500 grams?',
+        answer:
+          '500 grams equals 0.5 kilograms (half a kilogram).',
+      },
+      {
+        question: 'How many kilograms is 1,000 grams?',
+        answer:
+          '1,000 grams equals exactly 1 kilogram.',
+      },
+      {
+        question: 'How many kilograms is 250 grams?',
+        answer:
+          '250 grams equals 0.25 kilograms (one-quarter of a kilogram).',
+      },
+      {
+        question: 'What is the formula to convert g to kg?',
+        answer:
+          'Divide the weight in grams by 1,000: kg = g ÷ 1,000.',
+      },
+    ],
+    relatedSlugs: ['kg-to-gram', 'gram-to-ounce', 'kg-to-pounds', 'gram-to-tola'],
+  },
+
+  'kg-to-ounce': {
+    whatIsHeading: 'What Is Kilograms to Ounces Conversion',
+    whatIsParagraphs: [
+      'Kilograms to ounces conversion bridges the metric base unit of mass (the kilogram) with the small US Customary and Imperial unit of weight (the avoirdupois ounce). Since 1 kilogram equals 2.20462262 pounds and each pound contains 16 ounces, 1 kilogram equals approximately 35.27396195 ounces.',
+      'E-commerce sellers importing metric-packaged goods, specialty food portioners, and sports equipment manufacturers use this conversion to list exact ounce weights on US retail packaging and postal customs forms.',
+    ],
+    howToHeading: 'How to Convert Kilograms to Ounces',
+    howToIntro:
+      'To convert kilograms to ounces, multiply your kilogram value by 35.27396195 (or 35.274 for everyday use).',
+    formulaBox: 'ounces (oz) = kilograms (kg) × 35.27396195',
+    workedExampleTitle: 'Worked Example: Convert a 0.75 kg Coffee Bag to Ounces',
+    workedExampleBody:
+      'An imported espresso bean bag is marked 0.75 kg and you want to display its weight in ounces on a US store shelf tag. Multiply 0.75 by 35.27396195: 0.75 × 35.27396195 = 26.4555 ounces. The bag weighs approximately 26.46 ounces.',
+    quickRefValues: [0.1, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 5, 10],
+    commonMistakes: [
+      {
+        title: 'Multiplying kilograms by 16 instead of 35.274',
+        description:
+          'Multiplying by 16 converts pounds to ounces, not kilograms to ounces. Because a kilogram is 2.2046 pounds, 1 kg contains 35.274 ounces.',
+      },
+      {
+        title: 'Using troy ounces instead of standard avoirdupois ounces',
+        description:
+          '1 kilogram of gold bullion equals 32.1507 troy ounces, whereas 1 kilogram of food, fabric, or parcels equals 35.274 standard avoirdupois ounces.',
+      },
+      {
+        title: 'Dividing by 35.274 when going from kg to oz',
+        description:
+          'Ounces are much smaller than kilograms, so the ounce number will always be roughly 35.3 times larger than the kilogram number.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many ounces are in 1 kilogram?',
+        answer:
+          'There are approximately 35.274 ounces (35.27396195 oz) in 1 kilogram.',
+      },
+      {
+        question: 'How many ounces is 0.5 kg (half a kilo)?',
+        answer:
+          '0.5 kilograms equals approximately 17.637 ounces.',
+      },
+      {
+        question: 'How many ounces are in 2 kilograms?',
+        answer:
+          '2 kilograms equal approximately 70.548 ounces.',
+      },
+      {
+        question: 'How do I convert kg to pounds and ounces?',
+        answer:
+          'Multiply kg by 35.27396 to get total ounces, then divide by 16: the whole number is pounds and the remainder is ounces.',
+      },
+    ],
+    relatedSlugs: ['kg-to-pounds', 'pounds-to-ounce', 'ounce-to-pounds', 'kg-to-gram'],
+  },
+
+  'ml-to-liter': {
+    whatIsHeading: 'What Is Milliliters to Liters Conversion',
+    whatIsParagraphs: [
+      'Milliliters to liters conversion scales small liquid volume measurements up into standard metric liters. Because "milli-" means one-thousandth, 1,000 milliliters equal 1 liter, and 1 milliliter equals 0.001 liters (also equivalent to 1 cubic centimeter, cm³).',
+      'Pharmacists preparing intravenous solutions, beverage bottlers calculating batch tank capacity, and home cooks combining multiple small liquid portions into a pitcher rely on mL-to-L conversion every day.',
+    ],
+    howToHeading: 'How to Convert Milliliters to Liters',
+    howToIntro:
+      'To convert milliliters to liters, divide the milliliter volume by 1,000 (or move the decimal point three places to the left).',
+    formulaBox: 'liters (L) = milliliters (mL) ÷ 1,000',
+    workedExampleTitle: 'Worked Example: Convert a 750 mL Beverage Bottle to Liters',
+    workedExampleBody:
+      'A standard glass bottle of sparkling water or wine holds 750 milliliters. Divide 750 by 1,000: 750 ÷ 1,000 = 0.75 liters. A 750 mL bottle holds exactly 0.75 liters (three-quarters of a liter).',
+    quickRefValues: [50, 100, 250, 330, 500, 750, 1000, 1500, 2000, 5000],
+    commonMistakes: [
+      {
+        title: 'Dividing milliliters by 100 instead of 1,000',
+        description:
+          'Some countries use centiliters (cL, 1/100 L) on beverage cans, but milliliters are 1/1,000 of a liter. Always divide mL by 1,000.',
+      },
+      {
+        title: 'Misplacing the zero on volumes under 100 mL',
+        description:
+          '50 mL divided by 1,000 is 0.05 L, not 0.5 L (which would be 500 mL).',
+      },
+      {
+        title: 'Assuming 1,000 mL of every liquid weighs 1 kg',
+        description:
+          '1,000 mL (1 L) of pure water weighs 1 kg, but 1,000 mL of cooking oil weighs about 0.92 kg and 1,000 mL of milk weighs about 1.03 kg.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many liters is 500 mL?',
+        answer:
+          '500 milliliters equals 0.5 liters (half a liter).',
+      },
+      {
+        question: 'How many liters is 250 mL?',
+        answer:
+          '250 milliliters equals 0.25 liters (a quarter of a liter).',
+      },
+      {
+        question: 'How many liters is 1,500 mL?',
+        answer:
+          '1,500 milliliters equals 1.5 liters.',
+      },
+      {
+        question: 'How do you convert mL to L quickly?',
+        answer:
+          'Divide the milliliter number by 1,000 (shift the decimal point three places to the left).',
+      },
+    ],
+    relatedSlugs: ['liter-to-ml', 'liter-to-gallon', 'gallon-to-liter', 'gallon-to-ml'],
+  },
+
+  'liter-to-ml': {
+    whatIsHeading: 'What Is Liters to Milliliters Conversion',
+    whatIsParagraphs: [
+      'Liters to milliliters conversion breaks a metric liter volume down into thousandths of a liter (milliliters). One liter is defined as 1,000 milliliters (1,000 cm³), making it simple to subdivide bulk liquid recipes into small dosing syringes, espresso shot glasses, or lab graduated cylinders.',
+      'Baristas calibrating espresso yield, medical staff calculating daily fluid intake in mL, and cosmetic formulators batching serums from liter jugs into 30 mL dropper bottles use this conversion constantly.',
+    ],
+    howToHeading: 'How to Convert Liters to Milliliters',
+    howToIntro:
+      'To convert liters to milliliters, multiply the liter figure by 1,000 (or move the decimal point three places to the right).',
+    formulaBox: 'milliliters (mL) = liters (L) × 1,000',
+    workedExampleTitle: 'Worked Example: Convert 1.75 Liters of Broth to Milliliters',
+    workedExampleBody:
+      'A soup recipe calls for 1.75 liters of vegetable stock, and your measuring pitcher is graduated in milliliters. Multiply 1.75 by 1,000: 1.75 × 1,000 = 1,750 milliliters. Measure out 1,750 mL of stock.',
+    quickRefValues: [0.1, 0.25, 0.5, 0.75, 1, 1.5, 2, 2.5, 3, 5],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 100 instead of 1,000',
+        description:
+          '0.5 liters is 500 milliliters (0.5 × 1,000), not 50 milliliters.',
+      },
+      {
+        title: 'Dividing by 1,000 when converting from L to mL',
+        description:
+          'Because milliliters are tiny units, the number of milliliters is always 1,000 times larger than the number of liters.',
+      },
+      {
+        title: 'Confusing milliliters (mL) with milligrams (mg)',
+        description:
+          'Milliliters measure liquid volume (1/1,000 of a liter), whereas milligrams measure mass (1/1,000 of a gram). For water, 1 mL weighs 1,000 mg (1 g).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many milliliters are in 1 liter?',
+        answer:
+          'There are exactly 1,000 milliliters in 1 liter.',
+      },
+      {
+        question: 'How many milliliters is 0.5 liters?',
+        answer:
+          '0.5 liters equals 500 milliliters.',
+      },
+      {
+        question: 'How many mL are in 2 liters?',
+        answer:
+          '2 liters equal 2,000 milliliters.',
+      },
+      {
+        question: 'How many mL is 0.25 liters?',
+        answer:
+          '0.25 liters equals 250 milliliters.',
+      },
+    ],
+    relatedSlugs: ['ml-to-liter', 'liter-to-gallon', 'gallon-to-liter', 'gallon-to-ml'],
+  },
+
+  'gallon-to-ml': {
+    whatIsHeading: 'What Is Gallons to Milliliters Conversion',
+    whatIsParagraphs: [
+      'Gallons to milliliters conversion translates the US liquid gallon (defined as 231 cubic inches or 128 US fluid ounces) directly into metric milliliters. Because 1 US gallon equals 3.785411784 liters and each liter contains 1,000 milliliters, 1 US liquid gallon is exactly 3,785.411784 milliliters.',
+      'This conversion is widely used when dosing liquid fertilizer or pool chemicals from mL measuring caps into gallon sprayers, bottling bulk beverages into 500 mL containers, and tracking aquarium water conditioning treatments.',
+    ],
+    howToHeading: 'How to Convert Gallons to Milliliters',
+    howToIntro:
+      'To convert US liquid gallons to milliliters, multiply the gallon quantity by 3,785.411784 (or 3,785.41 for practical kitchen and workshop accuracy).',
+    formulaBox: 'milliliters (mL) = US gallons (gal) × 3,785.411784',
+    workedExampleTitle: 'Worked Example: Convert 0.5 Gallons of Jug Water to Milliliters',
+    workedExampleBody:
+      'You have a half-gallon (0.5 gal) insulated sports jug and want to compare its capacity with metric water bottles marked in milliliters. Multiply 0.5 by 3,785.411784: 0.5 × 3,785.411784 = 1,892.71 milliliters. A half-gallon jug holds roughly 1,893 mL.',
+    quickRefValues: [0.25, 0.5, 1, 1.5, 2, 3, 5, 10, 20, 50],
+    commonMistakes: [
+      {
+        title: 'Using Imperial gallons (4,546.09 mL) for US jugs',
+        description:
+          'A UK/Canadian Imperial gallon is 4,546.09 mL (20% larger), whereas a standard US liquid gallon is 3,785.41 mL. Always verify which gallon standard your container uses.',
+      },
+      {
+        title: 'Approximating 1 gallon as 4,000 mL',
+        description:
+          'Treating 1 US gallon as 4,000 mL introduces a 214.6 mL (nearly 1 cup) error per gallon, which can ruin chemical dilutions and baking ratios.',
+      },
+      {
+        title: 'Confusing gallons to liters (3.785) with gallons to mL (3,785.4)',
+        description:
+          'Remember to include the factor of 1,000 when converting directly to milliliters rather than liters.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many milliliters are in 1 US gallon?',
+        answer:
+          'There are 3,785.41 milliliters (3,785.411784 mL) in 1 US liquid gallon.',
+      },
+      {
+        question: 'How many mL are in a half gallon (0.5 gal)?',
+        answer:
+          'Half a US gallon equals approximately 1,892.71 milliliters.',
+      },
+      {
+        question: 'How many 500 mL water bottles equal 1 US gallon?',
+        answer:
+          'Divide 3,785.41 mL by 500 mL: it takes about 7.57 bottles of 500 mL water to equal 1 US gallon.',
+      },
+      {
+        question: 'How many mL are in 5 gallons?',
+        answer:
+          '5 US gallons equal approximately 18,927.06 milliliters.',
+      },
+    ],
+    relatedSlugs: ['gallon-to-liter', 'liter-to-gallon', 'liter-to-ml', 'ml-to-liter'],
+  },
+
+  'kmh-to-mph': {
+    whatIsHeading: 'What Is km/h to mph Conversion',
+    whatIsParagraphs: [
+      'Kilometers per hour (km/h) to miles per hour (mph) conversion translates metric velocity into imperial road and wind speed. Because 1 international mile is exactly 1.609344 kilometers, 1 kilometer per hour equals approximately 0.62137119 miles per hour.',
+      'Drivers crossing between metric road networks (Europe, Canada, Asia, Australia) and mph road networks (the United States and the United Kingdom), runners comparing treadmill paces, and aviation enthusiasts reading wind gusts rely on km/h-to-mph conversion.',
+    ],
+    howToHeading: 'How to Convert km/h to mph',
+    howToIntro:
+      'To convert kilometers per hour to miles per hour, divide the km/h speed by 1.609344 (or multiply by 0.62137119). For a quick mental estimate while driving, multiply km/h by 0.6 and add a tiny bit.',
+    formulaBox: 'mph = km/h ÷ 1.609344',
+    workedExampleTitle: 'Worked Example: Convert a 100 km/h Highway Speed Limit to mph',
+    workedExampleBody:
+      'You are driving on a highway with a posted limit of 100 km/h and want to know the equivalent speed in miles per hour. Divide 100 by 1.609344: 100 ÷ 1.609344 = 62.1371 mph. A 100 km/h highway limit is approximately 62.1 mph.',
+    quickRefValues: [10, 20, 30, 50, 60, 80, 100, 110, 120, 130],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 1.609 instead of dividing',
+        description:
+          'A mile is longer than a kilometer, so your speed in mph is always a smaller number than your speed in km/h. 100 km/h is ~62 mph, not 161 mph.',
+      },
+      {
+        title: 'Using 0.5 as a mental shortcut at highway speeds',
+        description:
+          'Halving 120 km/h gives 60 mph, which understates your true speed (74.56 mph) by nearly 15 mph.',
+      },
+      {
+        title: 'Confusing knots with miles per hour on marine forecasts',
+        description:
+          '1 knot is 1.15078 mph (1.852 km/h). Only divide km/h by 1.609344 when converting to statute miles per hour.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How fast is 100 km/h in mph?',
+        answer:
+          '100 km/h is approximately 62.14 mph.',
+      },
+      {
+        question: 'How fast is 120 km/h in mph?',
+        answer:
+          '120 km/h is approximately 74.56 mph.',
+      },
+      {
+        question: 'How fast is 50 km/h in mph?',
+        answer:
+          '50 km/h is approximately 31.07 mph.',
+      },
+      {
+        question: 'What is the formula to convert km/h to mph?',
+        answer:
+          'Divide kilometers per hour by 1.609344 (or multiply by 0.621371).',
+      },
+    ],
+    relatedSlugs: ['mph-to-kmh', 'km-to-miles', 'miles-to-km', 'km-to-meter'],
+  },
+
+  'kelvin-to-celsius': {
+    whatIsHeading: 'What Is Kelvin to Celsius Conversion',
+    whatIsParagraphs: [
+      'Kelvin to Celsius conversion shifts an absolute thermodynamic temperature reading (K) to the everyday Celsius scale (°C). Both scales use the exact same degree size (a 1 K change equals a 1 °C change), and they are separated only by a fixed zero-point offset of 273.15.',
+      'Physicists, chemists, semiconductor engineers, and cryogenic technicians routinely convert Kelvin readings from scientific instruments and gas-law equations back into degrees Celsius for lab reports and equipment safety ratings.',
+    ],
+    howToHeading: 'How to Convert Kelvin to Celsius',
+    howToIntro:
+      'To convert Kelvin to Celsius, subtract 273.15 from the Kelvin temperature. No multiplication or division is needed.',
+    formulaBox: '°C = K − 273.15',
+    workedExampleTitle: 'Worked Example: Convert 300 K Lab Temperature to Celsius',
+    workedExampleBody:
+      'A physics textbook problem specifies a gas chamber at 300 K. Subtract 273.15 from 300: 300 − 273.15 = 26.85 °C. A temperature of 300 K equals 26.85 °C (a warm room temperature).',
+    quickRefValues: [0, 77, 100, 200, 273.15, 293.15, 298.15, 300, 310.15, 373.15],
+    commonMistakes: [
+      {
+        title: 'Adding 273.15 instead of subtracting',
+        description:
+          'Adding 273.15 converts Celsius to Kelvin. When converting Kelvin to Celsius, always subtract 273.15.',
+      },
+      {
+        title: 'Dropping the .15 decimal in precision chemistry',
+        description:
+          'Using 273 instead of 273.15 shifts freezing water (273.15 K) to 0.15 °C instead of 0 °C.',
+      },
+      {
+        title: 'Writing a degree symbol (°K) on Kelvin values',
+        description:
+          'SI rules write Kelvin simply as "K" (e.g., 300 K), whereas Celsius uses the degree symbol ("°C").',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is 0 Kelvin in Celsius?',
+        answer:
+          '0 Kelvin (absolute zero) equals −273.15 °C.',
+      },
+      {
+        question: 'What is 273.15 K in Celsius?',
+        answer:
+          '273.15 K equals 0 °C, the freezing point of water.',
+      },
+      {
+        question: 'What is 300 K in Celsius?',
+        answer:
+          '300 K equals 26.85 °C (300 − 273.15 = 26.85 °C).',
+      },
+      {
+        question: 'What is 373.15 K in Celsius?',
+        answer:
+          '373.15 K equals 100 °C, the standard boiling point of water.',
+      },
+    ],
+    relatedSlugs: ['celsius-to-kelvin', 'celsius-to-fahrenheit', 'fahrenheit-to-celsius', 'fahrenheit-to-kelvin'],
+  },
+
+  'fahrenheit-to-kelvin': {
+    whatIsHeading: 'What Is Fahrenheit to Kelvin Conversion',
+    whatIsParagraphs: [
+      'Fahrenheit to Kelvin conversion translates US customary temperature readings (°F) to the absolute SI thermodynamic temperature scale (K). Unlike Celsius and Kelvin, Fahrenheit has both a different zero offset (32 °F at water freezing) and a smaller degree step (1.8 °F per 1 K).',
+      'Aerospace engineers, HVAC thermodynamic analysts, and meteorology students in the United States frequently convert ambient Fahrenheit readings into Kelvin before plugging temperatures into the Ideal Gas Law (PV = nRT) or radiation heat-transfer formulas.',
+    ],
+    howToHeading: 'How to Convert Fahrenheit to Kelvin',
+    howToIntro:
+      'To convert Fahrenheit to Kelvin, first subtract 32 from the Fahrenheit temperature, multiply the result by 5/9 (or divide by 1.8) to get Celsius, and then add 273.15.',
+    formulaBox: 'K = (°F − 32) × 5/9 + 273.15',
+    workedExampleTitle: 'Worked Example: Convert 68 °F Room Temperature to Kelvin',
+    workedExampleBody:
+      'Suppose an engineering lab in the US is maintained at 68 °F and you need the absolute temperature in Kelvin. First subtract 32: 68 − 32 = 36. Next divide by 1.8: 36 ÷ 1.8 = 20 °C. Finally add 273.15: 20 + 273.15 = 293.15 K.',
+    quickRefValues: [-40, 0, 32, 50, 68, 77, 98.6, 100, 212, 400],
+    commonMistakes: [
+      {
+        title: 'Adding 273.15 directly to Fahrenheit without scaling to Celsius first',
+        description:
+          'You cannot simply add 273.15 to °F because Fahrenheit degrees are smaller than kelvins. Always convert (°F − 32) ÷ 1.8 first, then add 273.15.',
+      },
+      {
+        title: 'Multiplying by 9/5 (1.8) instead of 5/9',
+        description:
+          'Multiplying by 1.8 is used when converting to Fahrenheit. When leaving Fahrenheit, divide by 1.8 (or multiply by 5/9).',
+      },
+      {
+        title: 'Forgetting parentheses around (°F − 32)',
+        description:
+          'On a calculator, always compute (°F − 32) before dividing by 1.8, or order of operations will produce the wrong answer.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is 32 °F in Kelvin?',
+        answer:
+          '32 °F (the freezing point of water) equals 273.15 K.',
+      },
+      {
+        question: 'What is 212 °F in Kelvin?',
+        answer:
+          '212 °F (the boiling point of water) equals 373.15 K.',
+      },
+      {
+        question: 'What is 70 °F in Kelvin?',
+        answer:
+          '70 °F equals approximately 294.26 K.',
+      },
+      {
+        question: 'What is absolute zero (0 K) in Fahrenheit?',
+        answer:
+          '0 Kelvin equals −459.67 °F.',
+      },
+    ],
+    relatedSlugs: ['kelvin-to-celsius', 'celsius-to-kelvin', 'fahrenheit-to-celsius', 'celsius-to-fahrenheit'],
+  },
+
+  'yard-to-inch': {
+    whatIsHeading: 'What Is Yards to Inches Conversion',
+    whatIsParagraphs: [
+      'Yards to inches conversion translates larger imperial yardage measurements into individual inches. Because 1 yard contains 3 feet and each foot contains 12 inches, 1 yard is defined as exactly 36 inches.',
+      'Quilters, garment makers, upholstery fabric cutters, drapery installers, and football field groundskeepers constantly convert yards (including fractional cuts like 1/4 yd, 1/2 yd, or 1.75 yd) into inches so they can lay out patterns with a standard sewing ruler or tape measure.',
+    ],
+    howToHeading: 'How to Convert Yards to Inches',
+    howToIntro:
+      'To convert yards to inches, multiply the number of yards by 36. For reverse conversion from inches to yards, divide the inches by 36.',
+    formulaBox: 'inches (in) = yards (yd) × 36',
+    workedExampleTitle: 'Worked Example: Convert 2.5 Yards of Upholstery Fabric to Inches',
+    workedExampleBody:
+      'You purchase 2.5 yards of linen fabric off a bolt and want to know how many inches long the piece is. Multiply 2.5 by 36: 2.5 × 36 = 90 inches. Your 2.5-yard cut is 90 inches long.',
+    quickRefValues: [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 5, 10, 25],
+    commonMistakes: [
+      {
+        title: 'Multiplying yards by 12 instead of 36',
+        description:
+          'Multiplying by 12 converts feet to inches. Since a yard is 3 feet, you must multiply yards by 36 (3 × 12) to get inches.',
+      },
+      {
+        title: 'Confusing linear yards of fabric with square yards of carpet',
+        description:
+          '1 linear yard of fabric is 36 inches long (regardless of bolt width), whereas 1 square yard of area equals 1,296 square inches (36 in × 36 in).',
+      },
+      {
+        title: 'Misreading 1/3 yard or 2/3 yard on a sewing ruler',
+        description:
+          'Because 36 is divisible by 3, 1/3 yard is an exact 12 inches (1 foot) and 2/3 yard is an exact 24 inches (2 feet).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many inches are in 1 yard?',
+        answer:
+          'There are exactly 36 inches in 1 yard.',
+      },
+      {
+        question: 'How many inches is half a yard (0.5 yd)?',
+        answer:
+          'Half a yard (0.5 yd) equals 18 inches.',
+      },
+      {
+        question: 'How many inches is a quarter yard (0.25 yd)?',
+        answer:
+          'A quarter yard (0.25 yd) equals 9 inches.',
+      },
+      {
+        question: 'How many inches are in 2 yards?',
+        answer:
+          '2 yards equal 72 inches (2 × 36 = 72 in).',
+      },
+    ],
+    relatedSlugs: ['yard-to-meter', 'meter-to-yard', 'feet-to-inch', 'inch-to-feet'],
+  },
+
+  'sqft-to-sqm': {
+    whatIsHeading: 'What Is Square Feet to Square Meters Conversion',
+    whatIsParagraphs: [
+      'Square feet to square meters conversion translates imperial and US customary floor and land area (sq ft or ft²) into the metric SI unit of area (sq m or m²). Because 1 linear foot is defined as 0.3048 meters, 1 square foot equals 0.3048 × 0.3048 = 0.09290304 square meters.',
+      'Architects, property buyers, commercial leasing brokers, and flooring installers use this conversion when comparing house floor plans, apartment sizes, and ceramic tile box coverage across metric and imperial markets.',
+    ],
+    howToHeading: 'How to Convert Square Feet to Square Meters',
+    howToIntro:
+      'To convert square feet to square meters, multiply the square footage by 0.09290304 (or divide by 10.76391042).',
+    formulaBox: 'square meters (m²) = square feet (sq ft) × 0.09290304',
+    workedExampleTitle: 'Worked Example: Convert a 1,200 Sq Ft Apartment to Square Meters',
+    workedExampleBody:
+      'An apartment listing advertises 1,200 square feet of interior floor space and you want to know its area in square meters. Multiply 1,200 by 0.09290304: 1,200 × 0.09290304 = 111.4836 m². The apartment measures approximately 111.48 square meters.',
+    quickRefValues: [100, 200, 300, 500, 750, 1000, 1200, 1500, 2000, 5000],
+    commonMistakes: [
+      {
+        title: 'Dividing by 3.28084 instead of 10.7639',
+        description:
+          '3.28084 is the linear conversion factor between feet and meters. For two-dimensional area, you must square that factor (3.28084² = 10.76391).',
+      },
+      {
+        title: 'Multiplying by 10.7639 when converting sq ft to sq m',
+        description:
+          'Because a square meter is more than ten times larger than a square foot, the number of square meters is always smaller than the number of square feet.',
+      },
+      {
+        title: 'Using 10 as a rough divisor on large commercial leases',
+        description:
+          'Dividing 10,000 sq ft by 10 gives 1,000 m² instead of the true 929.03 m²—an error of nearly 71 square meters (764 sq ft).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square meters is 1 square foot?',
+        answer:
+          '1 square foot equals 0.09290304 square meters.',
+      },
+      {
+        question: 'How many square meters is 1,000 square feet?',
+        answer:
+          '1,000 square feet equals approximately 92.90 square meters.',
+      },
+      {
+        question: 'How many square meters is 500 square feet?',
+        answer:
+          '500 square feet equals approximately 46.45 square meters.',
+      },
+      {
+        question: 'How do you convert sq ft to sq m?',
+        answer:
+          'Multiply square feet by 0.09290304 (or divide by 10.76391).',
+      },
+    ],
+    relatedSlugs: ['sqm-to-sqft', 'acre-to-sqft', 'sqft-to-marla', 'marla-to-sqft'],
+  },
+
+  'sqm-to-sqft': {
+    whatIsHeading: 'What Is Square Meters to Square Feet Conversion',
+    whatIsParagraphs: [
+      'Square meters to square feet conversion translates metric surface area (m² or sq m) into imperial square footage (sq ft or ft²). One square meter is a 1 m × 1 m square, which equals 3.2808399 ft × 3.2808399 ft, or approximately 10.76391042 square feet.',
+      'Real estate investors evaluating international property listings, contractors ordering hardwood planks sold per square foot from metric CAD drawings, and solar panel installers sizing roof arrays rely on this conversion.',
+    ],
+    howToHeading: 'How to Convert Square Meters to Square Feet',
+    howToIntro:
+      'To convert square meters to square feet, multiply the square meter area by 10.76391042 (or divide by 0.09290304).',
+    formulaBox: 'square feet (sq ft) = square meters (m²) × 10.76391042',
+    workedExampleTitle: 'Worked Example: Convert an 85 m² Condominium to Square Feet',
+    workedExampleBody:
+      'A floor plan shows a total area of 85 square meters and you want to express it in square feet. Multiply 85 by 10.76391042: 85 × 10.76391042 = 914.9324 sq ft. The condominium is approximately 914.93 square feet.',
+    quickRefValues: [10, 20, 30, 50, 75, 100, 120, 150, 200, 500],
+    commonMistakes: [
+      {
+        title: 'Multiplying square meters by 3.28084 instead of 10.7639',
+        description:
+          'Multiplying by 3.28084 only converts linear meters to linear feet. Area requires squaring the linear factor (3.28084² = 10.7639).',
+      },
+      {
+        title: 'Confusing "10 meters squared" with "10 square meters"',
+        description:
+          'A room with an area of 10 m² equals 107.64 sq ft, whereas a 10 m × 10 m square room has an area of 100 m² (1,076.39 sq ft).',
+      },
+      {
+        title: 'Forgetting to add 10% wastage when ordering flooring tiles',
+        description:
+          'After converting exact room m² to sq ft, always add 8–10% extra square footage to account for cuts and offcuts.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square feet are in 1 square meter?',
+        answer:
+          'There are approximately 10.7639 square feet (10.76391042 sq ft) in 1 square meter.',
+      },
+      {
+        question: 'How many square feet is 100 square meters?',
+        answer:
+          '100 square meters equals approximately 1,076.39 square feet.',
+      },
+      {
+        question: 'How many square feet is 50 square meters?',
+        answer:
+          '50 square meters equals approximately 538.20 square feet.',
+      },
+      {
+        question: 'How many square feet is 20 square meters?',
+        answer:
+          '20 square meters equals approximately 215.28 square feet.',
+      },
+    ],
+    relatedSlugs: ['sqft-to-sqm', 'acre-to-sqft', 'sqft-to-marla', 'marla-to-sqft'],
+  },
+
+  'acre-to-sqft': {
+    whatIsHeading: 'What Is Acres to Square Feet Conversion',
+    whatIsParagraphs: [
+      'Acres to square feet conversion translates large agricultural, commercial, and residential land parcel measurements into exact square footage. Historically defined as an area one furlong (660 feet) long by one chain (66 feet) wide, 1 standard acre equals 660 × 66 = 43,560 square feet.',
+      'Land surveyors, housing society developers, farmers, and homeowners planning lawn seeding or fencing use this conversion to turn fractional or whole acreage figures into concrete square-foot dimensions.',
+    ],
+    howToHeading: 'How to Convert Acres to Square Feet',
+    howToIntro:
+      'To convert acres to square feet, multiply the number of acres by 43,560. To convert square feet back to acres, divide by 43,560.',
+    formulaBox: 'square feet (sq ft) = acres (ac) × 43,560',
+    workedExampleTitle: 'Worked Example: Convert a 0.25-Acre Residential Lot to Square Feet',
+    workedExampleBody:
+      'A suburban building lot is listed as 0.25 acres (a quarter-acre lot). Multiply 0.25 by 43,560: 0.25 × 43,560 = 10,890 square feet. A quarter-acre lot contains exactly 10,890 square feet.',
+    quickRefValues: [0.1, 0.25, 0.5, 0.75, 1, 2, 5, 10, 20, 50],
+    commonMistakes: [
+      {
+        title: 'Assuming an acre must be a square of 208.71 ft × 208.71 ft',
+        description:
+          'An acre is strictly a measure of total surface area (43,560 sq ft) and can have any shape—rectangular, L-shaped, or irregular.',
+      },
+      {
+        title: 'Using 40,000 or 45,000 sq ft as an estimate in real estate contracts',
+        description:
+          'Even a 1,500 sq ft rounding error on a parcel equals more than 5 marlas of land. Always multiply by the exact constant 43,560.',
+      },
+      {
+        title: 'Confusing acres with metric hectares',
+        description:
+          '1 hectare is 10,000 square meters (107,639.1 sq ft, or ~2.471 acres), which is nearly two and a half times larger than 1 acre.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square feet are in 1 acre?',
+        answer:
+          'There are exactly 43,560 square feet in 1 standard acre.',
+      },
+      {
+        question: 'How many square feet is a half acre (0.5 acres)?',
+        answer:
+          'Half an acre (0.5 ac) equals 21,780 square feet.',
+      },
+      {
+        question: 'How many square feet is a quarter acre (0.25 acres)?',
+        answer:
+          'A quarter acre (0.25 ac) equals 10,890 square feet.',
+      },
+      {
+        question: 'How many marlas or kanals are in 1 acre?',
+        answer:
+          'At the standard 272.25 sq ft per marla, 1 acre (43,560 sq ft) equals exactly 160 marlas, or 8 kanals.',
+      },
+    ],
+    relatedSlugs: ['sqft-to-sqm', 'sqm-to-sqft', 'marla-to-sqft', 'sqft-to-marla'],
+  },
+
+  'marla-to-sqft': {
+    whatIsHeading: 'What Is Marla to Square Feet Conversion',
+    whatIsParagraphs: [
+      'Marla to square feet conversion translates the traditional South Asian land revenue unit—the marla—into square feet (sq ft). Under the official British-era revenue standard widely used across Pakistan, 1 marla is defined as 1 square karam (5.5 yards × 5.5 yards = 16.5 ft × 16.5 ft), which equals exactly 272.25 square feet.',
+      'Homebuyers, civil engineers, architects, and patwar/land registry offices use this conversion to calculate the exact plot area and covered construction square footage for 3 marla, 5 marla, 7 marla, 10 marla, and 1 kanal (20 marla) plots.',
+    ],
+    howToHeading: 'How to Convert Marla to Square Feet',
+    howToIntro:
+      'To convert standard marla to square feet, multiply the number of marlas by 272.25. (Note: Based on the standard value used in Pakistan; local housing society values such as 250 sq ft or 225 sq ft can vary slightly.)',
+    formulaBox: 'square feet (sq ft) = marla × 272.25',
+    workedExampleTitle: 'Worked Example: Convert a 5 Marla Residential Plot to Square Feet',
+    workedExampleBody:
+      'You are reviewing architectural blueprints for a standard 5 marla plot and want to know the total land area in square feet. Multiply 5 by 272.25: 5 × 272.25 = 1,361.25 square feet. A standard 5 marla plot covers 1,361.25 sq ft.',
+    quickRefValues: [1, 2, 3, 5, 7, 10, 15, 20, 40, 100],
+    commonMistakes: [
+      {
+        title: 'Not checking whether a housing society uses 272.25, 250, or 225 sq ft per marla',
+        description:
+          'Official revenue records (fard/intiqal) use the standard 1 marla = 272.25 sq ft, whereas some private urban housing schemes define a plot marla as 250 sq ft or 225 sq ft.',
+      },
+      {
+        title: 'Confusing plot land area with multi-story covered area',
+        description:
+          'A 5 marla plot has 1,361.25 sq ft of ground area, but a two-story house built on that plot may have 2,200 to 2,600 sq ft of total covered roof area.',
+      },
+      {
+        title: 'Dropping the .25 decimal on large multi-marla parcels',
+        description:
+          'Using 272 instead of 272.25 loses 5 square feet on every 20 marla (1 kanal) plot.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square feet are in 1 standard marla?',
+        answer:
+          'Under the standard revenue value used in Pakistan, 1 marla equals 272.25 square feet.',
+      },
+      {
+        question: 'How many square feet is a 5 marla plot?',
+        answer:
+          'Using the 272.25 sq ft standard, a 5 marla plot equals 1,361.25 square feet.',
+      },
+      {
+        question: 'How many square feet is a 10 marla plot?',
+        answer:
+          'A standard 10 marla plot equals 2,722.5 square feet.',
+      },
+      {
+        question: 'How many square feet is 20 marla (1 kanal)?',
+        answer:
+          '20 marla (1 standard kanal) equals 5,445 square feet (20 × 272.25 = 5,445 sq ft).',
+      },
+    ],
+    relatedSlugs: ['sqft-to-marla', 'kanal-to-marla', 'acre-to-sqft', 'sqft-to-sqm'],
+  },
+
+  'sqft-to-marla': {
+    whatIsHeading: 'What Is Square Feet to Marla Conversion',
+    whatIsParagraphs: [
+      'Square feet to marla conversion translates measured plot dimensions in square feet (length in feet × width in feet) into traditional marla units. Using the official standard benchmark where 1 marla = 272.25 square feet, 1 square foot equals approximately 0.00367309 marla.',
+      'Property surveyors measuring plot boundaries with a steel tape, buyers verifying whether a corner plot matches its allotment letter, and registry clerks preparing transfer deeds use this conversion daily.',
+    ],
+    howToHeading: 'How to Convert Square Feet to Marla',
+    howToIntro:
+      'To convert square feet to marla, divide the total square footage by 272.25. (Based on the standard value used in Pakistan; local values can vary slightly.)',
+    formulaBox: 'marla = square feet (sq ft) ÷ 272.25',
+    workedExampleTitle: 'Worked Example: Convert a 2,722.5 Sq Ft Plot to Marla',
+    workedExampleBody:
+      'A rectangular residential plot measures 35 feet wide by 77.786 feet long, giving a total area of 2,722.5 square feet. Divide 2,722.5 by 272.25: 2,722.5 ÷ 272.25 = 10 marla. The plot is exactly 10 marla.',
+    quickRefValues: [272.25, 544.5, 816.75, 1089, 1361.25, 1905.75, 2722.5, 4083.75, 5445, 10890],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 272.25 instead of dividing',
+        description:
+          'A marla is 272.25 times larger than a single square foot, so you must divide square feet by 272.25 to get the number of marlas.',
+      },
+      {
+        title: 'Dividing by 272.25 when a society allotment letter specifies 225 or 250 sq ft',
+        description:
+          'Always check whether the plot is measured under revenue land rules (272.25 sq ft/marla) or a specific housing authority bylaw.',
+      },
+      {
+        title: 'Forgetting to multiply length by width first',
+        description:
+          'If a plot is 25 ft by 50 ft, first multiply 25 × 50 = 1,250 sq ft, then divide 1,250 by 272.25 (= 4.59 marla).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do I convert square feet to marla?',
+        answer:
+          'Divide the total area in square feet by 272.25: marla = sq ft ÷ 272.25.',
+      },
+      {
+        question: 'How many marla is 1,361.25 square feet?',
+        answer:
+          '1,361.25 square feet equals 5 standard marla (1,361.25 ÷ 272.25 = 5).',
+      },
+      {
+        question: 'How many marla is 1,000 square feet?',
+        answer:
+          'At 272.25 sq ft per marla, 1,000 square feet equals approximately 3.673 marla.',
+      },
+      {
+        question: 'How many marla is 5,445 square feet?',
+        answer:
+          '5,445 square feet equals 20 marla (which is 1 standard kanal).',
+      },
+    ],
+    relatedSlugs: ['marla-to-sqft', 'kanal-to-marla', 'sqft-to-sqm', 'acre-to-sqft'],
+  },
+
+  'kanal-to-marla': {
+    whatIsHeading: 'What Is Kanal to Marla Conversion',
+    whatIsParagraphs: [
+      'Kanal to marla conversion connects two foundational land area units used in Pakistan and northern South Asia. Under the revenue and estate hierarchy, 1 kanal is universally defined as 20 marla, and 8 kanals (160 marla) equal 1 acre (43,560 sq ft).',
+      'Estate agents subdividing 1-kanal or 2-kanal residential plots into smaller 5-marla or 10-marla homesites, agricultural landowners recording inheritance shares, and housing cooperative planners use this conversion constantly.',
+    ],
+    howToHeading: 'How to Convert Kanal to Marla',
+    howToIntro:
+      'To convert kanal to marla, multiply the number of kanals by 20. To convert marla back to kanal, divide the marla figure by 20.',
+    formulaBox: 'marla = kanal × 20',
+    workedExampleTitle: 'Worked Example: Convert 2.5 Kanal of Land to Marla',
+    workedExampleBody:
+      'A family land parcel is recorded as 2.5 kanal and you want to divide it into marlas. Multiply 2.5 by 20: 2.5 × 20 = 50 marla. A 2.5-kanal plot equals 50 marla.',
+    quickRefValues: [0.5, 1, 1.5, 2, 3, 4, 5, 8, 10, 20],
+    commonMistakes: [
+      {
+        title: 'Assuming 10 marla equals 1 kanal instead of half a kanal',
+        description:
+          'Because 1 kanal equals 20 marla, a 10-marla plot is 0.5 kanal (half a kanal), not 1 full kanal.',
+      },
+      {
+        title: 'Mixing different marla square-foot sizes when combining plots',
+        description:
+          'While 1 kanal is always 20 marla, 1 standard revenue kanal covers 5,445 sq ft (20 × 272.25), whereas a 225-sq-ft society kanal covers 4,500 sq ft.',
+      },
+      {
+        title: 'Dividing by 20 when converting from kanal to marla',
+        description:
+          'Since marla is the smaller unit, the number of marlas is always 20 times larger than the number of kanals.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many marla are in 1 kanal?',
+        answer:
+          'There are exactly 20 marla in 1 kanal.',
+      },
+      {
+        question: 'How many marla is half a kanal (0.5 kanal)?',
+        answer:
+          'Half a kanal (0.5 kanal) equals 10 marla.',
+      },
+      {
+        question: 'How many marla are in 2 kanal?',
+        answer:
+          '2 kanal equal 40 marla (2 × 20 = 40 marla).',
+      },
+      {
+        question: 'How many kanal and marla are in 1 acre?',
+        answer:
+          '1 acre equals 8 kanal, which is 160 marla (8 × 20 = 160 marla).',
+      },
+    ],
+    relatedSlugs: ['marla-to-sqft', 'sqft-to-marla', 'acre-to-sqft', 'sqft-to-sqm'],
+  },
+
+  'tola-to-gram': {
+    whatIsHeading: 'What Is Tola to Grams Conversion',
+    whatIsParagraphs: [
+      'Tola to grams conversion translates the traditional South Asian bullion and jewelry weight unit—the tola—into metric grams (g). Historically standardized at 180 troy grains (3/8 of a troy ounce), 1 standard tola equals 11.6638038 grams (commonly written as 11.6638 grams).',
+      'Goldsmiths, sarafa bazaar bullion dealers, families purchasing wedding jewelry sets, and investors tracking daily 24K/22K gold rates per tola rely on this conversion to verify digital gram scale readings.',
+    ],
+    howToHeading: 'How to Convert Tola to Grams',
+    howToIntro:
+      'To convert tola to grams, multiply the number of tolas by 11.6638. (Based on the standard value used in Pakistan; local market rounding such as 11.664 g can vary slightly.)',
+    formulaBox: 'grams (g) = tola × 11.6638',
+    workedExampleTitle: 'Worked Example: Convert a 3.5 Tola Gold Necklace Set to Grams',
+    workedExampleBody:
+      'A jeweler quotes a bridal necklace set at 3.5 tola and places it on a digital metric scale that reads in grams. Multiply 3.5 by 11.6638: 3.5 × 11.6638 = 40.8233 grams. The necklace set should weigh 40.82 grams on the digital scale.',
+    quickRefValues: [0.5, 1, 2, 3, 5, 10, 15, 20, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Rounding 1 tola down to 10 grams or 11.5 grams',
+        description:
+          'Gold is Sold at high value per gram; treating 1 tola as 11.5 g instead of 11.6638 g loses 0.1638 grams of gold per tola (1.64 g on a 10-tola bar).',
+      },
+      {
+        title: 'Confusing tola with troy ounces on international gold bars',
+        description:
+          '1 troy ounce is 31.1035 grams (equal to 2.6667 tolas), whereas 1 tola is 11.6638 grams.',
+      },
+      {
+        title: 'Forgetting masha and ratti subdivisions when reading traditional weights',
+        description:
+          '1 tola is divided into 12 mashas (1 masha ≈ 0.972 g) and 96 rattis. Convert mashas into decimal tolas (mashas ÷ 12) before multiplying by 11.6638.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many grams are in 1 tola in Pakistan?',
+        answer:
+          '1 standard tola equals 11.6638 grams.',
+      },
+      {
+        question: 'How many grams are in 5 tola of gold?',
+        answer:
+          '5 tola equals 58.319 grams (5 × 11.6638 = 58.319 g).',
+      },
+      {
+        question: 'How many grams is 10 tola (a standard ten-tola bar)?',
+        answer:
+          '10 tola equals 116.638 grams.',
+      },
+      {
+        question: 'How many grams is half a tola (0.5 tola)?',
+        answer:
+          'Half a tola (0.5 tola, or 6 mashas) equals 5.8319 grams.',
+      },
+    ],
+    relatedSlugs: ['gram-to-tola', 'gram-to-ounce', 'ounce-to-gram', 'gram-to-kg'],
+  },
+
+  'gram-to-tola': {
+    whatIsHeading: 'What Is Grams to Tola Conversion',
+    whatIsParagraphs: [
+      'Grams to tola conversion translates metric weights read from precision electronic scales (g) into traditional tola units used in the gold, silver, and gemstone trade. Because 1 standard tola is 11.6638 grams, 1 gram equals approximately 0.0857353 tola.',
+      'When customers bring metric-stamped 10 g, 20 g, 50 g, or 100 g Swiss gold biscuits or imported rings to a local jeweler whose daily board rate is quoted per tola, converting grams to tola ensures transparent valuation.',
+    ],
+    howToHeading: 'How to Convert Grams to Tola',
+    howToIntro:
+      'To convert grams to tola, divide the weight in grams by 11.6638 (or multiply by 0.0857353).',
+    formulaBox: 'tola = grams (g) ÷ 11.6638',
+    workedExampleTitle: 'Worked Example: Convert a 50-Gram Gold Bar to Tola',
+    workedExampleBody:
+      'You own a minted 50-gram gold bar and want to calculate its weight in tolas to check its value against the daily per-tola gold price. Divide 50 by 11.6638: 50 ÷ 11.6638 = 4.2868 tola. A 50-gram gold bar weighs approximately 4.2868 tola.',
+    quickRefValues: [1, 5, 10, 11.6638, 20, 25, 50, 100, 250, 500],
+    commonMistakes: [
+      {
+        title: 'Dividing grams by 10 instead of 11.6638',
+        description:
+          'A 10-gram gold coin is not 1 full tola—it is 0.8574 tola (10 ÷ 11.6638), which is 1.6638 grams lighter than a true 1-tola coin.',
+      },
+      {
+        title: 'Multiplying by 11.6638 when converting from grams to tola',
+        description:
+          'Because a tola is heavier than a gram, the number of tolas is always smaller than the number of grams.',
+      },
+      {
+        title: 'Rounding tola decimals too early before multiplying by the gold rate',
+        description:
+          'Keep at least 4 decimal places in tolas when multiplying by high per-tola gold prices so you do not lose value to rounding.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many tola is 10 grams of gold?',
+        answer:
+          '10 grams of gold equals approximately 0.8574 tola (10 ÷ 11.6638).',
+      },
+      {
+        question: 'How many tola is 11.6638 grams?',
+        answer:
+          '11.6638 grams equals exactly 1 tola.',
+      },
+      {
+        question: 'How many tola are in 100 grams of gold?',
+        answer:
+          '100 grams of gold equals approximately 8.5735 tola.',
+      },
+      {
+        question: 'How many tola are in 1 kilogram (1,000 grams)?',
+        answer:
+          '1,000 grams equals approximately 85.7353 tola.',
+      },
+    ],
+    relatedSlugs: ['tola-to-gram', 'gram-to-ounce', 'gram-to-kg', 'kg-to-gram'],
+  },
+
+  'seer-to-kg': {
+    whatIsHeading: 'What Is Seer to Kilograms Conversion',
+    whatIsParagraphs: [
+      'Seer to kilograms conversion translates the traditional South Asian commodity weight unit—the seer (also spelled sair)—into metric kilograms (kg). Defined historically as 80 tolas of 11.6638 grams each, 1 standard seer equals 933.104 grams, or 0.9331 kilograms.',
+      'Agricultural wholesale mandis, dairy farms, flour mills, and households interpreting traditional recipes or historical commodity records use this conversion to express seer quantities in modern kilograms.',
+    ],
+    howToHeading: 'How to Convert Seer to Kilograms',
+    howToIntro:
+      'To convert seer to kilograms, multiply the number of seers by 0.9331. (Note: 40 seer equal 1 standard maund/mann of 37.324 kg; local mandi conventions can vary slightly.)',
+    formulaBox: 'kilograms (kg) = seer × 0.9331',
+    workedExampleTitle: 'Worked Example: Convert 40 Seer (1 Standard Maund) to Kilograms',
+    workedExampleBody:
+      'A grain merchant records a sack of wheat at 40 seer (1 standard British-era maund) and wants the exact weight in kilograms. Multiply 40 by 0.9331: 40 × 0.9331 = 37.324 kilograms. Forty seer equal 37.324 kg.',
+    quickRefValues: [1, 2, 2.5, 5, 10, 15, 20, 40, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Assuming 1 seer is exactly 1 kilogram',
+        description:
+          '1 standard seer is 0.9331 kg (933.1 grams), meaning it is about 66.9 grams lighter than 1 full kilogram.',
+      },
+      {
+        title: 'Confusing the 37.324 kg standard maund (40 seer) with a 40 kg metric maund',
+        description:
+          'Forty traditional seers equal 37.324 kg, whereas some modern markets informally call 40 kilograms a "40-kg mann."',
+      },
+      {
+        title: 'Dividing by 0.9331 when converting seer to kg',
+        description:
+          'Because 1 seer is slightly less than 1 kg, the kilogram number is slightly smaller than the seer number (multiply by 0.9331).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kilograms are in 1 standard seer?',
+        answer:
+          '1 standard seer equals 0.9331 kilograms (933.1 grams).',
+      },
+      {
+        question: 'How many kilograms is 5 seer?',
+        answer:
+          '5 seer equals 4.6655 kilograms (5 × 0.9331 = 4.6655 kg).',
+      },
+      {
+        question: 'How many kilograms is 10 seer?',
+        answer:
+          '10 seer equals 9.331 kilograms.',
+      },
+      {
+        question: 'How many kilograms is 40 seer (1 maund)?',
+        answer:
+          '40 standard seer equals 37.324 kilograms.',
+      },
+    ],
+    relatedSlugs: ['kg-to-seer', 'kg-to-pounds', 'kg-to-gram', 'tola-to-gram'],
+  },
+
+  'kg-to-seer': {
+    whatIsHeading: 'What Is Kilograms to Seer Conversion',
+    whatIsParagraphs: [
+      'Kilograms to seer conversion translates modern metric weights (kg) into traditional seer units. Because 1 standard seer equals 0.9331 kilograms (80 tolas), 1 kilogram is slightly heavier than 1 seer—specifically, 1 kg equals approximately 1.0716965 seer.',
+      'Produce traders, grain merchants, and livestock feed suppliers use this conversion when weighing sacks on electronic kilogram platform scales while settling accounts priced per seer or per 40-seer maund.',
+    ],
+    howToHeading: 'How to Convert Kilograms to Seer',
+    howToIntro:
+      'To convert kilograms to seer, divide the kilogram weight by 0.9331 (or multiply by 1.0716965).',
+    formulaBox: 'seer = kilograms (kg) ÷ 0.9331',
+    workedExampleTitle: 'Worked Example: Convert a 50 kg Sack of Rice to Seer',
+    workedExampleBody:
+      'A wholesale sack of basmati rice weighs 50 kilograms on a digital scale and you want to express that weight in traditional seer. Divide 50 by 0.9331: 50 ÷ 0.9331 = 53.5848 seer. A 50 kg sack equals approximately 53.58 seer.',
+    quickRefValues: [1, 2, 5, 10, 20, 25, 37.324, 40, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Multiplying kilograms by 0.9331 instead of dividing',
+        description:
+          'Since a seer (933.1 g) is smaller than a kilogram (1,000 g), there are more than 1 seer in a kilogram (1.0717 seer per kg). Always divide kg by 0.9331.',
+      },
+      {
+        title: 'Treating 1 kg and 1 seer as identical on bulk grain shipments',
+        description:
+          'On a 1,000 kg (1 metric ton) shipment, the difference between kilograms and seers is 71.7 seer (nearly 1.8 maunds).',
+      },
+      {
+        title: 'Confusing pao (quarter-seer) with 250 metric grams',
+        description:
+          'A traditional pao (1/4 of a 933.1 g seer) is 233.28 grams, whereas a metric "pao" in modern retail grocery shops is often rounded to 250 grams (0.25 kg).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many seer are in 1 kilogram?',
+        answer:
+          '1 kilogram equals approximately 1.0717 seer (1 ÷ 0.9331 = 1.0716965 seer).',
+      },
+      {
+        question: 'How many seer are in 10 kilograms?',
+        answer:
+          '10 kilograms equal approximately 10.717 seer.',
+      },
+      {
+        question: 'How many seer are in 40 kilograms?',
+        answer:
+          '40 kilograms equal approximately 42.8679 seer.',
+      },
+      {
+        question: 'How many kilograms equal 1 full seer?',
+        answer:
+          '0.9331 kilograms (933.1 grams) equals 1 standard seer.',
+      },
+    ],
+    relatedSlugs: ['seer-to-kg', 'kg-to-pounds', 'kg-to-gram', 'tola-to-gram'],
+  },
 };
+
+
 
 
