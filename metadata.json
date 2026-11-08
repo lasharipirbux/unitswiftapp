@@ -1,0 +1,6 @@
+{
+  "name": "UnitSwift",
+  "description": "Convert any unit in a swift. Free, fast, no sign-up unit converter for weight, length, temperature, volume, and speed.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

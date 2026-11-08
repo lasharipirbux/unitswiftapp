@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Measuring tape top strip pattern with major, medium, and minor ticks */
+.measuring-tape-ticks {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      #1F2A44 0px,
+      #1F2A44 1.5px,
+      transparent 1.5px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      to right,
+      rgba(31, 42, 68, 0.75) 0px,
+      rgba(31, 42, 68, 0.75) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      to right,
+      rgba(31, 42, 68, 0.45) 0px,
+      rgba(31, 42, 68, 0.45) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+  background-size: 40px 10px, 20px 7px, 8px 4px;
+  background-position: bottom left;
+  background-repeat: repeat-x;
+}
