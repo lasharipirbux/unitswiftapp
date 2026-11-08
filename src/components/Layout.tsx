@@ -155,23 +155,23 @@ export const Layout: React.FC<LayoutProps> = ({
         ref={headerRef}
         className="sticky top-0 z-30 bg-white dark:bg-[#0F1626] border-b border-[#E2E8F0] dark:border-white/10"
       >
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-1.5 lg:gap-3 px-4 sm:px-6 h-16">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-1 lg:gap-2 px-3 sm:px-6 h-16">
           {/* Left: UnitSwift Logo */}
           <a
             href="/"
             onClick={(e) => handleLinkClick(e, '/')}
-            className="inline-flex items-center gap-2 text-lg lg:text-xl font-bold tracking-tight text-[#1F2A44] dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2C94C]"
+            className="inline-flex items-center gap-1.5 lg:gap-2 text-base lg:text-xl font-bold tracking-tight text-[#1F2A44] dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2C94C]"
           >
-            <LogoMark className="w-7 h-7 shrink-0" />
+            <LogoMark className="w-6 h-6 lg:w-7 lg:h-7 shrink-0" />
             <span>UnitSwift</span>
           </a>
 
-          {/* Center (Desktop & Laptop >= 768px): 7 Category Links on a Single Line */}
+          {/* Center (Desktop & Laptop >= 768px): 8 Category Links on a Single Line */}
           <nav
             aria-label="Unit Categories"
             onMouseEnter={clearCloseTimer}
             onMouseLeave={scheduleDesktopClose}
-            className="hidden md:flex items-center gap-0.5 lg:gap-1.5 xl:gap-2.5 whitespace-nowrap min-w-0"
+            className="hidden md:flex items-center gap-0 lg:gap-1 xl:gap-1.5 whitespace-nowrap min-w-0"
           >
             {CATEGORIES.map((cat) => {
               const isOpen = activeDesktopCategory === cat.id;
@@ -183,7 +183,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   aria-haspopup="true"
                   onMouseEnter={() => handleDesktopCategoryMouseEnter(cat.id)}
                   onClick={() => handleDesktopCategoryClick(cat.id)}
-                  className={`inline-flex items-center gap-0.5 lg:gap-1 px-1.5 lg:px-2.5 py-2 rounded-lg text-xs lg:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-0.5 px-1.5 lg:px-2 xl:px-2.5 py-2 rounded-lg text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                     isOpen
                       ? 'bg-[#F1F5F9] dark:bg-white/10 text-[#1F2A44] dark:text-[#F2C94C]'
                       : 'text-[#1F2A44] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5'
@@ -192,7 +192,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <span>{cat.name}</span>
                   <ChevronDown
                     aria-hidden="true"
-                    className={`w-3.5 h-3.5 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 shrink-0 ${
+                    className={`w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 shrink-0 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -202,7 +202,7 @@ export const Layout: React.FC<LayoutProps> = ({
           </nav>
 
           {/* Far Right: Optional Install App Button + Dark Mode Button + Mobile-only (<768px) Menu Button */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1.5 lg:gap-2 shrink-0">
             {deferredInstallPrompt && (
               <button
                 type="button"
@@ -219,7 +219,7 @@ export const Layout: React.FC<LayoutProps> = ({
               type="button"
               onClick={onToggleTheme}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#1F2A44] text-white dark:bg-[#F2C94C] dark:text-[#1F2A44] hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C]"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 text-xs font-semibold rounded-lg bg-[#1F2A44] text-white dark:bg-[#F2C94C] dark:text-[#1F2A44] hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C]"
             >
               {isDark ? (
                 <>
@@ -267,9 +267,16 @@ export const Layout: React.FC<LayoutProps> = ({
             <div className="max-w-[960px] mx-auto rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 p-6 pointer-events-auto">
               <div className="flex items-center justify-between gap-4 pb-3 mb-4 border-b border-[#1F2A44]/10 dark:border-white/10">
                 <div>
-                  <h2 className="text-base font-bold text-[#1F2A44] dark:text-white">
-                    {activeCategoryObj.name} Converters
-                  </h2>
+                  <div className="flex items-center gap-2.5">
+                    <h2 className="text-base font-bold text-[#1F2A44] dark:text-white">
+                      {activeCategoryObj.name} Converters
+                    </h2>
+                    {activeCategoryObj.note && (
+                      <span className="text-xs font-medium text-[#1F2A44] dark:text-[#F2C94C] bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 border border-[#F2C94C]/50 rounded-md px-2 py-0.5">
+                        {activeCategoryObj.note}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs font-medium text-[#1F2A44] dark:text-slate-300 mt-0.5">
                     {activeCategoryObj.description}
                   </p>
@@ -320,7 +327,14 @@ export const Layout: React.FC<LayoutProps> = ({
                       onClick={() => toggleMobileCategory(cat.id)}
                       className="w-full flex items-center justify-between px-4 sm:px-6 py-3.5 text-left text-sm font-bold text-[#1F2A44] dark:text-white hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors cursor-pointer"
                     >
-                      <span>{cat.name}</span>
+                      <span className="flex items-center gap-2">
+                        <span>{cat.name}</span>
+                        {cat.note && (
+                          <span className="text-[11px] font-medium text-[#1F2A44]/75 dark:text-[#F2C94C]">
+                            ({cat.note})
+                          </span>
+                        )}
+                      </span>
                       <ChevronDown
                         aria-hidden="true"
                         className={`w-4 h-4 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 ${
@@ -383,10 +397,10 @@ export const Layout: React.FC<LayoutProps> = ({
               </p>
             </div>
 
-            {/* Column 2: All 50 Converters Directory */}
+            {/* Column 2: All 54 Converters Directory */}
             <div className="min-w-0">
               <h2 className="text-xs font-bold uppercase tracking-wider text-[#1F2A44] dark:text-slate-200 mb-3">
-                All 50 Unit Converters
+                All 54 Unit Converters
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-xs">
                 {CONVERTERS.map((conv) => {

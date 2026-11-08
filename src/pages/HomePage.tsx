@@ -9,6 +9,7 @@ import {
   Gauge,
   Grid,
   Landmark,
+  HardDrive,
   X,
 } from 'lucide-react';
 import {
@@ -32,6 +33,7 @@ const CATEGORY_ICONS: Record<CategoryId, React.ComponentType<{ className?: strin
   speed: Gauge,
   area: Grid,
   local: Landmark,
+  data: HardDrive,
 };
 
 export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
@@ -99,7 +101,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                 <span className="block md:inline">unit in a swift.</span>
               </h1>
               <p className="text-lg sm:text-xl font-medium text-[#1F2A44] dark:text-slate-200 max-w-2xl mx-auto">
-                50 Dedicated Calculators — free, fast, and instant with no sign-up.
+                54 Dedicated Calculators — free, fast, and instant with no sign-up.
               </p>
             </div>
 
@@ -129,7 +131,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                   </button>
                 ) : (
                   <span className="hidden sm:inline-block absolute right-4 top-1/2 -translate-y-1/2 text-xs font-semibold text-[#1F2A44] dark:text-slate-300 font-mono-tabular pointer-events-none">
-                    50 tools
+                    54 tools
                   </span>
                 )}
               </div>
@@ -162,7 +164,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
         </div>
       </section>
 
-      {/* BELOW THE QUICK-FILTER CHIPS: MOST POPULAR ROW OF 4 ICON TILES + ALL 50 CONVERTERS GROUPED BY CATEGORY */}
+      {/* BELOW THE QUICK-FILTER CHIPS: MOST POPULAR ROW OF 4 ICON TILES + ALL 54 CONVERTERS GROUPED BY CATEGORY */}
       <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16" id="converters-directory">
         {/* MOST POPULAR ROW OF 4 ICON TILES */}
         <div className="space-y-5">
@@ -210,12 +212,12 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               onClick={() => setSearchQuery('')}
               className="text-xs font-bold text-[#1F2A44] dark:text-[#F2C94C] underline cursor-pointer"
             >
-              Show all 50 converters
+              Show all 54 converters
             </button>
           </div>
         )}
 
-        {/* ALL 50 CONVERTERS AS CLEAN ICON TILES GROUPED BY CATEGORY (4 columns desktop, 3 tablet, 2 mobile) */}
+        {/* ALL 54 CONVERTERS AS CLEAN ICON TILES GROUPED BY CATEGORY (4 columns desktop, 3 tablet, 2 mobile) */}
         {filteredConverters.length === 0 ? (
           <div className="p-10 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 text-center space-y-3">
             <p className="text-base font-bold text-[#1F2A44] dark:text-white">
@@ -229,7 +231,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               onClick={() => setSearchQuery('')}
               className="px-4 py-2 text-xs font-bold rounded-full bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
             >
-              Show All 50 Converters
+              Show All 54 Converters
             </button>
           </div>
         ) : (
@@ -249,13 +251,18 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                   className="scroll-mt-24 space-y-5"
                 >
                   {/* Category Heading */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     <div className="w-9 h-9 rounded-xl bg-[#F0F6FF] dark:bg-[#1E2D4A] border border-[#1F2A44]/12 dark:border-white/10 text-[#1F2A44] dark:text-[#F2C94C] flex items-center justify-center shrink-0">
                       <IconComponent className="w-4.5 h-4.5" />
                     </div>
                     <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
                       {category.name}
                     </h2>
+                    {category.note && (
+                      <span className="text-xs font-medium text-[#1F2A44]/75 dark:text-[#F2C94C] bg-[#F2C94C]/20 dark:bg-[#F2C94C]/10 border border-[#F2C94C]/40 rounded-lg px-2.5 py-1">
+                        {category.note}
+                      </span>
+                    )}
                   </div>
 
                   {/* Responsive Grid: 4 columns on desktop (lg:grid-cols-4), 3 on tablet (md:grid-cols-3), 2 on mobile (grid-cols-2) */}

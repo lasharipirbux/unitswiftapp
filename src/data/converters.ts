@@ -5,7 +5,8 @@ export type CategoryId =
   | 'volume'
   | 'speed'
   | 'area'
-  | 'local';
+  | 'local'
+  | 'data';
 
 export interface UnitDefinition {
   id: string;
@@ -13,7 +14,7 @@ export interface UnitDefinition {
   pluralName: string;
   symbol: string;
   category: CategoryId;
-  dimensionGroup?: 'weight' | 'length' | 'temperature' | 'volume' | 'speed' | 'area';
+  dimensionGroup?: 'weight' | 'length' | 'temperature' | 'volume' | 'speed' | 'area' | 'data';
   keywords: string[];
 }
 
@@ -42,6 +43,7 @@ export const CATEGORIES: {
   id: CategoryId;
   name: string;
   description: string;
+  note?: string;
 }[] = [
   {
     id: 'weight',
@@ -71,12 +73,18 @@ export const CATEGORIES: {
   {
     id: 'area',
     name: 'Area',
-    description: 'Square feet, square meters, and acres for real estate, architecture, and land.',
+    description: 'Square feet, square meters, square yards, and acres for real estate, architecture, and land.',
   },
   {
     id: 'local',
     name: 'Local Units',
     description: 'Marla, kanal, tola, and seer for property, gold, and commodity measurements.',
+  },
+  {
+    id: 'data',
+    name: 'Data',
+    description: 'Kilobytes, megabytes, and gigabytes for digital file sizes and memory.',
+    note: 'Uses 1024-based units.',
   },
 ];
 
@@ -303,6 +311,42 @@ export const UNITS: Record<string, UnitDefinition> = {
     category: 'local',
     dimensionGroup: 'weight',
     keywords: ['seer', 'seers', 'sair', 'local', 'weight', 'grain', 'pakistan'],
+  },
+  sqyd: {
+    id: 'sqyd',
+    name: 'Square Yard',
+    pluralName: 'Square Yards',
+    symbol: 'sq yd',
+    category: 'area',
+    dimensionGroup: 'area',
+    keywords: ['sq yd', 'sqyd', 'square yard', 'square yards', 'yd2', 'gaj', 'gaz', 'area', 'land', 'plot'],
+  },
+  kb: {
+    id: 'kb',
+    name: 'Kilobyte',
+    pluralName: 'Kilobytes',
+    symbol: 'KB',
+    category: 'data',
+    dimensionGroup: 'data',
+    keywords: ['kb', 'kilobyte', 'kilobytes', 'data', 'storage', 'file size', 'memory', '1024'],
+  },
+  mb: {
+    id: 'mb',
+    name: 'Megabyte',
+    pluralName: 'Megabytes',
+    symbol: 'MB',
+    category: 'data',
+    dimensionGroup: 'data',
+    keywords: ['mb', 'megabyte', 'megabytes', 'data', 'storage', 'file size', 'memory', '1024'],
+  },
+  gb: {
+    id: 'gb',
+    name: 'Gigabyte',
+    pluralName: 'Gigabytes',
+    symbol: 'GB',
+    category: 'data',
+    dimensionGroup: 'data',
+    keywords: ['gb', 'gigabyte', 'gigabytes', 'data', 'storage', 'file size', 'memory', '1024'],
   },
 };
 
@@ -1195,6 +1239,79 @@ export const CONVERTERS: ConverterPageConfig[] = [
     convert: (val) => val / 0.9331,
     reverseConvert: (val) => val * 0.9331,
   },
+  // --- 4 NEW AREA & DATA CONVERTER PAGES (TOTAL 54) ---
+  {
+    slug: 'acre-to-kanal',
+    title: 'Acres to Kanal Converter',
+    shortTitle: 'acre to kanal',
+    descriptionLine1: 'Convert acres (ac) into kanal for agricultural land, housing estates, and revenue plot records.',
+    descriptionLine2: 'Under standard land measurement rules, 1 acre equals exactly 8 kanal.',
+    descriptionLine3: 'Multiply your acreage by 8 to get the equivalent area in kanal immediately.',
+    note: 'Based on the standard value used in Pakistan (1 acre = 8 kanal); local values can vary slightly.',
+    seoTitle: 'Acres to Kanal Converter (1 Acre = 8 Kanal) – UnitSwift',
+    seoDescription: 'Convert acres to kanal instantly with UnitSwift using 1 acre = 8 kanal. Free land area calculator with formula and a 1, 5, 10, 50, 100 acre table.',
+    category: 'area',
+    fromUnitId: 'acre',
+    toUnitId: 'kanal',
+    formulaText: 'kanal = acres × 8',
+    reverseFormulaText: 'acres = kanal ÷ 8',
+    convert: (val) => val * 8,
+    reverseConvert: (val) => val / 8,
+  },
+  {
+    slug: 'square-yards-to-marla',
+    title: 'Square Yards to Marla Converter',
+    shortTitle: 'square yards to marla',
+    descriptionLine1: 'Convert square yards (sq yd) into marla for residential plots, commercial allotments, and property valuation.',
+    descriptionLine2: 'Using the standard statutory benchmark, 1 marla equals exactly 30.25 square yards.',
+    descriptionLine3: 'Divide your square yard measurement by 30.25 to find the equivalent area in marla.',
+    note: 'Based on the standard value used in Pakistan (1 marla = 30.25 square yards); local values can vary slightly.',
+    seoTitle: 'Square Yards to Marla Converter (sq yd) – UnitSwift',
+    seoDescription: 'Convert square yards to marla instantly using 1 marla = 30.25 sq yd. Free plot and land area calculator with a 1, 5, 10, 50, 100 square yard table.',
+    category: 'area',
+    fromUnitId: 'sqyd',
+    toUnitId: 'marla',
+    formulaText: 'marla = square yards ÷ 30.25',
+    reverseFormulaText: 'square yards = marla × 30.25',
+    convert: (val) => val / 30.25,
+    reverseConvert: (val) => val * 30.25,
+  },
+  {
+    slug: 'mb-to-gb',
+    title: 'MB to GB Converter (Megabytes to Gigabytes)',
+    shortTitle: 'mb to gb',
+    descriptionLine1: 'Convert megabytes (MB) into gigabytes (GB) for file sizes, RAM capacity, flash drives, and cloud storage.',
+    descriptionLine2: 'In binary 1024-based digital storage, 1 gigabyte (GB) equals 1,024 megabytes (MB).',
+    descriptionLine3: 'Divide your megabyte value by 1,024 to get the exact size in gigabytes.',
+    note: 'Uses 1024-based units.',
+    seoTitle: 'MB to GB Converter (Megabytes to Gigabytes) – UnitSwift',
+    seoDescription: 'Convert megabytes to gigabytes (MB to GB) instantly using 1 GB = 1024 MB. Free digital storage calculator with formula and a 1 to 100 MB reference table.',
+    category: 'data',
+    fromUnitId: 'mb',
+    toUnitId: 'gb',
+    formulaText: 'GB = MB ÷ 1,024',
+    reverseFormulaText: 'MB = GB × 1,024',
+    convert: (val) => val / 1024,
+    reverseConvert: (val) => val * 1024,
+  },
+  {
+    slug: 'kb-to-mb',
+    title: 'KB to MB Converter (Kilobytes to Megabytes)',
+    shortTitle: 'kb to mb',
+    descriptionLine1: 'Convert kilobytes (KB) into megabytes (MB) for documents, images, email attachments, and web assets.',
+    descriptionLine2: 'In standard 1024-based binary storage, 1 megabyte (MB) equals 1,024 kilobytes (KB).',
+    descriptionLine3: 'Divide your kilobyte file size by 1,024 to find the exact measurement in megabytes.',
+    note: 'Uses 1024-based units.',
+    seoTitle: 'KB to MB Converter (Kilobytes to Megabytes) – UnitSwift',
+    seoDescription: 'Convert kilobytes to megabytes (KB to MB) in a swift using 1 MB = 1024 KB. Free file size converter with exact formula and a 1 to 100 KB reference table.',
+    category: 'data',
+    fromUnitId: 'kb',
+    toUnitId: 'mb',
+    formulaText: 'MB = KB ÷ 1,024',
+    reverseFormulaText: 'KB = MB × 1,024',
+    convert: (val) => val / 1024,
+    reverseConvert: (val) => val * 1024,
+  },
 ];
 
 // Universal converter function between ANY two compatible units (for the Hero Quick-Convert card)
@@ -1225,9 +1342,14 @@ const TO_BASE_FACTORS: Record<string, number> = {
   // Area (base: sqft)
   sqft: 1,
   sqm: 1 / 0.09290304,
+  sqyd: 9,
   acre: 43560,
   marla: 272.25,
   kanal: 272.25 * 20,
+  // Data (base: kb, 1024-based)
+  kb: 1,
+  mb: 1024,
+  gb: 1024 * 1024,
 };
 
 export function convertAnyUnit(value: number, fromUnitId: string, toUnitId: string): number {

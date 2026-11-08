@@ -256,6 +256,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://unitswiftapp.com/acre-to-kanal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswiftapp.com/square-yards-to-marla</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswiftapp.com/mb-to-gb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswiftapp.com/kb-to-mb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://unitswiftapp.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

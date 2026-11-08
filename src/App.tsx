@@ -181,7 +181,7 @@ export default function App() {
       updatePageSEO({
         title: 'UnitSwift – Convert Any Unit in a Swift | Free Converter',
         description:
-          'Convert weight, length, temperature, volume, speed, area, and local units instantly with UnitSwift. Free, fast unit converter with 50 calculators.',
+          'Convert weight, length, temperature, volume, speed, area, local, and data units instantly with UnitSwift. Free, fast unit converter with 54 calculators.',
         path: '/',
       });
     } else if (activeConverter) {
@@ -196,7 +196,7 @@ export default function App() {
       updatePageSEO({
         title: 'About UnitSwift – Free Unit Converter Built by Naseeb',
         description:
-          'UnitSwift is a free unit converter with 50 calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.',
+          'UnitSwift is a free unit converter with 54 calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.',
         path: '/about',
       });
     } else if (currentPath === '/contact') {
@@ -216,7 +216,7 @@ export default function App() {
     } else {
       updatePageSEO({
         title: 'Page Not Found – UnitSwift',
-        description: 'Explore all 50 free unit converters on UnitSwift.',
+        description: 'Explore all 54 free unit converters on UnitSwift.',
         path: currentPath,
       });
     }
@@ -252,7 +252,7 @@ export default function App() {
             We couldn&rsquo;t find that unit page
           </h1>
           <p className="text-sm text-[#1F2A44]/70 dark:text-slate-300 max-w-md mx-auto">
-            The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our 50 unit converters.
+            The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our 54 unit converters.
           </p>
           <div className="pt-2">
             <button
@@ -260,7 +260,7 @@ export default function App() {
               onClick={() => navigate('/')}
               className="px-5 py-2.5 text-sm font-bold rounded-xl bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
             >
-              Browse All 50 Converters
+              Browse All 54 Converters
             </button>
           </div>
         </div>

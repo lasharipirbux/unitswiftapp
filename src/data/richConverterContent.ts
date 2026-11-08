@@ -2864,7 +2864,233 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     relatedSlugs: ['seer-to-kg', 'kg-to-pounds', 'kg-to-gram', 'tola-to-gram'],
   },
+
+  'acre-to-kanal': {
+    whatIsHeading: 'What Is Acres to Kanal Conversion',
+    whatIsParagraphs: [
+      'Acres to kanal conversion translates large land holdings measured in imperial and revenue acres (ac) into kanal, the traditional land unit widely used across Pakistan and northern India for residential housing societies, agricultural estates, and official land revenue records. Under standard British and Pakistani land revenue definitions, 1 acre equals exactly 8 kanal. Because 1 standard kanal contains 20 marla (and each standard marla is 272.25 square feet), 1 full acre equals 160 marla, 4,840 square yards, or 43,560 square feet.',
+      'Landowners, real estate developers, agricultural investors, and revenue officers (patwaris and tehsildars) rely on acre-to-kanal conversion daily when subdividing multi-acre farmland into 1-kanal or 2-kanal residential society plots, verifying mutation registries (fard, jamabandi, and intiqal), or comparing per-kanal urban plot prices against per-acre rural agricultural rates.',
+    ],
+    howToHeading: 'How to Convert Acres to Kanal',
+    howToIntro:
+      'To convert acres to kanal, multiply the number of acres by the exact statutory conversion factor of 8. Conversely, to convert back from kanal to acres, divide the kanal measurement by 8 (or multiply by 0.125).',
+    formulaBox: 'kanal = acres × 8',
+    workedExampleTitle: 'Worked Example: Convert a 3.5-Acre Land Parcel to Kanal',
+    workedExampleBody:
+      'Suppose a housing developer acquires a 3.5-acre parcel of agricultural land on the outskirts of Lahore, Islamabad, or Faisalabad and wants to calculate the total gross area in kanal before designing 1-kanal residential plots and roads. Multiply 3.5 by 8: 3.5 × 8 = 28 kanal. The 3.5-acre parcel equals 28 kanal (or 560 standard marla, totaling 152,460 square feet).',
+    quickRefValues: [0.5, 1, 1.5, 2, 2.5, 5, 10, 25, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Confusing regional bigha ratios with the 8-kanal-per-acre standard',
+        description:
+          'While 1 standard revenue acre always equals exactly 8 kanal (160 marla) in official land records, regional bigha definitions vary between 2 kanal and 4 kanal per bigha across different districts. Always multiply acres by 8 to obtain standard kanal.',
+      },
+      {
+        title: 'Dividing by 8 instead of multiplying when converting acres to kanal',
+        description:
+          'Because an acre (43,560 sq ft) is eight times larger than a standard kanal (5,445 sq ft), converting acres to kanal always produces a number eight times larger. Multiply your acreage by 8.',
+      },
+      {
+        title: 'Forgetting road and park deductions in housing society subdivisions',
+        description:
+          'Although 1 gross acre equals 8 kanal of raw land, development authorities typically require 35% to 45% of gross acreage for roads, parks, schools, and utilities when plotting net salable 1-kanal residential plots.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kanal are in 1 acre?',
+        answer:
+          'There are exactly 8 kanal in 1 standard acre (1 acre = 8 kanal = 160 marla = 43,560 square feet).',
+      },
+      {
+        question: 'How many kanal are in 5 acres of land?',
+        answer:
+          '5 acres equal 40 kanal (5 × 8 = 40 kanal), which corresponds to 800 marla or 217,800 square feet.',
+      },
+      {
+        question: 'How many marla are in 1 acre?',
+        answer:
+          'Because 1 acre equals 8 kanal and each kanal contains 20 marla, 1 acre equals exactly 160 marla.',
+      },
+      {
+        question: 'How many square feet are in 1 kanal under the 8-kanal-per-acre rule?',
+        answer:
+          'Dividing 43,560 square feet per acre by 8 kanal gives 5,445 square feet per standard revenue kanal (20 marla × 272.25 sq ft).',
+      },
+    ],
+    relatedSlugs: ['acre-to-sqft', 'kanal-to-marla', 'marla-to-sqft', 'square-yards-to-marla'],
+  },
+
+  'square-yards-to-marla': {
+    whatIsHeading: 'What Is Square Yards to Marla Conversion',
+    whatIsParagraphs: [
+      'Square yards to marla conversion translates plot and building area measurements from imperial square yards (sq yd, also commonly called gaj or gaz across South Asia) into marla, the traditional land unit used throughout Pakistan. Under the statutory British and Pakistani revenue benchmark where 1 marla equals 272.25 square feet and 1 square yard equals 9 square feet (3 ft × 3 ft), 1 standard marla equals exactly 30.25 square yards (272.25 ÷ 9 = 30.25).',
+      'Property buyers, civil engineers, architects, and real estate agents frequently rely on this conversion when comparing residential and commercial plot sizes across provinces—for example, translating 120, 240, or 500 square-yard (gaz) residential allotments in Karachi and Sindh into the 5-marla, 10-marla, and 1-kanal plot conventions used in Lahore, Islamabad, Rawalpindi, Peshawar, and Multan.',
+    ],
+    howToHeading: 'How to Convert Square Yards to Marla',
+    howToIntro:
+      'To convert square yards to marla, divide the total area in square yards by 30.25 (or multiply by 0.03305785). To convert marla back into square yards, multiply the marla value by 30.25.',
+    formulaBox: 'marla = square yards (sq yd) ÷ 30.25',
+    workedExampleTitle: 'Worked Example: Convert a 151.25 Square Yard Plot to Marla',
+    workedExampleBody:
+      'Suppose a residential corner plot measures 151.25 square yards on an allotment letter or site plan and you want to express its area in standard revenue marla. Divide 151.25 by 30.25: 151.25 ÷ 30.25 = 5 marla. A 151.25 square yard plot equals exactly 5 standard marla (or 1,361.25 square feet).',
+    quickRefValues: [30.25, 60.5, 90.75, 120, 151.25, 240, 302.5, 500, 605, 1000],
+    commonMistakes: [
+      {
+        title: 'Using 25 square yards per marla without checking the society standard',
+        description:
+          'Official revenue records define 1 marla as 30.25 square yards (272.25 sq ft). However, some private housing societies use a 225 sq ft marla, which equals 25 square yards. Always verify whether your allotment uses the 30.25 sq yd statutory standard.',
+      },
+      {
+        title: 'Confusing linear yards with square yards (yd²)',
+        description:
+          '1 linear yard is 3 feet in length, whereas 1 square yard is a two-dimensional area measuring 3 feet by 3 feet (9 square feet). Never divide square feet by 3 when converting to square yards or marla.',
+      },
+      {
+        title: 'Multiplying by 30.25 instead of dividing when converting sq yd to marla',
+        description:
+          'Because 1 marla is 30.25 times larger than 1 square yard, the resulting marla figure is always smaller than the square yard input. Always divide square yards by 30.25.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square yards are in 1 marla?',
+        answer:
+          'Under the standard revenue definition, 1 marla equals exactly 30.25 square yards (272.25 square feet).',
+      },
+      {
+        question: 'How many marla is a 120 square yard plot?',
+        answer:
+          'Using the 30.25 sq yd statutory benchmark, 120 square yards equals approximately 3.9669 marla (or 4.8 marla under a 25 sq yd society standard).',
+      },
+      {
+        question: 'How many square yards are in a 5 marla plot?',
+        answer:
+          '5 standard marla equal 151.25 square yards (5 × 30.25 = 151.25 sq yd), or 1,361.25 square feet.',
+      },
+      {
+        question: 'How many square yards are in a 10 marla or 1 kanal plot?',
+        answer:
+          '10 standard marla equal 302.5 square yards, and 1 standard kanal (20 marla) equals 605 square yards.',
+      },
+    ],
+    relatedSlugs: ['marla-to-sqft', 'sqft-to-marla', 'kanal-to-marla', 'acre-to-kanal'],
+  },
+
+  'mb-to-gb': {
+    whatIsHeading: 'What Is Megabytes to Gigabytes (MB to GB) Conversion',
+    whatIsParagraphs: [
+      'Megabytes to gigabytes (MB to GB) conversion translates digital file sizes, system memory (RAM) capacities, and data transfer volumes from megabytes into gigabytes. In standard 1024-based binary computing architecture—used by operating systems, memory chip manufacturers, and file explorers—1 gigabyte (GB) is defined as exactly 1,024 megabytes (2^10 MB). One megabyte therefore equals 1/1,024 of a gigabyte, or approximately 0.0009765625 GB.',
+      'Software developers, photographers, video editors, gamers, and smartphone or laptop users rely on MB-to-GB conversion daily when checking how many 4K video recordings, raw photo libraries, application installers, or database backups will fit onto a USB flash drive, SSD partition, cloud storage bucket, RAM module, or monthly mobile data allowance.',
+    ],
+    howToHeading: 'How to Convert MB to GB (1024-Based)',
+    howToIntro:
+      'To convert megabytes (MB) to gigabytes (GB) using standard 1024-based binary units, divide the megabyte value by 1,024 (or multiply by 0.0009765625). To convert gigabytes back into megabytes, multiply the gigabyte figure by 1,024.',
+    formulaBox: 'gigabytes (GB) = megabytes (MB) ÷ 1,024',
+    workedExampleTitle: 'Worked Example: Convert a 4,096 MB Video File to GB',
+    workedExampleBody:
+      'Suppose a downloaded 4K movie or virtual machine disk image measures 4,096 MB in your downloads folder and you want to verify how many gigabytes of free storage space it requires on a flash drive. Divide 4,096 by 1,024: 4,096 ÷ 1,024 = 4 GB. A 4,096 MB file occupies exactly 4 gigabytes in 1024-based binary storage.',
+    quickRefValues: [100, 256, 500, 512, 1000, 1024, 2048, 4096, 8192, 16384],
+    commonMistakes: [
+      {
+        title: 'Mixing up 1,024-based binary GB with 1,000-based decimal GB',
+        description:
+          'Operating systems like Windows and RAM manufacturers define 1 GB as 1,024 MB (binary), whereas some retail hard drive boxes use decimal 1 GB = 1,000 MB. UnitSwift uses the 1,024-based computing standard.',
+      },
+      {
+        title: 'Confusing megabytes (MB, capital B) with megabits (Mb, lowercase b)',
+        description:
+          'Broadband and cellular speeds are typically advertised in megabits per second (Mbps), where 8 megabits equal 1 megabyte (MB). Ensure your starting value is in megabytes before dividing by 1,024.',
+      },
+      {
+        title: 'Multiplying by 1,024 instead of dividing when converting MB to GB',
+        description:
+          'Because a gigabyte is 1,024 times larger than a megabyte, the resulting gigabyte value is always smaller than the megabyte input. Always divide MB by 1,024.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many megabytes (MB) are in 1 gigabyte (GB)?',
+        answer:
+          'Using 1024-based binary units, there are exactly 1,024 megabytes (MB) in 1 gigabyte (GB).',
+      },
+      {
+        question: 'How many GB is 500 MB?',
+        answer:
+          '500 MB equals approximately 0.4883 GB (500 ÷ 1,024 = 0.48828125 GB), or just under half a gigabyte.',
+      },
+      {
+        question: 'How many GB is 2,048 MB or 8,192 MB of RAM?',
+        answer:
+          '2,048 MB equals 2 GB (2,048 ÷ 1,024), and 8,192 MB equals 8 GB of RAM (8,192 ÷ 1,024).',
+      },
+      {
+        question: 'Is 1,000 MB equal to 1 GB?',
+        answer:
+          'In 1024-based binary storage, 1,000 MB equals approximately 0.9766 GB, while 1,024 MB equals 1 full gigabyte.',
+      },
+    ],
+    relatedSlugs: ['kb-to-mb', 'kg-to-gram', 'gram-to-kg', 'km-to-meter'],
+  },
+
+  'kb-to-mb': {
+    whatIsHeading: 'What Is Kilobytes to Megabytes (KB to MB) Conversion',
+    whatIsParagraphs: [
+      'Kilobytes to megabytes (KB to MB) conversion translates smaller digital file sizes from kilobytes into megabytes. In standard 1024-based binary computing, 1 megabyte (MB) equals exactly 1,024 kilobytes (2^10 KB), and 1 kilobyte equals 1,024 bytes. Consequently, 1 kilobyte equals 1/1,024 of a megabyte, or approximately 0.0009765625 MB.',
+      'Web developers, graphic designers, students, and office professionals use KB-to-MB conversion every day when optimizing website JPEG and WebP images, compressing PDF resumes and scanned identity documents to meet online application portal upload limits (such as a strict 2 MB or 5 MB maximum file size), or checking email attachment quotas.',
+    ],
+    howToHeading: 'How to Convert KB to MB (1024-Based)',
+    howToIntro:
+      'To convert kilobytes (KB) to megabytes (MB) using 1024-based binary units, divide the kilobyte value by 1,024 (or multiply by 0.0009765625). To convert megabytes back into kilobytes, multiply the megabyte value by 1,024.',
+    formulaBox: 'megabytes (MB) = kilobytes (KB) ÷ 1,024',
+    workedExampleTitle: 'Worked Example: Convert a 2,560 KB PDF Attachment to MB',
+    workedExampleBody:
+      'Suppose a scanned PDF contract or academic transcript shows a file size of 2,560 KB in your file manager and an online submission portal requires uploads under 3 MB. Divide 2,560 by 1,024: 2,560 ÷ 1,024 = 2.5 MB. Because 2.5 MB is safely below the 3 MB limit, the document can be uploaded without further compression.',
+    quickRefValues: [100, 256, 500, 512, 1000, 1024, 2048, 5120, 10240, 51200],
+    commonMistakes: [
+      {
+        title: 'Dividing by 1,000 instead of 1,024 when checking OS file upload limits',
+        description:
+          'Most web servers and operating systems enforce file upload limits using binary 1 MB = 1,024 KB. A 2,048 KB file is exactly 2 MB in binary, whereas dividing by 1,000 would make it appear to be 2.048 MB.',
+      },
+      {
+        title: 'Confusing kilobytes (KB, capital B) with kilobits (Kb, lowercase b)',
+        description:
+          'Audio bitrates (such as 320 kbps MP3 files) and network speeds use kilobits, where 8 kilobits equal 1 kilobyte (KB). Make sure your file size is in kilobytes before converting to megabytes.',
+      },
+      {
+        title: 'Multiplying KB by 1,024 instead of dividing',
+        description:
+          'Because a megabyte is 1,024 times larger than a kilobyte, converting KB to MB always produces a smaller number. Divide your kilobyte measurement by 1,024.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kilobytes (KB) are in 1 megabyte (MB)?',
+        answer:
+          'In 1024-based binary units, there are exactly 1,024 kilobytes (KB) in 1 megabyte (MB).',
+      },
+      {
+        question: 'How many MB is 500 KB?',
+        answer:
+          '500 KB equals approximately 0.4883 MB (500 ÷ 1,024 = 0.48828125 MB), or slightly less than half a megabyte.',
+      },
+      {
+        question: 'How many MB is 1,000 KB?',
+        answer:
+          'Using the 1024-based binary standard, 1,000 KB equals approximately 0.9766 MB (while 1,024 KB equals 1 full MB).',
+      },
+      {
+        question: 'How many KB are in a 2 MB or 5 MB upload limit?',
+        answer:
+          '2 MB equals 2,048 KB (2 × 1,024), and 5 MB equals 5,120 KB (5 × 1,024).',
+      },
+    ],
+    relatedSlugs: ['mb-to-gb', 'gram-to-kg', 'mm-to-inch', 'ml-to-liter'],
+  },
 };
+
+
 
 
 

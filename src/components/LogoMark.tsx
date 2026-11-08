@@ -13,20 +13,26 @@ export const LogoMark: React.FC<LogoMarkProps> = ({ className = 'w-20 h-20' }) =
       aria-hidden="true"
       className={className}
     >
+      {/* Dark navy rounded square */}
       <rect width="80" height="80" rx="18" fill="#1F2A44" />
-      {/* Top arrow pointing right */}
+
+      {/* Tiny yellow ruler-tick notch at the top-left corner of the square */}
+      <rect x="17" y="0" width="5.5" height="11" rx="2.75" fill="#F2C94C" />
+
+      {/* Top swap arrow pointing right (thicker with rounded ends) */}
       <path
-        d="M20 29H58M49 20L60 29L49 38"
+        d="M20 30H58M48 20L59 30L48 40"
         stroke="#F2C94C"
-        strokeWidth="6.5"
+        strokeWidth="8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Bottom arrow pointing left */}
+
+      {/* Bottom swap arrow pointing left (thicker with rounded ends) */}
       <path
-        d="M60 51H22M31 42L20 51L31 60"
+        d="M60 52H22M32 42L21 52L32 62"
         stroke="#F2C94C"
-        strokeWidth="6.5"
+        strokeWidth="8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
