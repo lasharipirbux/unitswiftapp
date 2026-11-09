@@ -3,7 +3,7 @@ import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { ConverterPage } from './pages/ConverterPage';
 import { AboutPage, ContactPage, PrivacyPolicyPage } from './pages/InfoPages';
-import { findConverterBySlug } from './data/converters';
+import { CATEGORIES, findConverterBySlug } from './data/converters';
 import { RICH_CONVERTER_CONTENT } from './data/richConverterContent';
 import { updatePageSEO } from './utils/seo';
 
@@ -181,23 +181,33 @@ export default function App() {
       updatePageSEO({
         title: 'UnitSwift – Convert Any Unit in a Swift | Free Converter',
         description:
-          'Convert weight, length, temperature, volume, speed, area, local, and data units instantly with UnitSwift. Free, fast unit converter with 54 calculators.',
+          'Convert weight, length, temperature, volume, speed, area, local, and data units instantly with UnitSwift. Free, fast unit converter with 64 calculators.',
         path: '/',
       });
     } else if (activeConverter) {
       const richContent = RICH_CONVERTER_CONTENT[activeConverter.slug];
+      const categoryObj = CATEGORIES.find((c) => c.id === activeConverter.category);
       updatePageSEO({
         title: activeConverter.seoTitle,
         description: activeConverter.seoDescription,
         path: `/${activeConverter.slug}`,
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: categoryObj?.name || activeConverter.category, path: `/#category-${activeConverter.category}` },
+          { name: activeConverter.shortTitle, path: `/${activeConverter.slug}` },
+        ],
         faqs: richContent?.faqs,
       });
     } else if (currentPath === '/about') {
       updatePageSEO({
         title: 'About UnitSwift – Free Unit Converter Built by Naseeb',
         description:
-          'UnitSwift is a free unit converter with 54 calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.',
+          'UnitSwift is a free unit converter with 64 calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.',
         path: '/about',
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+        ],
       });
     } else if (currentPath === '/contact') {
       updatePageSEO({
@@ -205,6 +215,10 @@ export default function App() {
         description:
           'Found a wrong conversion value or want a new converter added to UnitSwift? Write to us directly by email to share feedback or unit requests.',
         path: '/contact',
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ],
       });
     } else if (currentPath === '/privacy-policy') {
       updatePageSEO({
@@ -212,11 +226,15 @@ export default function App() {
         description:
           'Read the UnitSwift Privacy Policy. We do not collect personal data, all calculations happen in your browser, and future analytics or ads may use cookies.',
         path: '/privacy-policy',
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: 'Privacy Policy', path: '/privacy-policy' },
+        ],
       });
     } else {
       updatePageSEO({
         title: 'Page Not Found – UnitSwift',
-        description: 'Explore all 54 free unit converters on UnitSwift.',
+        description: 'Explore all 64 free unit converters on UnitSwift.',
         path: currentPath,
       });
     }
@@ -252,7 +270,7 @@ export default function App() {
             We couldn&rsquo;t find that unit page
           </h1>
           <p className="text-sm text-[#1F2A44]/70 dark:text-slate-300 max-w-md mx-auto">
-            The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our 54 unit converters.
+            The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our 64 unit converters.
           </p>
           <div className="pt-2">
             <button
@@ -260,7 +278,7 @@ export default function App() {
               onClick={() => navigate('/')}
               className="px-5 py-2.5 text-sm font-bold rounded-xl bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
             >
-              Browse All 54 Converters
+              Browse All 64 Converters
             </button>
           </div>
         </div>

@@ -1,292 +1,342 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://unitswiftapp.com/</loc>
+    <loc>https://unitswift.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kg-to-pounds</loc>
+    <loc>https://unitswift.org/kg-to-pounds</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/pounds-to-kg</loc>
+    <loc>https://unitswift.org/pounds-to-kg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/inch-to-cm</loc>
+    <loc>https://unitswift.org/inch-to-cm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/cm-to-inch</loc>
+    <loc>https://unitswift.org/cm-to-inch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/feet-to-meter</loc>
+    <loc>https://unitswift.org/feet-to-meter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/meter-to-feet</loc>
+    <loc>https://unitswift.org/meter-to-feet</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/miles-to-km</loc>
+    <loc>https://unitswift.org/miles-to-km</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/km-to-miles</loc>
+    <loc>https://unitswift.org/km-to-miles</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/celsius-to-fahrenheit</loc>
+    <loc>https://unitswift.org/celsius-to-fahrenheit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/fahrenheit-to-celsius</loc>
+    <loc>https://unitswift.org/fahrenheit-to-celsius</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/liter-to-gallon</loc>
+    <loc>https://unitswift.org/liter-to-gallon</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/gallon-to-liter</loc>
+    <loc>https://unitswift.org/gallon-to-liter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/gram-to-ounce</loc>
+    <loc>https://unitswift.org/gram-to-ounce</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/ounce-to-gram</loc>
+    <loc>https://unitswift.org/ounce-to-gram</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/yard-to-meter</loc>
+    <loc>https://unitswift.org/yard-to-meter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/cm-to-feet</loc>
+    <loc>https://unitswift.org/cm-to-feet</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kg-to-gram</loc>
+    <loc>https://unitswift.org/kg-to-gram</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/km-to-meter</loc>
+    <loc>https://unitswift.org/km-to-meter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/mph-to-kmh</loc>
+    <loc>https://unitswift.org/mph-to-kmh</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/celsius-to-kelvin</loc>
+    <loc>https://unitswift.org/celsius-to-kelvin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/inch-to-feet</loc>
+    <loc>https://unitswift.org/inch-to-feet</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/feet-to-inch</loc>
+    <loc>https://unitswift.org/feet-to-inch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/feet-to-cm</loc>
+    <loc>https://unitswift.org/feet-to-cm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/meter-to-yard</loc>
+    <loc>https://unitswift.org/meter-to-yard</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/mm-to-inch</loc>
+    <loc>https://unitswift.org/mm-to-inch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/inch-to-mm</loc>
+    <loc>https://unitswift.org/inch-to-mm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/meter-to-cm</loc>
+    <loc>https://unitswift.org/meter-to-cm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/cm-to-meter</loc>
+    <loc>https://unitswift.org/cm-to-meter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/miles-to-meter</loc>
+    <loc>https://unitswift.org/miles-to-meter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/pounds-to-ounce</loc>
+    <loc>https://unitswift.org/pounds-to-ounce</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/ounce-to-pounds</loc>
+    <loc>https://unitswift.org/ounce-to-pounds</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/gram-to-kg</loc>
+    <loc>https://unitswift.org/gram-to-kg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kg-to-ounce</loc>
+    <loc>https://unitswift.org/kg-to-ounce</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/ml-to-liter</loc>
+    <loc>https://unitswift.org/ml-to-liter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/liter-to-ml</loc>
+    <loc>https://unitswift.org/liter-to-ml</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/gallon-to-ml</loc>
+    <loc>https://unitswift.org/gallon-to-ml</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kmh-to-mph</loc>
+    <loc>https://unitswift.org/kmh-to-mph</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kelvin-to-celsius</loc>
+    <loc>https://unitswift.org/kelvin-to-celsius</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/fahrenheit-to-kelvin</loc>
+    <loc>https://unitswift.org/fahrenheit-to-kelvin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/yard-to-inch</loc>
+    <loc>https://unitswift.org/yard-to-inch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/sqft-to-sqm</loc>
+    <loc>https://unitswift.org/sqft-to-sqm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/sqm-to-sqft</loc>
+    <loc>https://unitswift.org/sqm-to-sqft</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/acre-to-sqft</loc>
+    <loc>https://unitswift.org/acre-to-sqft</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/marla-to-sqft</loc>
+    <loc>https://unitswift.org/marla-to-sqft</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/sqft-to-marla</loc>
+    <loc>https://unitswift.org/sqft-to-marla</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kanal-to-marla</loc>
+    <loc>https://unitswift.org/kanal-to-marla</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/tola-to-gram</loc>
+    <loc>https://unitswift.org/tola-to-gram</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/gram-to-tola</loc>
+    <loc>https://unitswift.org/gram-to-tola</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/seer-to-kg</loc>
+    <loc>https://unitswift.org/seer-to-kg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kg-to-seer</loc>
+    <loc>https://unitswift.org/kg-to-seer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/acre-to-kanal</loc>
+    <loc>https://unitswift.org/acre-to-kanal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/square-yards-to-marla</loc>
+    <loc>https://unitswift.org/square-yards-to-marla</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/mb-to-gb</loc>
+    <loc>https://unitswift.org/mb-to-gb</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/kb-to-mb</loc>
+    <loc>https://unitswift.org/kb-to-mb</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/about</loc>
+    <loc>https://unitswift.org/kanal-to-acre</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/marla-to-kanal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/marla-to-square-yards</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/gb-to-mb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/mb-to-kb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/gb-to-tb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/tb-to-gb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/gaz-to-feet</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/feet-to-gaz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/meter-to-gaz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/contact</loc>
+    <loc>https://unitswift.org/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://unitswiftapp.com/privacy-policy</loc>
+    <loc>https://unitswift.org/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

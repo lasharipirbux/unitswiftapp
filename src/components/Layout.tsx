@@ -397,10 +397,10 @@ export const Layout: React.FC<LayoutProps> = ({
               </p>
             </div>
 
-            {/* Column 2: All 54 Converters Directory */}
+            {/* Column 2: All 64 Converters Directory */}
             <div className="min-w-0">
               <h2 className="text-xs font-bold uppercase tracking-wider text-[#1F2A44] dark:text-slate-200 mb-3">
-                All 54 Unit Converters
+                All 64 Unit Converters
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-xs">
                 {CONVERTERS.map((conv) => {

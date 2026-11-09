@@ -3086,9 +3086,570 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           '2 MB equals 2,048 KB (2 × 1,024), and 5 MB equals 5,120 KB (5 × 1,024).',
       },
     ],
-    relatedSlugs: ['mb-to-gb', 'gram-to-kg', 'mm-to-inch', 'ml-to-liter'],
+    relatedSlugs: ['mb-to-gb', 'mb-to-kb', 'gb-to-mb', 'gb-to-tb'],
+  },
+
+  'kanal-to-acre': {
+    whatIsHeading: 'What Is Kanal to Acres Conversion',
+    whatIsParagraphs: [
+      'Kanal to acres conversion translates traditional South Asian land measurements in kanal into standard imperial and revenue acres (ac). Under the official British and Pakistani land revenue system, 8 kanal equal 1 full acre—meaning 1 kanal equals exactly 0.125 acre (one-eighth of an acre). Because 1 standard kanal also contains 20 marla (5,445 square feet or 605 square yards), 8 kanal total 160 marla or 43,560 square feet, the exact statutory area of 1 acre.',
+      'Agricultural landowners, housing society developers, real estate appraisers, and revenue department officials use kanal-to-acre conversion when consolidating multiple kanal holdings into acres for farm transfers, preparing master layout plans (LOPs) for development authorities, or verifying rural mutation deeds (fard and intiqal).',
+    ],
+    howToHeading: 'How to Convert Kanal to Acres',
+    howToIntro:
+      'To convert kanal to acres, multiply the kanal value by 0.125 (or divide the number of kanal by 8). To convert acres back to kanal, multiply the acreage by 8.',
+    formulaBox: 'acres = kanal × 0.125 (or kanal ÷ 8)',
+    workedExampleTitle: 'Worked Example: Convert a 24-Kanal Farm Estate to Acres',
+    workedExampleBody:
+      'Suppose an agricultural estate near Multan or Lahore spans 24 kanal on its revenue registry and you want to express the holding in acres for a sale agreement. Multiply 24 by 0.125 (or divide 24 by 8): 24 × 0.125 = 3 acres. A 24-kanal land holding equals exactly 3 acres (or 480 marla).',
+    quickRefValues: [1, 2, 4, 8, 10, 16, 20, 40, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Multiplying kanal by 8 instead of dividing by 8 (or multiplying by 0.125)',
+        description:
+          'Because 1 acre is eight times larger than 1 kanal, the number of acres is always smaller than the number of kanal. Divide kanal by 8 (or multiply by 0.125) to get acres.',
+      },
+      {
+        title: 'Confusing 4-kanal bigha measurements with 8-kanal acres',
+        description:
+          'In many Punjab districts, 1 bigha equals 4 kanal (half an acre), whereas 1 full acre always equals 8 kanal. Do not divide kanal by 4 when converting to acres.',
+      },
+      {
+        title: 'Mixing 4,500 sq ft society kanals with 5,445 sq ft revenue kanals',
+        description:
+          'Some private housing schemes market a 1-kanal plot as 4,500 sq ft (based on a 225 sq ft marla), whereas statutory revenue acres are based on 5,445 sq ft per kanal (8 × 5,445 = 43,560 sq ft).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many acres is 1 kanal?',
+        answer:
+          '1 standard kanal equals exactly 0.125 acre (one-eighth of an acre).',
+      },
+      {
+        question: 'How many kanal make 1 full acre?',
+        answer:
+          '8 standard kanal make 1 full acre (43,560 square feet or 160 marla).',
+      },
+      {
+        question: 'How many acres are in 16 kanal or 40 kanal?',
+        answer:
+          '16 kanal equal 2 acres (16 × 0.125), and 40 kanal equal 5 acres (40 × 0.125).',
+      },
+      {
+        question: 'How many marla are in 0.125 acre (1 kanal)?',
+        answer:
+          'There are 20 standard marla in 1 kanal (0.125 acre).',
+      },
+    ],
+    relatedSlugs: ['acre-to-kanal', 'kanal-to-marla', 'marla-to-kanal', 'acre-to-sqft'],
+  },
+
+  'marla-to-kanal': {
+    whatIsHeading: 'What Is Marla to Kanal Conversion',
+    whatIsParagraphs: [
+      'Marla to kanal conversion translates smaller residential and commercial plot measurements from marla into kanal, the larger traditional land unit used across Pakistan. Under statutory land revenue standards as well as private housing authority bylaws, 20 marla equal 1 full kanal—meaning 1 marla is exactly 0.05 kanal (1/20 of a kanal).',
+      'Homebuyers, architects, property dealers, and land registry clerks use marla-to-kanal conversion when combining adjacent 5-marla or 10-marla residential plots into a single 1-kanal or 2-kanal estate, reading land mutation documents (fard), or calculating total society land area from individual plot counts.',
+    ],
+    howToHeading: 'How to Convert Marla to Kanal',
+    howToIntro:
+      'To convert marla to kanal, divide the number of marla by 20 (or multiply by 0.05). To convert kanal back into marla, multiply the kanal value by 20.',
+    formulaBox: 'kanal = marla ÷ 20',
+    workedExampleTitle: 'Worked Example: Convert a 30-Marla Commercial Plot to Kanal',
+    workedExampleBody:
+      'Suppose a commercial site consists of 30 marla on a housing society allotment letter and you want to state its size in kanal. Divide 30 by 20: 30 ÷ 20 = 1.5 kanal. A 30-marla property equals 1.5 kanal (one and a half kanal).',
+    quickRefValues: [5, 7, 10, 15, 20, 30, 40, 50, 80, 100],
+    commonMistakes: [
+      {
+        title: 'Multiplying marla by 20 instead of dividing by 20',
+        description:
+          'Since 1 kanal is 20 times larger than 1 marla, converting marla to kanal always yields a smaller number. Divide your marla value by 20.',
+      },
+      {
+        title: 'Assuming the 20-marla-per-kanal ratio changes when marla square footage varies',
+        description:
+          'Whether a locality uses the 272.25 sq ft revenue marla or a 225 sq ft society marla, there are always 20 marla in 1 kanal of that same standard.',
+      },
+      {
+        title: 'Confusing marla-to-kanal (÷ 20) with marla-to-acre (÷ 160)',
+        description:
+          '20 marla equal 1 kanal, whereas 160 marla (8 kanal) equal 1 acre. Make sure you divide by 20 for kanal and by 160 for acres.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kanal is 1 marla?',
+        answer:
+          '1 marla equals 0.05 kanal (1 ÷ 20 = 0.05 kanal).',
+      },
+      {
+        question: 'How many marla make 1 kanal?',
+        answer:
+          '20 marla make 1 full kanal.',
+      },
+      {
+        question: 'How many kanal is a 10 marla plot?',
+        answer:
+          'A 10 marla plot equals 0.5 kanal (half a kanal).',
+      },
+      {
+        question: 'How many kanal are in 40 marla or 100 marla?',
+        answer:
+          '40 marla equal 2 kanal, and 100 marla equal 5 kanal.',
+      },
+    ],
+    relatedSlugs: ['kanal-to-marla', 'marla-to-sqft', 'marla-to-square-yards', 'kanal-to-acre'],
+  },
+
+  'marla-to-square-yards': {
+    whatIsHeading: 'What Is Marla to Square Yards Conversion',
+    whatIsParagraphs: [
+      'Marla to square yards conversion translates traditional marla land measurements into imperial square yards (sq yd, also widely referred to as gaj or gaz in Pakistan and India). Under the official British and Pakistani land revenue standard where 1 marla equals 272.25 square feet and 1 square yard equals 9 square feet (3 ft × 3 ft), 1 standard marla equals exactly 30.25 square yards (272.25 ÷ 9 = 30.25).',
+      'Real estate investors, civil contractors, and homeowners use marla-to-square-yards conversion when comparing 5-marla, 7-marla, or 10-marla plots in Punjab and Islamabad with square-yard (gaz) property listings in Karachi, estimating flooring or paving materials billed per square yard, or verifying land registry deeds.',
+    ],
+    howToHeading: 'How to Convert Marla to Square Yards',
+    howToIntro:
+      'To convert marla to square yards, multiply the number of marla by 30.25. To convert square yards back into marla, divide the square yard measurement by 30.25.',
+    formulaBox: 'square yards (sq yd) = marla × 30.25',
+    workedExampleTitle: 'Worked Example: Convert a 10-Marla Residential Plot to Square Yards',
+    workedExampleBody:
+      'Suppose you are buying a standard 10-marla residential plot and want to know its exact area in square yards (gaz). Multiply 10 by 30.25: 10 × 30.25 = 302.5 square yards. A 10-marla standard plot covers 302.5 square yards (or 2,722.5 square feet).',
+    quickRefValues: [1, 3, 5, 7, 10, 15, 20, 40, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Overlooking the difference between 30.25 sq yd and 25 sq yd society marlas',
+        description:
+          'While the statutory revenue marla is 30.25 square yards (272.25 sq ft), some housing societies define 1 marla as 25 square yards (225 sq ft). Always check which standard your housing society uses.',
+      },
+      {
+        title: 'Dividing by 30.25 instead of multiplying when converting marla to sq yd',
+        description:
+          'Because 1 marla contains 30.25 square yards, the number of square yards is always 30.25 times larger than the marla figure. Multiply marla by 30.25.',
+      },
+      {
+        title: 'Confusing square yards with linear yards or linear gaz',
+        description:
+          'A square yard is an area of 9 square feet (3 ft × 3 ft), whereas a linear yard or gaz is a 3-foot length. Always use 30.25 sq yd per standard marla for area calculations.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square yards are in 1 standard marla?',
+        answer:
+          '1 standard marla equals 30.25 square yards (272.25 square feet).',
+      },
+      {
+        question: 'How many square yards are in a 5 marla plot?',
+        answer:
+          '5 standard marla equal 151.25 square yards (5 × 30.25 = 151.25 sq yd).',
+      },
+      {
+        question: 'How many square yards are in a 10 marla plot?',
+        answer:
+          '10 standard marla equal 302.5 square yards (or 250 square yards in a 225-sq-ft society).',
+      },
+      {
+        question: 'How many square yards are in 20 marla (1 kanal)?',
+        answer:
+          '20 standard marla (1 kanal) equal 605 square yards (20 × 30.25 = 605 sq yd).',
+      },
+    ],
+    relatedSlugs: ['square-yards-to-marla', 'marla-to-sqft', 'sqft-to-marla', 'marla-to-kanal'],
+  },
+
+  'gb-to-mb': {
+    whatIsHeading: 'What Is Gigabytes to Megabytes (GB to MB) Conversion',
+    whatIsParagraphs: [
+      'Gigabytes to megabytes (GB to MB) conversion translates large digital storage capacities, memory allocations, and data transfer quotas from gigabytes into megabytes. In standard 1024-based binary computing—used by operating systems, RAM modules, and software partition tools—1 gigabyte (GB) is defined as exactly 1,024 megabytes (2^10 MB).',
+      'System administrators, developers, video editors, and everyday computer or smartphone users use GB-to-MB conversion when sizing disk partitions in megabytes, allocating virtual machine RAM, calculating how many megabyte-sized photos or MP3 tracks fit inside a 16 GB or 64 GB flash drive, or monitoring cellular data plans.',
+    ],
+    howToHeading: 'How to Convert GB to MB (1024-Based)',
+    howToIntro:
+      'To convert gigabytes (GB) to megabytes (MB) using standard 1024-based binary units, multiply the gigabyte value by 1,024. To convert megabytes back to gigabytes, divide by 1,024.',
+    formulaBox: 'megabytes (MB) = gigabytes (GB) × 1,024',
+    workedExampleTitle: 'Worked Example: Convert 8 GB of System RAM to MB',
+    workedExampleBody:
+      'Suppose you are configuring a virtual machine or game server with 8 GB of RAM and the configuration screen asks for the memory limit in megabytes (MB). Multiply 8 by 1,024: 8 × 1,024 = 8,192 MB. An 8 GB allocation equals exactly 8,192 megabytes.',
+    quickRefValues: [0.5, 1, 2, 4, 8, 16, 32, 50, 64, 100],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 1,000 instead of 1,024 for OS and RAM calculations',
+        description:
+          'In binary computing architecture, 1 GB equals 1,024 MB rather than 1,000 MB. For example, 16 GB of RAM is 16,384 MB (16 × 1,024), not 16,000 MB.',
+      },
+      {
+        title: 'Confusing gigabytes (GB) with gigabits (Gb)',
+        description:
+          'Fiber internet plans often advertise speeds in gigabits per second (Gbps), where 1 byte equals 8 bits. Always verify that your storage value is in gigabytes (GB) before multiplying by 1,024.',
+      },
+      {
+        title: 'Dividing by 1,024 instead of multiplying when converting GB to MB',
+        description:
+          'Because each gigabyte contains 1,024 megabytes, converting GB to MB always produces a number 1,024 times larger. Multiply your GB value by 1,024.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many megabytes (MB) are in 1 gigabyte (GB)?',
+        answer:
+          'Using 1024-based binary units, there are exactly 1,024 megabytes (MB) in 1 gigabyte (GB).',
+      },
+      {
+        question: 'How many MB are in 2 GB, 4 GB, and 8 GB?',
+        answer:
+          '2 GB equals 2,048 MB, 4 GB equals 4,096 MB, and 8 GB equals 8,192 MB.',
+      },
+      {
+        question: 'How many MB is 0.5 GB (half a gigabyte)?',
+        answer:
+          '0.5 GB equals 512 megabytes (0.5 × 1,024 = 512 MB).',
+      },
+      {
+        question: 'How many MB are in 16 GB or 32 GB?',
+        answer:
+          '16 GB equals 16,384 MB, and 32 GB equals 32,768 MB.',
+      },
+    ],
+    relatedSlugs: ['mb-to-gb', 'mb-to-kb', 'kb-to-mb', 'gb-to-tb'],
+  },
+
+  'mb-to-kb': {
+    whatIsHeading: 'What Is Megabytes to Kilobytes (MB to KB) Conversion',
+    whatIsParagraphs: [
+      'Megabytes to kilobytes (MB to KB) conversion translates digital file sizes from megabytes into kilobytes. In standard 1024-based binary computing, 1 megabyte (MB) is defined as 1,024 kilobytes (2^10 KB), and each kilobyte consists of 1,024 bytes (totaling 1,048,576 bytes per megabyte).',
+      'Web developers, graphic designers, database administrators, and students frequently use MB-to-KB conversion when setting precise file upload limits in web application configs, budgeting page weight for fast mobile loading, or checking how many kilobyte-sized assets fit inside a 5 MB or 10 MB email attachment limit.',
+    ],
+    howToHeading: 'How to Convert MB to KB (1024-Based)',
+    howToIntro:
+      'To convert megabytes (MB) to kilobytes (KB) using 1024-based binary units, multiply the megabyte value by 1,024. To convert kilobytes back into megabytes, divide by 1,024.',
+    formulaBox: 'kilobytes (KB) = megabytes (MB) × 1,024',
+    workedExampleTitle: 'Worked Example: Convert a 2.5 MB Image Upload Limit to KB',
+    workedExampleBody:
+      'Suppose an online job portal specifies a maximum profile document size of 2.5 MB and your image editor displays exported file sizes in kilobytes (KB). Multiply 2.5 by 1,024: 2.5 × 1,024 = 2,560 KB. Your exported file can be up to 2,560 kilobytes.',
+    quickRefValues: [0.5, 1, 2, 5, 10, 15, 25, 50, 100, 500],
+    commonMistakes: [
+      {
+        title: 'Using 1,000 KB per MB instead of the binary 1,024 KB standard',
+        description:
+          'File managers and server upload validators typically use binary 1 MB = 1,024 KB. Multiplying 5 MB by 1,024 gives the exact 5,120 KB threshold.',
+      },
+      {
+        title: 'Confusing kilobytes (KB) with kilobits (Kb)',
+        description:
+          'Network transfer rates often use kilobits per second (kbps), where 8 kilobits equal 1 kilobyte (KB). UnitSwift converts between megabytes (MB) and kilobytes (KB).',
+      },
+      {
+        title: 'Dividing MB by 1,024 instead of multiplying',
+        description:
+          'Because 1 megabyte contains 1,024 kilobytes, the kilobyte number is always 1,024 times larger than the megabyte number. Multiply MB by 1,024.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kilobytes (KB) are in 1 megabyte (MB)?',
+        answer:
+          'Using 1024-based binary units, there are exactly 1,024 kilobytes (KB) in 1 megabyte (MB).',
+      },
+      {
+        question: 'How many KB are in 2 MB and 5 MB?',
+        answer:
+          '2 MB equals 2,048 KB (2 × 1,024), and 5 MB equals 5,120 KB (5 × 1,024).',
+      },
+      {
+        question: 'How many KB is 0.5 MB?',
+        answer:
+          '0.5 MB equals 512 KB (0.5 × 1,024 = 512 KB).',
+      },
+      {
+        question: 'How many KB are in 10 MB?',
+        answer:
+          '10 MB equals 10,240 kilobytes (10 × 1,024 = 10,240 KB).',
+      },
+    ],
+    relatedSlugs: ['kb-to-mb', 'mb-to-gb', 'gb-to-mb', 'gb-to-tb'],
+  },
+
+  'gb-to-tb': {
+    whatIsHeading: 'What Is Gigabytes to Terabytes (GB to TB) Conversion',
+    whatIsParagraphs: [
+      'Gigabytes to terabytes (GB to TB) conversion translates large data storage volumes from gigabytes into terabytes. In 1024-based binary computing architecture, 1 terabyte (TB) equals exactly 1,024 gigabytes (2^10 GB), or 1,048,576 megabytes. One gigabyte therefore equals 1/1,024 of a terabyte, or approximately 0.0009765625 TB.',
+      'Cloud architects, video production teams, IT administrators, and PC builders use GB-to-TB conversion when aggregating multiple gigabyte backups into terabyte NAS arrays, estimating cloud object storage billing, or comparing 512 GB, 1,024 GB (1 TB), and 2,048 GB (2 TB) solid-state drives.',
+    ],
+    howToHeading: 'How to Convert GB to TB (1024-Based)',
+    howToIntro:
+      'To convert gigabytes (GB) to terabytes (TB) using 1024-based binary units, divide the gigabyte value by 1,024. To convert terabytes back into gigabytes, multiply by 1,024.',
+    formulaBox: 'terabytes (TB) = gigabytes (GB) ÷ 1,024',
+    workedExampleTitle: 'Worked Example: Convert a 2,560 GB Backup Archive to TB',
+    workedExampleBody:
+      'Suppose your company server has 2,560 GB of project archives and you want to know the size in terabytes to provision a cloud backup volume. Divide 2,560 by 1,024: 2,560 ÷ 1,024 = 2.5 TB. The 2,560 GB archive requires 2.5 terabytes of storage.',
+    quickRefValues: [100, 250, 256, 500, 512, 1000, 1024, 2048, 4096, 10240],
+    commonMistakes: [
+      {
+        title: 'Confusing 1,024-based binary TB with 1,000-based decimal drive labels',
+        description:
+          'Operating systems report storage using 1 TB = 1,024 GB, whereas retail drive packaging often uses decimal 1 TB = 1,000 GB. UnitSwift uses the 1,024-based binary standard.',
+      },
+      {
+        title: 'Multiplying GB by 1,024 instead of dividing when converting to TB',
+        description:
+          'Because a terabyte is 1,024 times larger than a gigabyte, the terabyte figure is always smaller than the gigabyte input. Always divide GB by 1,024.',
+      },
+      {
+        title: 'Forgetting filesystem formatting overhead on physical drives',
+        description:
+          'Even after converting between GB and TB, a newly formatted drive reserves a small percentage of space for partition tables and filesystem metadata.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many gigabytes (GB) are in 1 terabyte (TB)?',
+        answer:
+          'In 1024-based binary storage, there are 1,024 gigabytes (GB) in 1 terabyte (TB).',
+      },
+      {
+        question: 'How many TB is 500 GB or 512 GB?',
+        answer:
+          '500 GB equals approximately 0.4883 TB, while 512 GB equals exactly 0.5 TB (half a terabyte).',
+      },
+      {
+        question: 'How many TB is 2,048 GB?',
+        answer:
+          '2,048 GB equals exactly 2 terabytes (2,048 ÷ 1,024 = 2 TB).',
+      },
+      {
+        question: 'How many TB is 1,000 GB?',
+        answer:
+          'Using 1024-based binary units, 1,000 GB equals approximately 0.9766 TB.',
+      },
+    ],
+    relatedSlugs: ['tb-to-gb', 'gb-to-mb', 'mb-to-gb', 'kb-to-mb'],
+  },
+
+  'tb-to-gb': {
+    whatIsHeading: 'What Is Terabytes to Gigabytes (TB to GB) Conversion',
+    whatIsParagraphs: [
+      'Terabytes to gigabytes (TB to GB) conversion translates high-capacity storage measurements from terabytes into gigabytes. In standard 1024-based binary computing, 1 terabyte (TB) equals 1,024 gigabytes (2^10 GB). Each terabyte also equals 1,048,576 megabytes (MB).',
+      'Data engineers, video editors working with RAW 4K/8K footage, gamers installing modern titles, and IT managers use TB-to-GB conversion when partitioning multi-terabyte hard drives or NVMe SSDs into gigabyte volumes, calculating how many 50 GB games fit on a 2 TB console drive, or sizing cloud storage quotas.',
+    ],
+    howToHeading: 'How to Convert TB to GB (1024-Based)',
+    howToIntro:
+      'To convert terabytes (TB) to gigabytes (GB) using 1024-based binary units, multiply the terabyte value by 1,024. To convert gigabytes back into terabytes, divide by 1,024.',
+    formulaBox: 'gigabytes (GB) = terabytes (TB) × 1,024',
+    workedExampleTitle: 'Worked Example: Convert a 4 TB External Hard Drive to GB',
+    workedExampleBody:
+      'Suppose you attach a 4 TB external backup drive to your workstation and want to know its total capacity in gigabytes using 1024-based binary units. Multiply 4 by 1,024: 4 × 1,024 = 4,096 GB. Four binary terabytes equal 4,096 gigabytes.',
+    quickRefValues: [0.5, 1, 1.5, 2, 4, 5, 8, 10, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 1,000 instead of 1,024 in binary OS environments',
+        description:
+          'In 1024-based binary systems, 1 TB equals 1,024 GB (so 2 TB = 2,048 GB), whereas decimal marketing labels use 1,000 GB per TB.',
+      },
+      {
+        title: 'Dividing by 1,024 instead of multiplying when converting TB to GB',
+        description:
+          'Since 1 terabyte contains 1,024 gigabytes, the gigabyte result must be 1,024 times larger than the terabyte input. Multiply TB by 1,024.',
+      },
+      {
+        title: 'Confusing terabytes (TB) with terabits (Tb)',
+        description:
+          'Backbone network throughput is sometimes measured in terabits (Tb), where 8 terabits equal 1 terabyte (TB). Ensure your starting unit is terabytes.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many gigabytes (GB) are in 1 terabyte (TB)?',
+        answer:
+          'Using 1024-based binary units, 1 terabyte (TB) equals 1,024 gigabytes (GB).',
+      },
+      {
+        question: 'How many GB are in 2 TB and 4 TB?',
+        answer:
+          '2 TB equals 2,048 GB (2 × 1,024), and 4 TB equals 4,096 GB (4 × 1,024).',
+      },
+      {
+        question: 'How many GB is 0.5 TB (half a terabyte)?',
+        answer:
+          '0.5 TB equals 512 gigabytes (0.5 × 1,024 = 512 GB).',
+      },
+      {
+        question: 'How many GB are in 10 TB?',
+        answer:
+          '10 TB equals 10,240 gigabytes (10 × 1,024 = 10,240 GB).',
+      },
+    ],
+    relatedSlugs: ['gb-to-tb', 'gb-to-mb', 'mb-to-gb', 'mb-to-kb'],
+  },
+
+  'gaz-to-feet': {
+    whatIsHeading: 'What Is Gaz to Feet Conversion',
+    whatIsParagraphs: [
+      'Gaz to feet conversion translates traditional South Asian length measurements in gaz (also spelled gaj or guz) into standard imperial feet (ft). Across Pakistan and India, 1 standard gaz is standardized as equal to 1 international yard—which is exactly 3 feet or 36 inches (0.9144 meters).',
+      'Tailors, textile merchants, homeowners, and construction masons use gaz-to-feet conversion every day when measuring unstitched suit fabric, curtain drapery, carpet rolls, street widths, and residential plot frontages or depths recorded in linear gaz.',
+    ],
+    howToHeading: 'How to Convert Gaz to Feet',
+    howToIntro:
+      'To convert gaz to feet, multiply the length in gaz by 3. To convert feet back into gaz, divide the measurement in feet by 3.',
+    formulaBox: 'feet (ft) = gaz × 3',
+    workedExampleTitle: 'Worked Example: Convert a 12-Gaz Plot Frontage to Feet',
+    workedExampleBody:
+      'Suppose a residential plot has a street frontage of 12 linear gaz and your architect needs the width in feet for a house elevation drawing. Multiply 12 by 3: 12 × 3 = 36 feet. A 12-gaz frontage measures exactly 36 feet across.',
+    quickRefValues: [1, 2, 3, 5, 10, 15, 20, 30, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Confusing linear gaz (3 feet) with square gaz / square yards (9 sq ft)',
+        description:
+          '1 linear gaz of length equals 3 feet, whereas 1 square gaz (1 square yard) of land area equals 3 ft × 3 ft = 9 square feet. Multiply by 3 for length and by 9 for area.',
+      },
+      {
+        title: 'Dividing by 3 instead of multiplying when converting gaz to feet',
+        description:
+          'Because 1 gaz contains 3 feet, the measurement in feet is always three times larger than the measurement in gaz. Multiply gaz by 3.',
+      },
+      {
+        title: 'Assuming regional girah cloth subdivisions alter the 3-foot standard gaz',
+        description:
+          'In traditional tailoring, 1 gaz is divided into 16 girah (each 2.25 inches), which still totals exactly 36 inches or 3 feet.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many feet are in 1 gaz?',
+        answer:
+          'There are exactly 3 feet (36 inches) in 1 standard gaz, the same length as 1 yard.',
+      },
+      {
+        question: 'How many feet is 5 gaz or 10 gaz?',
+        answer:
+          '5 gaz equals 15 feet (5 × 3), and 10 gaz equals 30 feet (10 × 3).',
+      },
+      {
+        question: 'Is 1 gaz equal to 1 yard?',
+        answer:
+          'Yes, under the standard value used in Pakistan, 1 linear gaz is equal to 1 international yard (3 feet or 0.9144 meters).',
+      },
+      {
+        question: 'How many square feet are in 1 square gaz?',
+        answer:
+          'While 1 linear gaz is 3 feet long, 1 square gaz (3 ft × 3 ft) equals 9 square feet.',
+      },
+    ],
+    relatedSlugs: ['feet-to-gaz', 'meter-to-gaz', 'yard-to-meter', 'yard-to-inch'],
+  },
+
+  'feet-to-gaz': {
+    whatIsHeading: 'What Is Feet to Gaz Conversion',
+    whatIsParagraphs: [
+      'Feet to gaz conversion translates linear measurements from imperial feet (ft) into traditional gaz (gaj). Because 1 standard gaz in Pakistan is defined as 3 feet (the same as 1 international yard or 36 inches), 1 foot equals 1/3 of a gaz, or approximately 0.3333 gaz.',
+      'Builders, interior decorators, fabric buyers, and land surveyors use feet-to-gaz conversion when translating architectural floor plans drawn in feet and inches into gaz for local craftsmen, carpet installers, and property owners.',
+    ],
+    howToHeading: 'How to Convert Feet to Gaz',
+    howToIntro:
+      'To convert feet to gaz, divide the length in feet by 3 (or multiply by 0.333333). To convert gaz back to feet, multiply the gaz value by 3.',
+    formulaBox: 'gaz = feet (ft) ÷ 3',
+    workedExampleTitle: 'Worked Example: Convert a 45-Foot Plot Depth to Gaz',
+    workedExampleBody:
+      'Suppose a plot measures 45 feet in depth on an engineering blueprint and you want to express that dimension in linear gaz. Divide 45 by 3: 45 ÷ 3 = 15 gaz. A 45-foot length equals exactly 15 gaz.',
+    quickRefValues: [1, 3, 6, 9, 12, 15, 30, 45, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Multiplying feet by 3 instead of dividing by 3',
+        description:
+          'Since 1 gaz (3 feet) is three times longer than 1 foot, converting feet to gaz always produces a smaller number. Divide feet by 3.',
+      },
+      {
+        title: 'Dividing square feet by 3 instead of 9 when calculating area in square gaz',
+        description:
+          'For linear length, divide feet by 3 to get gaz. For two-dimensional plot area, divide square feet by 9 to get square gaz (square yards).',
+      },
+      {
+        title: 'Entering feet-and-inches notation (like 6\'6") as 6.6 feet',
+        description:
+          '6 inches is 0.5 feet (6 ÷ 12), so 6 feet 6 inches should be entered as 6.5 feet (which equals 2.1667 gaz), not 6.6 feet.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many gaz is 1 foot?',
+        answer:
+          '1 foot equals 1/3 gaz, or approximately 0.3333 gaz.',
+      },
+      {
+        question: 'How many feet make 1 gaz?',
+        answer:
+          '3 feet (36 inches) make 1 full gaz.',
+      },
+      {
+        question: 'How many gaz are in 9 feet, 15 feet, and 30 feet?',
+        answer:
+          '9 feet equal 3 gaz, 15 feet equal 5 gaz, and 30 feet equal 10 gaz.',
+      },
+      {
+        question: 'How many gaz is 100 feet?',
+        answer:
+          '100 feet equal approximately 33.3333 gaz (100 ÷ 3).',
+      },
+    ],
+    relatedSlugs: ['gaz-to-feet', 'meter-to-gaz', 'feet-to-meter', 'feet-to-inch'],
+  },
+
+  'meter-to-gaz': {
+    whatIsHeading: 'What Is Meters to Gaz Conversion',
+    whatIsParagraphs: [
+      'Meters to gaz conversion translates metric length measurements in meters (m) into traditional gaz (gaj). Because 1 standard gaz in Pakistan equals 3 feet (1 international yard), its exact metric length is 0.9144 meters (91.44 centimeters). Consequently, 1 meter is slightly longer than 1 gaz—specifically, 1 meter equals approximately 1.0936133 gaz.',
+      'Cloth merchants, tailors, garment exporters, and shoppers in fabric markets across Pakistan use meter-to-gaz conversion daily when buying or cutting unstitched shalwar kameez fabric, lawn suits, and curtain rolls sold in meters while tailoring patterns are measured in gaz and girah.',
+    ],
+    howToHeading: 'How to Convert Meters to Gaz',
+    howToIntro:
+      'To convert meters to gaz, divide the length in meters by 0.9144 (or multiply by 1.0936133). To convert gaz back into meters, multiply the gaz measurement by 0.9144.',
+    formulaBox: 'gaz = meters (m) ÷ 0.9144',
+    workedExampleTitle: 'Worked Example: Convert 4.5 Meters of Unstitched Fabric to Gaz',
+    workedExampleBody:
+      'Suppose a men’s unstitched suit pack contains 4.5 meters of fabric and your tailor asks how many gaz of cloth you have. Divide 4.5 by 0.9144: 4.5 ÷ 0.9144 = 4.9213 gaz. A 4.5-meter suit length equals approximately 4.92 gaz (nearly 5 gaz).',
+    quickRefValues: [1, 2, 2.5, 3, 4, 4.5, 5, 10, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Treating 1 meter and 1 gaz as exactly equal when buying fabric',
+        description:
+          '1 meter (39.37 inches) is about 3.37 inches longer than 1 gaz (36 inches). On a 4.5-meter suit, that difference adds up to nearly half a gaz (0.42 gaz).',
+      },
+      {
+        title: 'Multiplying meters by 0.9144 instead of dividing',
+        description:
+          'Because a meter is longer than a gaz, the number of gaz is always larger than the number of meters. Divide meters by 0.9144 (or multiply by 1.0936).',
+      },
+      {
+        title: 'Confusing linear meters-to-gaz with square meters-to-square yards',
+        description:
+          'For linear cloth or boundary length, 1 meter = 1.0936 gaz. For two-dimensional area, 1 square meter = 1.196 square gaz (square yards).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many gaz are in 1 meter?',
+        answer:
+          '1 meter equals approximately 1.0936 gaz (1 ÷ 0.9144 = 1.0936133 gaz).',
+      },
+      {
+        question: 'How many meters are in 1 gaz?',
+        answer:
+          '1 standard gaz (3 feet) equals 0.9144 meters, or 91.44 centimeters.',
+      },
+      {
+        question: 'How many gaz are in 4 meters of cloth?',
+        answer:
+          '4 meters of cloth equal approximately 4.3745 gaz (4 × 1.0936133).',
+      },
+      {
+        question: 'Which is longer: 1 meter or 1 gaz?',
+        answer:
+          '1 meter (39.37 inches) is longer than 1 gaz (36 inches) by approximately 3.37 inches (8.56 cm).',
+      },
+    ],
+    relatedSlugs: ['gaz-to-feet', 'feet-to-gaz', 'meter-to-yard', 'meter-to-feet'],
   },
 };
+
 
 
 

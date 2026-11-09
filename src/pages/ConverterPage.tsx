@@ -569,7 +569,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
             onClick={(e) => handleLinkClick(e, '/')}
             className="text-xs font-semibold text-[#1F2A44] dark:text-[#F2C94C] hover:underline underline-offset-4 whitespace-nowrap shrink-0"
           >
-            View all 54 converters →
+            View all 64 converters →
           </a>
         </div>
 
