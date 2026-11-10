@@ -179,9 +179,9 @@ export default function App() {
   useEffect(() => {
     if (currentPath === '/') {
       updatePageSEO({
-        title: 'UnitSwift – Convert Any Unit in a Swift | Free Converter',
+        title: 'UnitSwift – Convert Any Unit in a Swift | 70 Free Unit Converters',
         description:
-          'Convert weight, length, temperature, volume, speed, area, local, and data units instantly with UnitSwift. Free, fast unit converter with 70 calculators.',
+          'Convert weight, length, temperature, volume, speed, area, local and data units instantly. Free, fast unit converter with 70 calculators.',
         path: '/',
       });
     } else if (activeConverter) {
