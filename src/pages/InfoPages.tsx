@@ -36,7 +36,7 @@ export const AboutPage: React.FC<InfoPageProps> = ({ navigate }) => {
         <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
         <div className="p-6 sm:p-8 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
           <p>
-            UnitSwift is a free unit converter with 64 converters across weight, length, temperature, volume, speed, area, local units, and data. Built by Naseeb, it runs directly in your browser with no sign-up required and no tracking of personal data.
+            UnitSwift is a free unit converter with 70 converters across weight, length, temperature, volume, speed, area, local units, and data. Built by Naseeb, it runs directly in your browser with no sign-up required and no tracking of personal data.
           </p>
         </div>
       </div>
@@ -121,7 +121,7 @@ export const PrivacyPolicyPage: React.FC<InfoPageProps> = ({ navigate }) => {
         <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
         <div className="p-6 sm:p-8 space-y-4 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
           <p>
-            UnitSwift does not collect, store, or share any personal data. You can use all 64 unit converters without creating an account or providing any personal information.
+            UnitSwift does not collect, store, or share any personal data. You can use all 70 unit converters without creating an account or providing any personal information.
           </p>
           <p>
             All unit conversions and calculations happen directly in your browser on your device, and the numbers you enter are never sent to a server.

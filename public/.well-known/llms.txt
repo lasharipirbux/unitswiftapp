@@ -1,6 +1,6 @@
 # UnitSwift
 
-> UnitSwift is a free, fast, client-side online unit converter offering 64 dedicated calculators across weight, length, temperature, volume, speed, area, local units, and data with no sign-up and no tracking.
+> UnitSwift is a free, fast, client-side online unit converter offering 70 dedicated calculators across weight, length, temperature, volume, speed, area, local units, and data with no sign-up and no tracking.
 
 ## Weight Converters
 
@@ -13,6 +13,7 @@
 - [Pounds to Ounces Converter (lb to oz)](https://unitswift.org/pounds-to-ounce): Convert pounds to ounces using ounces = pounds × 16.
 - [Ounces to Pounds Converter (oz to lb)](https://unitswift.org/ounce-to-pounds): Convert ounces to pounds using pounds = ounces ÷ 16.
 - [Kilograms to Ounces Converter (kg to oz)](https://unitswift.org/kg-to-ounce): Convert kilograms to ounces using ounces = kilograms × 35.2739619.
+- [Pounds to Grams Converter (lb to g)](https://unitswift.org/pounds-to-grams): Convert pounds to grams using grams = pounds × 453.59237.
 
 ## Length Converters
 
@@ -35,6 +36,9 @@
 - [Centimeters to Meters Converter (cm to m)](https://unitswift.org/cm-to-meter): Convert centimeters to meters using meters = centimeters ÷ 100.
 - [Miles to Meters Converter (mi to m)](https://unitswift.org/miles-to-meter): Convert miles to meters using meters = miles × 1,609.344.
 - [Yards to Inches Converter (yd to in)](https://unitswift.org/yard-to-inch): Convert yards to inches using inches = yards × 36.
+- [Centimeters to Millimeters Converter (cm to mm)](https://unitswift.org/cm-to-mm): Convert centimeters to millimeters using mm = cm × 10.
+- [Millimeters to Centimeters Converter (mm to cm)](https://unitswift.org/mm-to-cm): Convert millimeters to centimeters using cm = mm ÷ 10.
+- [Meters to Kilometers Converter (m to km)](https://unitswift.org/meter-to-km): Convert meters to kilometers using km = meters ÷ 1,000.
 
 ## Temperature Converters
 
@@ -66,6 +70,7 @@
 - [Kanal to Acres Converter (kanal to ac)](https://unitswift.org/kanal-to-acre): Convert kanal to acres using acres = kanal × 0.125.
 - [Square Yards to Marla Converter (sq yd to marla)](https://unitswift.org/square-yards-to-marla): Convert square yards to marla using marla = square yards ÷ 30.25.
 - [Marla to Square Yards Converter (marla to sq yd)](https://unitswift.org/marla-to-square-yards): Convert marla to square yards using square yards = marla × 30.25.
+- [Marla to Square Meters Converter (marla to sq m)](https://unitswift.org/marla-to-square-meter): Convert marla to square meters using sq m = marla × 25.2929.
 
 ## Local Units Converters
 
@@ -80,6 +85,7 @@
 - [Gaz to Feet Converter (gaz to ft)](https://unitswift.org/gaz-to-feet): Convert gaz to feet using feet = gaz × 3.
 - [Feet to Gaz Converter (ft to gaz)](https://unitswift.org/feet-to-gaz): Convert feet to gaz using gaz = feet ÷ 3.
 - [Meters to Gaz Converter (m to gaz)](https://unitswift.org/meter-to-gaz): Convert meters to gaz using gaz = meters ÷ 0.9144.
+- [Kilograms to Tola Converter (kg to tola)](https://unitswift.org/kg-to-tola): Convert kilograms to tola using tola = (kg × 1,000) ÷ 11.6638.
 
 ## Data Storage Converters
 
@@ -92,7 +98,7 @@
 
 ## Site Information
 
-- [Home](https://unitswift.org/): Browse and search all 64 unit converters on UnitSwift.
+- [Home](https://unitswift.org/): Browse and search all 70 unit converters on UnitSwift.
 - [About UnitSwift](https://unitswift.org/about): Learn about UnitSwift, built by Naseeb with no sign-up and no personal data tracking.
 - [Contact UnitSwift](https://unitswift.org/contact): Report a conversion issue or request a new unit converter.
 - [Privacy Policy](https://unitswift.org/privacy-policy): Plain-English privacy policy explaining browser-based calculations.

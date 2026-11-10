@@ -16,7 +16,7 @@ export interface RichConverterContent {
     question: string;
     answer: string;
   }[];
-  relatedSlugs: [string, string, string, string];
+  relatedSlugs: string[];
 }
 
 export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
@@ -3647,6 +3647,312 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
       },
     ],
     relatedSlugs: ['gaz-to-feet', 'feet-to-gaz', 'meter-to-yard', 'meter-to-feet'],
+  },
+  'pounds-to-grams': {
+    slug: 'pounds-to-grams',
+    whatIsHeading: 'What Is Pounds to Grams Conversion',
+    whatIsParagraphs: [
+      'Pounds to grams conversion connects the British and American avoirdupois weight system with the international metric system used worldwide in science, medicine, culinary arts, and manufacturing. While consumer grocery packaging, postal scales, and gym equipment in the United States routinely state mass in pounds, laboratory research, dietary macronutrient tracking, pharmaceutical formulations, and international commerce rely on grams as the foundational metric unit.',
+      'Under the historic 1959 International Yard and Pound Agreement, the international avoirdupois pound was officially defined as exactly 0.45359237 kilograms, which translates to exactly 453.59237 grams. This constant has zero trailing uncertainty. Converting pounds to grams is essential whenever a recipe imported from Europe or Asia lists flour or sugar in grams, when calculating precise mailing weights for international shipping, or when converting fitness nutrition targets into metric measures.',
+    ],
+    howToHeading: 'How to Convert Pounds to Grams',
+    howToIntro:
+      'To convert any weight from pounds into grams, multiply the number of pounds by 453.59237. If you only need a quick mental estimate in the kitchen, multiplying by 454 will get you within a fraction of a percent of the exact metric mass.',
+    formulaBox: 'grams (g) = pounds (lb) × 453.59237',
+    workedExampleTitle: 'Worked Example: Converting 2.5 Pounds to Grams',
+    workedExampleBody:
+      'Suppose an artisan baking recipe calls for 2.5 pounds of bread flour, but your kitchen scale only displays grams. Multiply 2.5 by 453.59237: 2.5 × 453.59237 = 1,133.980925 g. Rounded to two decimal places, 2.5 pounds equals 1,133.98 grams (or approximately 1.134 kilograms).',
+    quickRefValues: [0.25, 0.5, 1, 2, 3, 5, 10, 20, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Using 450 instead of 453.59 on larger quantities',
+        description:
+          'Rounding to 450 g is convenient for mental math on small items, but on a 50 lb shipment, using 450 leaves you short by nearly 180 grams, which can cause unexpected customs delays or carrier penalties.',
+      },
+      {
+        title: 'Confusing troy ounces and avoirdupois ounces',
+        description:
+          'Precious metals like gold and silver use troy ounces where 1 troy pound equals 373.24 g, whereas all standard groceries, parcel post, and body weights use avoirdupois pounds where 1 lb equals 453.59237 g.',
+      },
+      {
+        title: 'Treating decimal pounds as pounds and ounces',
+        description:
+          'A reading of 1.5 lb is not 1 pound 5 ounces. Because there are 16 ounces in a pound, 0.5 lb equals 8 ounces (226.8 g), not 5 ounces (141.75 g).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many grams are in 1 pound?',
+        answer:
+          'There are exactly 453.59237 grams in 1 avoirdupois pound.',
+      },
+      {
+        question: 'What is the fastest formula to convert pounds to grams?',
+        answer:
+          'Multiply the pound figure by 453.59237. For everyday cooking, multiplying by 454 gives a very close estimate.',
+      },
+      {
+        question: 'How many grams is a quarter pound (0.25 lb)?',
+        answer:
+          'A quarter pound equals approximately 113.4 grams (0.25 × 453.59237 = 113.398 g).',
+      },
+    ],
+    relatedSlugs: ['pounds-to-kg', 'gram-to-ounce', 'kg-to-gram'],
+  },
+  'cm-to-mm': {
+    slug: 'cm-to-mm',
+    whatIsHeading: 'What Is Centimeters to Millimeters Conversion',
+    whatIsParagraphs: [
+      'Centimeters to millimeters conversion is one of the most frequently used length conversions across engineering, 3D printing, tailoring, carpentry, and medical imaging. Both centimeters (cm) and millimeters (mm) belong to the metric International System of Units (SI), with the meter serving as the primary base. Because the metric system is strictly base-10, transitioning between centimeters and millimeters requires no complex fractions—only moving the decimal place.',
+      'One centimeter is defined as one-hundredth of a meter (0.01 m), while one millimeter is one-thousandth of a meter (0.001 m). Consequently, there are exactly 10 millimeters in every centimeter. Understanding this straightforward scale allows architects, machinists, and hobbyists to effortlessly switch between broad structural dimensions recorded in centimeters and high-precision tolerances detailed in millimeters.',
+    ],
+    howToHeading: 'How to Convert Centimeters to Millimeters',
+    howToIntro:
+      'To convert any length from centimeters into millimeters, multiply the centimeter value by 10. In practical terms, this simply means shifting the decimal point one place to the right.',
+    formulaBox: 'millimeters (mm) = centimeters (cm) × 10',
+    workedExampleTitle: 'Worked Example: Converting 14.5 cm to Millimeters',
+    workedExampleBody:
+      'Suppose you are designing an enclosure for an electronics project and a circuit board measures 14.5 cm across. To find the measurement in millimeters for your CAD software, multiply 14.5 by 10: 14.5 × 10 = 145 mm. The circuit board is exactly 145 millimeters wide.',
+    quickRefValues: [0.5, 1, 2, 5, 10, 15, 20, 25, 50, 100],
+    commonMistakes: [
+      {
+        title: 'Dividing instead of multiplying',
+        description:
+          'Because a millimeter is a smaller unit, a given distance will contain more millimeters than centimeters. Remember to multiply by 10 rather than divide.',
+      },
+      {
+        title: 'Confusing millimeters with micrometers',
+        description:
+          'Millimeters are one-thousandth of a meter (0.1 cm), whereas micrometers (microns) are one-millionth of a meter (0.001 mm). Do not shift the decimal point by three places when converting centimeters to millimeters.',
+      },
+      {
+        title: 'Losing trailing zeros on precision drawings',
+        description:
+          'In engineering blueprints, 14.0 cm indicates precision to the nearest millimeter (140 mm). Omitting precision markers can lead to loose tolerances during assembly.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many millimeters are in 1 centimeter?',
+        answer:
+          'There are exactly 10 millimeters in 1 centimeter.',
+      },
+      {
+        question: 'How do you convert cm to mm quickly without a calculator?',
+        answer:
+          'Simply move the decimal point one position to the right or add a zero to whole numbers (e.g., 5 cm becomes 50 mm).',
+      },
+      {
+        question: 'How many millimeters is 2.54 centimeters?',
+        answer:
+          '2.54 centimeters equals exactly 25.4 millimeters, which is the exact international definition of 1 inch.',
+      },
+    ],
+    relatedSlugs: ['mm-to-cm', 'inch-to-mm', 'meter-to-cm'],
+  },
+  'mm-to-cm': {
+    slug: 'mm-to-cm',
+    whatIsHeading: 'What Is Millimeters to Centimeters Conversion',
+    whatIsParagraphs: [
+      'Millimeters to centimeters conversion scales small, highly detailed measurements into broader metric dimensions suitable for daily life, clothing sizes, furniture planning, and school coursework. In precision manufacturing, mechanical engineering, and digital fabrication, parts are consistently specified in millimeters to avoid decimal ambiguity. When communicating those dimensions to customers or reviewing overall package sizes, converting millimeters to centimeters provides an intuitive sense of scale.',
+      'Because both units are standard metric intervals derived from the meter, the conversion relationship is completely exact. A millimeter represents 0.001 meters, while a centimeter represents 0.01 meters. Dividing any millimeter figure by 10 yields its equivalent value in centimeters without any rounding error or approximation.',
+    ],
+    howToHeading: 'How to Convert Millimeters to Centimeters',
+    howToIntro:
+      'To convert any measurement from millimeters into centimeters, divide the number of millimeters by 10. You can also achieve this by moving the decimal point one position to the left.',
+    formulaBox: 'centimeters (cm) = millimeters (mm) ÷ 10',
+    workedExampleTitle: 'Worked Example: Converting 250 mm to Centimeters',
+    workedExampleBody:
+      'Suppose an architectural drawing specifies a wall clearance of 250 mm for an air vent. To find the clearance in centimeters for on-site framing, divide 250 by 10: 250 ÷ 10 = 25 cm. The required wall clearance is exactly 25 centimeters.',
+    quickRefValues: [1, 5, 10, 20, 50, 100, 150, 200, 500, 1000],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 10 instead of dividing',
+        description:
+          'A centimeter is ten times larger than a millimeter, so the number of centimeters must always be smaller than the original millimeter value.',
+      },
+      {
+        title: 'Confusing millimeter conversions with meter conversions',
+        description:
+          'Dividing by 1,000 gives meters, not centimeters. To convert millimeters to centimeters, you divide by 10.',
+      },
+      {
+        title: 'Mishandling decimal points on values under 10 mm',
+        description:
+          'A small fastener measuring 4 mm equals 0.4 cm, not 0.04 cm. Make sure to move the decimal point exactly one place.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many centimeters are in 1 millimeter?',
+        answer:
+          'There is exactly 0.1 centimeters in 1 millimeter (1 mm = 1/10 cm).',
+      },
+      {
+        question: 'How do I convert 100 mm to cm?',
+        answer:
+          'Divide 100 by 10 to get 10 cm (100 mm = 10 cm).',
+      },
+      {
+        question: 'Why do engineers use millimeters instead of centimeters?',
+        answer:
+          'Engineers prefer millimeters because it allows fine tolerances to be expressed in whole numbers without decimal points, reducing communication errors on manufacturing floors.',
+      },
+    ],
+    relatedSlugs: ['cm-to-mm', 'mm-to-inch', 'cm-to-meter'],
+  },
+  'meter-to-km': {
+    slug: 'meter-to-km',
+    whatIsHeading: 'What Is Meters to Kilometers Conversion',
+    whatIsParagraphs: [
+      'Meters to kilometers conversion translates base metric distances into long-range road, travel, and athletic measurements. The meter (m) is the foundational base unit of length in the International System of Units (SI), defined fundamentally by the distance light travels in a vacuum over a tiny fraction of a second. When distances expand into highway driving, cross-country hiking, aviation routes, or marathon training, expressing lengths in thousands of meters becomes unwieldy, making the kilometer (km) the ideal unit.',
+      'The metric prefix "kilo-" designates a multiple of one thousand. Therefore, one kilometer equals exactly 1,000 meters. Converting from meters to kilometers standardizes local surveying measurements and GPS coordinate distances into regional transportation benchmarks without requiring fractional conversions.',
+    ],
+    howToHeading: 'How to Convert Meters to Kilometers',
+    howToIntro:
+      'To convert any distance from meters into kilometers, divide the number of meters by 1,000. In practical calculation, this is equivalent to moving the decimal point three places to the left.',
+    formulaBox: 'kilometers (km) = meters (m) ÷ 1,000',
+    workedExampleTitle: 'Worked Example: Converting 5,400 Meters to Kilometers',
+    workedExampleBody:
+      'Suppose a runner completes an interval track session totaling 5,400 meters according to their fitness watch. To express this overall workout volume in kilometers for their weekly log, divide 5,400 by 1,000: 5,400 ÷ 1,000 = 5.4 km. The total distance covered is exactly 5.4 kilometers.',
+    quickRefValues: [100, 200, 400, 500, 800, 1000, 1500, 2000, 5000, 10000],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 1,000 instead of dividing',
+        description:
+          'Because a kilometer is a much larger unit of distance than a meter, the resulting kilometer number must be smaller than the meter input. Always divide by 1,000.',
+      },
+      {
+        title: 'Shifting the decimal point by two places instead of three',
+        description:
+          'Dividing by 100 converts meters to hectometers (or centimeters to meters). Kilometers always require shifting three decimal places (dividing by 1,000).',
+      },
+      {
+        title: 'Assuming 1 kilometer is equivalent to 1 mile',
+        description:
+          '1 kilometer is only about 0.6214 miles (roughly five-eighths of a mile). A 5,000-meter race is a 5K (3.1 miles), not 5 miles.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many kilometers are in 1,000 meters?',
+        answer:
+          'There is exactly 1 kilometer in 1,000 meters.',
+      },
+      {
+        question: 'How many kilometers is a standard 400-meter track lap?',
+        answer:
+          'A single 400-meter lap equals exactly 0.4 kilometers (400 ÷ 1,000 = 0.4 km).',
+      },
+      {
+        question: 'How do I convert meters to kilometers in my head?',
+        answer:
+          'Simply move the decimal point three digits to the left (e.g., 2,500 m becomes 2.5 km, and 750 m becomes 0.75 km).',
+      },
+    ],
+    relatedSlugs: ['km-to-meter', 'km-to-miles', 'miles-to-meter'],
+  },
+  'kg-to-tola': {
+    slug: 'kg-to-tola',
+    whatIsHeading: 'What Is Kilograms to Tola Conversion',
+    whatIsParagraphs: [
+      'Kilograms to tola conversion bridges modern international metric mass with South Asia\'s historic and widely used bullion measurement system. In Pakistan, India, Bangladesh, and regional gold souks across the Middle East, precious metals like gold bars, raw silver, fine bridal jewelry, and ceremonial coins are priced and weighed in tolas rather than ounces or grams. When bullion dealers, investors, or jewelers receive wholesale metric bars denominated in kilograms, converting them to tolas is the critical first step in determining local market value.',
+      'Under the standard statutory benchmark established in British India and maintained across Pakistani commerce, 1 tola is defined as exactly 11.6638 grams (derived from the historic silver rupee coin of 180 grains). Since 1 kilogram contains exactly 1,000 grams, 1 kilogram equals approximately 85.7354 tolas. Understanding this conversion ensures fair transactions when purchasing gold bullion or evaluating legacy family jewelry against modern digital scales.',
+    ],
+    howToHeading: 'How to Convert Kilograms to Tola',
+    howToIntro:
+      'To convert kilograms into tolas, first multiply your kilogram measurement by 1,000 to determine the weight in grams, then divide that result by 11.6638. (Based on the standard value used in Pakistan; local values can vary slightly.)',
+    formulaBox: 'tola = (kilograms × 1,000) ÷ 11.6638   [≈ kg × 85.7354]',
+    workedExampleTitle: 'Worked Example: Converting a 1 kg Gold Cast Bar to Tolas',
+    workedExampleBody:
+      'Suppose an investor purchases an internationally certified 1 kilogram (1,000 g) investment gold bar and wants to record its weight in local tolas. Multiply 1 by 1,000, then divide by 11.6638: 1,000 ÷ 11.6638 = 85.735352 tolas. Rounded to four decimal places, a 1 kg bar equals 85.7354 tolas (approximately 85 tolas, 8 masha, and 7 ratti).',
+    quickRefValues: [0.05, 0.1, 0.25, 0.5, 1, 2, 5, 10, 20, 50],
+    commonMistakes: [
+      {
+        title: 'Using 10 grams or 12 grams as an arbitrary tola equivalent',
+        description:
+          'Some unofficial retail outlets colloquially round 1 tola to 10 grams, but legitimate gold trading, bank bullion vaults, and jewelers always use the official 11.6638-gram standard. Rounding down to 10 g causes severe valuation errors.',
+      },
+      {
+        title: 'Forgetting to multiply kilograms by 1,000 before dividing',
+        description:
+          'Dividing kilograms directly by 11.6638 without converting to grams first will produce an answer that is off by a factor of one thousand.',
+      },
+      {
+        title: 'Overlooking subtle local market rounding conventions',
+        description:
+          'While 11.6638 g is the official revenue standard in Pakistan, certain local bullion markets round to 11.664 g. For large multi-kilogram consignments, always confirm whether the contract specifies 11.6638 g.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many tolas are in 1 kilogram?',
+        answer:
+          'There are approximately 85.7354 tolas in 1 kilogram of gold or silver (1,000 ÷ 11.6638 = 85.735352 tola).',
+      },
+      {
+        question: 'How many grams is 1 tola in Pakistan?',
+        answer:
+          'In standard Pakistani trade, 1 tola equals exactly 11.6638 grams.',
+      },
+      {
+        question: 'How many tolas are in half a kilogram (500 grams)?',
+        answer:
+          '500 grams equals approximately 42.8677 tolas (500 ÷ 11.6638 = 42.867676 tola).',
+      },
+    ],
+    relatedSlugs: ['tola-to-gram', 'gram-to-tola', 'kg-to-seer'],
+  },
+  'marla-to-square-meter': {
+    slug: 'marla-to-square-meter',
+    whatIsHeading: 'What Is Marla to Square Meters Conversion',
+    whatIsParagraphs: [
+      'Marla to square meters conversion connects South Asia\'s traditional land measurement unit with the International System of Units (SI) metric standard utilized by civil engineers, municipal master planners, and global real estate developers. In Pakistan and parts of northern India, residential plots, housing society blocks, and suburban developments are universally marketed in marlas (such as 3-marla, 5-marla, and 10-marla plots). However, construction blueprints, architectural coverage ratios, and imported tiling materials are calculated in metric square meters.',
+      'Under the traditional British and Pakistani revenue standard, 1 marla is defined as 272.25 square feet (the 9-karam standard). Since 1 international square foot equals exactly 0.09290304 square meters, multiplying 272.25 by 0.09290304 yields 25.29285264 square meters, commonly rounded to 25.2929 sq m. Whether you are designing a modern villa floor plan or verifying land registry documents, converting marlas to square meters provides precise metric clarity.',
+    ],
+    howToHeading: 'How to Convert Marla to Square Meters',
+    howToIntro:
+      'To convert any land area from marla to square meters, multiply the number of marlas by 25.2929. (Based on the standard 272.25 sq ft value used in Pakistan; local revenue records can vary slightly in older city areas).',
+    formulaBox: 'square meters (sq m) = marla × 25.2929',
+    workedExampleTitle: 'Worked Example: Converting a 5-Marla Plot to Square Meters',
+    workedExampleBody:
+      'Suppose you are planning the construction of a two-story residence on a standard 5-marla suburban residential plot. To calculate the gross lot footprint in metric square meters for your architectural plans, multiply 5 by 25.2929: 5 × 25.2929 = 126.4645 sq m. The 5-marla plot provides an area of approximately 126.46 square meters (equivalent to 1,361.25 square feet).',
+    quickRefValues: [1, 2, 3, 5, 7, 10, 15, 20, 30, 50],
+    commonMistakes: [
+      {
+        title: 'Confusing the 272.25 sq ft standard marla with the urban 225 sq ft marla',
+        description:
+          'Certain private housing schemes in urban centers historically defined an unofficial marla as 225 sq ft (20.903 sq m) or 250 sq ft (23.226 sq m). The official statutory government revenue standard remains 272.25 sq ft (25.2929 sq m).',
+      },
+      {
+        title: 'Confusing square meters with linear meters',
+        description:
+          'A 5-marla plot equals 126.46 square meters of surface area; it is not a 126-meter line. Area conversions must always compare square units.',
+      },
+      {
+        title: 'Using square yards instead of square meters',
+        description:
+          '1 marla equals 30.25 square yards, whereas it equals 25.2929 square meters. Because 1 square meter is about 1.196 square yards, confusing these two units overestimates the metric area by roughly 20%.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many square meters are in 1 standard marla?',
+        answer:
+          'Under the standard Pakistani revenue definition (272.25 sq ft), 1 marla equals 25.2929 square meters.',
+      },
+      {
+        question: 'How many square meters is a 10-marla plot?',
+        answer:
+          'A standard 10-marla plot equals 252.929 square meters (10 × 25.2929 = 252.929 sq m, or 2,722.5 square feet).',
+      },
+      {
+        question: 'How do you convert square meters back to marla?',
+        answer:
+          'To convert square meters to marla, divide the square meter area by 25.2929 (e.g., 100 sq m ÷ 25.2929 = 3.9537 marla).',
+      },
+    ],
+    relatedSlugs: ['marla-to-sqft', 'sqm-to-sqft', 'marla-to-square-yards'],
   },
 };
 

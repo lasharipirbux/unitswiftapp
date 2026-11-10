@@ -101,7 +101,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                 <span className="block md:inline">unit in a swift.</span>
               </h1>
               <p className="text-lg sm:text-xl font-medium text-[#1F2A44] dark:text-slate-200 max-w-2xl mx-auto">
-                64 Dedicated Calculators — free, fast, and instant with no sign-up.
+                70 Dedicated Calculators — free, fast, and instant with no sign-up.
               </p>
             </div>
 
@@ -131,7 +131,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                   </button>
                 ) : (
                   <span className="hidden sm:inline-block absolute right-4 top-1/2 -translate-y-1/2 text-xs font-semibold text-[#1F2A44] dark:text-slate-300 font-mono-tabular pointer-events-none">
-                    64 tools
+                    70 tools
                   </span>
                 )}
               </div>
@@ -164,7 +164,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
         </div>
       </section>
 
-      {/* BELOW THE QUICK-FILTER CHIPS: MOST POPULAR ROW OF 4 ICON TILES + ALL 64 CONVERTERS GROUPED BY CATEGORY */}
+      {/* BELOW THE QUICK-FILTER CHIPS: MOST POPULAR ROW OF 4 ICON TILES + ALL 70 CONVERTERS GROUPED BY CATEGORY */}
       <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16" id="converters-directory">
         {/* MOST POPULAR ROW OF 4 ICON TILES */}
         <div className="space-y-5">
@@ -212,12 +212,12 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               onClick={() => setSearchQuery('')}
               className="text-xs font-bold text-[#1F2A44] dark:text-[#F2C94C] underline cursor-pointer"
             >
-              Show all 64 converters
+              Show all 70 converters
             </button>
           </div>
         )}
 
-        {/* ALL 64 CONVERTERS AS CLEAN ICON TILES GROUPED BY CATEGORY (4 columns desktop, 3 tablet, 2 mobile) */}
+        {/* ALL 70 CONVERTERS AS CLEAN ICON TILES GROUPED BY CATEGORY (4 columns desktop, 3 tablet, 2 mobile) */}
         {filteredConverters.length === 0 ? (
           <div className="p-10 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 text-center space-y-3">
             <p className="text-base font-bold text-[#1F2A44] dark:text-white">
@@ -231,7 +231,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               onClick={() => setSearchQuery('')}
               className="px-4 py-2 text-xs font-bold rounded-full bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
             >
-              Show All 64 Converters
+              Show All 70 Converters
             </button>
           </div>
         ) : (

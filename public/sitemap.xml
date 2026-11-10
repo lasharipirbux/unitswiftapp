@@ -326,6 +326,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://unitswift.org/pounds-to-grams</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/cm-to-mm</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/mm-to-cm</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/meter-to-km</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/kg-to-tola</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unitswift.org/marla-to-square-meter</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://unitswift.org/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
