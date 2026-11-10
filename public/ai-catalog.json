@@ -1,0 +1,23 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "UnitSwift",
+    "identifier": "unitswift.org"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:unitswift.org:llms-txt",
+      "displayName": "UnitSwift LLMs Context Index",
+      "type": "text/markdown",
+      "url": "https://unitswift.org/llms.txt",
+      "description": "Markdown index of all 64 unit converters, formulas, and reference tables on UnitSwift."
+    },
+    {
+      "identifier": "urn:air:unitswift.org:sitemap",
+      "displayName": "UnitSwift XML Sitemap",
+      "type": "application/xml",
+      "url": "https://unitswift.org/sitemap.xml",
+      "description": "Complete XML sitemap of all UnitSwift unit converter pages."
+    }
+  ]
+}

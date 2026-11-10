@@ -1600,15 +1600,20 @@ export function convertAnyUnit(value: number, fromUnitId: string, toUnitId: stri
 
 export function formatConvertedNumber(num: number): string {
   if (!Number.isFinite(num)) return '0';
-  if (Math.abs(num) === 0) return '0';
+  if (Math.abs(num) < 1e-12) return '0';
 
   const abs = Math.abs(num);
-  if (abs >= 1000000 || (abs > 0 && abs < 0.0001)) {
+  if (abs >= 1e12 || abs < 1e-6) {
     return num.toPrecision(6).replace(/\.?0+e/, 'e');
   }
 
-  // Round up to 4 decimal places while stripping trailing zeros
+  if (abs < 0.0001) {
+    return Number(num.toPrecision(6)).toString();
+  }
+
+  // Round up to 4 decimal places while stripping trailing zeros and preventing -0
   const rounded = Number(num.toFixed(4));
+  if (rounded === 0) return '0';
   return rounded.toLocaleString('en-US', {
     maximumFractionDigits: 4,
   });

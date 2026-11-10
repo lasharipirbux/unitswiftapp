@@ -59,18 +59,27 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
     ? converter.reverseFormulaText
     : converter.formulaText;
 
-  const numericInput = useMemo(() => {
-    const parsed = parseFloat(inputValue);
-    return Number.isNaN(parsed) ? 0 : parsed;
+  const isValidInput = useMemo(() => {
+    const trimmed = inputValue.trim();
+    if (trimmed === '') return false;
+    return Number.isFinite(Number(trimmed));
   }, [inputValue]);
 
+  const numericInput = useMemo(() => {
+    if (!isValidInput) return 0;
+    const parsed = Number(inputValue.trim());
+    return Object.is(parsed, -0) ? 0 : parsed;
+  }, [inputValue, isValidInput]);
+
   const convertedResult = useMemo(() => {
+    if (!isValidInput) return NaN;
     return activeConvertFn(numericInput);
-  }, [activeConvertFn, numericInput]);
+  }, [activeConvertFn, isValidInput, numericInput]);
 
   const formattedResult = useMemo(() => {
+    if (!isValidInput) return '—';
     return formatConvertedNumber(convertedResult);
-  }, [convertedResult]);
+  }, [convertedResult, isValidInput]);
 
   const unitRate = useMemo(() => {
     return formatConvertedNumber(activeConvertFn(1));
@@ -86,6 +95,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
   };
 
   const handleCopy = () => {
+    if (!isValidInput) return;
     navigator.clipboard?.writeText(`${formattedResult} ${activeToUnit?.symbol || ''}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
@@ -196,11 +206,10 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   <input
                     id="converter-number-input"
                     type="number"
-                    inputMode="decimal"
                     step="any"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="0"
+                    placeholder="Enter value (e.g. 1)"
                     className="w-full px-4 py-3.5 text-2xl font-bold font-mono-tabular bg-[#F6F8FA] dark:bg-[#0F1626] text-[#1F2A44] dark:text-white rounded-xl border-2 border-[#1F2A44]/20 dark:border-white/20 focus:border-[#1F2A44] dark:focus:border-[#F2C94C] focus:outline-none transition-colors"
                   />
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-[#1F2A44]/55 dark:text-slate-400 font-mono-tabular pointer-events-none">
@@ -283,7 +292,8 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
               <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#F6F8FA] dark:bg-[#0F1626] text-[#1F2A44] dark:text-white border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#1F2A44] dark:hover:border-[#F2C94C] transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                disabled={!isValidInput}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#F6F8FA] dark:bg-[#0F1626] text-[#1F2A44] dark:text-white border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#1F2A44] dark:hover:border-[#F2C94C] disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer whitespace-nowrap shrink-0"
               >
                 {copied ? (
                   <>
@@ -310,7 +320,13 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                 </code>
               </div>
               <div className="font-mono-tabular text-[#1F2A44]/75 dark:text-slate-300">
-                {inputValue || '0'} {activeFromUnit?.symbol} = <strong>{formattedResult} {activeToUnit?.symbol}</strong>
+                {isValidInput ? (
+                  <>
+                    {numericInput} {activeFromUnit?.symbol} = <strong>{formattedResult} {activeToUnit?.symbol}</strong>
+                  </>
+                ) : (
+                  <span>Enter a number above to see the instant result</span>
+                )}
               </div>
             </div>
           </div>

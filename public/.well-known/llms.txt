@@ -1,0 +1,98 @@
+# UnitSwift
+
+> UnitSwift is a free, fast, client-side online unit converter offering 64 dedicated calculators across weight, length, temperature, volume, speed, area, local units, and data with no sign-up and no tracking.
+
+## Weight Converters
+
+- [Kilograms to Pounds Converter (kg to lb)](https://unitswift.org/kg-to-pounds): Convert kilograms to pounds using pounds = kilograms × 2.20462262.
+- [Pounds to Kilograms Converter (lb to kg)](https://unitswift.org/pounds-to-kg): Convert pounds to kilograms using kilograms = pounds × 0.45359237.
+- [Grams to Ounces Converter (g to oz)](https://unitswift.org/gram-to-ounce): Convert grams to ounces using ounces = grams ÷ 28.3495231.
+- [Ounces to Grams Converter (oz to g)](https://unitswift.org/ounce-to-gram): Convert ounces to grams using grams = ounces × 28.3495231.
+- [Kilograms to Grams Converter (kg to g)](https://unitswift.org/kg-to-gram): Convert kilograms to grams using grams = kilograms × 1,000.
+- [Grams to Kilograms Converter (g to kg)](https://unitswift.org/gram-to-kg): Convert grams to kilograms using kilograms = grams ÷ 1,000.
+- [Pounds to Ounces Converter (lb to oz)](https://unitswift.org/pounds-to-ounce): Convert pounds to ounces using ounces = pounds × 16.
+- [Ounces to Pounds Converter (oz to lb)](https://unitswift.org/ounce-to-pounds): Convert ounces to pounds using pounds = ounces ÷ 16.
+- [Kilograms to Ounces Converter (kg to oz)](https://unitswift.org/kg-to-ounce): Convert kilograms to ounces using ounces = kilograms × 35.2739619.
+
+## Length Converters
+
+- [Inches to Centimeters Converter (in to cm)](https://unitswift.org/inch-to-cm): Convert inches to centimeters using centimeters = inches × 2.54.
+- [Centimeters to Inches Converter (cm to in)](https://unitswift.org/cm-to-inch): Convert centimeters to inches using inches = centimeters ÷ 2.54.
+- [Feet to Meters Converter (ft to m)](https://unitswift.org/feet-to-meter): Convert feet to meters using meters = feet × 0.3048.
+- [Meters to Feet Converter (m to ft)](https://unitswift.org/meter-to-feet): Convert meters to feet using feet = meters × 3.2808399.
+- [Miles to Kilometers Converter (mi to km)](https://unitswift.org/miles-to-km): Convert miles to kilometers using kilometers = miles × 1.609344.
+- [Kilometers to Miles Converter (km to mi)](https://unitswift.org/km-to-miles): Convert kilometers to miles using miles = kilometers × 0.62137119.
+- [Yards to Meters Converter (yd to m)](https://unitswift.org/yard-to-meter): Convert yards to meters using meters = yards × 0.9144.
+- [Meters to Yards Converter (m to yd)](https://unitswift.org/meter-to-yard): Convert meters to yards using yards = meters ÷ 0.9144.
+- [Centimeters to Feet Converter (cm to ft)](https://unitswift.org/cm-to-feet): Convert centimeters to feet using feet = centimeters ÷ 30.48.
+- [Feet to Centimeters Converter (ft to cm)](https://unitswift.org/feet-to-cm): Convert feet to centimeters using centimeters = feet × 30.48.
+- [Kilometers to Meters Converter (km to m)](https://unitswift.org/km-to-meter): Convert kilometers to meters using meters = kilometers × 1,000.
+- [Inches to Feet Converter (in to ft)](https://unitswift.org/inch-to-feet): Convert inches to feet using feet = inches ÷ 12.
+- [Feet to Inches Converter (ft to in)](https://unitswift.org/feet-to-inch): Convert feet to inches using inches = feet × 12.
+- [Millimeters to Inches Converter (mm to in)](https://unitswift.org/mm-to-inch): Convert millimeters to inches using inches = millimeters ÷ 25.4.
+- [Inches to Millimeters Converter (in to mm)](https://unitswift.org/inch-to-mm): Convert inches to millimeters using millimeters = inches × 25.4.
+- [Meters to Centimeters Converter (m to cm)](https://unitswift.org/meter-to-cm): Convert meters to centimeters using centimeters = meters × 100.
+- [Centimeters to Meters Converter (cm to m)](https://unitswift.org/cm-to-meter): Convert centimeters to meters using meters = centimeters ÷ 100.
+- [Miles to Meters Converter (mi to m)](https://unitswift.org/miles-to-meter): Convert miles to meters using meters = miles × 1,609.344.
+- [Yards to Inches Converter (yd to in)](https://unitswift.org/yard-to-inch): Convert yards to inches using inches = yards × 36.
+
+## Temperature Converters
+
+- [Celsius to Fahrenheit Converter (°C to °F)](https://unitswift.org/celsius-to-fahrenheit): Convert Celsius to Fahrenheit using °F = (°C × 1.8) + 32.
+- [Fahrenheit to Celsius Converter (°F to °C)](https://unitswift.org/fahrenheit-to-celsius): Convert Fahrenheit to Celsius using °C = (°F − 32) ÷ 1.8.
+- [Celsius to Kelvin Converter (°C to K)](https://unitswift.org/celsius-to-kelvin): Convert Celsius to Kelvin using K = °C + 273.15.
+- [Kelvin to Celsius Converter (K to °C)](https://unitswift.org/kelvin-to-celsius): Convert Kelvin to Celsius using °C = K − 273.15.
+- [Fahrenheit to Kelvin Converter (°F to K)](https://unitswift.org/fahrenheit-to-kelvin): Convert Fahrenheit to Kelvin using K = (°F − 32) × 5/9 + 273.15.
+
+## Volume Converters
+
+- [Liters to Gallons Converter (L to US gal)](https://unitswift.org/liter-to-gallon): Convert liters to US liquid gallons using gallons = liters ÷ 3.785411784.
+- [Gallons to Liters Converter (US gal to L)](https://unitswift.org/gallon-to-liter): Convert US liquid gallons to liters using liters = gallons × 3.785411784.
+- [Milliliters to Liters Converter (mL to L)](https://unitswift.org/ml-to-liter): Convert milliliters to liters using liters = milliliters ÷ 1,000.
+- [Liters to Milliliters Converter (L to mL)](https://unitswift.org/liter-to-ml): Convert liters to milliliters using milliliters = liters × 1,000.
+- [Gallons to Milliliters Converter (US gal to mL)](https://unitswift.org/gallon-to-ml): Convert US liquid gallons to milliliters using milliliters = gallons × 3,785.4118.
+
+## Speed Converters
+
+- [MPH to KM/H Speed Converter (mph to km/h)](https://unitswift.org/mph-to-kmh): Convert miles per hour to kilometers per hour using km/h = mph × 1.609344.
+- [KM/H to MPH Speed Converter (km/h to mph)](https://unitswift.org/kmh-to-mph): Convert kilometers per hour to miles per hour using mph = km/h ÷ 1.609344.
+
+## Area Converters
+
+- [Square Feet to Square Meters Converter (sq ft to sq m)](https://unitswift.org/sqft-to-sqm): Convert square feet to square meters using sq m = sq ft × 0.09290304.
+- [Square Meters to Square Feet Converter (sq m to sq ft)](https://unitswift.org/sqm-to-sqft): Convert square meters to square feet using sq ft = sq m × 10.76391042.
+- [Acres to Square Feet Converter (ac to sq ft)](https://unitswift.org/acre-to-sqft): Convert acres to square feet using sq ft = acres × 43,560.
+- [Acres to Kanal Converter (ac to kanal)](https://unitswift.org/acre-to-kanal): Convert acres to kanal using kanal = acres × 8.
+- [Kanal to Acres Converter (kanal to ac)](https://unitswift.org/kanal-to-acre): Convert kanal to acres using acres = kanal × 0.125.
+- [Square Yards to Marla Converter (sq yd to marla)](https://unitswift.org/square-yards-to-marla): Convert square yards to marla using marla = square yards ÷ 30.25.
+- [Marla to Square Yards Converter (marla to sq yd)](https://unitswift.org/marla-to-square-yards): Convert marla to square yards using square yards = marla × 30.25.
+
+## Local Units Converters
+
+- [Marla to Square Feet Converter (marla to sq ft)](https://unitswift.org/marla-to-sqft): Convert marla to square feet using sq ft = marla × 272.25.
+- [Square Feet to Marla Converter (sq ft to marla)](https://unitswift.org/sqft-to-marla): Convert square feet to marla using marla = sq ft ÷ 272.25.
+- [Kanal to Marla Converter (kanal to marla)](https://unitswift.org/kanal-to-marla): Convert kanal to marla using marla = kanal × 20.
+- [Marla to Kanal Converter (marla to kanal)](https://unitswift.org/marla-to-kanal): Convert marla to kanal using kanal = marla ÷ 20.
+- [Tola to Grams Converter (tola to g)](https://unitswift.org/tola-to-gram): Convert tola to grams using grams = tola × 11.6638.
+- [Grams to Tola Converter (g to tola)](https://unitswift.org/gram-to-tola): Convert grams to tola using tola = grams ÷ 11.6638.
+- [Seer to Kilograms Converter (seer to kg)](https://unitswift.org/seer-to-kg): Convert seer to kilograms using kilograms = seer × 0.9331.
+- [Kilograms to Seer Converter (kg to seer)](https://unitswift.org/kg-to-seer): Convert kilograms to seer using seer = kilograms ÷ 0.9331.
+- [Gaz to Feet Converter (gaz to ft)](https://unitswift.org/gaz-to-feet): Convert gaz to feet using feet = gaz × 3.
+- [Feet to Gaz Converter (ft to gaz)](https://unitswift.org/feet-to-gaz): Convert feet to gaz using gaz = feet ÷ 3.
+- [Meters to Gaz Converter (m to gaz)](https://unitswift.org/meter-to-gaz): Convert meters to gaz using gaz = meters ÷ 0.9144.
+
+## Data Storage Converters
+
+- [MB to GB Converter (Megabytes to Gigabytes)](https://unitswift.org/mb-to-gb): Convert megabytes to gigabytes using GB = MB ÷ 1,024.
+- [GB to MB Converter (Gigabytes to Megabytes)](https://unitswift.org/gb-to-mb): Convert gigabytes to megabytes using MB = GB × 1,024.
+- [KB to MB Converter (Kilobytes to Megabytes)](https://unitswift.org/kb-to-mb): Convert kilobytes to megabytes using MB = KB ÷ 1,024.
+- [MB to KB Converter (Megabytes to Kilobytes)](https://unitswift.org/mb-to-kb): Convert megabytes to kilobytes using KB = MB × 1,024.
+- [GB to TB Converter (Gigabytes to Terabytes)](https://unitswift.org/gb-to-tb): Convert gigabytes to terabytes using TB = GB ÷ 1,024.
+- [TB to GB Converter (Terabytes to Gigabytes)](https://unitswift.org/tb-to-gb): Convert terabytes to gigabytes using GB = TB × 1,024.
+
+## Site Information
+
+- [Home](https://unitswift.org/): Browse and search all 64 unit converters on UnitSwift.
+- [About UnitSwift](https://unitswift.org/about): Learn about UnitSwift, built by Naseeb with no sign-up and no personal data tracking.
+- [Contact UnitSwift](https://unitswift.org/contact): Report a conversion issue or request a new unit converter.
+- [Privacy Policy](https://unitswift.org/privacy-policy): Plain-English privacy policy explaining browser-based calculations.

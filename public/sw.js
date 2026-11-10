@@ -40,8 +40,14 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // For page navigations (e.g. /, /kg-to-pounds, etc.), try network first, fallback to cached index.html
-  if (request.mode === 'navigate') {
+  const isStaticDiscoveryFile =
+    url.pathname.endsWith('.txt') ||
+    url.pathname.endsWith('.json') ||
+    url.pathname.endsWith('.xml') ||
+    url.pathname.startsWith('/.well-known/');
+
+  // For SPA page navigations (e.g. /, /kg-to-pounds, etc.), try network first, fallback to cached index.html
+  if (request.mode === 'navigate' && !isStaticDiscoveryFile) {
     event.respondWith(
       fetch(request)
         .then((response) => {
