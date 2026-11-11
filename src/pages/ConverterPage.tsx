@@ -15,6 +15,7 @@ import {
   findConverterBySlug,
 } from '../data/converters';
 import { RICH_CONVERTER_CONTENT } from '../data/richConverterContent';
+import { RelatedConverters } from '../components/RelatedConverters';
 
 interface ConverterPageProps {
   converter: ConverterPageConfig;
@@ -105,16 +106,6 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
     return CATEGORIES.find((c) => c.id === converter.category);
   }, [converter.category]);
 
-  // More converters: prioritize same category, then popular/other converters
-  const moreConverters = useMemo(() => {
-    const sameCategory = CONVERTERS.filter(
-      (c) => c.category === converter.category && c.slug !== converter.slug
-    );
-    const otherCategories = CONVERTERS.filter(
-      (c) => c.category !== converter.category
-    );
-    return [...sameCategory, ...otherCategories].slice(0, 8);
-  }, [converter]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, scrollToId?: string) => {
     e.preventDefault();
@@ -547,7 +538,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                     onClick={(e) => handleLinkClick(e, `/${rel.slug}`)}
                     className="text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300 transition-colors inline-flex items-center gap-1"
                   >
-                    <span>{rel.title || rel.shortTitle}</span>
+                    <span>{rel.title}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 ))}
@@ -582,56 +573,11 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         );
       })()}
 
-      {/* MORE CONVERTERS SECTION */}
-      <section className="pt-6 border-t border-[#1F2A44]/10 dark:border-white/10 space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-          <div>
-            <h2 className="text-xl font-bold text-[#1F2A44] dark:text-white">
-              More converters
-            </h2>
-            <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400">
-              Explore related unit calculators or switch to another measurement category.
-            </p>
-          </div>
-          <a
-            href="/"
-            onClick={(e) => handleLinkClick(e, '/')}
-            className="text-xs font-semibold text-[#1F2A44] dark:text-[#F2C94C] hover:underline underline-offset-4 whitespace-nowrap shrink-0"
-          >
-            View all 70 converters →
-          </a>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {moreConverters.map((item) => {
-            const fromU = UNITS[item.fromUnitId];
-            const toU = UNITS[item.toUnitId];
-            const sample = formatConvertedNumber(item.convert(1));
-
-            return (
-              <a
-                key={item.slug}
-                href={`/${item.slug}`}
-                onClick={(e) => handleLinkClick(e, `/${item.slug}`)}
-                className="group p-4 rounded-xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 hover:border-[#1F2A44] dark:hover:border-[#F2C94C] transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 text-xs text-[#1F2A44]/60 dark:text-slate-400 mb-1">
-                    <span className="capitalize">{item.category}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:text-[#1F2A44] dark:group-hover:text-[#F2C94C] transition-colors" />
-                  </div>
-                  <h3 className="text-sm font-bold text-[#1F2A44] dark:text-white group-hover:underline decoration-[#F2C94C] decoration-2 underline-offset-4">
-                    {item.shortTitle}
-                  </h3>
-                </div>
-                <div className="mt-3 pt-2.5 border-t border-[#1F2A44]/10 dark:border-white/10 text-xs font-mono-tabular text-[#1F2A44]/70 dark:text-slate-400">
-                  1 {fromU?.symbol} = {sample} {toU?.symbol}
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
+      {/* RELATED CONVERTERS SECTION (6 Clean Same-Category Tiles) */}
+      <RelatedConverters
+        currentConverter={converter}
+        navigate={navigate}
+      />
     </div>
   );
 };
