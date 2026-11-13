@@ -1,6 +1,6 @@
 # UnitSwift
 
-> UnitSwift is a free, fast, client-side online unit converter offering 70 dedicated calculators across weight, length, temperature, volume, speed, area, local units, and data with no sign-up and no tracking.
+> UnitSwift is a free, fast, client-side online unit converter offering 105 dedicated calculators across weight, length, temperature, volume, speed, area, local units, and data with no sign-up and no tracking.
 
 ## Weight Converters
 
@@ -14,6 +14,11 @@
 - [Ounces to Pounds Converter (oz to lb)](https://unitswift.org/ounce-to-pounds): Convert ounces to pounds using pounds = ounces ÷ 16.
 - [Kilograms to Ounces Converter (kg to oz)](https://unitswift.org/kg-to-ounce): Convert kilograms to ounces using ounces = kilograms × 35.2739619.
 - [Pounds to Grams Converter (lb to g)](https://unitswift.org/pounds-to-grams): Convert pounds to grams using grams = pounds × 453.59237.
+- [Grams to Pounds Converter (g to lb)](https://unitswift.org/gram-to-pounds): Convert grams to pounds using pounds = grams ÷ 453.59237.
+- [Ounces to Kilograms Converter (oz to kg)](https://unitswift.org/ounce-to-kg): Convert ounces to kilograms using kilograms = ounces × 0.02834952.
+- [Metric Tons to Kilograms Converter (t to kg)](https://unitswift.org/ton-to-kg): Convert metric tons to kilograms using kilograms = metric tons × 1,000.
+- [Kilograms to Metric Tons Converter (kg to t)](https://unitswift.org/kg-to-ton): Convert kilograms to metric tons using metric tons = kilograms ÷ 1,000.
+- [Metric Tons to Pounds Converter (t to lb)](https://unitswift.org/ton-to-pounds): Convert metric tons to pounds using pounds = metric tons × 2,204.62262.
 
 ## Length Converters
 
@@ -39,6 +44,16 @@
 - [Centimeters to Millimeters Converter (cm to mm)](https://unitswift.org/cm-to-mm): Convert centimeters to millimeters using mm = cm × 10.
 - [Millimeters to Centimeters Converter (mm to cm)](https://unitswift.org/mm-to-cm): Convert millimeters to centimeters using cm = mm ÷ 10.
 - [Meters to Kilometers Converter (m to km)](https://unitswift.org/meter-to-km): Convert meters to kilometers using km = meters ÷ 1,000.
+- [Kilometers to Feet Converter (km to ft)](https://unitswift.org/km-to-feet): Convert kilometers to feet using feet = km × 3,280.839895.
+- [Feet to Kilometers Converter (ft to km)](https://unitswift.org/feet-to-km): Convert feet to kilometers using km = feet × 0.0003048.
+- [Miles to Feet Converter (mi to ft)](https://unitswift.org/miles-to-feet): Convert miles to feet using feet = miles × 5,280.
+- [Feet to Miles Converter (ft to mi)](https://unitswift.org/feet-to-miles): Convert feet to miles using miles = feet ÷ 5,280.
+- [Inches to Meters Converter (in to m)](https://unitswift.org/inch-to-meter): Convert inches to meters using meters = inches × 0.0254.
+- [Meters to Inches Converter (m to in)](https://unitswift.org/meter-to-inch): Convert meters to inches using inches = meters ÷ 0.0254.
+- [Centimeters to Yards Converter (cm to yd)](https://unitswift.org/cm-to-yard): Convert centimeters to yards using yards = cm ÷ 91.44.
+- [Yards to Centimeters Converter (yd to cm)](https://unitswift.org/yard-to-cm): Convert yards to centimeters using cm = yards × 91.44.
+- [Yards to Feet Converter (yd to ft)](https://unitswift.org/yard-to-feet): Convert yards to feet using feet = yards × 3.
+- [Feet to Yards Converter (ft to yd)](https://unitswift.org/feet-to-yard): Convert feet to yards using yards = feet ÷ 3.
 
 ## Temperature Converters
 
@@ -55,11 +70,18 @@
 - [Milliliters to Liters Converter (mL to L)](https://unitswift.org/ml-to-liter): Convert milliliters to liters using liters = milliliters ÷ 1,000.
 - [Liters to Milliliters Converter (L to mL)](https://unitswift.org/liter-to-ml): Convert liters to milliliters using milliliters = liters × 1,000.
 - [Gallons to Milliliters Converter (US gal to mL)](https://unitswift.org/gallon-to-ml): Convert US liquid gallons to milliliters using milliliters = gallons × 3,785.4118.
+- [Cups to Milliliters Converter (cup to mL)](https://unitswift.org/cup-to-ml): Convert US cups to milliliters using mL = US cups × 236.5882365.
+- [Milliliters to Cups Converter (mL to cup)](https://unitswift.org/ml-to-cup): Convert milliliters to US cups using US cups = mL ÷ 236.5882365.
+- [Tablespoons to Milliliters Converter (tbsp to mL)](https://unitswift.org/tbsp-to-ml): Convert US tablespoons to milliliters using mL = US tbsp × 14.7867648.
+- [Teaspoons to Milliliters Converter (tsp to mL)](https://unitswift.org/tsp-to-ml): Convert US teaspoons to milliliters using mL = US tsp × 4.9289216.
 
 ## Speed Converters
 
 - [MPH to KM/H Speed Converter (mph to km/h)](https://unitswift.org/mph-to-kmh): Convert miles per hour to kilometers per hour using km/h = mph × 1.609344.
 - [KM/H to MPH Speed Converter (km/h to mph)](https://unitswift.org/kmh-to-mph): Convert kilometers per hour to miles per hour using mph = km/h ÷ 1.609344.
+- [KM/H to m/s Speed Converter (km/h to m/s)](https://unitswift.org/kmh-to-ms): Convert kilometers per hour to meters per second using m/s = km/h ÷ 3.6.
+- [m/s to KM/H Speed Converter (m/s to km/h)](https://unitswift.org/ms-to-kmh): Convert meters per second to kilometers per hour using km/h = m/s × 3.6.
+- [Knots to KM/H Speed Converter (kn to km/h)](https://unitswift.org/knots-to-kmh): Convert knots to kilometers per hour using km/h = knots × 1.852.
 
 ## Area Converters
 
@@ -71,6 +93,12 @@
 - [Square Yards to Marla Converter (sq yd to marla)](https://unitswift.org/square-yards-to-marla): Convert square yards to marla using marla = square yards ÷ 30.25.
 - [Marla to Square Yards Converter (marla to sq yd)](https://unitswift.org/marla-to-square-yards): Convert marla to square yards using square yards = marla × 30.25.
 - [Marla to Square Meters Converter (marla to sq m)](https://unitswift.org/marla-to-square-meter): Convert marla to square meters using sq m = marla × 25.2929.
+- [Square Meters to Acres Converter (sq m to ac)](https://unitswift.org/sqm-to-acre): Convert square meters to acres using acres = sq m ÷ 4,046.8564224.
+- [Acres to Square Meters Converter (ac to sq m)](https://unitswift.org/acre-to-sqm): Convert acres to square meters using sq m = acres × 4,046.8564224.
+- [Square Yards to Square Feet Converter (sq yd to sq ft)](https://unitswift.org/sqyard-to-sqft): Convert square yards to square feet using sq ft = sq yd × 9.
+- [Square Feet to Square Yards Converter (sq ft to sq yd)](https://unitswift.org/sqft-to-sqyard): Convert square feet to square yards using sq yd = sq ft ÷ 9.
+- [Hectares to Acres Converter (ha to ac)](https://unitswift.org/hectare-to-acre): Convert hectares to acres using acres = hectares × 2.47105381.
+- [Acres to Hectares Converter (ac to ha)](https://unitswift.org/acre-to-hectare): Convert acres to hectares using hectares = acres × 0.40468564.
 
 ## Local Units Converters
 
@@ -86,6 +114,13 @@
 - [Feet to Gaz Converter (ft to gaz)](https://unitswift.org/feet-to-gaz): Convert feet to gaz using gaz = feet ÷ 3.
 - [Meters to Gaz Converter (m to gaz)](https://unitswift.org/meter-to-gaz): Convert meters to gaz using gaz = meters ÷ 0.9144.
 - [Kilograms to Tola Converter (kg to tola)](https://unitswift.org/kg-to-tola): Convert kilograms to tola using tola = (kg × 1,000) ÷ 11.6638.
+- [Tola to Kilograms Converter (tola to kg)](https://unitswift.org/tola-to-kg): Convert tola to kilograms using kg = (tola × 11.6638) ÷ 1,000.
+- [Maund to Kilograms Converter (maund to kg)](https://unitswift.org/maund-to-kg): Convert maund to kilograms using kilograms = maund × 40.
+- [Kilograms to Maund Converter (kg to maund)](https://unitswift.org/kg-to-maund): Convert kilograms to maund using maund = kilograms ÷ 40.
+- [Seer to Pounds Converter (seer to lb)](https://unitswift.org/seer-to-pounds): Convert seer to pounds using pounds = seer × 2.057133.
+- [Pounds to Seer Converter (lb to seer)](https://unitswift.org/pounds-to-seer): Convert pounds to seer using seer = pounds × 0.486113.
+- [Kanal to Square Feet Converter (kanal to sq ft)](https://unitswift.org/kanal-to-sqft): Convert kanal to square feet using sq ft = kanal × 5,445.
+- [Square Feet to Kanal Converter (sq ft to kanal)](https://unitswift.org/sqft-to-kanal): Convert square feet to kanal using kanal = sq ft ÷ 5,445.
 
 ## Data Storage Converters
 
@@ -98,7 +133,7 @@
 
 ## Site Information
 
-- [Home](https://unitswift.org/): Browse and search all 70 unit converters on UnitSwift.
+- [Home](https://unitswift.org/): Browse and search all 105 unit converters on UnitSwift.
 - [About UnitSwift](https://unitswift.org/about): Learn about UnitSwift, built by Naseeb with no sign-up and no personal data tracking.
 - [Contact UnitSwift](https://unitswift.org/contact): Report a conversion issue or request a new unit converter.
 - [Privacy Policy](https://unitswift.org/privacy-policy): Plain-English privacy policy explaining browser-based calculations.

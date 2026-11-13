@@ -3,7 +3,7 @@ import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { ConverterPage } from './pages/ConverterPage';
 import { AboutPage, ContactPage, PrivacyPolicyPage } from './pages/InfoPages';
-import { CATEGORIES, findConverterBySlug } from './data/converters';
+import { CATEGORIES, CONVERTERS, findConverterBySlug } from './data/converters';
 import { RICH_CONVERTER_CONTENT } from './data/richConverterContent';
 import { updatePageSEO } from './utils/seo';
 
@@ -15,7 +15,9 @@ function normalizePath(rawPath: string): string {
   const withoutQuery = withoutHash.split('?')[0] || '/';
   const cleaned = withoutQuery.replace(/\/+$/, '');
   if (!cleaned) return '/';
-  return cleaned.startsWith('/') ? cleaned : `/${cleaned}`;
+  const normalized = cleaned.startsWith('/') ? cleaned : `/${cleaned}`;
+  if (normalized === '/privacy') return '/privacy-policy';
+  return normalized;
 }
 
 function getInitialPath(): string {
@@ -179,9 +181,9 @@ export default function App() {
   useEffect(() => {
     if (currentPath === '/') {
       updatePageSEO({
-        title: 'UnitSwift – Convert Any Unit in a Swift | 70 Free Unit Converters',
+        title: `UnitSwift – Convert Any Unit | ${CONVERTERS.length} Free Converters`,
         description:
-          'Convert weight, length, temperature, volume, speed, area, local and data units instantly. Free, fast unit converter with 70 calculators.',
+          `Convert weight, length, temperature, volume, speed, area, local and data units instantly. Free, fast unit converter with ${CONVERTERS.length} calculators.`,
         path: '/',
       });
     } else if (activeConverter) {
@@ -202,7 +204,7 @@ export default function App() {
       updatePageSEO({
         title: 'About UnitSwift – Free Unit Converter Built by Naseeb',
         description:
-          'UnitSwift is a free unit converter with 70 calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.',
+          `UnitSwift is a free unit converter with ${CONVERTERS.length} calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.`,
         path: '/about',
         breadcrumbs: [
           { name: 'Home', path: '/' },
@@ -234,8 +236,9 @@ export default function App() {
     } else {
       updatePageSEO({
         title: 'Page Not Found – UnitSwift',
-        description: 'Explore all 70 free unit converters on UnitSwift.',
+        description: `Explore all ${CONVERTERS.length} free unit converters on UnitSwift.`,
         path: currentPath,
+        noindex: true,
       });
     }
   }, [currentPath, activeConverter]);
@@ -270,7 +273,7 @@ export default function App() {
             We couldn&rsquo;t find that unit page
           </h1>
           <p className="text-sm text-[#1F2A44]/70 dark:text-slate-300 max-w-md mx-auto">
-            The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our 70 unit converters.
+            The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our {CONVERTERS.length} unit converters.
           </p>
           <div className="pt-2">
             <button
@@ -278,7 +281,7 @@ export default function App() {
               onClick={() => navigate('/')}
               className="px-5 py-2.5 text-sm font-bold rounded-xl bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
             >
-              Browse All 70 Converters
+              Browse All {CONVERTERS.length} Converters
             </button>
           </div>
         </div>

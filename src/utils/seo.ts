@@ -5,6 +5,7 @@ export interface PageSEO {
   title: string;
   description: string;
   path: string;
+  noindex?: boolean;
   breadcrumbs?: {
     name: string;
     path: string;
@@ -15,7 +16,7 @@ export interface PageSEO {
   }[];
 }
 
-export function updatePageSEO({ title, description, path, breadcrumbs, faqs }: PageSEO) {
+export function updatePageSEO({ title, description, path, noindex, breadcrumbs, faqs }: PageSEO) {
   document.title = title;
 
   const setMeta = (selector: string, attrName: 'name' | 'property', attrValue: string, content: string) => {
@@ -31,13 +32,16 @@ export function updatePageSEO({ title, description, path, breadcrumbs, faqs }: P
   const normalizedPath = path === '/' ? '/' : path.startsWith('/') ? path : `/${path}`;
   const canonicalUrl = normalizedPath === '/' ? `${BASE_URL}/` : `${BASE_URL}${normalizedPath}`;
 
+  setMeta('meta[name="robots"]', 'name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
   setMeta('meta[name="description"]', 'name', 'description', description);
   setMeta('meta[property="og:title"]', 'property', 'og:title', title);
   setMeta('meta[property="og:description"]', 'property', 'og:description', description);
   setMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
   setMeta('meta[property="og:image"]', 'property', 'og:image', DEFAULT_OG_IMAGE);
+  setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', title);
   setMeta('meta[property="og:type"]', 'property', 'og:type', 'website');
   setMeta('meta[property="og:site_name"]', 'property', 'og:site_name', 'UnitSwift');
+  setMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
   setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
   setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
   setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', DEFAULT_OG_IMAGE);

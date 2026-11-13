@@ -25,8 +25,12 @@ export function formatRelatedTileTitle(shortTitle: string): string {
       if (lower === 'tb') return 'TB';
       if (lower === 'mph') return 'MPH';
       if (lower === 'kmh') return 'KM/H';
+      if (lower === 'ms') return 'm/s';
       if (lower === 'sqft') return 'Sq Ft';
       if (lower === 'sqm') return 'Sq M';
+      if (lower === 'sqyard') return 'Sq Yard';
+      if (lower === 'tbsp') return 'Tbsp';
+      if (lower === 'tsp') return 'Tsp';
       if (lower === 'ml') return 'mL';
       if (lower === 'kg') return 'Kg';
       if (lower === 'cm') return 'Cm';
@@ -106,7 +110,7 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
           onClick={(e) => handleLinkClick(e, '/')}
           className="text-xs font-semibold text-[#1F2A44] dark:text-[#F2C94C] hover:underline underline-offset-4 whitespace-nowrap shrink-0"
         >
-          View all 70 converters →
+          View all {CONVERTERS.length} converters →
         </a>
       </div>
 
