@@ -1,5 +1,5 @@
-import React from 'react';
-import { ChevronRight, Mail } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronRight, Mail, Copy, Check } from 'lucide-react';
 import { CONVERTERS } from '../data/converters';
 
 interface InfoPageProps {
@@ -45,7 +45,53 @@ export const AboutPage: React.FC<InfoPageProps> = ({ navigate }) => {
   );
 };
 
+const CONTACT_EMAIL = 'unitswift.help@gmail.com';
+
 export const ContactPage: React.FC<InfoPageProps> = ({ navigate }) => {
+  const [emailCopied, setEmailCopied] = useState(false);
+  const copyTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current !== null) {
+        window.clearTimeout(copyTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleCopyEmail = async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(CONTACT_EMAIL);
+      } else {
+        throw new Error('Clipboard API unavailable');
+      }
+    } catch {
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = CONTACT_EMAIL;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      } catch {
+        // Ignore fallback copy errors
+      }
+    }
+
+    setEmailCopied(true);
+    if (copyTimerRef.current !== null) {
+      window.clearTimeout(copyTimerRef.current);
+    }
+    copyTimerRef.current = window.setTimeout(() => {
+      setEmailCopied(false);
+      copyTimerRef.current = null;
+    }, 2000);
+  };
+
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
       <nav
@@ -76,15 +122,33 @@ export const ContactPage: React.FC<InfoPageProps> = ({ navigate }) => {
         <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
         <div className="p-6 sm:p-8 space-y-4 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
           <p>Found a wrong value or want a new converter? Write to us.</p>
-          <p className="pt-1">
+          <div className="pt-1 flex flex-wrap items-center gap-3">
             <a
-              href="mailto:unitswift.help@gmail.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="inline-flex items-center gap-2 font-bold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-85 transition-opacity"
             >
               <Mail className="w-4 h-4 shrink-0" aria-hidden="true" />
-              <span>unitswift.help@gmail.com</span>
+              <span>{CONTACT_EMAIL}</span>
             </a>
-          </p>
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              aria-label="Copy email address"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#F6F8FA] dark:bg-[#0F1626] text-[#1F2A44] dark:text-white border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#1F2A44] dark:hover:border-[#F2C94C] transition-colors cursor-pointer"
+            >
+              {emailCopied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-[#F2C94C]" aria-hidden="true" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>Copy email</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
