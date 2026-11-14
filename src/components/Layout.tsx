@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, Download } from 'lucide-react';
+import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, ArrowUp, Download } from 'lucide-react';
 import { CONVERTERS, CATEGORIES, CategoryId } from '../data/converters';
 import { LogoMark } from './LogoMark';
 
@@ -27,6 +27,7 @@ export const Layout: React.FC<LayoutProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpandedCategory, setMobileExpandedCategory] = useState<CategoryId | null>(null);
   const [deferredInstallPrompt, setDeferredInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const headerRef = useRef<HTMLElement | null>(null);
   const hoverOpenedTimestampRef = useRef<number>(0);
@@ -98,6 +99,23 @@ export const Layout: React.FC<LayoutProps> = ({
       clearCloseTimer();
     };
   }, []);
+
+  // Show Back to Top button after scrolling down a little
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, scrollToId?: string) => {
     e.preventDefault();
@@ -504,6 +522,23 @@ export const Layout: React.FC<LayoutProps> = ({
           </div>
         </div>
       </footer>
+
+      {/* Fixed Back to Top Button (Bottom-Right) */}
+      <button
+        type="button"
+        onClick={handleScrollToTop}
+        aria-label="Back to top"
+        title="Back to top"
+        aria-hidden={!showBackToTop}
+        tabIndex={showBackToTop ? 0 : -1}
+        className={`fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 w-11 h-11 rounded-full flex items-center justify-center bg-[#1F2A44] text-[#F2C94C] dark:bg-[#F2C94C] dark:text-[#1F2A44] border-2 border-[#F2C94C] dark:border-[#1F2A44] shadow-md hover:brightness-95 active:scale-95 transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C] ${
+          showBackToTop
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-3 pointer-events-none'
+        }`}
+      >
+        <ArrowUp className="w-5 h-5 stroke-[2.5]" aria-hidden="true" />
+      </button>
     </div>
   );
 };
