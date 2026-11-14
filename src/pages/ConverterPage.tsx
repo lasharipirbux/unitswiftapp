@@ -382,7 +382,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         </div>
       </div>
 
-      {/* RICH ~500-WORD CONTENT SECTION (FOR THE 10 SPECIFIED CONVERTER PAGES ONLY) */}
+      {/* RICH ~500-WORD CONTENT SECTION (FOR ALL 105 CONVERTER PAGES) */}
       {RICH_CONVERTER_CONTENT[converter.slug] && (() => {
         const rich = RICH_CONVERTER_CONTENT[converter.slug];
         const fromU = UNITS[converter.fromUnitId];

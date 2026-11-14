@@ -1,4 +1,4 @@
-const CACHE_NAME = 'unitswift-pwa-v1';
+const CACHE_NAME = 'unitswift-pwa-v3-105';
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -62,26 +62,22 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For same-origin assets and fonts, serve from cache and update in background
+  // For same-origin assets and fonts, try network first and fallback to cache when offline
   if (
     url.origin === self.location.origin ||
     url.hostname === 'fonts.googleapis.com' ||
     url.hostname === 'fonts.gstatic.com'
   ) {
     event.respondWith(
-      caches.match(request).then((cachedResponse) => {
-        const networkFetch = fetch(request)
-          .then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              const responseClone = networkResponse.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
-            }
-            return networkResponse;
-          })
-          .catch(() => cachedResponse);
-
-        return cachedResponse || networkFetch;
-      })
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(request))
     );
   }
 });

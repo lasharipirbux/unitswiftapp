@@ -1141,7 +1141,7 @@ export const CONVERTERS: ConverterPageConfig[] = [
     convert: (val) => val * 36,
     reverseConvert: (val) => val / 36,
   },
-  // --- 10 AREA & LOCAL UNITS CONVERTER PAGES (TOTAL 50) ---
+  // --- AREA & LOCAL UNITS CONVERTER PAGES ---
   {
     slug: 'sqft-to-sqm',
     title: 'Square Feet to Square Meters Converter',
@@ -1331,7 +1331,7 @@ export const CONVERTERS: ConverterPageConfig[] = [
     convert: (val) => val / 0.9331,
     reverseConvert: (val) => val * 0.9331,
   },
-  // --- 4 NEW AREA & DATA CONVERTER PAGES (51-54) ---
+  // --- ADDITIONAL AREA & DATA CONVERTER PAGES ---
   {
     slug: 'acre-to-kanal',
     title: 'Acres to Kanal Converter',
@@ -1408,7 +1408,7 @@ export const CONVERTERS: ConverterPageConfig[] = [
     convert: (val) => val / 1024,
     reverseConvert: (val) => val * 1024,
   },
-  // --- 10 NEW CONVERTER PAGES (TOTAL 64) ---
+  // --- ADDITIONAL AREA, LOCAL & DATA CONVERTER PAGES ---
   {
     slug: 'kanal-to-acre',
     title: 'Kanal to Acres Converter',
@@ -1598,7 +1598,7 @@ export const CONVERTERS: ConverterPageConfig[] = [
     convert: (val) => val / 0.9144,
     reverseConvert: (val) => val * 0.9144,
   },
-  // --- 6 NEW CONVERTER PAGES (TOTAL 70) ---
+  // --- ADDITIONAL WEIGHT, LENGTH, LOCAL & AREA CONVERTER PAGES ---
   {
     slug: 'pounds-to-grams',
     title: 'Pounds to Grams Converter',
@@ -1708,7 +1708,7 @@ export const CONVERTERS: ConverterPageConfig[] = [
     convert: (val) => val * 25.2929,
     reverseConvert: (val) => val / 25.2929,
   },
-  // --- 30 NEW CONVERTER PAGES (TOTAL 100) ---
+  // --- ADDITIONAL LENGTH, WEIGHT, LOCAL, AREA & VOLUME CONVERTER PAGES ---
   {
     slug: 'km-to-feet',
     title: 'Kilometers to Feet Converter',
