@@ -163,6 +163,9 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         >
           {displayTitle}
         </h1>
+        <p className="text-base font-semibold text-[#1F2A44] dark:text-[#F2C94C]">
+          1 {activeFromUnit?.symbol} = {unitRate} {activeToUnit?.pluralName}
+        </p>
         {/* 2-3 line description */}
         <div className="space-y-1 text-sm sm:text-base text-[#1F2A44]/75 dark:text-slate-300 leading-relaxed">
           <p>{converter.descriptionLine1}</p>
@@ -382,6 +385,64 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         </div>
       </div>
 
+      {/* Small Table of 8 Common Values for that Unit Pair */}
+      <div className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
+        <div className="px-6 py-4 border-b border-[#1F2A44]/10 dark:border-white/10 flex items-center justify-between">
+          <div>
+            <h2 className="text-base font-bold text-[#1F2A44] dark:text-white">
+              Common {activeFromUnit?.pluralName} to {activeToUnit?.pluralName} Conversion Table
+            </h2>
+            <p className="text-xs text-[#1F2A44]/65 dark:text-slate-400">
+              8 common reference values for {activeFromUnit?.symbol} to {activeToUnit?.symbol}
+            </p>
+          </div>
+          <span className="text-xs font-mono-tabular text-[#1F2A44]/60 dark:text-slate-400">
+            {activeFromUnit?.symbol} → {activeToUnit?.symbol}
+          </span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA]/60 dark:bg-[#0F1626]/60 text-xs font-semibold text-[#1F2A44]/70 dark:text-slate-300">
+                <th className="py-3 px-6">{activeFromUnit?.pluralName} ({activeFromUnit?.symbol})</th>
+                <th className="py-3 px-6 text-right">{activeToUnit?.pluralName} ({activeToUnit?.symbol})</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
+              {[1, 2, 5, 10, 25, 50, 100, 500].map((val) => {
+                const rowConverted = formatConvertedNumber(activeConvertFn(val));
+                const isSelected = parseFloat(inputValue) === val;
+
+                return (
+                  <tr
+                    key={val}
+                    onClick={() => setInputValue(String(val))}
+                    className={`cursor-pointer transition-colors ${
+                      isSelected
+                        ? 'bg-[#F2C94C]/20 dark:bg-[#F2C94C]/15 font-semibold'
+                        : 'hover:bg-[#F6F8FA] dark:hover:bg-[#0F1626]/60'
+                    }`}
+                    title={`Click to load ${val} ${activeFromUnit?.symbol} into calculator`}
+                  >
+                    <td className="py-3 px-6 text-[#1F2A44] dark:text-white">
+                      {val} {activeFromUnit?.symbol}
+                    </td>
+                    <td className="py-3 px-6 text-right font-semibold text-[#1F2A44] dark:text-[#F2C94C]">
+                      {rowConverted} {activeToUnit?.symbol}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="px-6 py-3 bg-[#F6F8FA]/60 dark:bg-[#0F1626]/50 border-t border-[#1F2A44]/10 dark:border-white/10 text-xs text-[#1F2A44]/60 dark:text-slate-400">
+          Click any row above to set the input value to that measurement.
+        </div>
+      </div>
+
       {/* RICH ~500-WORD CONTENT SECTION (FOR ALL 105 CONVERTER PAGES) */}
       {RICH_CONVERTER_CONTENT[converter.slug] && (() => {
         const rich = RICH_CONVERTER_CONTENT[converter.slug];
@@ -503,13 +564,13 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
               </div>
             </section>
 
-            {/* 5. FAQ (4 Questions with Short Answers) */}
+            {/* 5. FAQ (3 Questions with Short Answers) */}
             <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
                 FAQ
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {rich.faqs.map((faq, idx) => (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {rich.faqs.slice(0, 3).map((faq, idx) => (
                   <div
                     key={idx}
                     className="p-5 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"

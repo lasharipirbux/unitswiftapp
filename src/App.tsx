@@ -197,7 +197,7 @@ export default function App() {
           { name: categoryObj?.name || activeConverter.category, path: `/#category-${activeConverter.category}` },
           { name: activeConverter.shortTitle, path: `/${activeConverter.slug}` },
         ],
-        faqs: richContent?.faqs,
+        faqs: richContent?.faqs?.slice(0, 3),
       });
     } else if (currentPath === '/about') {
       updatePageSEO({
