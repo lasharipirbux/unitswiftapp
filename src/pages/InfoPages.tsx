@@ -37,7 +37,7 @@ export const AboutPage: React.FC<InfoPageProps> = ({ navigate }) => {
         <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
         <div className="p-6 sm:p-8 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
           <p>
-            UnitSwift is a free unit converter with {CONVERTERS.length} converters across weight, length, temperature, volume, speed, area, local units, and data. Built by Naseeb, it runs directly in your browser with no sign-up required and no tracking of personal data.
+            UnitSwift is a free unit converter with 105 converters across weight, length, temperature, volume, speed, area, local units, and data. Built by Naseeb, it runs directly in your browser with no sign-up required and no tracking of personal data.
           </p>
         </div>
       </div>

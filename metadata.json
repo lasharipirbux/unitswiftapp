@@ -1,6 +1,6 @@
 {
   "name": "UnitSwift",
-  "description": "Convert weight, length, temperature, volume, speed, area, local and data units instantly. Free, fast unit converter with 105 calculators.",
+  "description": "UnitSwift is a free unit converter with 105 converters, no personal data, no sign up.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

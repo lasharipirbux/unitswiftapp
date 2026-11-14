@@ -182,8 +182,7 @@ export default function App() {
     if (currentPath === '/') {
       updatePageSEO({
         title: `UnitSwift – Convert Any Unit | ${CONVERTERS.length} Free Converters`,
-        description:
-          `Convert weight, length, temperature, volume, speed, area, local and data units instantly. Free, fast unit converter with ${CONVERTERS.length} calculators.`,
+        description: 'UnitSwift is a free unit converter with 105 converters, no personal data, no sign up.',
         path: '/',
       });
     } else if (activeConverter) {
