@@ -64,6 +64,7 @@ export function buildSitemapEntries(lastmod = getTodayDateString()): SitemapEntr
   addEntry('/about', 'monthly', '0.6');
   addEntry('/contact', 'monthly', '0.6');
   addEntry('/privacy-policy', 'monthly', '0.5');
+  addEntry('/terms', 'monthly', '0.5');
 
   return entries;
 }
