@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { ConverterPage } from './pages/ConverterPage';
+import { BulkConverterPage } from './pages/BulkConverterPage';
 import { AboutPage, ContactPage, PrivacyPolicyPage } from './pages/InfoPages';
 import { CATEGORIES, CONVERTERS, findConverterBySlug } from './data/converters';
 import { RICH_CONVERTER_CONTENT } from './data/richConverterContent';
@@ -38,6 +39,7 @@ function getInitialPath(): string {
       const normalizedSaved = normalizePath(savedPath);
       if (
         findConverterBySlug(normalizedSaved.slice(1)) ||
+        normalizedSaved === '/bulk-converter' ||
         normalizedSaved === '/about' ||
         normalizedSaved === '/contact' ||
         normalizedSaved === '/privacy-policy'
@@ -199,6 +201,17 @@ export default function App() {
         ],
         faqs: richContent?.faqs?.slice(0, 3),
       });
+    } else if (currentPath === '/bulk-converter') {
+      updatePageSEO({
+        title: 'Bulk Unit Converter (CSV) – Convert Many Values at Once | UnitSwift',
+        description:
+          'Convert many unit values at once with UnitSwift Bulk Converter. Upload a CSV file or paste numbers for any unit pair and download the result CSV in your browser.',
+        path: '/bulk-converter',
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: 'Bulk Convert (CSV)', path: '/bulk-converter' },
+        ],
+      });
     } else if (currentPath === '/about') {
       updatePageSEO({
         title: 'About UnitSwift – Free Unit Converter Built by Naseeb',
@@ -257,6 +270,8 @@ export default function App() {
           initialInput={preservedInput}
           navigate={navigate}
         />
+      ) : currentPath === '/bulk-converter' ? (
+        <BulkConverterPage navigate={navigate} />
       ) : currentPath === '/about' ? (
         <AboutPage navigate={navigate} />
       ) : currentPath === '/contact' ? (

@@ -6088,7 +6088,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['grams-to-seer', 'grams-to-seer', 'maund-to-seer'],
+    relatedSlugs: ['grams-to-seer', 'seer-to-kg', 'kg-to-seer', 'maund-to-kg'],
   },
   'grams-to-seer': {
     slug: 'grams-to-seer',

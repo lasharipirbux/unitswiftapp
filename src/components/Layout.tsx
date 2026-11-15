@@ -217,6 +217,17 @@ export const Layout: React.FC<LayoutProps> = ({
                 </button>
               );
             })}
+            <a
+              href="/bulk-converter"
+              onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+              className={`inline-flex items-center px-1.5 lg:px-2 xl:px-2.5 py-2 rounded-lg text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+                currentPath === '/bulk-converter'
+                  ? 'bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 text-[#1F2A44] dark:text-[#F2C94C]'
+                  : 'text-[#1F2A44] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5'
+              }`}
+            >
+              Bulk CSV
+            </a>
           </nav>
 
           {/* Far Right: Optional Install App Button + Dark Mode Button + Mobile-only (<768px) Menu Button */}
@@ -384,6 +395,16 @@ export const Layout: React.FC<LayoutProps> = ({
                   </div>
                 );
               })}
+              <div className="bg-white dark:bg-[#0F1626]">
+                <a
+                  href="/bulk-converter"
+                  onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+                  className="w-full flex items-center justify-between px-4 sm:px-6 py-3.5 text-left text-sm font-bold text-[#1F2A44] dark:text-[#F2C94C] hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
+                >
+                  <span>Bulk Convert (CSV)</span>
+                  <ArrowRight aria-hidden="true" className="w-4 h-4 shrink-0" />
+                </a>
+              </div>
             </div>
           </nav>
         )}
@@ -458,6 +479,15 @@ export const Layout: React.FC<LayoutProps> = ({
                 </li>
                 <li>
                   <a
+                    href="/bulk-converter"
+                    onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                  >
+                    Bulk Convert (CSV)
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="/about"
                     onClick={(e) => handleLinkClick(e, '/about')}
                     className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
@@ -497,6 +527,13 @@ export const Layout: React.FC<LayoutProps> = ({
               <span className="text-[#1F2A44] dark:text-slate-200">Free, fast, no sign-up.</span>
             </div>
             <div className="flex flex-wrap items-center gap-6 font-semibold">
+              <a
+                href="/bulk-converter"
+                onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+                className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
+              >
+                Bulk Convert (CSV)
+              </a>
               <a
                 href="/about"
                 onClick={(e) => handleLinkClick(e, '/about')}

@@ -16,6 +16,7 @@ import {
 } from '../data/converters';
 import { RICH_CONVERTER_CONTENT } from '../data/richConverterContent';
 import { RelatedConverters } from '../components/RelatedConverters';
+import { BulkConvertTool } from '../components/BulkConvertTool';
 
 interface ConverterPageProps {
   converter: ConverterPageConfig;
@@ -385,6 +386,17 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         </div>
       </div>
 
+      {/* Collapsible Bulk Convert (CSV) Section */}
+      {activeFromUnit && activeToUnit && (
+        <BulkConvertTool
+          fromUnit={activeFromUnit}
+          toUnit={activeToUnit}
+          convertFn={activeConvertFn}
+          collapsible={true}
+          defaultOpen={false}
+        />
+      )}
+
       {/* Small Table of 8 Common Values for that Unit Pair */}
       <div className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
         <div className="px-6 py-4 border-b border-[#1F2A44]/10 dark:border-white/10 flex items-center justify-between">
@@ -448,9 +460,14 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         const rich = RICH_CONVERTER_CONTENT[converter.slug];
         const fromU = UNITS[converter.fromUnitId];
         const toU = UNITS[converter.toUnitId];
-        const relatedItems = rich.relatedSlugs
+        const seenRelated = new Set<string>([converter.slug]);
+        const relatedItems = Array.from(new Set(rich.relatedSlugs))
           .map((s) => findConverterBySlug(s))
-          .filter((c): c is ConverterPageConfig => Boolean(c));
+          .filter((c): c is ConverterPageConfig => {
+            if (!c || seenRelated.has(c.slug)) return false;
+            seenRelated.add(c.slug);
+            return true;
+          });
 
         return (
           <article className="space-y-10 pt-6 border-t border-[#1F2A44]/10 dark:border-white/10">

@@ -552,6 +552,7 @@ export const UNITS: Record<string, UnitDefinition> = {
     pluralName: 'Cents',
     symbol: 'cent',
     category: 'local',
+    dimensionGroup: 'area',
     keywords: ['cent', 'cents', 'land', 'plot'],
   },
 };
@@ -3340,7 +3341,7 @@ const TO_BASE_FACTORS: Record<string, number> = {
   hour: 60,
   day: 1440,
   pint: 0.473176,
-  cent: 43560,
+  cent: 435.6,
 };
 
 export function convertAnyUnit(value: number, fromUnitId: string, toUnitId: string): number {

@@ -61,6 +61,7 @@ export function buildSitemapEntries(lastmod = getTodayDateString()): SitemapEntr
   }
 
   // Static pages
+  addEntry('/bulk-converter', 'weekly', '0.8');
   addEntry('/about', 'monthly', '0.6');
   addEntry('/contact', 'monthly', '0.6');
   addEntry('/privacy-policy', 'monthly', '0.5');
