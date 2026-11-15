@@ -52,6 +52,7 @@ export function buildSitemapEntries(lastmod = getTodayDateString()): SitemapEntr
 
   // All converter pages generated automatically from the live CONVERTERS registry
   for (const converter of CONVERTERS) {
+    if (!converter || !converter.slug) continue;
     const slug = converter.slug.trim();
     if (!slug) {
       throw new Error(`Empty converter slug found for "${converter.title}"`);
