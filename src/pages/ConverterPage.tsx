@@ -1,18 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import {
   ArrowLeftRight,
-  ArrowUpRight,
   Copy,
   Check,
   RotateCcw,
 } from 'lucide-react';
 import {
   ConverterPageConfig,
-  CONVERTERS,
   CATEGORIES,
   UNITS,
   formatConvertedNumber,
-  findConverterBySlug,
 } from '../data/converters';
 import { RICH_CONVERTER_CONTENT } from '../data/richConverterContent';
 import { RelatedConverters } from '../components/RelatedConverters';
@@ -460,14 +457,6 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         const rich = RICH_CONVERTER_CONTENT[converter.slug];
         const fromU = UNITS[converter.fromUnitId];
         const toU = UNITS[converter.toUnitId];
-        const seenRelated = new Set<string>([converter.slug]);
-        const relatedItems = Array.from(new Set(rich.relatedSlugs))
-          .map((s) => findConverterBySlug(s))
-          .filter((c): c is ConverterPageConfig => {
-            if (!c || seenRelated.has(c.slug)) return false;
-            seenRelated.add(c.slug);
-            return true;
-          });
 
         return (
           <article className="space-y-10 pt-6 border-t border-[#1F2A44]/10 dark:border-white/10">
@@ -598,58 +587,13 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                     <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
                       {faq.answer}
                     </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 6. Related converters */}
-            <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-4">
-              <h2 className="text-lg sm:text-xl font-bold text-[#1F2A44] dark:text-white">
-                Related converters
-              </h2>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold">
-                {relatedItems.map((rel) => (
-                  <a
-                    key={rel.slug}
-                    href={`/${rel.slug}`}
-                    onClick={(e) => handleLinkClick(e, `/${rel.slug}`)}
-                    className="text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300 transition-colors inline-flex items-center gap-1"
-                  >
-                    <span>{rel.title}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
-                  </a>
-                ))}
-              </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 pt-1">
-                {relatedItems.map((rel) => {
-                  const rFrom = UNITS[rel.fromUnitId];
-                  const rTo = UNITS[rel.toUnitId];
-                  return (
-                    <li key={rel.slug}>
-                      <a
-                        href={`/${rel.slug}`}
-                        onClick={(e) => handleLinkClick(e, `/${rel.slug}`)}
-                        className="flex items-center justify-between p-3.5 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/12 dark:border-white/10 hover:border-[#1F2A44] dark:hover:border-[#F2C94C] transition-colors group"
-                      >
-                        <div>
-                          <span className="text-sm font-bold text-[#1F2A44] dark:text-white group-hover:underline decoration-[#F2C94C] decoration-2 underline-offset-4 block">
-                            {rel.shortTitle}
-                          </span>
-                          <span className="text-xs font-mono-tabular text-[#1F2A44]/65 dark:text-slate-400">
-                            1 {rFrom?.symbol} = {formatConvertedNumber(rel.convert(1))} {rTo?.symbol}
-                          </span>
-                        </div>
-                        <ArrowUpRight className="w-4 h-4 text-[#1F2A44]/50 dark:text-[#F2C94C] shrink-0" />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          </article>
-        );
-      })()}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </article>
+          );
+        })()}
 
       {/* RELATED CONVERTERS SECTION (6 Clean Same-Category Tiles) */}
       <RelatedConverters

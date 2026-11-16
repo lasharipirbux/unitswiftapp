@@ -1,0 +1,24 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "UnitSwift",
+    "identifier": "did:web:unitswift.org",
+    "documentationUrl": "https://unitswift.org/llms.txt",
+    "logoUrl": "https://unitswift.org/pwa-512x512.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:unitswift.org:docs:llms",
+      "displayName": "UnitSwift Unit Converters & Formulas Directory",
+      "type": "text/markdown",
+      "url": "https://unitswift.org/llms.txt",
+      "description": "Free online unit converter directory with 154+ calculators across weight, length, temperature, volume, speed, area, local units, data, pressure, and time.",
+      "representativeQueries": [
+        "Convert kilograms to pounds",
+        "Convert marla to square feet",
+        "Convert Celsius to Fahrenheit",
+        "Bulk convert unit values from CSV"
+      ]
+    }
+  ]
+}

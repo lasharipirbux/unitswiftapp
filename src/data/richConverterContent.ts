@@ -2470,7 +2470,63 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'At the standard 272.25 sq ft per marla, 1 acre (43,560 sq ft) equals exactly 160 marlas, or 8 kanals.',
       },
     ],
-    relatedSlugs: ['sqft-to-sqm', 'sqm-to-sqft', 'marla-to-sqft', 'sqft-to-marla'],
+    relatedSlugs: ['sqft-to-acre', 'acre-to-kanal', 'marla-to-sqft', 'sqft-to-marla'],
+  },
+
+  'sqft-to-acre': {
+    whatIsHeading: 'What Is Square Feet to Acres Conversion',
+    whatIsParagraphs: [
+      'Square feet to acres conversion translates plot, building lot, and agricultural parcel measurements from square feet (sq ft) into standard acres (ac). Because 1 standard acre is defined as 1 furlong by 1 chain (660 ft × 66 ft = 43,560 square feet), 1 square foot equals 1/43,560 of an acre (approximately 0.0000229568 acres).',
+      'In Pakistan and South Asian land revenue records where 1 marla = 272.25 sq ft and 1 kanal = 20 marlas (5,445 sq ft), 43,560 square feet equals exactly 160 marlas or 8 kanals (1 killa / acre). Real estate buyers, surveyors, and civil engineers use this calculator to convert total square footage into acres.',
+    ],
+    howToHeading: 'How to Convert Square Feet to Acres',
+    howToIntro:
+      'To convert square feet to acres, divide the area in square feet by 43,560. To convert acres back to square feet, multiply by 43,560.',
+    formulaBox: 'acres (ac) = square feet (sq ft) ÷ 43,560',
+    workedExampleTitle: 'Worked Example: Convert a 10,890-Square-Foot Plot to Acres',
+    workedExampleBody:
+      'Suppose a residential corner plot (2 kanals / 40 marlas) measures 10,890 square feet. Divide 10,890 by 43,560: 10,890 ÷ 43,560 = 0.25 acres. A 10,890 sq ft parcel equals exactly 0.25 acres (a quarter acre).',
+    quickRefValues: [1089, 2722.5, 5445, 10890, 21780, 43560, 87120, 100000, 217800, 435600],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 43,560 instead of dividing',
+        description:
+          'Since an acre is much larger than a single square foot, the number of acres is always smaller than the number of square feet. Always divide sq ft by 43,560.',
+      },
+      {
+        title: 'Dividing by 40,000 as a rough shortcut',
+        description:
+          'Dividing by 40,000 instead of 43,560 overstates acreage by nearly 9%, which equals more than 13 marlas per acre.',
+      },
+      {
+        title: 'Confusing total plot square footage with covered floor area',
+        description:
+          'Acreage measures the horizontal ground parcel area, not the sum of multi-story building floor areas.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many acres is 43,560 square feet?',
+        answer:
+          '43,560 square feet equals exactly 1 standard acre (which is also equal to 8 kanals or 160 marlas at 272.25 sq ft per marla).',
+      },
+      {
+        question: 'How many acres is 10,000 square feet?',
+        answer:
+          '10,000 square feet equals approximately 0.2296 acres (10,000 ÷ 43,560 = 0.229568 ac).',
+      },
+      {
+        question: 'How many square feet are in half an acre (0.5 acres)?',
+        answer:
+          'Half an acre (0.5 acres, or 4 kanals) is 21,780 square feet.',
+      },
+      {
+        question: 'How do you convert square feet to acres in Pakistan land records?',
+        answer:
+          'Divide the total square feet by 43,560. In standard Pakistani revenue measurements (1 marla = 272.25 sq ft, 1 kanal = 5,445 sq ft), 43,560 sq ft equals 8 kanals or 1 acre.',
+      },
+    ],
+    relatedSlugs: ['acre-to-sqft', 'sqft-to-marla', 'sqft-to-kanal', 'sqft-to-sqm'],
   },
 
   'marla-to-sqft': {
@@ -2756,113 +2812,113 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
   'seer-to-kg': {
     whatIsHeading: 'What Is Seer to Kilograms Conversion',
     whatIsParagraphs: [
-      'Seer to kilograms conversion translates the traditional South Asian commodity weight unit—the seer (also spelled sair)—into metric kilograms (kg). Defined historically as 80 tolas of 11.6638 grams each, 1 standard seer equals 933.104 grams, or 0.9331 kilograms.',
-      'Agricultural wholesale mandis, dairy farms, flour mills, and households interpreting traditional recipes or historical commodity records use this conversion to express seer quantities in modern kilograms.',
+      'Seer to kilograms conversion translates the traditional South Asian commodity weight unit—the seer (also spelled sair)—into metric kilograms (kg). In modern Pakistan where 1 standard market maund (mann) equals 40 seers and is standardized at 40 kilograms, 1 seer equals 1 kilogram (1,000 grams).',
+      'Agricultural wholesale mandis, dairy farms, flour mills, and households across Pakistan use this 1-to-1 conversion (`1 seer = 1 kg` and `40 seer = 40 kg = 1 maund`) to express seer quantities directly in modern kilograms.',
     ],
     howToHeading: 'How to Convert Seer to Kilograms',
     howToIntro:
-      'To convert seer to kilograms, multiply the number of seers by 0.9331. (Note: 40 seer equal 1 standard maund/mann of 37.324 kg; local mandi conventions can vary slightly.)',
-    formulaBox: 'kilograms (kg) = seer × 0.9331',
-    workedExampleTitle: 'Worked Example: Convert 40 Seer (1 Standard Maund) to Kilograms',
+      'To convert seer to kilograms in modern Pakistan, multiply the number of seers by 1 (1 seer = 1 kg, since 1 maund = 40 seer = 40 kg).',
+    formulaBox: 'kilograms (kg) = seer × 1',
+    workedExampleTitle: 'Worked Example: Convert 40 Seer (1 Maund) to Kilograms',
     workedExampleBody:
-      'A grain merchant records a sack of wheat at 40 seer (1 standard British-era maund) and wants the exact weight in kilograms. Multiply 40 by 0.9331: 40 × 0.9331 = 37.324 kilograms. Forty seer equal 37.324 kg.',
+      'A grain merchant records a sack of wheat at 40 seer (1 standard Pakistani maund) and wants the weight in kilograms. Multiply 40 by 1: 40 × 1 = 40 kilograms. Forty seer equal 40 kg (1 maund).',
     quickRefValues: [1, 2, 2.5, 5, 10, 15, 20, 40, 50, 100],
     commonMistakes: [
       {
-        title: 'Assuming 1 seer is exactly 1 kilogram',
+        title: 'Confusing the modern Pakistani 1 kg seer with the historical 0.9331 kg British-era seer',
         description:
-          '1 standard seer is 0.9331 kg (933.1 grams), meaning it is about 66.9 grams lighter than 1 full kilogram.',
+          'In modern Pakistan where 1 maund = 40 seer = 40 kg, 1 seer is standardized at 1 kilogram (1,000 grams), whereas older pre-metric colonial records used an 80-tola seer of 933.1 grams.',
       },
       {
-        title: 'Confusing the 37.324 kg standard maund (40 seer) with a 40 kg metric maund',
+        title: 'Confusing 1 seer with 1 maund (40 seer)',
         description:
-          'Forty traditional seers equal 37.324 kg, whereas some modern markets informally call 40 kilograms a "40-kg mann."',
+          '1 seer equals 1 kilogram, while 40 seers make 1 full maund (mann) of 40 kilograms.',
       },
       {
-        title: 'Dividing by 0.9331 when converting seer to kg',
+        title: 'Confusing pao (quarter-seer) with half a kilogram',
         description:
-          'Because 1 seer is slightly less than 1 kg, the kilogram number is slightly smaller than the seer number (multiply by 0.9331).',
+          'One pao is one-quarter of a seer (0.25 seer = 0.25 kg = 250 grams), whereas half a seer (adh seer) is 0.5 kg (500 grams).',
       },
     ],
     faqs: [
       {
-        question: 'How many kilograms are in 1 standard seer?',
+        question: 'How many kilograms are in 1 seer in Pakistan?',
         answer:
-          '1 standard seer equals 0.9331 kilograms (933.1 grams).',
+          'In modern Pakistan, 1 seer equals 1 kilogram (1,000 grams), since 1 maund equals 40 seer = 40 kilograms.',
       },
       {
         question: 'How many kilograms is 5 seer?',
         answer:
-          '5 seer equals 4.6655 kilograms (5 × 0.9331 = 4.6655 kg).',
+          '5 seer equals 5 kilograms (5 × 1 = 5 kg).',
       },
       {
         question: 'How many kilograms is 10 seer?',
         answer:
-          '10 seer equals 9.331 kilograms.',
+          '10 seer equals 10 kilograms.',
       },
       {
         question: 'How many kilograms is 40 seer (1 maund)?',
         answer:
-          '40 standard seer equals 37.324 kilograms.',
+          '40 seer (1 standard maund) equals 40 kilograms.',
       },
     ],
-    relatedSlugs: ['kg-to-seer', 'kg-to-pounds', 'kg-to-gram', 'tola-to-gram'],
+    relatedSlugs: ['kg-to-seer', 'maund-to-kg', 'kg-to-maund', 'tola-to-gram'],
   },
 
   'kg-to-seer': {
     whatIsHeading: 'What Is Kilograms to Seer Conversion',
     whatIsParagraphs: [
-      'Kilograms to seer conversion translates modern metric weights (kg) into traditional seer units. Because 1 standard seer equals 0.9331 kilograms (80 tolas), 1 kilogram is slightly heavier than 1 seer—specifically, 1 kg equals approximately 1.0716965 seer.',
-      'Produce traders, grain merchants, and livestock feed suppliers use this conversion when weighing sacks on electronic kilogram platform scales while settling accounts priced per seer or per 40-seer maund.',
+      'Kilograms to seer conversion translates metric weights (kg) into Pakistani seer units. Because 1 maund equals 40 seer and 40 kilograms in modern Pakistani markets, 1 kilogram equals 1 seer.',
+      'Produce traders, grain merchants, dairy suppliers, and households use this direct 1-to-1 conversion when weighing goods on electronic kilogram scales while settling accounts in seers or 40-seer maunds.',
     ],
     howToHeading: 'How to Convert Kilograms to Seer',
     howToIntro:
-      'To convert kilograms to seer, divide the kilogram weight by 0.9331 (or multiply by 1.0716965).',
-    formulaBox: 'seer = kilograms (kg) ÷ 0.9331',
+      'To convert kilograms to seer in modern Pakistan, multiply or divide the kilogram weight by 1 (1 kg = 1 seer, since 40 kg = 40 seer = 1 maund).',
+    formulaBox: 'seer = kilograms (kg) × 1',
     workedExampleTitle: 'Worked Example: Convert a 50 kg Sack of Rice to Seer',
     workedExampleBody:
-      'A wholesale sack of basmati rice weighs 50 kilograms on a digital scale and you want to express that weight in traditional seer. Divide 50 by 0.9331: 50 ÷ 0.9331 = 53.5848 seer. A 50 kg sack equals approximately 53.58 seer.',
-    quickRefValues: [1, 2, 5, 10, 20, 25, 37.324, 40, 50, 100],
+      'A wholesale sack of basmati rice weighs 50 kilograms on a digital scale and you want to express that weight in seer. Since 1 kg = 1 seer, 50 × 1 = 50 seer (1 maund and 10 seer).',
+    quickRefValues: [1, 2, 5, 10, 20, 25, 40, 50, 80, 100],
     commonMistakes: [
       {
-        title: 'Multiplying kilograms by 0.9331 instead of dividing',
+        title: 'Using the colonial 0.9331 kg factor for modern Pakistani mandi transactions',
         description:
-          'Since a seer (933.1 g) is smaller than a kilogram (1,000 g), there are more than 1 seer in a kilogram (1.0717 seer per kg). Always divide kg by 0.9331.',
+          'Modern Pakistani grain mandis standardize 1 maund at 40 kg (40 seer), meaning 1 kg equals 1 seer (1,000 g) rather than the pre-metric 933.1 g seer.',
       },
       {
-        title: 'Treating 1 kg and 1 seer as identical on bulk grain shipments',
+        title: 'Confusing 40 kg (1 maund / 40 seer) with 50 kg bags',
         description:
-          'On a 1,000 kg (1 metric ton) shipment, the difference between kilograms and seers is 71.7 seer (nearly 1.8 maunds).',
+          'A standard maund is 40 kg (40 seer), whereas a 50 kg sack equals 50 seer (1.25 maunds).',
       },
       {
-        title: 'Confusing pao (quarter-seer) with 250 metric grams',
+        title: 'Forgetting that 1 pao is 0.25 seer (250 grams)',
         description:
-          'A traditional pao (1/4 of a 933.1 g seer) is 233.28 grams, whereas a metric "pao" in modern retail grocery shops is often rounded to 250 grams (0.25 kg).',
+          'In everyday grocery shopping, 1 kilogram (1 seer) is divided into 4 paos of 250 grams (0.25 kg) each.',
       },
     ],
     faqs: [
       {
         question: 'How many seer are in 1 kilogram?',
         answer:
-          '1 kilogram equals approximately 1.0717 seer (1 ÷ 0.9331 = 1.0716965 seer).',
+          'In modern Pakistan, 1 kilogram equals 1 seer (since 1 maund = 40 seer = 40 kg).',
       },
       {
         question: 'How many seer are in 10 kilograms?',
         answer:
-          '10 kilograms equal approximately 10.717 seer.',
+          '10 kilograms equal 10 seer.',
       },
       {
-        question: 'How many seer are in 40 kilograms?',
+        question: 'How many seer are in 40 kilograms (1 maund)?',
         answer:
-          '40 kilograms equal approximately 42.8679 seer.',
+          '40 kilograms equal 40 seer, which is 1 full maund (mann).',
       },
       {
         question: 'How many kilograms equal 1 full seer?',
         answer:
-          '0.9331 kilograms (933.1 grams) equals 1 standard seer.',
+          '1 kilogram (1,000 grams) equals 1 seer in modern Pakistan.',
       },
     ],
-    relatedSlugs: ['seer-to-kg', 'kg-to-pounds', 'kg-to-gram', 'tola-to-gram'],
+    relatedSlugs: ['seer-to-kg', 'maund-to-kg', 'kg-to-maund', 'tola-to-gram'],
   },
 
   'acre-to-kanal': {
@@ -3646,7 +3702,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           '1 meter (39.37 inches) is longer than 1 gaz (36 inches) by approximately 3.37 inches (8.56 cm).',
       },
     ],
-    relatedSlugs: ['gaz-to-feet', 'feet-to-gaz', 'meter-to-yard', 'meter-to-feet'],
+    relatedSlugs: ['gaz-to-meter', 'gaz-to-feet', 'feet-to-gaz', 'meter-to-yard'],
   },
   'pounds-to-grams': {
     slug: 'pounds-to-grams',
@@ -3951,8 +4007,70 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer:
           'To convert square meters to marla, divide the square meter area by 25.2929 (e.g., 100 sq m ÷ 25.2929 = 3.9537 marla).',
       },
+      {
+        question: 'How many square meters are in 1 kanal (20 marla)?',
+        answer:
+          'Since 1 kanal equals 20 marla (5,445 sq ft), 1 kanal equals 505.8571 square meters.',
+      },
     ],
-    relatedSlugs: ['marla-to-sqft', 'sqm-to-sqft', 'marla-to-square-yards', 'sqft-to-marla'],
+    relatedSlugs: ['square-meter-to-marla', 'kanal-to-square-meter', 'marla-to-sqft', 'sqm-to-sqft'],
+  },
+
+  'square-meter-to-marla': {
+    slug: 'square-meter-to-marla',
+    whatIsHeading: 'What Is Square Meters to Marla Conversion',
+    whatIsParagraphs: [
+      'Square meters to marla conversion translates metric site plans, architectural drawings, and land survey areas measured in square meters (sq m or m²) into traditional Pakistani marla. Under the official Pakistani land revenue benchmark where 1 marla equals 272.25 square feet (and 1 sq ft = 0.09290304 sq m), 1 standard marla equals 25.29285264 square meters (1 sq m ≈ 0.03953686 marla).',
+      'Homebuyers, civil engineers, town planners, and real estate investors use this calculator whenever architectural blueprints or municipal master plans report plot areas in square meters and need to be verified in 3-marla, 5-marla, 10-marla, or 1-kanal (20-marla) denominations.',
+    ],
+    howToHeading: 'How to Convert Square Meters to Marla',
+    howToIntro:
+      'To convert square meters to marla using the standard Pakistani value (1 marla = 272.25 sq ft = 25.2929 sq m), divide the area in square meters by 25.2929.',
+    formulaBox: 'marla = square meters (sq m) ÷ 25.2929',
+    workedExampleTitle: 'Worked Example: Convert a 126.46 Square Meter Plot to Marla',
+    workedExampleBody:
+      'Suppose an architectural site plan lists a residential plot footprint as 126.4643 square meters. Divide 126.4643 by 25.29285: 126.4643 ÷ 25.29285 = 5 marla. The plot is a standard 5-marla residential plot (1,361.25 sq ft).',
+    quickRefValues: [25.2929, 50, 75.8786, 100, 126.4643, 200, 252.9285, 500, 505.8571, 1000],
+    commonMistakes: [
+      {
+        title: 'Multiplying by 25.2929 instead of dividing',
+        description:
+          'Because 1 marla contains more than 25 square meters, the number of marlas is always smaller than the number of square meters. Always divide sq m by 25.2929.',
+      },
+      {
+        title: 'Dividing by 30.25 (the square-yards-per-marla factor)',
+        description:
+          '30.25 is the number of square yards (gaz) in 1 marla, whereas 25.2929 is the number of square meters in 1 marla.',
+      },
+      {
+        title: 'Not checking if a private society uses a 225 or 250 sq ft marla',
+        description:
+          'Standard government revenue records use 272.25 sq ft (25.2929 sq m) per marla, though some urban housing schemes use 250 sq ft (23.2258 sq m) or 225 sq ft (20.9032 sq m).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many marla is 100 square meters?',
+        answer:
+          'At the standard Pakistani rate of 25.2929 sq m per marla (272.25 sq ft), 100 square meters equal approximately 3.9537 marla.',
+      },
+      {
+        question: 'How many square meters make 1 standard marla?',
+        answer:
+          'One standard marla (272.25 sq ft) equals 25.2929 square meters.',
+      },
+      {
+        question: 'How many marla is 252.93 square meters?',
+        answer:
+          '252.93 square meters equal 10 standard marla (half a kanal).',
+      },
+      {
+        question: 'How many marla is 505.86 square meters?',
+        answer:
+          '505.86 square meters equal 20 marla, which is 1 full kanal (5,445 sq ft).',
+      },
+    ],
+    relatedSlugs: ['marla-to-square-meter', 'kanal-to-square-meter', 'sqft-to-marla', 'sqm-to-sqft'],
   },
 
   // --- 30 NEW CONVERTERS RICH CONTENT ---
@@ -4666,6 +4784,11 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer:
           '10 maunds equal 400 kilograms (10 × 40 = 400 kg).',
       },
+      {
+        question: 'How many seers are in 1 maund?',
+        answer:
+          'Traditionally, 1 maund is divided into 40 seers. In modern Pakistani metric mandis where 1 maund is standardized at 40 kg, each metric seer is treated as 1 kg.',
+      },
     ],
     relatedSlugs: ['kg-to-maund', 'seer-to-kg', 'kg-to-seer', 'ton-to-kg'],
   },
@@ -4716,6 +4839,11 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         question: 'How many maunds is a 50 kg sack?',
         answer:
           'A 50 kg sack equals 1.25 maunds (1 maund and 10 kg).',
+      },
+      {
+        question: 'How many kilograms are in 1 standard Pakistani maund?',
+        answer:
+          'In Pakistan, 1 standard market maund (mann) equals exactly 40 kilograms.',
       },
     ],
     relatedSlugs: ['maund-to-kg', 'kg-to-seer', 'seer-to-kg', 'kg-to-ton'],
@@ -4826,49 +4954,54 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
   'seer-to-pounds': {
     whatIsHeading: 'What Is Seer to Pounds Conversion',
     whatIsParagraphs: [
-      'Seer to pounds conversion connects the traditional South Asian seer (sair) directly with the imperial avoirdupois pound (lb). Since 1 standard Pakistani seer (defined as 80 tolas) equals 933.1 grams and 1 international pound equals exactly 453.59237 grams, 1 seer equals 933.1 ÷ 453.59237, or approximately 2.057133 pounds.',
-      'Food historians, diaspora home cooks adapting traditional family recipes measured in seers and paos, spice merchants, and commodity analysts comparing South Asian regional grain weights with Western pound standards use this conversion regularly.',
+      'Seer to pounds conversion connects the Pakistani seer (sair) directly with the imperial avoirdupois pound (lb). Since 1 modern Pakistani seer equals 1 kilogram (1,000 grams, based on 1 maund = 40 seer = 40 kg) and 1 international pound equals 453.59237 grams, 1 seer equals 1,000 ÷ 453.59237, or approximately 2.204623 pounds.',
+      'Diaspora home cooks adapting family recipes measured in seers and paos, spice merchants, and commodity traders comparing Pakistani grain weights with Western pound standards use this conversion regularly.',
     ],
     howToHeading: 'How to Convert Seer to Pounds',
     howToIntro:
-      'To convert seer to pounds, multiply the number of seers by 2.057133. Since 1 standard seer equals 0.9331 kg and 1 kg equals 2.204623 lb, multiplying gives an accurate avoirdupois pound weight.',
-    formulaBox: 'pounds (lb) = seer × 2.057133',
+      'To convert seer to pounds, multiply the number of seers by 2.204623 (since 1 seer = 1 kg = 2.204623 lb).',
+    formulaBox: 'pounds (lb) = seer × 2.204623',
     workedExampleTitle: 'Worked Example: Convert 5 Seer to Pounds',
     workedExampleBody:
-      'A heritage pulao recipe calls for 5 seer of basmati rice. Multiply 5 by 2.057133: 5 × 2.057133 = 10.2857 pounds. Five standard seer equal approximately 10.29 pounds (roughly 4.67 kg).',
+      'A pulao recipe calls for 5 seer of basmati rice. Multiply 5 by 2.204623: 5 × 2.204623 = 11.0231 pounds. Five seer equal approximately 11.02 pounds (5 kg).',
     quickRefValues: [0.5, 1, 2, 2.5, 5, 10, 20, 40, 50, 100],
     commonMistakes: [
       {
         title: 'Treating 1 seer as exactly 2 pounds',
         description:
-          '1 seer is 2.0571 pounds (about 2 pounds and 0.9 ounces). On a 40-seer maund, assuming 2 lb per seer underestimates the weight by 2.29 pounds.',
+          '1 seer (1 kg) is 2.2046 pounds (about 2 pounds and 3.27 ounces). On a 40-seer maund (88.18 lb), assuming 2 lb per seer underestimates the weight by more than 8 pounds.',
       },
       {
-        title: 'Dividing by 2.0571 instead of multiplying',
+        title: 'Dividing by 2.204623 instead of multiplying',
         description:
-          'Because 1 seer is more than twice as heavy as 1 pound, the pound number is always slightly more than double the seer number.',
+          'Because 1 seer is more than twice as heavy as 1 pound, the pound number is always roughly 2.2 times the seer number.',
       },
       {
-        title: 'Confusing seer with kilogram before converting to pounds',
+        title: 'Confusing quarter-seer (pao = 250 g) with half a pound (226.8 g)',
         description:
-          '1 kg is 2.2046 lb, whereas 1 seer (0.9331 kg) is 2.0571 lb.',
+          '1 pao (0.25 seer = 250 g) equals 0.5512 pounds (about 8.82 oz), slightly heavier than half a pound (8 oz).',
       },
     ],
     faqs: [
       {
-        question: 'How many pounds are in 1 standard seer?',
+        question: 'How many pounds are in 1 seer?',
         answer:
-          '1 standard seer equals approximately 2.0571 pounds.',
+          'In modern Pakistan where 1 seer = 1 kg, 1 seer equals approximately 2.2046 pounds.',
       },
       {
-        question: 'How many pounds is 40 seer?',
+        question: 'How many pounds is 40 seer (1 maund)?',
         answer:
-          '40 seer equals approximately 82.2853 pounds (37.324 kilograms).',
+          '40 seer (40 kg) equals approximately 88.1849 pounds.',
       },
       {
         question: 'Is 1 seer heavier than 2 pounds?',
         answer:
-          'Yes, 1 standard seer (933.1 g) is about 25.9 grams heavier than 2 pounds (907.18 g).',
+          'Yes, 1 seer (1,000 g) is about 92.8 grams heavier than 2 pounds (907.18 g).',
+      },
+      {
+        question: 'How do I convert seer to pounds?',
+        answer:
+          'Multiply the weight in seers by 2.204623 (pounds = seer × 2.204623).',
       },
     ],
     relatedSlugs: ['pounds-to-seer', 'seer-to-kg', 'kg-to-seer', 'kg-to-pounds'],
@@ -4877,49 +5010,54 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
   'pounds-to-seer': {
     whatIsHeading: 'What Is Pounds to Seer Conversion',
     whatIsParagraphs: [
-      'Pounds to seer conversion translates imperial and US customary weights in pounds (lb) into traditional South Asian seers (sair). Because 1 international avoirdupois pound equals exactly 453.59237 grams and 1 standard 80-tola seer equals 933.1 grams, 1 pound equals approximately 0.486113 seer—slightly under half a seer.',
-      'Grocery shoppers, bakers, spice importers, and South Asian households living abroad who want to convert pound-packaged butter, flour, sugar, or Western recipes back into familiar traditional seer and quarter-seer (pao) portions rely on this exact calculation.',
+      'Pounds to seer conversion translates imperial and US customary weights in pounds (lb) into Pakistani seers (sair). Because 1 international avoirdupois pound equals 453.59237 grams and 1 modern Pakistani seer equals 1 kilogram (1,000 grams, based on 1 maund = 40 seer = 40 kg), 1 pound equals approximately 0.453592 seer.',
+      'Grocery shoppers, bakers, spice importers, and South Asian households who want to convert pound-packaged butter, flour, sugar, or Western recipes into seer and quarter-seer (pao) portions rely on this exact calculation.',
     ],
     howToHeading: 'How to Convert Pounds to Seer',
     howToIntro:
-      'To convert pounds to seer, multiply the weight in pounds by 0.486113 (or divide by 2.057133). Based on the standard 933.1-gram value used in Pakistan; regional seer definitions can vary slightly.',
-    formulaBox: 'seer = pounds (lb) × 0.486113',
+      'To convert pounds to seer, multiply the weight in pounds by 0.453592 (or divide by 2.204623), using the modern Pakistani standard of 1 seer = 1 kg.',
+    formulaBox: 'seer = pounds (lb) × 0.453592',
     workedExampleTitle: 'Worked Example: Convert 10 Pounds to Seer',
     workedExampleBody:
-      'You have a 10-pound sack of whole-wheat atta flour and want to know its equivalent weight in traditional South Asian seers. Multiply 10 by 0.486113: 10 × 0.486113 = 4.8611 seer. A 10-pound bag equals approximately 4.86 seers (just slightly shy of 5 full seers in household kitchen use).',
-    quickRefValues: [1, 2, 5, 10, 15, 20, 25, 50, 82.2853, 100],
+      'You have a 10-pound sack of whole-wheat atta flour and want to know its equivalent weight in seers. Multiply 10 by 0.453592: 10 × 0.453592 = 4.5359 seer. A 10-pound bag equals approximately 4.54 seers (4.54 kg).',
+    quickRefValues: [1, 2, 5, 10, 15, 20, 25, 50, 88.1849, 100],
     commonMistakes: [
       {
         title: 'Dividing pounds by 2 as an exact conversion',
         description:
-          'Dividing by 2 gives 5 seer for 10 lb, whereas the exact value is 4.8611 seer—an error of nearly 130 grams.',
+          'Dividing by 2 gives 5 seer for 10 lb, whereas the exact value is 4.5359 seer—an error of nearly 464 grams.',
       },
       {
-        title: 'Multiplying by 2.0571 instead of dividing',
+        title: 'Multiplying by 2.2046 instead of dividing',
         description:
-          'Since a seer is heavier than a pound, the number of seers is always less than half the number of pounds.',
+          'Since a seer (1 kg) is heavier than a pound, the number of seers is always less than half the number of pounds.',
       },
       {
         title: 'Confusing pao (quarter-seer) with half-pound',
         description:
-          '1 standard pao (0.25 seer) is 233.28 grams, whereas half a pound (8 oz) is 226.80 grams.',
+          '1 standard pao (0.25 seer) is 250 grams, whereas half a pound (8 oz) is 226.80 grams.',
       },
     ],
     faqs: [
       {
         question: 'How many seer is 1 pound?',
         answer:
-          '1 pound equals approximately 0.4861 seer.',
+          '1 pound equals approximately 0.4536 seer (where 1 seer = 1 kg).',
       },
       {
         question: 'How many pounds make 1 seer?',
         answer:
-          'Approximately 2.0571 pounds make 1 standard seer.',
+          'Approximately 2.2046 pounds make 1 seer (1 kg).',
       },
       {
         question: 'How many seer is 20 pounds?',
         answer:
-          '20 pounds equals approximately 9.7223 seer.',
+          '20 pounds equals approximately 9.0718 seer.',
+      },
+      {
+        question: 'How do I convert pounds to seer?',
+        answer:
+          'Multiply the weight in pounds by 0.453592 (or divide by 2.204623).',
       },
     ],
     relatedSlugs: ['seer-to-pounds', 'seer-to-kg', 'kg-to-seer', 'pounds-to-kg'],
@@ -5125,6 +5263,11 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer:
           '100 square yards equal 900 square feet.',
       },
+      {
+        question: 'How many square yards (gaj) are in 1 standard marla?',
+        answer:
+          'At the standard Pakistani value of 272.25 sq ft per marla, 1 marla equals 30.25 square yards (272.25 ÷ 9 = 30.25 sq yd).',
+      },
     ],
     relatedSlugs: ['sqft-to-sqyard', 'square-yards-to-marla', 'marla-to-square-yards', 'sqft-to-sqm'],
   },
@@ -5175,6 +5318,11 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         question: 'How many square yards is 1,000 square feet?',
         answer:
           '1,000 square feet equals approximately 111.1111 square yards.',
+      },
+      {
+        question: 'How many square yards is a 5 marla (1,361.25 sq ft) plot?',
+        answer:
+          'A standard 5 marla plot of 1,361.25 square feet equals 151.25 square yards (1,361.25 ÷ 9 = 151.25 sq yd).',
       },
     ],
     relatedSlugs: ['sqyard-to-sqft', 'sqft-to-sqm', 'sqft-to-marla', 'square-yards-to-marla'],
@@ -5819,42 +5967,50 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
   },
   'gaz-to-meter': {
     slug: 'gaz-to-meter',
-    whatIsHeading: 'What Is Gaz to Meters Converter Conversion',
+    whatIsHeading: 'What Is Gaz to Meters Conversion',
     whatIsParagraphs: [
-      'Convert traditional gaz (gaj) length measurements into metric meters (m). One standard gaz is equal to 3 feet, which translates to exactly 0.9144 meters under international standards.',
-      'Converting gaz into meter ensures accurate, standardized calculations across professional and everyday usage without manual conversion errors.'
+      'Gaz to meters conversion translates traditional South Asian gaz (also spelled gaj) length measurements into metric meters (m). Under the official Pakistani standard, 1 gaz equals 3 feet (1 international yard), which is defined as exactly 0.9144 meters (91.44 centimeters).',
+      'Tailors, textile wholesalers,unstitched fabric shoppers, and property surveyors across Pakistan use gaz-to-meter conversion daily when converting cloth lengths quoted in gaz into meters or checking plot boundary dimensions.',
     ],
-    howToHeading: 'How to Convert GAZ to METER',
-    howToIntro: 'To convert measurements from gaz to meter, use the standard mathematical formula or formula constant provided below.',
-    formulaBox: 'meters = gaz × 0.9144',
-    workedExampleTitle: 'Worked Example: Convert 10 gaz to meter',
-    workedExampleBody: 'Suppose you have 10 units of gaz. Applying the formula meters = gaz × 0.9144 yields the precise equivalent in meter.',
-    quickRefValues: [1, 2, 5, 10, 20, 25, 50, 100],
+    howToHeading: 'How to Convert Gaz to Meters',
+    howToIntro: 'To convert gaz to meters, multiply the length in gaz by 0.9144 (since 1 gaz = 3 feet = 0.9144 meters).',
+    formulaBox: 'meters (m) = gaz × 0.9144',
+    workedExampleTitle: 'Worked Example: Convert 5 Gaz of Fabric to Meters',
+    workedExampleBody: 'Suppose you purchase 5 gaz of unstitched fabric in a cloth market. Multiply 5 by 0.9144: 5 × 0.9144 = 4.572 meters. Five gaz of fabric equal 4.572 meters.',
+    quickRefValues: [1, 2, 2.5, 3, 4, 5, 10, 20, 50, 100],
     commonMistakes: [
       {
-        title: 'Forgetting to check unit definitions',
-        description: 'Always verify whether regional or standard international definitions apply to your specific calculation.'
+        title: 'Assuming 1 gaz is equal to 1 full meter',
+        description: '1 gaz (36 inches / 91.44 cm) is 8.56 cm shorter than 1 meter (39.37 inches / 100 cm). Treating them as equal causes an 8.56% shortage on fabric rolls.'
       },
       {
-        title: 'Rounding off too early during intermediate steps',
-        description: 'Keep full decimal precision during calculation steps and round only at the final reported output.'
+        title: 'Dividing by 0.9144 instead of multiplying',
+        description: 'Because a gaz is slightly shorter than a meter, the number of meters is always smaller than the number of gaz. Multiply gaz by 0.9144.'
+      },
+      {
+        title: 'Confusing linear gaz (0.9144 m) with square gaz (0.8361 sq m)',
+        description: 'For linear length (cloth, boundary walls), multiply by 0.9144. For two-dimensional area (square yards to square meters), multiply by 0.836127.'
       }
     ],
     faqs: [
       {
-        question: 'How do I convert gaz to meter?',
-        answer: 'Use the conversion formula: meters = gaz × 0.9144.'
+        question: 'How many meters are in 1 gaz?',
+        answer: 'One standard gaz (3 feet) equals exactly 0.9144 meters (91.44 centimeters).'
       },
       {
-        question: 'Is this calculation exact?',
-        answer: 'Yes, it uses standardized international and regional constants.'
+        question: 'How many meters is 5 gaz of cloth?',
+        answer: '5 gaz of cloth equal 4.572 meters (5 × 0.9144 = 4.572 m).'
       },
       {
-        question: 'Where can I find more converters?',
-        answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
+        question: 'How many feet are in 1 gaz?',
+        answer: 'There are exactly 3 feet (36 inches) in 1 standard gaz.'
+      },
+      {
+        question: 'How do I convert gaz to meters?',
+        answer: 'Multiply the length in gaz by 0.9144 (meters = gaz × 0.9144).'
       }
     ],
-    relatedSlugs: ['meter-to-gaz', 'tola-to-ounce', 'masha-to-gram'],
+    relatedSlugs: ['meter-to-gaz', 'gaz-to-feet', 'feet-to-gaz', 'yard-to-meter'],
   },
   'tola-to-ounce': {
     slug: 'tola-to-ounce',
@@ -5968,10 +6124,57 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
       },
       {
         question: 'Where can I find more converters?',
-        answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
+        answer: 'UnitSwift offers 154 dedicated calculators for all your measurement needs.'
+      },
+      {
+        question: 'How many rattis are in 1 tola and 1 masha?',
+        answer: 'In traditional South Asian goldsmith weights, 1 masha equals 8 rattis and 1 tola (12 mashas) equals 96 rattis (11.6638 grams).'
       }
     ],
-    relatedSlugs: ['gram-to-ratti', 'marla-to-gaz', 'gaz-to-marla'],
+    relatedSlugs: ['gram-to-ratti', 'tola-to-gram', 'masha-to-gram', 'gram-to-tola'],
+  },
+  'gram-to-ratti': {
+    slug: 'gram-to-ratti',
+    whatIsHeading: 'What Is Grams to Ratti Conversion',
+    whatIsParagraphs: [
+      'Grams to ratti conversion translates metric jewelry and gemstone weights in grams (g) into traditional South Asian ratti units. In the classical sarafa (goldsmith) system where 1 tola = 11.6638 grams = 96 rattis (and 1 masha = 8 rattis = 0.972 grams), 1 traditional ratti equals approximately 0.1215 grams (or 1 gram ≈ 8.2305 rattis).',
+      'Gemologists, jewelers, and buyers purchasing astrological gemstones, pearls, and gold ornaments across Pakistan and India use this calculator to convert digital scale readings in grams into rattis.',
+    ],
+    howToHeading: 'How to Convert Grams to Ratti',
+    howToIntro: 'To convert grams to traditional ratti, divide the weight in grams by 0.1215 (or multiply by 8.23045).',
+    formulaBox: 'ratti = grams (g) ÷ 0.1215',
+    workedExampleTitle: 'Worked Example: Convert 1.5 Grams to Ratti',
+    workedExampleBody: 'Suppose a gemstone weighs 1.5 grams on a digital jeweler scale. Divide 1.5 by 0.1215: 1.5 ÷ 0.1215 = 12.3457 rattis. A 1.5-gram stone equals approximately 12.35 rattis.',
+    quickRefValues: [0.5, 1, 1.5, 2, 3, 5, 10, 11.6638, 25, 50],
+    commonMistakes: [
+      {
+        title: 'Confusing jeweler ratti (0.1215 g) with gemstone sunari/pakki ratti (0.18 g)',
+        description: 'Traditional goldsmith (tola-based) ratti is 0.1215 g (1/96 of a tola), whereas some gemstone bazaars use a 0.9-carat (0.18 g) ratti. Always confirm which standard your jeweler uses.'
+      },
+      {
+        title: 'Multiplying by 0.1215 instead of dividing',
+        description: 'Because a ratti is much smaller than a gram, the number of rattis is always roughly 8.23 times larger than the number of grams.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'How many rattis are in 1 gram?',
+        answer: 'Using the standard tola-based sarafa weight (1 ratti = 0.1215 g), 1 gram equals approximately 8.2305 rattis.'
+      },
+      {
+        question: 'How many grams is 1 ratti?',
+        answer: 'One traditional ratti equals 0.1215 grams (121.5 milligrams).'
+      },
+      {
+        question: 'How many rattis are in 1 tola of gold?',
+        answer: 'There are 96 rattis in 1 tola (12 mashas × 8 rattis per masha = 96 rattis = 11.6638 grams).'
+      },
+      {
+        question: 'How do I convert grams to ratti?',
+        answer: 'Divide the weight in grams by 0.1215 (ratti = grams ÷ 0.1215).'
+      }
+    ],
+    relatedSlugs: ['ratti-to-gram', 'tola-to-gram', 'gram-to-tola', 'masha-to-gram'],
   },
   'marla-to-gaz': {
     slug: 'marla-to-gaz',
@@ -6053,81 +6256,89 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
   },
   'seer-to-grams': {
     slug: 'seer-to-grams',
-    whatIsHeading: 'What Is Seer to Grams Converter Conversion',
+    whatIsHeading: 'What Is Seer to Grams Conversion',
     whatIsParagraphs: [
-      'Convert traditional seer weight into metric grams (g) for grocery and commodity trading. One standard seer is defined as equal to 933.1 grams (approximately 0.933 kg).',
-      'Converting seer into gram ensures accurate, standardized calculations across professional and everyday usage without manual conversion errors.'
+      'Convert Pakistani seer weight into metric grams (g) for grocery and commodity trading. In modern Pakistan where 1 maund equals 40 seer and 40 kilograms, 1 seer equals 1 kilogram, or 1,000 grams.',
+      'Converting seer into grams ensures accurate, standardized calculations across retail groceries, recipes, and mandi trade without manual conversion errors.'
     ],
-    howToHeading: 'How to Convert SEER to GRAM',
-    howToIntro: 'To convert measurements from seer to gram, use the standard mathematical formula or formula constant provided below.',
-    formulaBox: 'grams = seer × 933.1',
-    workedExampleTitle: 'Worked Example: Convert 10 seer to gram',
-    workedExampleBody: 'Suppose you have 10 units of seer. Applying the formula grams = seer × 933.1 yields the precise equivalent in gram.',
-    quickRefValues: [1, 2, 5, 10, 20, 25, 50, 100],
+    howToHeading: 'How to Convert Seer to Grams',
+    howToIntro: 'To convert measurements from seer to grams in modern Pakistan, multiply the weight in seers by 1,000 (since 1 seer = 1 kg = 1,000 g).',
+    formulaBox: 'grams = seer × 1,000',
+    workedExampleTitle: 'Worked Example: Convert 10 Seer to Grams',
+    workedExampleBody: 'Suppose you have 10 seer of flour. Applying the formula grams = seer × 1,000 yields 10 × 1,000 = 10,000 grams (10 kg).',
+    quickRefValues: [0.25, 0.5, 1, 2, 5, 10, 20, 40],
     commonMistakes: [
       {
-        title: 'Forgetting to check unit definitions',
-        description: 'Always verify whether regional or standard international definitions apply to your specific calculation.'
+        title: 'Dividing by 1,000 instead of multiplying',
+        description: 'Because 1 seer contains 1,000 grams, the gram figure is always 1,000 times larger than the seer figure.'
       },
       {
-        title: 'Rounding off too early during intermediate steps',
-        description: 'Keep full decimal precision during calculation steps and round only at the final reported output.'
+        title: 'Confusing modern 1,000 g seer with pre-metric 933.1 g seer',
+        description: 'Modern Pakistani markets define 1 maund = 40 seer = 40 kg, making 1 seer equal to 1,000 grams (1 kg).'
       }
     ],
     faqs: [
       {
-        question: 'How do I convert seer to gram?',
-        answer: 'Use the conversion formula: grams = seer × 933.1.'
+        question: 'How many grams are in 1 seer in Pakistan?',
+        answer: 'In modern Pakistan, 1 seer equals 1,000 grams (1 kilogram), since 1 maund = 40 seer = 40 kg.'
       },
       {
-        question: 'Is this calculation exact?',
-        answer: 'Yes, it uses standardized international and regional constants.'
+        question: 'How many grams are in 1 pao (quarter seer)?',
+        answer: 'One pao (0.25 seer) equals 250 grams.'
       },
       {
-        question: 'Where can I find more converters?',
-        answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
+        question: 'How do I convert seer to grams?',
+        answer: 'Multiply the number of seers by 1,000 (grams = seer × 1,000).'
+      },
+      {
+        question: 'How many grams are in 5 seer?',
+        answer: '5 seer equal 5,000 grams (5 kilograms).'
       }
     ],
     relatedSlugs: ['grams-to-seer', 'seer-to-kg', 'kg-to-seer', 'maund-to-kg'],
   },
   'grams-to-seer': {
     slug: 'grams-to-seer',
-    whatIsHeading: 'What Is Grams to Seer Converter Conversion',
+    whatIsHeading: 'What Is Grams to Seer Conversion',
     whatIsParagraphs: [
-      'Convert metric grams (g) into traditional seer weight for regional trade and produce. Because 1 seer equals 933.1 grams, divide your weight in grams by 933.1 to get seers.',
-      'Converting gram into seer ensures accurate, standardized calculations across professional and everyday usage without manual conversion errors.'
+      'Convert metric grams (g) into Pakistani seer weight for regional trade, recipes, and produce. Because 1 modern Pakistani seer equals 1 kilogram (1,000 grams, based on 1 maund = 40 seer = 40 kg), divide your weight in grams by 1,000 to get seers.',
+      'Converting grams into seer ensures accurate, standardized calculations across retail groceries and kitchen measurements without manual conversion errors.'
     ],
-    howToHeading: 'How to Convert GRAM to SEER',
-    howToIntro: 'To convert measurements from gram to seer, use the standard mathematical formula or formula constant provided below.',
-    formulaBox: 'seer = grams ÷ 933.1',
-    workedExampleTitle: 'Worked Example: Convert 10 gram to seer',
-    workedExampleBody: 'Suppose you have 10 units of gram. Applying the formula seer = grams ÷ 933.1 yields the precise equivalent in seer.',
-    quickRefValues: [1, 2, 5, 10, 20, 25, 50, 100],
+    howToHeading: 'How to Convert Grams to Seer',
+    howToIntro: 'To convert measurements from grams to seer in modern Pakistan, divide the weight in grams by 1,000.',
+    formulaBox: 'seer = grams ÷ 1,000',
+    workedExampleTitle: 'Worked Example: Convert 2,500 Grams to Seer',
+    workedExampleBody: 'Suppose you have 2,500 grams of sugar. Applying the formula seer = grams ÷ 1,000 gives 2,500 ÷ 1,000 = 2.5 seer.',
+    quickRefValues: [250, 500, 1000, 2000, 2500, 5000, 10000, 40000],
     commonMistakes: [
       {
-        title: 'Forgetting to check unit definitions',
-        description: 'Always verify whether regional or standard international definitions apply to your specific calculation.'
+        title: 'Multiplying by 1,000 instead of dividing',
+        description: 'Because a gram is one-thousandth of a seer (1 kg), always divide grams by 1,000 to get seers.'
       },
       {
-        title: 'Rounding off too early during intermediate steps',
-        description: 'Keep full decimal precision during calculation steps and round only at the final reported output.'
+        title: 'Confusing 250 grams (1 pao) with 1 full seer',
+        description: '250 grams equals 0.25 seer (1 pao), while 1,000 grams equals 1 full seer.'
       }
     ],
     faqs: [
       {
-        question: 'How do I convert gram to seer?',
-        answer: 'Use the conversion formula: seer = grams ÷ 933.1.'
+        question: 'How do I convert grams to seer?',
+        answer: 'Divide the weight in grams by 1,000 (seer = grams ÷ 1,000), since 1 seer = 1 kg = 1,000 grams.'
       },
       {
-        question: 'Is this calculation exact?',
-        answer: 'Yes, it uses standardized international and regional constants.'
+        question: 'How many seer is 1,000 grams?',
+        answer: '1,000 grams (1 kilogram) equals 1 seer in modern Pakistan.'
       },
       {
-        question: 'Where can I find more converters?',
-        answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
+        question: 'How many seer is 500 grams?',
+        answer: '500 grams equals 0.5 seer (half a seer).'
+      },
+      {
+        question: 'How many seer is 250 grams?',
+        answer: '250 grams equals 0.25 seer (1 pao).'
       }
     ],
-    relatedSlugs: ['seer-to-grams', 'maund-to-seer', 'seer-to-maund'],
+    relatedSlugs: ['seer-to-grams', 'seer-to-kg', 'kg-to-seer', 'maund-to-kg'],
   },
   'maund-to-seer': {
     slug: 'maund-to-seer',
@@ -6283,46 +6494,54 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['marla-to-sq-yard', 'kanal-to-sq-meters', 'square-meters-to-kanal'],
+    relatedSlugs: ['marla-to-sq-yard', 'kanal-to-square-meter', 'square-meters-to-kanal'],
   },
-  'kanal-to-sq-meters': {
-    slug: 'kanal-to-sq-meters',
-    whatIsHeading: 'What Is Kanal to Square Meters Converter Conversion',
+  'kanal-to-square-meter': {
+    slug: 'kanal-to-square-meter',
+    whatIsHeading: 'What Is Kanal to Square Meters Conversion',
     whatIsParagraphs: [
-      'Convert traditional kanals into metric square meters (sq m) for surveying and blueprints. Since 1 kanal equals 20 marlas (5,445 sq ft) and 1 sq m equals 10.7639 sq ft, 1 kanal equals 505.857 square meters.',
-      'Converting kanal into sqm ensures accurate, standardized calculations across professional and everyday usage without manual conversion errors.'
+      'Kanal to square meters conversion translates traditional Pakistani land area in kanals into metric square meters (sq m or m²). Under the official Pakistani land revenue standard where 1 marla equals 272.25 square feet and 1 kanal equals 20 marla (5,445 square feet), 1 standard kanal equals 505.8570528 square meters (commonly written as 505.8571 sq m).',
+      'Architects, civil engineers, housing society developers, and property buyers across Pakistan use kanal-to-square-meter conversion when preparing metric site plans, covered-area calculations, and municipal approval drawings for 1-kanal, 2-kanal, and 4-kanal estates.'
     ],
-    howToHeading: 'How to Convert KANAL to SQM',
-    howToIntro: 'To convert measurements from kanal to sqm, use the standard mathematical formula or formula constant provided below.',
-    formulaBox: 'sq meters = kanals × 505.857',
-    workedExampleTitle: 'Worked Example: Convert 10 kanal to sqm',
-    workedExampleBody: 'Suppose you have 10 units of kanal. Applying the formula sq meters = kanals × 505.857 yields the precise equivalent in sqm.',
-    quickRefValues: [1, 2, 5, 10, 20, 25, 50, 100],
+    howToHeading: 'How to Convert Kanal to Square Meters',
+    howToIntro: 'To convert kanal to square meters using the standard Pakistani benchmark (1 kanal = 20 marla = 5,445 sq ft), multiply the number of kanals by 505.8571.',
+    formulaBox: 'square meters (sq m) = kanal × 505.8571',
+    workedExampleTitle: 'Worked Example: Convert a 2-Kanal Plot to Square Meters',
+    workedExampleBody: 'Suppose you are designing a residence on a standard 2-kanal plot (40 marla / 10,890 sq ft). Multiply 2 by 505.8571: 2 × 505.8571 = 1,011.7141 square meters. A 2-kanal plot equals approximately 1,011.71 square meters.',
+    quickRefValues: [0.5, 1, 1.5, 2, 4, 5, 8, 10, 20, 50],
     commonMistakes: [
       {
-        title: 'Forgetting to check unit definitions',
-        description: 'Always verify whether regional or standard international definitions apply to your specific calculation.'
+        title: 'Confusing 505.86 square meters with 605 square yards',
+        description: '1 standard kanal equals 605 square yards (gaz) and 505.8571 square meters. Do not use 605 when converting to metric square meters.'
       },
       {
-        title: 'Rounding off too early during intermediate steps',
-        description: 'Keep full decimal precision during calculation steps and round only at the final reported output.'
+        title: 'Dividing by 505.8571 instead of multiplying',
+        description: 'Because 1 kanal contains over 505 square meters, the square meter figure is always 505.8571 times larger than the kanal figure.'
+      },
+      {
+        title: 'Using a 4,500 sq ft urban kanal without checking the society standard',
+        description: 'In societies where 1 marla is 225 sq ft (1 kanal = 4,500 sq ft), 1 kanal is 418.06 sq m; however, the official Pakistani statutory standard is 20 × 272.25 = 5,445 sq ft (505.8571 sq m).'
       }
     ],
     faqs: [
       {
-        question: 'How do I convert kanal to sqm?',
-        answer: 'Use the conversion formula: sq meters = kanals × 505.857.'
+        question: 'How many square meters are in 1 standard kanal?',
+        answer: 'Using the standard Pakistani value (1 kanal = 20 marla = 5,445 sq ft), 1 kanal equals 505.8571 square meters.'
       },
       {
-        question: 'Is this calculation exact?',
-        answer: 'Yes, it uses standardized international and regional constants.'
+        question: 'How many marla are in 1 kanal?',
+        answer: 'There are 20 marla in 1 kanal (20 × 25.2929 sq m = 505.8571 sq m).'
       },
       {
-        question: 'Where can I find more converters?',
-        answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
+        question: 'How many square meters are in 2 kanal?',
+        answer: '2 kanal equal 1,011.7141 square meters (10,890 square feet).'
+      },
+      {
+        question: 'How many kanal are in 1 acre?',
+        answer: 'There are 8 kanal in 1 standard acre (8 × 505.8571 sq m = 4,046.8564 sq m).'
       }
     ],
-    relatedSlugs: ['square-meters-to-kanal', 'square-meters-to-kanal', 'gaz-to-inches'],
+    relatedSlugs: ['marla-to-square-meter', 'square-meter-to-marla', 'kanal-to-sqft', 'kanal-to-marla'],
   },
   'square-meters-to-kanal': {
     slug: 'square-meters-to-kanal',
@@ -7180,10 +7399,10 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['gallons-to-cups', 'pints-to-liters', 'liters-to-pints'],
+    relatedSlugs: ['gallons-to-cups', 'pint-to-liters', 'liters-to-pint'],
   },
-  'pints-to-liters': {
-    slug: 'pints-to-liters',
+  'pint-to-liters': {
+    slug: 'pint-to-liters',
     whatIsHeading: 'What Is US Pints to Liters Converter Conversion',
     whatIsParagraphs: [
       'Convert US liquid pints (pt) into metric liters (L) for beverages, milk, and cooking liquids. One US liquid pint equals exactly 0.473176473 liters (or 1 liter = 2.11338 pints).',
@@ -7219,10 +7438,10 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['liters-to-pints', 'liters-to-pints', 'ounces-to-ml'],
+    relatedSlugs: ['liters-to-pint', 'ounces-to-ml'],
   },
-  'liters-to-pints': {
-    slug: 'liters-to-pints',
+  'liters-to-pint': {
+    slug: 'liters-to-pint',
     whatIsHeading: 'What Is Liters to US Pints Converter Conversion',
     whatIsParagraphs: [
       'Convert metric liters (L) into US liquid pints (pt) for recipes and beverage sizing. Since 1 pint equals approximately 0.473176 liters, divide liters by 0.473176 (or multiply by 2.11338).',
@@ -7258,7 +7477,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['pints-to-liters', 'ounces-to-ml', 'tons-to-pounds'],
+    relatedSlugs: ['pint-to-liters', 'ounces-to-ml', 'tons-to-pounds'],
   },
   'ounces-to-ml': {
     slug: 'ounces-to-ml',
@@ -7414,7 +7633,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['inches-to-yards', 'inches-to-yards', 'kilograms-to-mg'],
+    relatedSlugs: ['inches-to-yards', 'kg-to-mg'],
   },
   'inches-to-yards': {
     slug: 'inches-to-yards',
@@ -7453,10 +7672,10 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['yards-to-inches', 'kilograms-to-mg', 'mg-to-kilograms'],
+    relatedSlugs: ['yards-to-inches', 'kg-to-mg', 'mg-to-kg'],
   },
-  'kilograms-to-mg': {
-    slug: 'kilograms-to-mg',
+  'kg-to-mg': {
+    slug: 'kg-to-mg',
     whatIsHeading: 'What Is Kilograms to Milligrams Converter Conversion',
     whatIsParagraphs: [
       'Convert kilograms (kg) into milligrams (mg) for laboratory science, chemistry, and pharmacy. One kilogram equals 1,000 grams, and 1 gram equals 1,000 milligrams, making 1 kg equal to 1,000,000 mg.',
@@ -7492,10 +7711,10 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['mg-to-kilograms', 'mg-to-kilograms', 'ms-to-mph'],
+    relatedSlugs: ['mg-to-kg', 'ms-to-mph'],
   },
-  'mg-to-kilograms': {
-    slug: 'mg-to-kilograms',
+  'mg-to-kg': {
+    slug: 'mg-to-kg',
     whatIsHeading: 'What Is Milligrams to Kilograms Converter Conversion',
     whatIsParagraphs: [
       'Convert milligrams (mg) into kilograms (kg) for pharmaceutical and scientific calculations. Because 1 kilogram equals 1,000,000 milligrams, divide your milligrams by 1,000,000.',
@@ -7531,7 +7750,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         answer: 'UnitSwift offers 155 dedicated calculators for all your measurement needs.'
       }
     ],
-    relatedSlugs: ['kilograms-to-mg', 'ms-to-mph', 'mph-to-ms'],
+    relatedSlugs: ['kg-to-mg', 'ms-to-mph', 'mph-to-ms'],
   },
   'ms-to-mph': {
     slug: 'ms-to-mph',

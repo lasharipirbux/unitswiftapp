@@ -415,30 +415,30 @@ export const Layout: React.FC<LayoutProps> = ({
         {children}
       </main>
 
-      {/* Solid Light-Grey (#EEF1F6) Footer with Thin Top Border and High-Contrast Navy Text */}
-      <footer className="bg-[#EEF1F6] dark:bg-[#151F33] border-t border-[#CBD5E1] dark:border-white/10 mt-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-[1.1fr_2.2fr_0.9fr] gap-8 pb-10 border-b border-[#CBD5E1] dark:border-white/10">
+      {/* Soft Dark Charcoal (#1F2937) Footer with Thin Accent Top Border, White Headings, and Light Gray (#D1D5DB) Text */}
+      <footer className="bg-[#1F2937] text-[#D1D5DB] border-t-2 border-[#38BDF8] mt-20">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-[1.1fr_2.2fr_0.9fr] gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/10">
             {/* Column 1: Brand & Author */}
             <div className="min-w-0 space-y-3">
               <a
                 href="/"
                 onClick={(e) => handleLinkClick(e, '/')}
-                className="text-lg font-bold tracking-tight text-[#1F2A44] dark:text-white inline-block"
+                className="text-lg font-bold tracking-tight text-white hover:text-[#38BDF8] transition-colors inline-block"
               >
                 UnitSwift
               </a>
-              <p className="text-sm text-[#1F2A44] dark:text-slate-300 leading-relaxed">
+              <p className="text-sm text-[#D1D5DB] leading-relaxed">
                 Convert any unit in a swift. Pure client-side precision math with zero popups, zero tracking, and instant results on any device.
               </p>
-              <p className="text-sm font-bold text-[#1F2A44] dark:text-[#F2C94C] pt-1">
+              <p className="text-sm font-bold text-white pt-1">
                 By Naseeb
               </p>
             </div>
 
             {/* Column 2: All Converters Directory */}
             <div className="min-w-0">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-[#1F2A44] dark:text-slate-200 mb-3">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5">
                 All {CONVERTERS.length} Unit Converters
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-xs">
@@ -449,10 +449,10 @@ export const Layout: React.FC<LayoutProps> = ({
                       key={conv.slug}
                       href={`/${conv.slug}`}
                       onClick={(e) => handleLinkClick(e, `/${conv.slug}`)}
-                      className={`py-0.5 transition-colors break-words ${
+                      className={`py-1 sm:py-0.5 transition-colors break-words ${
                         isActive
-                          ? 'font-bold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4'
-                          : 'font-medium text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4'
+                          ? 'font-bold text-white underline decoration-[#38BDF8] decoration-2 underline-offset-4'
+                          : 'font-medium text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4'
                       }`}
                     >
                       {conv.shortTitle}
@@ -464,7 +464,7 @@ export const Layout: React.FC<LayoutProps> = ({
 
             {/* Column 3: Navigation Column (Home, About, Contact, Privacy Policy) */}
             <div className="min-w-[130px] space-y-2.5">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-[#1F2A44] dark:text-slate-200 mb-3">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5">
                 Navigation
               </h2>
               <ul className="space-y-2.5 text-sm font-semibold">
@@ -472,7 +472,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <a
                     href="/"
                     onClick={(e) => handleLinkClick(e, '/')}
-                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                    className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Home
                   </a>
@@ -481,7 +481,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <a
                     href="/bulk-converter"
                     onClick={(e) => handleLinkClick(e, '/bulk-converter')}
-                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                    className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Bulk Convert (CSV)
                   </a>
@@ -490,7 +490,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <a
                     href="/about"
                     onClick={(e) => handleLinkClick(e, '/about')}
-                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                    className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     About
                   </a>
@@ -499,7 +499,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <a
                     href="/contact"
                     onClick={(e) => handleLinkClick(e, '/contact')}
-                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                    className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Contact
                   </a>
@@ -508,7 +508,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <a
                     href="/privacy-policy"
                     onClick={(e) => handleLinkClick(e, '/privacy-policy')}
-                    className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors inline-block"
+                    className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Privacy Policy
                   </a>
@@ -518,43 +518,13 @@ export const Layout: React.FC<LayoutProps> = ({
           </div>
 
           {/* Bottom Line */}
-          <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-medium text-[#1F2A44] dark:text-slate-200">
-            <div className="flex flex-wrap items-center gap-2 text-[#1F2A44] dark:text-slate-200">
-              <span className="font-bold text-[#1F2A44] dark:text-white">UnitSwift</span>
-              <span aria-hidden="true" className="text-[#1F2A44] dark:text-slate-400">·</span>
-              <span className="font-semibold text-[#1F2A44] dark:text-white">By Naseeb</span>
-              <span aria-hidden="true" className="text-[#1F2A44] dark:text-slate-400">·</span>
-              <span className="text-[#1F2A44] dark:text-slate-200">Free, fast, no sign-up.</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-6 font-semibold">
-              <a
-                href="/bulk-converter"
-                onClick={(e) => handleLinkClick(e, '/bulk-converter')}
-                className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
-              >
-                Bulk Convert (CSV)
-              </a>
-              <a
-                href="/about"
-                onClick={(e) => handleLinkClick(e, '/about')}
-                className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="/contact"
-                onClick={(e) => handleLinkClick(e, '/contact')}
-                className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
-              >
-                Contact
-              </a>
-              <a
-                href="/privacy-policy"
-                onClick={(e) => handleLinkClick(e, '/privacy-policy')}
-                className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] underline-offset-4 hover:underline transition-colors"
-              >
-                Privacy Policy
-              </a>
+          <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-medium text-[#D1D5DB]">
+            <div className="flex flex-wrap items-center gap-2 text-[#D1D5DB]">
+              <span className="font-bold text-white">UnitSwift</span>
+              <span aria-hidden="true" className="text-[#D1D5DB]/60">·</span>
+              <span className="font-semibold text-white">By Naseeb</span>
+              <span aria-hidden="true" className="text-[#D1D5DB]/60">·</span>
+              <span className="text-[#D1D5DB]">Free, fast, no sign-up.</span>
             </div>
           </div>
         </div>

@@ -170,37 +170,6 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
 
       {/* BELOW THE QUICK-FILTER CHIPS: MOST POPULAR ROW OF 4 ICON TILES + ALL CONVERTERS GROUPED BY CATEGORY */}
       <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16" id="converters-directory">
-        
-        
-        
-        {/* Pakistan & Regional Converters */}
-        <div className="space-y-5">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
-              Pakistan & Regional Converters
-            </h2>
-            <span className="text-xs font-mono-tabular text-[#1F2A44]/60 dark:text-slate-400">
-              25 traditional & local units
-            </span>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            {CONVERTERS.filter(c => ['masha-to-gram', 'gram-to-masha', 'ratti-to-gram', 'gram-to-ratti', 'tola-to-carat', 'carat-to-tola', 'carat-to-gram', 'gram-to-carat', 'seer-to-grams', 'grams-to-seer', 'maund-to-pounds', 'pounds-to-maund', 'gaz-to-inches', 'inches-to-gaz', 'gaz-to-yards', 'yards-to-gaz', 'marla-to-cents', 'cents-to-marla', 'kanal-to-cents', 'cents-to-kanal', 'acre-to-cents', 'cents-to-acre', 'tola-to-mg', 'marla-to-sqft', 'kanal-to-marla'].includes(c.slug)).map((conv) => (
-              <a
-                key={conv.slug}
-                href={`/${conv.slug}`}
-                onClick={(e) => handleCardClick(e, conv.slug)}
-                className="group flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] transition-colors"
-              >
-                <span className="text-xs font-bold text-[#1F2A44] dark:text-white truncate">
-                  {conv.shortTitle}
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#1F2A44] dark:text-slate-300 group-hover:translate-x-1 transition-transform shrink-0" />
-              </a>
-            ))}
-          </div>
-        </div>
-
-
         {/* MOST POPULAR ROW OF 4 ICON TILES */}
         <div className="space-y-5">
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
