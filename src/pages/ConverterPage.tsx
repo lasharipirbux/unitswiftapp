@@ -394,73 +394,39 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         />
       )}
 
-      {/* Small Table of 8 Common Values for that Unit Pair */}
-      <div className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
-        <div className="px-6 py-4 border-b border-[#1F2A44]/10 dark:border-white/10 flex items-center justify-between">
-          <div>
-            <h2 className="text-base font-bold text-[#1F2A44] dark:text-white">
-              Common {activeFromUnit?.pluralName} to {activeToUnit?.pluralName} Conversion Table
-            </h2>
-            <p className="text-xs text-[#1F2A44]/65 dark:text-slate-400">
-              8 common reference values for {activeFromUnit?.symbol} to {activeToUnit?.symbol}
-            </p>
-          </div>
-          <span className="text-xs font-mono-tabular text-[#1F2A44]/60 dark:text-slate-400">
-            {activeFromUnit?.symbol} → {activeToUnit?.symbol}
-          </span>
-        </div>
-
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA]/60 dark:bg-[#0F1626]/60 text-xs font-semibold text-[#1F2A44]/70 dark:text-slate-300">
-                <th className="py-3 px-6">{activeFromUnit?.pluralName} ({activeFromUnit?.symbol})</th>
-                <th className="py-3 px-6 text-right">{activeToUnit?.pluralName} ({activeToUnit?.symbol})</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
-              {[1, 2, 5, 10, 25, 50, 100, 500].map((val) => {
-                const rowConverted = formatConvertedNumber(activeConvertFn(val));
-                const isSelected = parseFloat(inputValue) === val;
-
-                return (
-                  <tr
-                    key={val}
-                    onClick={() => setInputValue(String(val))}
-                    className={`cursor-pointer transition-colors ${
-                      isSelected
-                        ? 'bg-[#F2C94C]/20 dark:bg-[#F2C94C]/15 font-semibold'
-                        : 'hover:bg-[#F6F8FA] dark:hover:bg-[#0F1626]/60'
-                    }`}
-                    title={`Click to load ${val} ${activeFromUnit?.symbol} into calculator`}
-                  >
-                    <td className="py-3 px-6 text-[#1F2A44] dark:text-white">
-                      {val} {activeFromUnit?.symbol}
-                    </td>
-                    <td className="py-3 px-6 text-right font-semibold text-[#1F2A44] dark:text-[#F2C94C]">
-                      {rowConverted} {activeToUnit?.symbol}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="px-6 py-3 bg-[#F6F8FA]/60 dark:bg-[#0F1626]/50 border-t border-[#1F2A44]/10 dark:border-white/10 text-xs text-[#1F2A44]/60 dark:text-slate-400">
-          Click any row above to set the input value to that measurement.
-        </div>
-      </div>
-
-      {/* RICH ~500-WORD CONTENT SECTION (FOR ALL 105 CONVERTER PAGES) */}
-      {RICH_CONVERTER_CONTENT[converter.slug] && (() => {
-        const rich = RICH_CONVERTER_CONTENT[converter.slug];
-        const fromU = UNITS[converter.fromUnitId];
-        const toU = UNITS[converter.toUnitId];
+      {converter.slug === 'marla-to-sqft' ? (() => {
+        const rich = RICH_CONVERTER_CONTENT['marla-to-sqft'];
+        const refMarlaValues = [1, 2, 3, 5, 7, 10, 12, 20];
+        const commonPlotSizes = [
+          {
+            size: '3 Marla',
+            area: '816.75 sq ft',
+            description:
+              'A compact plot size commonly used for small, affordable starter houses in cities and housing schemes.',
+          },
+          {
+            size: '5 Marla',
+            area: '1,361.25 sq ft',
+            description:
+              'The most popular residential plot size in Pakistan for small to medium family homes.',
+          },
+          {
+            size: '10 Marla',
+            area: '2,722.5 sq ft',
+            description:
+              'A spacious plot size chosen by larger families who want extra bedrooms, a car porch, and a small lawn.',
+          },
+          {
+            size: '1 Kanal (20 Marla)',
+            area: '5,445 sq ft',
+            description:
+              'A large plot size used for big family homes with wide driveways and gardens (1 kanal = 20 marla = 5,445 sq ft).',
+          },
+        ];
 
         return (
           <article className="space-y-10 pt-6 border-t border-[#1F2A44]/10 dark:border-white/10">
-            {/* 1. What Is [X] to [Y] Conversion */}
+            {/* 1. Short intro (80-100 words): what a marla is and why people in Pakistan convert it */}
             <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
                 {rich.whatIsHeading}
@@ -472,10 +438,10 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
               </div>
             </section>
 
-            {/* 2. How to Convert [X] to [Y] (Formula + Worked Example) */}
+            {/* 2. "How to convert marla to square feet": formula in simple words + worked example */}
             <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
-                {rich.howToHeading}
+                How to convert marla to square feet
               </h2>
               <p className="text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
                 {rich.howToIntro}
@@ -500,42 +466,49 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
               </div>
             </section>
 
-            {/* 3. Quick Reference Table (10 Common Values) */}
+            {/* 3. Ready reference table: 1, 2, 3, 5, 7, 10, 12, 20 marla in sq ft, sq yards, and sq meters */}
             <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 overflow-hidden">
               <div className="p-6 sm:px-8 border-b border-[#1F2A44]/10 dark:border-white/10">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
-                  Quick Reference Table
+                  Marla to Square Feet, Square Yards, and Square Meters Reference Table
                 </h2>
                 <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
-                  10 common {fromU?.pluralName.toLowerCase()} to {toU?.pluralName.toLowerCase()} conversions for everyday lookup.
+                  Ready reference for 1, 2, 3, 5, 7, 10, 12, and 20 marla in sq ft, sq yards, and sq meters (1 marla = 272.25 sq ft).
                 </p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA] dark:bg-[#0F1626]/70 text-xs font-semibold text-[#1F2A44] dark:text-slate-300">
-                      <th className="py-3 px-6 sm:px-8">{fromU?.pluralName} ({fromU?.symbol})</th>
-                      <th className="py-3 px-6 sm:px-8">{toU?.pluralName} ({toU?.symbol})</th>
-                      <th className="py-3 px-6 sm:px-8 text-right">Equation</th>
+                      <th className="py-3 px-6 sm:px-8">Marla</th>
+                      <th className="py-3 px-6 sm:px-8">Square Feet (sq ft)</th>
+                      <th className="py-3 px-6 sm:px-8">Square Yards (sq yd)</th>
+                      <th className="py-3 px-6 sm:px-8 text-right">Square Meters (sq m)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
-                    {rich.quickRefValues.map((val) => {
-                      const out = formatConvertedNumber(converter.convert(val));
+                    {refMarlaValues.map((val) => {
+                      const sqFt = formatConvertedNumber(val * 272.25);
+                      const sqYd = formatConvertedNumber(val * 30.25);
+                      const sqM = formatConvertedNumber(Number((val * 25.29285264).toFixed(2)));
                       return (
                         <tr
                           key={val}
                           onClick={() => setInputValue(String(val))}
                           className="hover:bg-[#F6F8FA] dark:hover:bg-[#0F1626]/50 cursor-pointer transition-colors"
+                          title={`Click to load ${val} marla into calculator`}
                         >
                           <td className="py-3 px-6 sm:px-8 font-medium text-[#1F2A44] dark:text-white">
-                            {val} {fromU?.symbol}
+                            {val} marla
                           </td>
                           <td className="py-3 px-6 sm:px-8 font-bold text-[#1F2A44] dark:text-[#F2C94C]">
-                            {out} {toU?.symbol}
+                            {sqFt} sq ft
                           </td>
-                          <td className="py-3 px-6 sm:px-8 text-right text-xs text-[#1F2A44]/70 dark:text-slate-400">
-                            {val} {fromU?.symbol} = {out} {toU?.symbol}
+                          <td className="py-3 px-6 sm:px-8 text-[#1F2A44]/85 dark:text-slate-200">
+                            {sqYd} sq yd
+                          </td>
+                          <td className="py-3 px-6 sm:px-8 text-right text-[#1F2A44]/85 dark:text-slate-200">
+                            {sqM} sq m
                           </td>
                         </tr>
                       );
@@ -545,38 +518,51 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
               </div>
             </section>
 
-            {/* 4. Common Mistakes */}
+            {/* 4. "Common plot sizes in Pakistan" + 5. Note on housing society marla sizes */}
             <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
-                Common Mistakes
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {rich.commonMistakes.map((mistake, idx) => (
+              <div className="space-y-1.5">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                  Common plot sizes in Pakistan
+                </h2>
+                <p className="text-sm text-[#1F2A44]/80 dark:text-slate-300">
+                  Most housing societies and cities in Pakistan sell residential plots in these four standard sizes. Remember that <strong>1 kanal = 20 marla = 5,445 sq ft</strong>.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {commonPlotSizes.map((plot) => (
                   <div
-                    key={idx}
-                    className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"
+                    key={plot.size}
+                    className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-1.5"
                   >
-                    <span className="text-xs font-mono-tabular font-bold text-[#1F2A44]/60 dark:text-[#F2C94C]">
-                      0{idx + 1}. Pitfall to Avoid
-                    </span>
-                    <h3 className="text-sm font-bold text-[#1F2A44] dark:text-white leading-snug">
-                      {mistake.title}
-                    </h3>
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-base font-bold text-[#1F2A44] dark:text-white">
+                        {plot.size}
+                      </h3>
+                      <span className="text-xs font-mono-tabular font-bold px-2.5 py-1 rounded-md bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 text-[#1F2A44] dark:text-[#F2C94C]">
+                        {plot.area}
+                      </span>
+                    </div>
                     <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
-                      {mistake.description}
+                      {plot.description}
                     </p>
                   </div>
                 ))}
               </div>
+
+              {/* 5. Note */}
+              <div className="p-4 rounded-xl bg-[#F2C94C]/20 dark:bg-[#F2C94C]/10 border border-[#F2C94C]/60 dark:border-[#F2C94C]/40 text-xs sm:text-sm font-medium text-[#1F2A44] dark:text-[#F2C94C]">
+                <strong>Note:</strong> In some housing societies and cities the marla size can differ (for example 225 sq ft). Always check the size in your property documents.
+              </div>
             </section>
 
-            {/* 5. FAQ (3 Questions with Short Answers) */}
+            {/* 6. 6 FAQs */}
             <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
               <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
-                FAQ
+                Frequently Asked Questions (FAQs)
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {rich.faqs.slice(0, 3).map((faq, idx) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {rich.faqs.map((faq, idx) => (
                   <div
                     key={idx}
                     className="p-5 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"
@@ -587,13 +573,216 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                     <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
                       {faq.answer}
                     </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            </article>
-          );
-        })()}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </article>
+        );
+      })() : (
+        <>
+          {/* Small Table of 8 Common Values for that Unit Pair */}
+          <div className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
+            <div className="px-6 py-4 border-b border-[#1F2A44]/10 dark:border-white/10 flex items-center justify-between">
+              <div>
+                <h2 className="text-base font-bold text-[#1F2A44] dark:text-white">
+                  Common {activeFromUnit?.pluralName} to {activeToUnit?.pluralName} Conversion Table
+                </h2>
+                <p className="text-xs text-[#1F2A44]/65 dark:text-slate-400">
+                  8 common reference values for {activeFromUnit?.symbol} to {activeToUnit?.symbol}
+                </p>
+              </div>
+              <span className="text-xs font-mono-tabular text-[#1F2A44]/60 dark:text-slate-400">
+                {activeFromUnit?.symbol} → {activeToUnit?.symbol}
+              </span>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA]/60 dark:bg-[#0F1626]/60 text-xs font-semibold text-[#1F2A44]/70 dark:text-slate-300">
+                    <th className="py-3 px-6">{activeFromUnit?.pluralName} ({activeFromUnit?.symbol})</th>
+                    <th className="py-3 px-6 text-right">{activeToUnit?.pluralName} ({activeToUnit?.symbol})</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
+                  {[1, 2, 5, 10, 25, 50, 100, 500].map((val) => {
+                    const rowConverted = formatConvertedNumber(activeConvertFn(val));
+                    const isSelected = parseFloat(inputValue) === val;
+
+                    return (
+                      <tr
+                        key={val}
+                        onClick={() => setInputValue(String(val))}
+                        className={`cursor-pointer transition-colors ${
+                          isSelected
+                            ? 'bg-[#F2C94C]/20 dark:bg-[#F2C94C]/15 font-semibold'
+                            : 'hover:bg-[#F6F8FA] dark:hover:bg-[#0F1626]/60'
+                        }`}
+                        title={`Click to load ${val} ${activeFromUnit?.symbol} into calculator`}
+                      >
+                        <td className="py-3 px-6 text-[#1F2A44] dark:text-white">
+                          {val} {activeFromUnit?.symbol}
+                        </td>
+                        <td className="py-3 px-6 text-right font-semibold text-[#1F2A44] dark:text-[#F2C94C]">
+                          {rowConverted} {activeToUnit?.symbol}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="px-6 py-3 bg-[#F6F8FA]/60 dark:bg-[#0F1626]/50 border-t border-[#1F2A44]/10 dark:border-white/10 text-xs text-[#1F2A44]/60 dark:text-slate-400">
+              Click any row above to set the input value to that measurement.
+            </div>
+          </div>
+
+          {/* RICH ~500-WORD CONTENT SECTION (FOR ALL OTHER CONVERTER PAGES) */}
+          {RICH_CONVERTER_CONTENT[converter.slug] && (() => {
+            const rich = RICH_CONVERTER_CONTENT[converter.slug];
+            const fromU = UNITS[converter.fromUnitId];
+            const toU = UNITS[converter.toUnitId];
+
+            return (
+              <article className="space-y-10 pt-6 border-t border-[#1F2A44]/10 dark:border-white/10">
+                {/* 1. What Is [X] to [Y] Conversion */}
+                <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                    {rich.whatIsHeading}
+                  </h2>
+                  <div className="space-y-3 text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
+                    {rich.whatIsParagraphs.map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+                </section>
+
+                {/* 2. How to Convert [X] to [Y] (Formula + Worked Example) */}
+                <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                    {rich.howToHeading}
+                  </h2>
+                  <p className="text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
+                    {rich.howToIntro}
+                  </p>
+
+                  <div className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/15 dark:border-white/15">
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-[#1F2A44]/65 dark:text-slate-400 mb-1">
+                      Conversion Formula
+                    </span>
+                    <code className="text-base sm:text-lg font-bold font-mono-tabular text-[#1F2A44] dark:text-[#F2C94C]">
+                      {rich.formulaBox}
+                    </code>
+                  </div>
+
+                  <div className="p-5 rounded-xl bg-[#F2C94C]/15 dark:bg-[#19253D] border border-[#F2C94C]/50 dark:border-[#F2C94C]/30 space-y-1.5">
+                    <h3 className="text-sm sm:text-base font-bold text-[#1F2A44] dark:text-[#F2C94C]">
+                      {rich.workedExampleTitle}
+                    </h3>
+                    <p className="text-sm text-[#1F2A44]/90 dark:text-slate-200 leading-relaxed">
+                      {rich.workedExampleBody}
+                    </p>
+                  </div>
+                </section>
+
+                {/* 3. Quick Reference Table (10 Common Values) */}
+                <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 overflow-hidden">
+                  <div className="p-6 sm:px-8 border-b border-[#1F2A44]/10 dark:border-white/10">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                      Quick Reference Table
+                    </h2>
+                    <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
+                      10 common {fromU?.pluralName.toLowerCase()} to {toU?.pluralName.toLowerCase()} conversions for everyday lookup.
+                    </p>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA] dark:bg-[#0F1626]/70 text-xs font-semibold text-[#1F2A44] dark:text-slate-300">
+                          <th className="py-3 px-6 sm:px-8">{fromU?.pluralName} ({fromU?.symbol})</th>
+                          <th className="py-3 px-6 sm:px-8">{toU?.pluralName} ({toU?.symbol})</th>
+                          <th className="py-3 px-6 sm:px-8 text-right">Equation</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
+                        {rich.quickRefValues.map((val) => {
+                          const out = formatConvertedNumber(converter.convert(val));
+                          return (
+                            <tr
+                              key={val}
+                              onClick={() => setInputValue(String(val))}
+                              className="hover:bg-[#F6F8FA] dark:hover:bg-[#0F1626]/50 cursor-pointer transition-colors"
+                            >
+                              <td className="py-3 px-6 sm:px-8 font-medium text-[#1F2A44] dark:text-white">
+                                {val} {fromU?.symbol}
+                              </td>
+                              <td className="py-3 px-6 sm:px-8 font-bold text-[#1F2A44] dark:text-[#F2C94C]">
+                                {out} {toU?.symbol}
+                              </td>
+                              <td className="py-3 px-6 sm:px-8 text-right text-xs text-[#1F2A44]/70 dark:text-slate-400">
+                                {val} {fromU?.symbol} = {out} {toU?.symbol}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+
+                {/* 4. Common Mistakes */}
+                <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                    Common Mistakes
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {rich.commonMistakes.map((mistake, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"
+                      >
+                        <span className="text-xs font-mono-tabular font-bold text-[#1F2A44]/60 dark:text-[#F2C94C]">
+                          0{idx + 1}. Pitfall to Avoid
+                        </span>
+                        <h3 className="text-sm font-bold text-[#1F2A44] dark:text-white leading-snug">
+                          {mistake.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
+                          {mistake.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                {/* 5. FAQ (3 Questions with Short Answers) */}
+                <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                    FAQ
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {rich.faqs.slice(0, 3).map((faq, idx) => (
+                      <div
+                        key={idx}
+                        className="p-5 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"
+                      >
+                        <h3 className="text-sm sm:text-base font-bold text-[#1F2A44] dark:text-white">
+                          {faq.question}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </article>
+            );
+          })()}
+        </>
+      )}
 
       {/* RELATED CONVERTERS SECTION (6 Clean Same-Category Tiles) */}
       <RelatedConverters

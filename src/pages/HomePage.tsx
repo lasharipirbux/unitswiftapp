@@ -80,6 +80,20 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
     ).filter(Boolean);
   }, []);
 
+  const pakistaniConverters = useMemo(() => {
+    const slugs = [
+      'marla-to-sqft',
+      'kanal-to-marla',
+      'tola-to-gram',
+      'seer-to-kg',
+      'maund-to-kg',
+      'gaz-to-feet',
+      'masha-to-gram',
+      'ratti-to-gram',
+    ];
+    return slugs.map((slug) => CONVERTERS.find((c) => c.slug === slug)!).filter(Boolean);
+  }, []);
+
   const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
     e.preventDefault();
     navigate(`/${slug}`);
@@ -178,6 +192,64 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             {popularConverters.map((conv) => {
+              const TileIcon = CATEGORY_ICONS[conv.category];
+              return (
+                <a
+                  key={conv.slug}
+                  href={`/${conv.slug}`}
+                  onClick={(e) => handleCardClick(e, conv.slug)}
+                  className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#F0F6FF] dark:bg-[#1E2D4A] text-[#1F2A44] dark:text-[#F2C94C] flex items-center justify-center shrink-0">
+                    <TileIcon aria-hidden="true" className="w-5 h-5" />
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2 min-w-0">
+                    <span className="text-sm sm:text-base font-bold text-[#1F2A44] dark:text-white whitespace-nowrap truncate">
+                      {conv.shortTitle}
+                    </span>
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="w-4 h-4 text-[#1F2A44] dark:text-slate-300 group-hover:translate-x-1 transition-transform shrink-0"
+                    />
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* PAKISTANI UNITS SECTION */}
+        <div className="space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
+                Pakistani Units
+              </h2>
+              <p className="text-xs sm:text-sm text-[#1F2A44]/75 dark:text-slate-300 mt-1">
+                Popular local land and weight tools including our{' '}
+                <a
+                  href="/marla-to-sqft"
+                  onClick={(e) => handleCardClick(e, 'marla-to-sqft')}
+                  className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline underline-offset-4 hover:opacity-80"
+                >
+                  Marla to Square Feet converter
+                </a>{' '}
+                (1 marla = 272.25 sq ft) and{' '}
+                <a
+                  href="/marla-to-sqft"
+                  onClick={(e) => handleCardClick(e, 'marla-to-sqft')}
+                  className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline underline-offset-4 hover:opacity-80"
+                >
+                  3, 5, 10 Marla &amp; 1 Kanal plot size table
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+            {pakistaniConverters.map((conv) => {
               const TileIcon = CATEGORY_ICONS[conv.category];
               return (
                 <a

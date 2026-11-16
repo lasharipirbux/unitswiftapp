@@ -2530,19 +2530,18 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
   },
 
   'marla-to-sqft': {
-    whatIsHeading: 'What Is Marla to Square Feet Conversion',
+    whatIsHeading: 'What Is a Marla and Why Convert It to Square Feet?',
     whatIsParagraphs: [
-      'Marla to square feet conversion translates the traditional South Asian land revenue unit—the marla—into square feet (sq ft). Under the official British-era revenue standard widely used across Pakistan, 1 marla is defined as 1 square karam (5.5 yards × 5.5 yards = 16.5 ft × 16.5 ft), which equals exactly 272.25 square feet.',
-      'Homebuyers, civil engineers, architects, and patwar/land registry offices use this conversion to calculate the exact plot area and covered construction square footage for 3 marla, 5 marla, 7 marla, 10 marla, and 1 kanal (20 marla) plots.',
+      'A marla is the most common traditional unit used to measure land in Pakistan. In official government land records, one standard marla is a square with each side measuring 16.5 feet (5.5 yards), which equals 272.25 square feet. While property ads, housing societies, and land registries list plot sizes in marla and kanal, architects, builders, and homeowners work in square feet when drawing house plans, calculating covered area, or estimating construction costs. Converting marla to square feet helps buyers and builders know the exact ground space available before buying a plot or starting construction.',
     ],
-    howToHeading: 'How to Convert Marla to Square Feet',
+    howToHeading: 'How to convert marla to square feet',
     howToIntro:
-      'To convert standard marla to square feet, multiply the number of marlas by 272.25. (Note: Based on the standard value used in Pakistan; local housing society values such as 250 sq ft or 225 sq ft can vary slightly.)',
-    formulaBox: 'square feet (sq ft) = marla × 272.25',
-    workedExampleTitle: 'Worked Example: Convert a 5 Marla Residential Plot to Square Feet',
+      'To convert marla to square feet, multiply the number of marla by 272.25. Each standard marla in Pakistan equals 272.25 square feet, so multiplying your plot size in marla by 272.25 gives the total area in square feet.',
+    formulaBox: 'sq ft = marla × 272.25',
+    workedExampleTitle: 'Worked Example: Convert 5 Marla to Square Feet',
     workedExampleBody:
-      'You are reviewing architectural blueprints for a standard 5 marla plot and want to know the total land area in square feet. Multiply 5 by 272.25: 5 × 272.25 = 1,361.25 square feet. A standard 5 marla plot covers 1,361.25 sq ft.',
-    quickRefValues: [1, 2, 3, 5, 7, 10, 15, 20, 40, 100],
+      'Suppose you want to find the total area of a 5 marla plot in square feet. Multiply 5 by 272.25: sq ft = 5 × 272.25 = 1,361.25 sq ft. So, a standard 5 marla plot equals 1,361.25 square feet.',
+    quickRefValues: [1, 2, 3, 5, 7, 10, 12, 20],
     commonMistakes: [
       {
         title: 'Not checking whether a housing society uses 272.25, 250, or 225 sq ft per marla',
@@ -2552,7 +2551,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
       {
         title: 'Confusing plot land area with multi-story covered area',
         description:
-          'A 5 marla plot has 1,361.25 sq ft of ground area, but a two-story house built on that plot may have 2,200 to 2,600 sq ft of total covered roof area.',
+          'A 5 marla plot has 1,361.25 sq ft of ground area, but a two-story house built on that plot may have 1,800 to 2,200 sq ft of total covered roof area.',
       },
       {
         title: 'Dropping the .25 decimal on large multi-marla parcels',
@@ -2562,27 +2561,44 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many square feet are in 1 standard marla?',
+        question: 'How many sq ft in 1 marla?',
         answer:
-          'Under the standard revenue value used in Pakistan, 1 marla equals 272.25 square feet.',
+          'There are 272.25 square feet in 1 standard marla in Pakistan. In some housing societies and cities, a smaller marla of 250 sq ft or 225 sq ft is also used.',
       },
       {
-        question: 'How many square feet is a 5 marla plot?',
+        question: 'How many marla in 1 kanal?',
         answer:
-          'Using the 272.25 sq ft standard, a 5 marla plot equals 1,361.25 square feet.',
+          'There are 20 marla in 1 kanal. Under the standard rate of 272.25 sq ft per marla, 1 kanal equals 5,445 square feet.',
       },
       {
-        question: 'How many square feet is a 10 marla plot?',
+        question: 'How many sq ft in a 5 marla house?',
         answer:
-          'A standard 10 marla plot equals 2,722.5 square feet.',
+          'A standard 5 marla plot has 1,361.25 square feet of land area (5 × 272.25). If you build a two-story house on a 5 marla plot, the total covered area across both floors is usually around 1,800 to 2,200 square feet.',
       },
       {
-        question: 'How many square feet is 20 marla (1 kanal)?',
+        question: 'What is the difference between a marla and a sq yard?',
         answer:
-          '20 marla (1 standard kanal) equals 5,445 square feet (20 × 272.25 = 5,445 sq ft).',
+          'A marla is a traditional land unit equal to 272.25 sq ft, while a square yard (also called a gaz) is a 3 ft by 3 ft square equal to 9 sq ft. One standard marla equals 30.25 square yards.',
+      },
+      {
+        question: 'How many sq ft in a 10 marla plot?',
+        answer:
+          'A standard 10 marla plot in Pakistan is 2,722.5 square feet (10 × 272.25). This also equals 302.5 square yards or 252.93 square meters.',
+      },
+      {
+        question: 'How do I convert square feet back to marla?',
+        answer:
+          'To convert square feet back to marla, divide the area in square feet by 272.25. For example, 1,361.25 sq ft divided by 272.25 equals 5 marla.',
       },
     ],
-    relatedSlugs: ['sqft-to-marla', 'kanal-to-marla', 'acre-to-sqft', 'sqft-to-sqm'],
+    relatedSlugs: [
+      'sqft-to-marla',
+      'kanal-to-marla',
+      'marla-to-square-yards',
+      'marla-to-square-meter',
+      'acre-to-kanal',
+      'kanal-to-acre',
+    ],
   },
 
   'sqft-to-marla': {

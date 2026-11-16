@@ -50,6 +50,20 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
   }, [currentConverter.category]);
 
   const relatedConverters = useMemo(() => {
+    if (currentConverter.slug === 'marla-to-sqft') {
+      const flagshipRelatedSlugs = [
+        'sqft-to-marla',
+        'kanal-to-marla',
+        'marla-to-square-yards',
+        'marla-to-square-meter',
+        'acre-to-kanal',
+        'kanal-to-acre',
+      ];
+      return flagshipRelatedSlugs
+        .map((s) => CONVERTERS.find((c) => c.slug === s)!)
+        .filter(Boolean);
+    }
+
     // 1. Get other converters from the same category
     const sameCategory = CONVERTERS.filter(
       (c) => c.category === currentConverter.category && c.slug !== currentConverter.slug
