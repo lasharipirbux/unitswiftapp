@@ -173,23 +173,23 @@ export const Layout: React.FC<LayoutProps> = ({
         ref={headerRef}
         className="sticky top-0 z-30 bg-white dark:bg-[#0F1626] border-b border-[#E2E8F0] dark:border-white/10"
       >
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-1 lg:gap-2 px-3 sm:px-6 h-16">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between gap-1.5 xl:gap-2 px-3 sm:px-5 h-16">
           {/* Left: UnitSwift Logo */}
           <a
             href="/"
             onClick={(e) => handleLinkClick(e, '/')}
-            className="inline-flex items-center gap-1.5 lg:gap-2 text-base lg:text-xl font-bold tracking-tight text-[#1F2A44] dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2C94C]"
+            className="inline-flex items-center gap-1.5 lg:gap-2 text-base lg:text-lg xl:text-xl font-bold tracking-tight text-[#1F2A44] dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2C94C]"
           >
-            <LogoMark className="w-6 h-6 lg:w-7 lg:h-7 shrink-0" />
+            <LogoMark className="w-6 h-6 xl:w-7 xl:h-7 shrink-0" />
             <span>UnitSwift</span>
           </a>
 
-          {/* Center (Desktop & Laptop >= 768px): 8 Category Links on a Single Line */}
+          {/* Center (Laptop & Desktop >= 1024px): Category Links + Bulk CSV on a Single Line */}
           <nav
             aria-label="Unit Categories"
             onMouseEnter={clearCloseTimer}
             onMouseLeave={scheduleDesktopClose}
-            className="hidden md:flex items-center gap-0 lg:gap-1 xl:gap-1.5 whitespace-nowrap min-w-0"
+            className="hidden lg:flex items-center gap-0 xl:gap-0.5 whitespace-nowrap min-w-0"
           >
             {CATEGORIES.map((cat) => {
               const isOpen = activeDesktopCategory === cat.id;
@@ -201,7 +201,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   aria-haspopup="true"
                   onMouseEnter={() => handleDesktopCategoryMouseEnter(cat.id)}
                   onClick={() => handleDesktopCategoryClick(cat.id)}
-                  className={`inline-flex items-center gap-0.5 px-1.5 lg:px-2 xl:px-2.5 py-2 rounded-lg text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+                  className={`inline-flex items-center gap-0.5 px-1 xl:px-2 py-2 rounded-lg text-xs xl:text-[13px] font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                     isOpen
                       ? 'bg-[#F1F5F9] dark:bg-white/10 text-[#1F2A44] dark:text-[#F2C94C]'
                       : 'text-[#1F2A44] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5'
@@ -210,7 +210,7 @@ export const Layout: React.FC<LayoutProps> = ({
                   <span>{cat.name}</span>
                   <ChevronDown
                     aria-hidden="true"
-                    className={`w-3 h-3 lg:w-3.5 lg:h-3.5 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 shrink-0 ${
+                    className={`w-3 h-3 xl:w-3.5 xl:h-3.5 text-[#1F2A44] dark:text-slate-300 transition-transform duration-150 shrink-0 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -220,7 +220,7 @@ export const Layout: React.FC<LayoutProps> = ({
             <a
               href="/bulk-converter"
               onClick={(e) => handleLinkClick(e, '/bulk-converter')}
-              className={`inline-flex items-center px-1.5 lg:px-2 xl:px-2.5 py-2 rounded-lg text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+              className={`inline-flex items-center px-1.5 xl:px-2 py-2 rounded-lg text-xs xl:text-[13px] font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                 currentPath === '/bulk-converter'
                   ? 'bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 text-[#1F2A44] dark:text-[#F2C94C]'
                   : 'text-[#1F2A44] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5'
@@ -230,8 +230,20 @@ export const Layout: React.FC<LayoutProps> = ({
             </a>
           </nav>
 
-          {/* Far Right: Optional Install App Button + Dark Mode Button + Mobile-only (<768px) Menu Button */}
+          {/* Far Right: Tablet Bulk CSV + Optional Install App Button + Dark Mode Button + Mobile/Tablet (<1024px) Menu Button */}
           <div className="flex items-center gap-1.5 lg:gap-2 shrink-0">
+            <a
+              href="/bulk-converter"
+              onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+              className={`hidden md:inline-flex lg:hidden items-center px-2.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+                currentPath === '/bulk-converter'
+                  ? 'bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 text-[#1F2A44] dark:text-[#F2C94C]'
+                  : 'text-[#1F2A44] dark:text-slate-200 hover:bg-[#F8FAFC] dark:hover:bg-white/5'
+              }`}
+            >
+              Bulk CSV
+            </a>
+
             {deferredInstallPrompt && (
               <button
                 type="button"
@@ -247,29 +259,25 @@ export const Layout: React.FC<LayoutProps> = ({
             <button
               type="button"
               onClick={onToggleTheme}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 text-xs font-semibold rounded-lg bg-[#1F2A44] text-white dark:bg-[#F2C94C] dark:text-[#1F2A44] hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C]"
+              title="Toggle dark mode"
+              aria-label="Toggle dark mode"
+              aria-pressed={isDark}
+              className="w-9 h-9 rounded-full inline-flex items-center justify-center bg-[#1F2A44] text-white dark:bg-[#F2C94C] dark:text-[#1F2A44] hover:opacity-90 transition-opacity shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2C94C]"
             >
               {isDark ? (
-                <>
-                  <Sun className="w-3.5 h-3.5 shrink-0" />
-                  <span>Light Mode</span>
-                </>
+                <Sun aria-hidden="true" className="w-4 h-4 shrink-0" />
               ) : (
-                <>
-                  <Moon className="w-3.5 h-3.5 shrink-0" />
-                  <span>Dark Mode</span>
-                </>
+                <Moon aria-hidden="true" className="w-4 h-4 shrink-0" />
               )}
             </button>
 
-            {/* Mobile-only (<768px) Menu Button — hidden on desktop/laptop (md:hidden) */}
+            {/* Mobile & Tablet (<1024px) Menu Button — hidden on laptop/desktop (lg:hidden) */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="md:hidden inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-lg bg-white dark:bg-[#151F33] text-[#1F2A44] dark:text-white border border-[#1F2A44]/25 dark:border-white/20 hover:bg-[#F1F5F9] dark:hover:bg-white/10 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="lg:hidden inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-lg bg-white dark:bg-[#151F33] text-[#1F2A44] dark:text-white border border-[#1F2A44]/25 dark:border-white/20 hover:bg-[#F1F5F9] dark:hover:bg-white/10 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               {mobileMenuOpen ? (
                 <>
@@ -286,12 +294,12 @@ export const Layout: React.FC<LayoutProps> = ({
           </div>
         </div>
 
-        {/* Desktop & Laptop (>= 768px) Big Dropdown Panel */}
+        {/* Laptop & Desktop (>= 1024px) Big Dropdown Panel */}
         {activeCategoryObj && (
           <div
             onMouseEnter={clearCloseTimer}
             onMouseLeave={scheduleDesktopClose}
-            className="hidden md:block absolute left-0 right-0 top-full z-40 px-4 sm:px-6 pt-2 pb-4 pointer-events-none"
+            className="hidden lg:block absolute left-0 right-0 top-full z-40 px-4 sm:px-6 pt-2 pb-4 pointer-events-none"
           >
             <div className="max-w-[960px] mx-auto rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 p-6 pointer-events-auto">
               <div className="flex items-center justify-between gap-4 pb-3 mb-4 border-b border-[#1F2A44]/10 dark:border-white/10">
@@ -337,11 +345,11 @@ export const Layout: React.FC<LayoutProps> = ({
           </div>
         )}
 
-        {/* Mobile (<768px) Full-Width Expandable Category Menu */}
+        {/* Mobile & Tablet (<1024px) Full-Width Expandable Category Menu */}
         {mobileMenuOpen && (
           <nav
             aria-label="Mobile Unit Categories"
-            className="md:hidden w-full bg-white dark:bg-[#0F1626] border-t border-[#E2E8F0] dark:border-white/10 max-h-[80vh] overflow-y-auto"
+            className="lg:hidden w-full bg-white dark:bg-[#0F1626] border-t border-[#E2E8F0] dark:border-white/10 max-h-[80vh] overflow-y-auto"
           >
             <div className="divide-y divide-[#1F2A44]/10 dark:divide-white/10">
               {CATEGORIES.map((cat) => {
