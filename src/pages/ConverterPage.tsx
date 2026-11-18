@@ -757,13 +757,13 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </div>
                 </section>
 
-                {/* 5. FAQ (3 Questions with Short Answers) */}
+                {/* 5. FAQ (All Questions Matching JSON-LD Schema) */}
                 <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
                     FAQ
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {rich.faqs.slice(0, 3).map((faq, idx) => (
+                  <div className={`grid grid-cols-1 ${rich.faqs.length >= 4 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-5`}>
+                    {rich.faqs.map((faq, idx) => (
                       <div
                         key={idx}
                         className="p-5 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"

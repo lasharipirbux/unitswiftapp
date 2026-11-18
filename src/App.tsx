@@ -199,10 +199,7 @@ export default function App() {
           { name: categoryObj?.name || activeConverter.category, path: `/#category-${activeConverter.category}` },
           { name: activeConverter.shortTitle, path: `/${activeConverter.slug}` },
         ],
-        faqs:
-          activeConverter.slug === 'marla-to-sqft'
-            ? richContent?.faqs
-            : richContent?.faqs?.slice(0, 3),
+        faqs: richContent?.faqs,
       });
     } else if (currentPath === '/bulk-converter') {
       updatePageSEO({
