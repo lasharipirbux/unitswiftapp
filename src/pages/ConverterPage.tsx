@@ -733,6 +733,47 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </div>
                 </section>
 
+                {/* Pakistani Unit Guide (for Pakistan-specific converter pages) */}
+                {rich.pakistaniUnitGuide && (
+                  <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                        Pakistani unit guide
+                      </h2>
+                      <span
+                        dir="auto"
+                        className="px-3 py-1 rounded-lg bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/12 dark:border-white/15 text-xs sm:text-sm font-semibold text-[#1F2A44] dark:text-[#F2C94C]"
+                      >
+                        {rich.pakistaniUnitGuide.urduLabel}
+                      </span>
+                    </div>
+
+                    <div className="space-y-3 text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
+                      {rich.pakistaniUnitGuide.paragraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+
+                    <div className="p-4 sm:p-5 rounded-xl bg-[#F2C94C]/15 dark:bg-[#19253D] border border-[#F2C94C]/50 dark:border-[#F2C94C]/30 space-y-1">
+                      <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1F2A44] dark:text-[#F2C94C]">
+                        Real-Life Example
+                      </h3>
+                      <p className="text-sm text-[#1F2A44]/90 dark:text-slate-200 leading-relaxed">
+                        {rich.pakistaniUnitGuide.realLifeExample}
+                      </p>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/15 dark:border-white/15 space-y-1">
+                      <h3 className="text-xs sm:text-sm font-bold text-[#1F2A44] dark:text-white">
+                        Regional Differences
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
+                        {rich.pakistaniUnitGuide.regionalNote}
+                      </p>
+                    </div>
+                  </section>
+                )}
+
                 {/* 4. Common Mistakes */}
                 <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">

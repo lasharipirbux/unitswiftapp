@@ -16,6 +16,12 @@ export interface RichConverterContent {
     question: string;
     answer: string;
   }[];
+  pakistaniUnitGuide?: {
+    urduLabel: string;
+    paragraphs: string[];
+    realLifeExample: string;
+    regionalNote: string;
+  };
   relatedSlugs: string[];
 }
 
@@ -2784,6 +2790,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'Half a tola (6 mashas) equals 5.8319 grams.',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'tola / تولہ',
+      paragraphs: [
+        'In Pakistan, the tola / تولہ is the primary weight unit used across sarafa gold markets, bullion exchanges, and traditional attar or Unani herbal shops. Under the official bullion benchmark, 1 tola = 11.6638 grams, and jewelers measure gold ornaments on calibrated electronic milligram balances before converting the reading into tolas.',
+        'Traditionally, each tola is further divided into 12 mashas and 96 rattis so artisans can price delicate rings, bangles, and bridal sets accurately. Daily gold rates published by city sarafa associations across Pakistan are quoted per tola, making exact conversion to metric grams essential before finalizing any purchase.',
+      ],
+      realLifeExample:
+        'If gold is sold per tola in Pakistan, 5 tola = 58.32 grams (58.319 g exact) when verified on a jeweler’s digital scale.',
+      regionalNote:
+        'Regional difference: While 1 tola = 11.6638 grams is standard across bullion markets in Pakistan, some neighborhood jewelry receipts round slightly to 11.664 grams, and rural spice or silver traders historically used slightly heavier 12-gram local tolas.',
+    },
     relatedSlugs: ['gram-to-tola', 'gram-to-ounce', 'ounce-to-gram', 'gram-to-kg'],
   },
 
@@ -2841,6 +2858,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           '1,000 grams equals approximately 85.7353 tola.',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'tola / تولہ',
+      paragraphs: [
+        'Digital jewelry scales throughout Pakistan display weights in grams, yet shopkeepers and families still negotiate prices in tola / تولہ because bullion tickers list rates per tola. Knowing that 1 tola = 11.6638 grams lets you divide any metric gram readout by 11.6638 to confirm how many tolas you are buying or selling.',
+        'From sealed Swiss gold biscuits stamped in 10 g or 50 g bars to wedding necklaces weighed at a sarafa counter, converting grams back into tolas prevents rounding errors on high-value items. Jewelers also express leftover fractions below 1 tola in mashas and rattis for handmade pieces.',
+      ],
+      realLifeExample:
+        'If gold is sold per tola at a Pakistani sarafa bazaar and a gold bar weighs 58.32 grams on the scale, dividing by 11.6638 confirms it is 5 tola.',
+      regionalNote:
+        'Regional difference: Major bullion markets in Karachi, Lahore, Islamabad, and Peshawar all follow 1 tola = 11.6638 grams (often rounded to 11.664 g on simple pocket calculators), whereas minted investment bars from overseas refineries are stamped strictly in metric grams.',
+    },
     relatedSlugs: ['tola-to-gram', 'gram-to-ounce', 'gram-to-kg', 'kg-to-gram'],
   },
 
@@ -3240,6 +3268,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'Four kanals equal 0.5 acre (half an acre).',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'kanal / کنال',
+      paragraphs: [
+        'In Pakistan, the kanal / کنال is a major land measurement unit used for residential estates, farmhouses, orchards, and agricultural property deeds across Punjab, Khyber Pakhtunkhwa, and Azad Kashmir. By official revenue law, 1 kanal = 20 marla = 5445 square feet = 0.125 acre, meaning eight kanals combine to form one complete acre.',
+        'Land revenue officers (patwaris) and surveyors measure plot boundaries with 5.5-foot karam rods or modern laser tapes before summing the area on fard and intiqal records. Converting kanals to acres makes it straightforward to compare large rural farm holdings with city housing blocks.',
+      ],
+      realLifeExample:
+        'A 5 marla house plot is about 1361 square feet (one-quarter of a kanal), while a full 1 kanal residential plot covers 5,445 square feet (0.125 acre) and an 8 kanal farm equals 1 acre.',
+      regionalNote:
+        'Regional difference: Revenue registries in Pakistan enforce 1 kanal = 20 marla = 5445 square feet = 0.125 acre, whereas private societies built on smaller 225-sq-ft marlas count 1 residential kanal as 4,500 square feet (roughly 0.1033 acre).',
+    },
     relatedSlugs: ['acre-to-kanal', 'kanal-to-marla', 'marla-to-kanal', 'acre-to-sqft'],
   },
 
@@ -3639,6 +3678,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'One gaz measures 36 inches.',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'gaz / گز',
+      paragraphs: [
+        'Across Pakistan, the gaz / گز is an everyday length unit heard in fabric bazaars, carpet showrooms, tailoring shops, and residential masonry work. One standard linear gaz equals one international yard, so 1 gaz = 3 feet (36 inches) and is measured with a rigid wooden or brass yardstick.',
+        'Tailors also divide each gaz into 16 girahs (2.25 inches each) when cutting unstitched lawn or cotton suits, while builders use gaz to measure plot frontages and boundary walls. For plot areas rather than straight lengths, property dealers refer to square gaz (9 square feet).',
+      ],
+      realLifeExample:
+        'When a cloth merchant in Pakistan cuts 5 gaz of fabric for curtains or suiting, the total length measures 15 feet (180 inches).',
+      regionalNote:
+        'Regional difference: Linear 1 gaz = 3 feet is uniform across Pakistan, although Karachi property markets quote plot areas in square gaz (1 sq gaz = 9 sq ft) while Punjab and Islamabad primarily list plots in marla and kanal.',
+    },
     relatedSlugs: ['feet-to-gaz', 'gaz-to-meter', 'meter-to-gaz', 'yard-to-feet'],
   },
 
@@ -3696,6 +3746,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'One hundred feet equal about 33.3333 gaz.',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'gaz / گز',
+      paragraphs: [
+        'Builders, interior decorators, and homeowners in Pakistan frequently take room dimensions with a measuring tape in feet and then convert them into gaz / گز before placing orders at local markets. Because 1 gaz = 3 feet, dividing any straight measurement in feet by 3 tells you the exact length in gaz.',
+        'Bazaars selling carpets, boundary wire, tarpaulins, and unstitched textiles commonly price items per linear gaz using standard 36-inch counter sticks. Converting architectural feet into gaz avoids over-ordering materials on site.',
+      ],
+      realLifeExample:
+        'If a veranda railing in Rawalpindi measures 27 feet on a steel tape, dividing by 3 shows you need 9 gaz of iron piping.',
+      regionalNote:
+        'Regional difference: Modern trade throughout Pakistan uses 1 gaz = 3 feet consistently, though older Mughal-era buildings occasionally followed a shorter 33-inch architectural gaz and real estate listings in Sindh use square gaz (9 sq ft) for plot areas.',
+    },
     relatedSlugs: ['gaz-to-feet', 'meter-to-gaz', 'gaz-to-meter', 'feet-to-meter'],
   },
 
@@ -4094,6 +4155,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'Twenty standard marlas (1 kanal) equal 505.8571 square meters.',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'marla / مرلہ',
+      paragraphs: [
+        'The marla / مرلہ is the most common residential plot-buying unit in Pakistan, used in property advertisements, stamp registries, and municipal housing plans. Under the statutory revenue standard, 1 marla = 272.25 square feet = 25.29 square meters (25.2929 sq m exact), measured by multiplying a plot’s length and width in feet and dividing by 272.25.',
+        'Architects and civil engineers convert marlas into metric square meters when preparing modern CAD layouts, tile estimates, and municipal building approvals. Checking both square feet and square meters ensures buyers verify exact plot dimensions before signing an agreement.',
+      ],
+      realLifeExample:
+        'A 5 marla house plot is about 1361 square feet (1361.25 sq ft exact), which equals roughly 126.46 square meters on an architect’s metric floor plan.',
+      regionalNote:
+        'Regional difference: Marla size varies across areas in Pakistan—while government land records follow 1 marla = 272.25 square feet = 25.29 square meters, major private housing societies in Lahore and Islamabad (such as DHA and Bahria Town) use a 225-sq-ft (20.90 sq m) marla, and parts of Rawalpindi or Gujranwala use 250 sq ft.',
+    },
     relatedSlugs: ['square-meter-to-marla', 'kanal-to-square-meter', 'marla-to-sqft', 'sqm-to-sqft'],
   },
 
@@ -4949,6 +5021,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'Forty seers equal 1 maund (with each modern seer matching 1 kg).',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'maund / من',
+      paragraphs: [
+        'In Pakistan, the maund / من is the benchmark bulk weight unit used across wholesale grain markets (ghalla mandis), flour mills, cotton ginning factories, and livestock feed depots. Crops like wheat, paddy rice, maize, and cotton are weighed on tractor-trolley weighbridges (kanta) and settled using per-maund prices.',
+        'Historically under South Asian revenue tables, 1 maund = 37.3242 kg (40 seer), where each traditional seer weighed roughly 0.9331 kg. Following metrication, Pakistani agricultural mandis adopted a 40 kg maund (with 1 modern seer = 1 kg) so 25 maunds match 1 metric ton cleanly.',
+      ],
+      realLifeExample:
+        'A grower in Punjab harvesting 10 maunds of wheat weighs 400 kg on a modern 40 kg mandi scale (or 373.24 kg under the historical 37.3242 kg 40-seer standard).',
+      regionalNote:
+        'Regional difference: Modern grain markets across Pakistan weigh 40 kg per maund, whereas historical revenue documents and neighboring cross-border markets preserve 1 maund = 37.3242 kg (40 seer), and certain rural fodder or sugarcane trades use 42 kg local maunds.',
+    },
     relatedSlugs: ['kg-to-maund', 'seer-to-kg', 'kg-to-seer', 'ton-to-kg'],
   },
 
@@ -5006,6 +5089,17 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           'Forty kilograms equal 1 standard Pakistani maund.',
       },
     ],
+    pakistaniUnitGuide: {
+      urduLabel: 'maund / من',
+      paragraphs: [
+        'When a loaded truck rolls onto an electronic weighbridge in Pakistan, the ticket prints net weight in kilograms, which commission agents (arhtis) immediately convert into maund / من to calculate farmer payouts. Because government support prices and mandi auctions for wheat, sugar, and rice are announced per maund, dividing kilograms accurately is essential for daily settlement.',
+        'Traditional British-era handbooks define 1 maund = 37.3242 kg (40 seer), while modern Pakistani wholesale mandis standardize on 40 kg per maund. Always verify whether a contract uses the current 40 kg metric mandi weight or the historical 37.3242 kg seer basis.',
+      ],
+      realLifeExample:
+        'If a rice trolley weighs 2,000 kg net at a Gujranwala mandi weighbridge, dividing by 40 gives 50 maunds under the modern Pakistani grain-market standard.',
+      regionalNote:
+        'Regional difference: Contemporary agricultural markets throughout Pakistan divide kilograms by 40 to reach maunds, yet older agricultural manuals, traditional spice traders, and regional South Asian tables still retain 1 maund = 37.3242 kg (40 seer).',
+    },
     relatedSlugs: ['maund-to-kg', 'kg-to-seer', 'seer-to-kg', 'kg-to-ton'],
   },
 
