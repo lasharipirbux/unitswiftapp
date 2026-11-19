@@ -1,0 +1,4 @@
+https://www.unitswift.org/* https://unitswift.org/:splat 301!
+http://www.unitswift.org/* https://unitswift.org/:splat 301!
+http://unitswift.org/* https://unitswift.org/:splat 301!
+/* /index.html 200

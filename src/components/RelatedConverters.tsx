@@ -3,103 +3,117 @@ import { ArrowUpRight } from 'lucide-react';
 import {
   ConverterPageConfig,
   CONVERTERS,
-  CATEGORIES,
   UNITS,
   formatConvertedNumber,
 } from '../data/converters';
+import { RICH_CONVERTER_CONTENT } from '../data/richConverterContent';
 
 interface RelatedConvertersProps {
   currentConverter: ConverterPageConfig;
   navigate?: (to: string, options?: { preserveInput?: string; scrollToId?: string }) => void;
 }
 
-export function formatRelatedTileTitle(shortTitle: string): string {
-  return shortTitle
-    .split(' ')
-    .map((word, i) => {
-      const lower = word.toLowerCase();
-      if (i > 0 && lower === 'to') return 'to';
-      if (lower === 'mb') return 'MB';
-      if (lower === 'gb') return 'GB';
-      if (lower === 'kb') return 'KB';
-      if (lower === 'tb') return 'TB';
-      if (lower === 'mph') return 'MPH';
-      if (lower === 'kmh') return 'KM/H';
-      if (lower === 'ms') return 'm/s';
-      if (lower === 'sqft') return 'Sq Ft';
-      if (lower === 'sqm') return 'Sq M';
-      if (lower === 'sqyard') return 'Sq Yard';
-      if (lower === 'tbsp') return 'Tbsp';
-      if (lower === 'tsp') return 'Tsp';
-      if (lower === 'ml') return 'mL';
-      if (lower === 'kg') return 'Kg';
-      if (lower === 'cm') return 'Cm';
-      if (lower === 'mm') return 'Mm';
-      if (lower === 'km') return 'Km';
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(' ');
+const RELATED_COUNT = 5;
+
+function getDimensionKey(conv: ConverterPageConfig): string {
+  const fromU = UNITS[conv.fromUnitId];
+  return fromU?.dimensionGroup || fromU?.category || conv.category;
+}
+
+const DIMENSION_LABELS: Record<string, string> = {
+  weight: 'weight & mass',
+  length: 'length & distance',
+  temperature: 'temperature',
+  volume: 'volume & liquid',
+  speed: 'speed',
+  area: 'area & land',
+  data: 'digital data',
+  pressure: 'pressure',
+  time: 'time',
+};
+
+export function getRelatedConvertersForPage(currentConverter: ConverterPageConfig): ConverterPageConfig[] {
+  if (currentConverter.slug === 'tola-to-gram') {
+    const preferred = ['gram-to-tola', 'kg-to-pounds', 'ounce-to-gram', 'maund-to-kg', 'tola-to-kg'];
+    return preferred
+      .map((s) => CONVERTERS.find((c) => c.slug === s))
+      .filter((c): c is ConverterPageConfig => Boolean(c))
+      .slice(0, RELATED_COUNT);
+  }
+
+  if (currentConverter.slug === 'marla-to-sqft') {
+    const preferred = [
+      'sqft-to-marla',
+      'kanal-to-marla',
+      'marla-to-square-yards',
+      'marla-to-square-meter',
+      'acre-to-kanal',
+    ];
+    return preferred
+      .map((s) => CONVERTERS.find((c) => c.slug === s))
+      .filter((c): c is ConverterPageConfig => Boolean(c))
+      .slice(0, RELATED_COUNT);
+  }
+
+  const currentDim = getDimensionKey(currentConverter);
+  const richRelatedSlugs = RICH_CONVERTER_CONTENT[currentConverter.slug]?.relatedSlugs || [];
+
+  const reverseConverter = CONVERTERS.find(
+    (c) =>
+      c.slug !== currentConverter.slug &&
+      (c.slug === currentConverter.reverseSlug ||
+        (c.fromUnitId === currentConverter.toUnitId && c.toUnitId === currentConverter.fromUnitId))
+  );
+
+  const candidates = CONVERTERS.filter((c) => c.slug !== currentConverter.slug);
+
+  const scored = candidates.map((c) => {
+    let score = 0;
+    if (reverseConverter && c.slug === reverseConverter.slug) {
+      score += 10000;
+    }
+    const cDim = getDimensionKey(c);
+    if (cDim === currentDim) {
+      score += 1000;
+    }
+    if (c.category === currentConverter.category) {
+      score += 200;
+    }
+    const sharesUnit =
+      c.fromUnitId === currentConverter.fromUnitId ||
+      c.toUnitId === currentConverter.toUnitId ||
+      c.fromUnitId === currentConverter.toUnitId ||
+      c.toUnitId === currentConverter.fromUnitId;
+    if (sharesUnit) {
+      score += 150;
+    }
+    const richIndex = richRelatedSlugs.indexOf(c.slug);
+    if (richIndex !== -1) {
+      score += 80 - richIndex * 10;
+    }
+    if (c.popular) {
+      score += 25;
+    }
+    return { converter: c, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, RELATED_COUNT).map((item) => item.converter);
 }
 
 export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
   currentConverter,
   navigate,
 }) => {
-  const categoryInfo = useMemo(() => {
-    return CATEGORIES.find((c) => c.id === currentConverter.category);
-  }, [currentConverter.category]);
-
-  const relatedConverters = useMemo(() => {
-    if (currentConverter.slug === 'marla-to-sqft') {
-      const flagshipRelatedSlugs = [
-        'sqft-to-marla',
-        'kanal-to-marla',
-        'marla-to-square-yards',
-        'marla-to-square-meter',
-        'acre-to-kanal',
-        'kanal-to-acre',
-      ];
-      return flagshipRelatedSlugs
-        .map((s) => CONVERTERS.find((c) => c.slug === s)!)
-        .filter(Boolean);
-    }
-
-    // 1. Get other converters from the same category
-    const sameCategory = CONVERTERS.filter(
-      (c) => c.category === currentConverter.category && c.slug !== currentConverter.slug
-    );
-
-    // Prioritize direct reverse converter, then converters sharing from/to units, then others in category
-    sameCategory.sort((a, b) => {
-      if (a.slug === currentConverter.reverseSlug) return -1;
-      if (b.slug === currentConverter.reverseSlug) return 1;
-
-      const aShares =
-        a.fromUnitId === currentConverter.fromUnitId ||
-        a.toUnitId === currentConverter.toUnitId ||
-        a.fromUnitId === currentConverter.toUnitId ||
-        a.toUnitId === currentConverter.fromUnitId;
-      const bShares =
-        b.fromUnitId === currentConverter.fromUnitId ||
-        b.toUnitId === currentConverter.toUnitId ||
-        b.fromUnitId === currentConverter.toUnitId ||
-        b.toUnitId === currentConverter.fromUnitId;
-
-      if (aShares && !bShares) return -1;
-      if (!aShares && bShares) return 1;
-      return 0;
-    });
-
-    if (sameCategory.length >= 6) {
-      return sameCategory.slice(0, 6);
-    }
-
-    // If category has fewer than 6 (e.g. speed, data, temperature, volume), backfill up to 6
-    const otherCategory = CONVERTERS.filter(
-      (c) => c.category !== currentConverter.category && c.slug !== currentConverter.slug
-    );
-    return [...sameCategory, ...otherCategory].slice(0, 6);
+  const dimensionLabel = useMemo(() => {
+    const dim = getDimensionKey(currentConverter);
+    return DIMENSION_LABELS[dim] || 'unit';
   }, [currentConverter]);
+
+  const relatedConverters = useMemo(
+    () => getRelatedConvertersForPage(currentConverter),
+    [currentConverter]
+  );
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (navigate) {
@@ -109,14 +123,20 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
   };
 
   return (
-    <section className="pt-8 border-t border-[#1F2A44]/10 dark:border-white/10 space-y-4">
+    <section
+      aria-labelledby="related-converters-heading"
+      className="pt-8 border-t border-[#1F2A44]/10 dark:border-white/10 space-y-4"
+    >
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+          <h2
+            id="related-converters-heading"
+            className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white"
+          >
             Related Converters
           </h2>
           <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400">
-            More {categoryInfo?.name || 'unit'} calculators from the same category.
+            Similar {dimensionLabel} converters and quick reverse calculation.
           </p>
         </div>
         <a
@@ -124,15 +144,14 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
           onClick={(e) => handleLinkClick(e, '/')}
           className="text-xs font-semibold text-[#1F2A44] dark:text-[#F2C94C] hover:underline underline-offset-4 whitespace-nowrap shrink-0"
         >
-          View all {CONVERTERS.length} converters →
+          Back to Home · View all {CONVERTERS.length} converters →
         </a>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-3.5">
         {relatedConverters.map((item) => {
           const fromU = UNITS[item.fromUnitId];
           const toU = UNITS[item.toUnitId];
-          const titleText = formatRelatedTileTitle(item.shortTitle);
           const rateText = formatConvertedNumber(item.convert(1));
 
           return (
@@ -150,7 +169,7 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#1F2A44]/40 dark:text-slate-400 group-hover:text-[#1F2A44] dark:group-hover:text-[#F2C94C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                 </div>
                 <h3 className="text-sm font-bold text-[#1F2A44] dark:text-white group-hover:text-[#1F2A44] dark:group-hover:text-[#F2C94C] group-hover:underline decoration-[#F2C94C] decoration-2 underline-offset-4 transition-colors leading-snug">
-                  {titleText}
+                  {item.title}
                 </h3>
               </div>
 

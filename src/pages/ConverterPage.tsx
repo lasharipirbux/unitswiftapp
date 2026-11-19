@@ -22,6 +22,7 @@ interface ConverterPageProps {
 }
 
 const TABLE_VALUES = [1, 5, 10, 50, 100];
+const QUICK_REF_STANDARD_VALUES = [1, 5, 10, 50, 100, 500, 1000];
 
 export const ConverterPage: React.FC<ConverterPageProps> = ({
   converter,
@@ -396,7 +397,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
 
       {converter.slug === 'marla-to-sqft' ? (() => {
         const rich = RICH_CONVERTER_CONTENT['marla-to-sqft'];
-        const refMarlaValues = [1, 2, 3, 5, 7, 10, 12, 20];
+        const refMarlaValues = [1, 2, 3, 5, 7, 10, 12, 20, 50, 100, 500, 1000];
         const commonPlotSizes = [
           {
             size: '3 Marla',
@@ -473,7 +474,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   Marla to Square Feet, Square Yards, and Square Meters Reference Table
                 </h2>
                 <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
-                  Ready reference for 1, 2, 3, 5, 7, 10, 12, and 20 marla in sq ft, sq yards, and sq meters (1 marla = 272.25 sq ft).
+                  Ready reference for 1, 2, 3, 5, 7, 10, 12, 20, 50, 100, 500, and 1,000 marla in sq ft, sq yards, and sq meters (1 marla = 272.25 sq ft).
                 </p>
               </div>
               <div className="overflow-x-auto">
@@ -488,7 +489,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </thead>
                   <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
                     {refMarlaValues.map((val) => {
-                      const sqFt = formatConvertedNumber(val * 272.25);
+                      const sqFt = formatConvertedNumber(converter.convert(val));
                       const sqYd = formatConvertedNumber(val * 30.25);
                       const sqM = formatConvertedNumber(Number((val * 25.29285264).toFixed(2)));
                       return (
@@ -589,7 +590,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   Common {activeFromUnit?.pluralName} to {activeToUnit?.pluralName} Conversion Table
                 </h2>
                 <p className="text-xs text-[#1F2A44]/65 dark:text-slate-400">
-                  8 common reference values for {activeFromUnit?.symbol} to {activeToUnit?.symbol}
+                  9 common reference values for {activeFromUnit?.symbol} to {activeToUnit?.symbol}
                 </p>
               </div>
               <span className="text-xs font-mono-tabular text-[#1F2A44]/60 dark:text-slate-400">
@@ -606,7 +607,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
-                  {[1, 2, 5, 10, 25, 50, 100, 500].map((val) => {
+                  {[1, 2, 5, 10, 25, 50, 100, 500, 1000].map((val) => {
                     const rowConverted = formatConvertedNumber(activeConvertFn(val));
                     const isSelected = parseFloat(inputValue) === val;
 
@@ -687,14 +688,14 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </div>
                 </section>
 
-                {/* 3. Quick Reference Table (10 Common Values) */}
+                {/* 3. Quick Reference Table (1, 5, 10, 50, 100, 500, 1000) */}
                 <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 overflow-hidden">
                   <div className="p-6 sm:px-8 border-b border-[#1F2A44]/10 dark:border-white/10">
                     <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
                       Quick Reference Table
                     </h2>
                     <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
-                      10 common {fromU?.pluralName.toLowerCase()} to {toU?.pluralName.toLowerCase()} conversions for everyday lookup.
+                      Quick reference conversions for 1, 5, 10, 50, 100, 500, and 1,000 {fromU?.pluralName.toLowerCase()} in {toU?.pluralName.toLowerCase()}.
                     </p>
                   </div>
                   <div className="overflow-x-auto">
@@ -707,7 +708,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
-                        {rich.quickRefValues.map((val) => {
+                        {QUICK_REF_STANDARD_VALUES.map((val) => {
                           const out = formatConvertedNumber(converter.convert(val));
                           return (
                             <tr

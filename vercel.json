@@ -1,0 +1,21 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.unitswift.org"
+        }
+      ],
+      "destination": "https://unitswift.org/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|favicon\\.svg|apple-touch-icon\\.png|pwa-.*\\.png|manifest\\.json|robots\\.txt|sitemap\\.xml|sw\\.js|llms\\.txt|ai-catalog\\.json|\\.well-known/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

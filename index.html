@@ -13,6 +13,16 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://unitswift.org/" />
+    <script>
+      if (window.location.hostname === 'www.unitswift.org') {
+        window.location.replace(
+          'https://unitswift.org' +
+            window.location.pathname +
+            window.location.search +
+            window.location.hash
+        );
+      }
+    </script>
     <title>UnitSwift – Convert Any Unit | 105 Free Converters</title>
     <meta name="description" content="UnitSwift is a free unit converter with 105 converters, no personal data, no sign up." />
     <meta property="og:title" content="UnitSwift – Convert Any Unit | 105 Free Converters" />

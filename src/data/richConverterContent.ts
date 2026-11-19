@@ -3505,9 +3505,9 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many GB are in 1 TB?',
+        question: 'What fraction of a TB is 1 GB?',
         answer:
-          'In binary computing, 1 terabyte holds 1,024 gigabytes.',
+          'Under 1024-based binary computing, 1 gigabyte equals 1 ÷ 1,024, or about 0.00097656 terabytes.',
       },
       {
         question: 'How many TB is 512 GB?',
