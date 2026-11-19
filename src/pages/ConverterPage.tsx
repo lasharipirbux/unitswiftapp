@@ -23,6 +23,13 @@ interface ConverterPageProps {
 
 const TABLE_VALUES = [1, 5, 10, 50, 100];
 const QUICK_REF_STANDARD_VALUES = [1, 5, 10, 50, 100, 500, 1000];
+const US_CUSTOM_QUICK_REF_SLUGS = new Set([
+  'pounds-to-kg',
+  'gallon-to-liter',
+  'celsius-to-fahrenheit',
+  'feet-to-meter',
+  'ounce-to-gram',
+]);
 
 export const ConverterPage: React.FC<ConverterPageProps> = ({
   converter,
@@ -688,27 +695,40 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </div>
                 </section>
 
-                {/* 3. Quick Reference Table (1, 5, 10, 50, 100, 500, 1000) */}
-                <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 overflow-hidden">
-                  <div className="p-6 sm:px-8 border-b border-[#1F2A44]/10 dark:border-white/10">
-                    <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
-                      Quick Reference Table
-                    </h2>
-                    <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
-                      Quick reference conversions for 1, 5, 10, 50, 100, 500, and 1,000 {fromU?.pluralName.toLowerCase()} in {toU?.pluralName.toLowerCase()}.
-                    </p>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse">
-                      <thead>
-                        <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA] dark:bg-[#0F1626]/70 text-xs font-semibold text-[#1F2A44] dark:text-slate-300">
-                          <th className="py-3 px-6 sm:px-8">{fromU?.pluralName} ({fromU?.symbol})</th>
-                          <th className="py-3 px-6 sm:px-8">{toU?.pluralName} ({toU?.symbol})</th>
-                          <th className="py-3 px-6 sm:px-8 text-right">Equation</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
-                        {QUICK_REF_STANDARD_VALUES.map((val) => {
+                {/* 3. Quick Reference Table */}
+                {(() => {
+                  const tableValues = US_CUSTOM_QUICK_REF_SLUGS.has(converter.slug)
+                    ? rich.quickRefValues
+                    : QUICK_REF_STANDARD_VALUES;
+                  const formattedList = tableValues
+                    .map((v, i) =>
+                      i === tableValues.length - 1
+                        ? `and ${v.toLocaleString('en-US')}`
+                        : v.toLocaleString('en-US')
+                    )
+                    .join(', ');
+
+                  return (
+                    <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 overflow-hidden">
+                      <div className="p-6 sm:px-8 border-b border-[#1F2A44]/10 dark:border-white/10">
+                        <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                          Quick Reference Table
+                        </h2>
+                        <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
+                          Quick reference conversions for {formattedList} {fromU?.pluralName.toLowerCase()} in {toU?.pluralName.toLowerCase()}.
+                        </p>
+                      </div>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse">
+                          <thead>
+                            <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA] dark:bg-[#0F1626]/70 text-xs font-semibold text-[#1F2A44] dark:text-slate-300">
+                              <th className="py-3 px-6 sm:px-8">{fromU?.pluralName} ({fromU?.symbol})</th>
+                              <th className="py-3 px-6 sm:px-8">{toU?.pluralName} ({toU?.symbol})</th>
+                              <th className="py-3 px-6 sm:px-8 text-right">Equation</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
+                            {tableValues.map((val) => {
                           const out = formatConvertedNumber(converter.convert(val));
                           return (
                             <tr
@@ -732,6 +752,32 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                     </table>
                   </div>
                 </section>
+                  );
+                })()}
+
+                {/* Common Uses (Real-life US examples) */}
+                {rich.commonUses && rich.commonUses.length > 0 && (
+                  <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                      Common uses
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {rich.commonUses.map((use, idx) => (
+                        <div
+                          key={idx}
+                          className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-1.5"
+                        >
+                          <h3 className="text-sm sm:text-base font-bold text-[#1F2A44] dark:text-[#F2C94C]">
+                            {use.title}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
+                            {use.example}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
 
                 {/* Pakistani Unit Guide (for Pakistan-specific converter pages) */}
                 {rich.pakistaniUnitGuide && (

@@ -22,6 +22,10 @@ export interface RichConverterContent {
     realLifeExample: string;
     regionalNote: string;
   };
+  commonUses?: {
+    title: string;
+    example: string;
+  }[];
   relatedSlugs: string[];
 }
 
@@ -87,17 +91,35 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'pounds-to-kg',
     whatIsHeading: 'What Is Pounds to Kilograms Conversion',
     whatIsParagraphs: [
-      'Pounds to kilograms conversion translates imperial and US customary weight measurements (lb) into the metric system’s standard kilogram (kg). In healthcare, pharmacology, and international logistics, dosages and shipping tariffs are almost universally calculated per kilogram of mass, even when a patient or parcel is initially weighed on a pound-calibrated scale.',
-      'By international treaty, a single pound is defined as 0.45359237 kilograms—just under half a kilogram. Converting pounds to kilograms is essential when calculating pediatric medication doses (mg/kg), setting up metric olympic bumper plates from a pound-based training program, or preparing customs declarations for overseas freight.',
+      'Pounds to kilograms conversion changes US customary pounds (lbs) into metric kilograms (kg). While bathroom scales, gym plates, and grocery store packages across the United States use pounds, international airlines, medical clinics, and global shipping carriers almost always rely on kilograms.',
+      'By international agreement, 1 pound equals exactly 0.45359237 kilograms—just under half a kilogram. Knowing how to switch quickly between lbs and kg helps you check airline baggage weight limits, convert metric barbell programs, track body weight accurately, or fill out international shipping forms.',
     ],
     howToHeading: 'How to Convert Pounds to Kilograms',
     howToIntro:
-      'To convert weight from pounds to kilograms, multiply your pound value by 0.45359237 (or divide by 2.20462262). Because the 0.45359237 constant is an exact statutory definition, multiplying by it produces zero theoretical formula error.',
+      'Multiply your weight in pounds by 0.45359237 (or divide by 2.20462). For everyday mental math or quick estimates, multiplying by 0.4536 gives a very reliable answer.',
     formulaBox: 'kilograms (kg) = pounds (lb) × 0.45359237',
-    workedExampleTitle: 'Worked Example: Convert 165 Pounds to Kilograms',
+    workedExampleTitle: 'Step-by-Step Worked Example: Convert 150 Pounds to Kilograms',
     workedExampleBody:
-      'Imagine a hospital patient states their weight as 165 pounds, and the clinician needs their mass in kilograms for an anesthesia chart. Multiply 165 by 0.45359237: 165 × 0.45359237 = 74.84274 kg. Rounded to two decimal places, 165 pounds is 74.84 kilograms.',
-    quickRefValues: [1, 5, 10, 25, 45, 50, 100, 150, 180, 200],
+      'Step 1: Start with your weight in pounds, such as 150 lbs on a home scale. Step 2: Multiply 150 by the exact conversion factor 0.45359237 (150 × 0.45359237 = 68.0388555 kg). Step 3: Round to two decimal places for everyday use—150 pounds equals 68.04 kilograms.',
+    quickRefValues: [1, 5, 10, 25, 50, 100, 150, 200],
+    commonUses: [
+      {
+        title: 'Body weight & doctor visits',
+        example: 'Clinics and telehealth forms often ask for kilograms; a 165-lb adult weighs 74.84 kg on a medical chart.',
+      },
+      {
+        title: 'Airline baggage limits',
+        example: 'Most international flights cap economy checked suitcases at 23 kg, which is just over a standard 50-lb bag (22.68 kg).',
+      },
+      {
+        title: 'Gym & strength training',
+        example: 'Comparing US barbells to metric gym sets is simple: a 45-lb Olympic bar weighs 20.41 kg and a 25-lb plate is 11.34 kg.',
+      },
+      {
+        title: 'Package & mail shipping',
+        example: 'International freight and customs forms list parcel weights in kg; a 10-lb care package ships at 4.54 kg.',
+      },
+    ],
     commonMistakes: [
       {
         title: 'Simply dividing pounds in half without adjusting',
@@ -117,27 +139,27 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
+        question: 'How many kg is 150 pounds?',
+        answer:
+          '150 pounds equals 68.04 kilograms (68.0389 kg exact). Multiply 150 by 0.45359237 to get the result.',
+      },
+      {
+        question: 'How many kg is 50 pounds for a checked suitcase?',
+        answer:
+          '50 pounds equals 22.68 kilograms (22.6796 kg), keeping you safely under the common 23 kg international airline limit.',
+      },
+      {
         question: 'How many kilograms is 1 pound?',
         answer:
-          'One pound is exactly 0.45359237 kilograms, or 453.59 grams.',
+          'One pound is exactly 0.45359237 kilograms, or about 453.6 grams. In reverse, 1 kg is about 2.205 pounds.',
       },
       {
-        question: 'How many kg is a standard 45 lb gym barbell?',
+        question: 'What is a quick trick to convert lbs to kg in your head?',
         answer:
-          'A 45-pound barbell weighs 20.41 kilograms. Most international weightlifting federations use a 20 kg (44.09 lb) men’s bar.',
-      },
-      {
-        question: 'What is the easiest mental trick to convert lbs to kg?',
-        answer:
-          'Divide the pound weight by 2, then subtract 10% of that halved number. For 120 lbs: half is 60, minus 6 gives 54 kg (exact is 54.43 kg).',
-      },
-      {
-        question: 'How many kilograms is 100 pounds?',
-        answer:
-          '100 pounds equals 45.3592 kilograms, commonly rounded to 45.36 kg.',
+          'Divide the pound number by 2, then subtract 10%. For 160 lbs: half is 80, minus 8 equals 72 kg (close to the exact 72.57 kg).',
       },
     ],
-    relatedSlugs: ['kg-to-pounds', 'pounds-to-ounce', 'ounce-to-pounds', 'gram-to-kg'],
+    relatedSlugs: ['kg-to-pounds', 'pounds-to-ounce', 'ounce-to-pounds', 'ounce-to-gram'],
   },
 
   'inch-to-cm': {
@@ -258,17 +280,35 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'feet-to-meter',
     whatIsHeading: 'What Is Feet to Meters Conversion',
     whatIsParagraphs: [
-      'Feet to meters conversion translates imperial feet (ft or ′) into meters (m), the foundational unit of length in the metric system. While commercial aviation altitudes, US residential ceiling heights, and marine depth charts are commonly expressed in feet, international civil engineering, track and field athletics, and scientific hydrodynamics operate strictly in meters.',
-      'Since 1959, the international foot has been defined as exactly 0.3048 meters (30.48 centimeters). That means three feet (one yard) is 0.9144 meters—slightly shorter than a single meter stick—and 10 feet equals 3.048 meters.',
+      'Feet to meters conversion turns US customary feet (ft) into metric meters (m). Everyday measurements in the United States—like a person’s height, living room dimensions, basketball hoop heights, and hiking elevations—are usually given in feet, while global sports, architecture, and science use meters.',
+      'By international agreement, 1 foot equals exactly 0.3048 meters (30.48 centimeters). Because a meter is a bit over three feet long, converting feet to meters always gives you a smaller number.',
     ],
     howToHeading: 'How to Convert Feet to Meters',
     howToIntro:
-      'To convert any measurement in feet to meters, multiply the number of feet by 0.3048. If your original measurement is written in feet and inches (for example, 6 ft 6 in), first divide the inches by 12 to get decimal feet (6.5 ft), then multiply by 0.3048.',
+      'Multiply any length in feet by 0.3048 to find meters. If your height or length includes inches (like 5 ft 9 in), divide the inches by 12 first to get decimal feet (5.75 ft).',
     formulaBox: 'meters (m) = feet (ft) × 0.3048',
-    workedExampleTitle: 'Worked Example: Convert a 30,000-Foot Cruising Altitude to Meters',
+    workedExampleTitle: 'Step-by-Step Worked Example: Convert a 10-Foot Basketball Hoop to Meters',
     workedExampleBody:
-      'A commercial airliner cruises at an altitude of 30,000 feet. To find the altitude in meters, multiply 30,000 by 0.3048: 30,000 × 0.3048 = 9,144 meters. The aircraft is flying at exactly 9,144 meters (9.144 km) above sea level.',
+      'Step 1: Start with a standard US basketball rim height of 10 feet. Step 2: Multiply 10 by 0.3048 (10 × 0.3048 = 3.048 meters). Step 3: Round if needed—a 10-foot hoop sits 3.05 meters above the court.',
     quickRefValues: [1, 3, 5, 6, 10, 15, 25, 50, 100, 1000],
+    commonUses: [
+      {
+        title: 'Human height',
+        example: 'Sports rosters and international ID forms use meters; a 6-foot adult measures 1.83 m tall.',
+      },
+      {
+        title: 'Home ceilings & rooms',
+        example: 'When shopping for overseas light fixtures or furniture, a 9-foot ceiling equals 2.74 m and a 12-foot wall is 3.66 m.',
+      },
+      {
+        title: 'Pools & athletic tracks',
+        example: 'Swimmers and runners compare venues easily: a 75-foot (25-yard) US pool lane is 22.86 m long.',
+      },
+      {
+        title: 'Hiking & flight altitude',
+        example: 'Trail maps and aviation charts mix units; a 10,000-foot mountain peak reaches 3,048 m.',
+      },
+    ],
     commonMistakes: [
       {
         title: 'Entering feet and inches as a base-10 decimal',
@@ -288,24 +328,24 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many meters is 1 foot?',
+        question: 'How many meters is 6 feet tall?',
         answer:
-          'One international foot is exactly 0.3048 meters (or 30.48 centimeters).',
+          'A height of 6 feet equals 1.8288 meters, which is usually rounded to 1.83 meters (183 cm).',
       },
       {
-        question: 'How many meters is a 6-foot person?',
+        question: 'How many meters is 100 feet?',
         answer:
-          'A height of 6 feet equals 1.8288 meters, commonly rounded to 1.83 m (183 cm).',
+          '100 feet equals exactly 30.48 meters (about 30 and a half meters).',
       },
       {
-        question: 'How many feet does it take to make 1 meter?',
+        question: 'How many meters is 1 foot, and how many feet equal 1 meter?',
         answer:
-          'It takes approximately 3.28084 feet (3 feet and 3.37 inches) to equal 1 meter.',
+          'One foot is exactly 0.3048 meters (30.48 cm), and 1 meter equals about 3.28084 feet (3 feet and 3.37 inches).',
       },
       {
-        question: 'Is the US survey foot different from the international foot?',
+        question: 'How do I convert height in feet and inches (like 5 ft 8 in) to meters?',
         answer:
-          'The legacy US survey foot (0.30480061 m) was officially retired by NIST on December 31, 2022, in favor of the exact 0.3048 m international foot.',
+          'Divide the inches by 12 and add to the feet (5 + 8/12 = 5.6667 ft), then multiply by 0.3048 to get 1.727 meters (about 1.73 m).',
       },
     ],
     relatedSlugs: ['meter-to-feet', 'feet-to-cm', 'feet-to-inch', 'yard-to-meter'],
@@ -486,17 +526,35 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'celsius-to-fahrenheit',
     whatIsHeading: 'What Is Celsius to Fahrenheit Conversion',
     whatIsParagraphs: [
-      'Celsius to Fahrenheit conversion translates temperatures from the Celsius scale (°C)—used by meteorological agencies, medical thermometers, and recipes in nearly every country—into the Fahrenheit scale (°F), the everyday standard for weather forecasts, home thermostats, and baking ovens in the United States.',
-      'Unlike weight or length units that share a zero point and scale by a single multiplier, Celsius and Fahrenheit have both different degree sizes and different zero points. Water freezes at 0 °C (32 °F) and boils at 100 °C (212 °F) at standard atmospheric pressure. A 100-degree span on the Celsius scale equals a 180-degree span in Fahrenheit, meaning each 1 °C change equals exactly 1.8 °F (9/5 °F).',
+      'Celsius to Fahrenheit conversion translates metric Celsius temperatures (°C) into the Fahrenheit scale (°F) used every day across the United States for local weather forecasts, home thermostats, baking ovens, and medical thermometers.',
+      'Unlike pounds or feet, Celsius and Fahrenheit start at different zero points: pure water freezes at 0 °C (32 °F) and boils at 100 °C (212 °F). Because 100 Celsius degrees cover the same temperature span as 180 Fahrenheit degrees, each 1 °C increase equals exactly 1.8 °F.',
     ],
     howToHeading: 'How to Convert Celsius to Fahrenheit',
     howToIntro:
-      'Converting Celsius to Fahrenheit is a two-step arithmetic process: first multiply the Celsius temperature by 1.8 (or 9/5), and then add 32 to account for the freezing-point offset.',
+      'Converting Celsius to Fahrenheit takes two clear steps: first multiply the Celsius temperature by 1.8 (or 9/5), and then add 32 to adjust for the 32-degree freezing point.',
     formulaBox: '°F = (°C × 1.8) + 32',
-    workedExampleTitle: 'Worked Example: Convert a 180 °C Baking Recipe to °F',
+    workedExampleTitle: 'Step-by-Step Worked Example: Convert 25 °C Weather to Fahrenheit',
     workedExampleBody:
-      'A European pastry recipe instructs you to preheat the oven to 180 °C. First, multiply 180 by 1.8: 180 × 1.8 = 324. Second, add 32: 324 + 32 = 356 °F. Set your American oven to 356 °F (typically rounded to 350 °F on standard oven dials).',
+      'Step 1: Start with an afternoon forecast high of 25 °C. Step 2: Multiply 25 by 1.8 to scale the degrees (25 × 1.8 = 45). Step 3: Add 32 to account for the freezing-point offset (45 + 32 = 77). A 25 °C day equals a warm 77 °F.',
     quickRefValues: [-40, -10, 0, 10, 20, 25, 30, 37, 100, 180],
+    commonUses: [
+      {
+        title: 'Weather & travel forecasts',
+        example: 'When traveling abroad or checking international weather apps, 20 °C feels like a mild 68 °F and 30 °C is a hot 86 °F day.',
+      },
+      {
+        title: 'Cooking & baking ovens',
+        example: 'European and UK recipes list oven temperatures in Celsius: 180 °C equals 356 °F (typically 350 °F on a US oven).',
+      },
+      {
+        title: 'Health & body temperature',
+        example: 'Imported digital thermometers often display Celsius; 37 °C is a normal 98.6 °F and 38.5 °C signals a 101.3 °F fever.',
+      },
+      {
+        title: 'Thermostats & swimming pools',
+        example: 'Indoor comfort settings and hotel pool signs in metric regions translate easily: 22 °C is 71.6 °F.',
+      },
+    ],
     commonMistakes: [
       {
         title: 'Adding 32 before multiplying by 1.8',
@@ -518,22 +576,22 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
       {
         question: 'What is normal human body temperature (37 °C) in Fahrenheit?',
         answer:
-          '37 °C equals exactly 98.6 °F ((37 × 1.8) + 32 = 98.6 °F).',
+          '37 °C equals exactly 98.6 °F ((37 × 1.8) + 32 = 98.6 °F). Normal readings generally fall between 97 °F and 99 °F.',
+      },
+      {
+        question: 'What is 20 °C and 25 °C weather in Fahrenheit?',
+        answer:
+          '20 °C equals 68 °F (comfortable room temperature), and 25 °C equals 77 °F (a warm spring or summer afternoon).',
+      },
+      {
+        question: 'What is 180 °C in Fahrenheit for baking?',
+        answer:
+          '180 °C equals 356 °F, which matches the standard 350 °F baking setting on most American kitchen ovens.',
       },
       {
         question: 'At what temperature are Celsius and Fahrenheit equal?',
         answer:
-          'The two scales intersect at −40 degrees: −40 °C is equal to −40 °F.',
-      },
-      {
-        question: 'What is a comfortable room temperature of 20 °C in Fahrenheit?',
-        answer:
-          '20 °C equals 68 °F, while 22 °C equals 71.6 °F.',
-      },
-      {
-        question: 'How can I estimate Celsius to Fahrenheit in my head?',
-        answer:
-          'Double the Celsius temperature and add 30. For 20 °C: (20 × 2) + 30 = 70 °F (very close to the exact 68 °F).',
+          'The two scales cross at −40 degrees: −40 °C is the exact same temperature as −40 °F.',
       },
     ],
     relatedSlugs: [
@@ -667,17 +725,35 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'gallon-to-liter',
     whatIsHeading: 'What Is Gallons to Liters Conversion',
     whatIsParagraphs: [
-      'Gallons to liters conversion transforms liquid capacity measured in US gallons (gal) into metric liters (L). Aquarium hobbyists dosing metric water conditioners into a 55-gallon glass tank, homeowners comparing US hot-water heater capacities against metric models, and pilots cross-checking fuel uplift volumes rely on accurate gallon-to-liter math.',
-      'By NIST statutory definition, one US liquid gallon occupies exactly 231 cubic inches, which translates to 3.785411784 liters (3,785.41 milliliters). Consequently, converting from US gallons to liters always increases the numerical value by nearly a factor of four.',
+      'Gallons to liters conversion turns US liquid gallons (gal) into metric liters (L). Across the United States, milk jugs, gas station pumps, house paint cans, water cooler bottles, and home aquariums are measured in gallons, while bottled drinks, foreign fuel pumps, and international cooking recipes use liters.',
+      'By US standard, one liquid gallon equals exactly 3.785411784 liters (about 3.79 L, or 128 US fluid ounces). Because one liter is just slightly larger than a US quart, converting from US gallons to liters multiplies your starting number by nearly four.',
     ],
     howToHeading: 'How to Convert Gallons to Liters',
     howToIntro:
-      'To convert US liquid gallons into liters, multiply the gallon volume by the exact conversion constant 3.785411784. For everyday kitchen or workshop estimates, multiplying by 3.785 provides four-figure precision.',
+      'Multiply your volume in US gallons by 3.785411784 to find the exact number of liters. For quick everyday math in the kitchen or garage, multiplying by 3.785 works great.',
     formulaBox: 'liters (L) = US gallons (gal) × 3.785411784',
-    workedExampleTitle: 'Worked Example: Convert a 40-Gallon Aquarium to Liters',
+    workedExampleTitle: 'Step-by-Step Worked Example: Convert a 15-Gallon Gas Tank to Liters',
     workedExampleBody:
-      'A freshwater fishkeeper buys a 40-gallon breeder tank and needs the volume in liters to select a metric canister filter rated in liters per hour. Multiply 40 by 3.785411784: 40 × 3.785411784 = 151.4165 L. The 40-gallon aquarium holds 151.42 liters of water.',
+      'Step 1: Start with a typical 15-gallon American sedan or SUV fuel tank. Step 2: Multiply 15 by 3.785411784 (15 × 3.785411784 = 56.781177 liters). Step 3: Round to two decimal places—a 15-gallon gas tank holds 56.78 liters.',
     quickRefValues: [0.5, 1, 2, 5, 10, 15, 20, 40, 55, 100],
+    commonUses: [
+      {
+        title: 'Gas tanks & road trips',
+        example: 'Driving across the border into Canada or Mexico? A 15-gallon SUV tank takes 56.78 L at a metric gas pump.',
+      },
+      {
+        title: 'Cooking & groceries',
+        example: 'Comparing drink sizes is easy: a 1-gallon milk jug is 3.79 L and a half-gallon carton of orange juice is 1.89 L.',
+      },
+      {
+        title: 'Water jugs & aquariums',
+        example: 'An office 5-gallon water cooler bottle holds 18.93 L, and a 20-gallon aquarium holds 75.71 L for water conditioners.',
+      },
+      {
+        title: 'Home paint & yard work',
+        example: 'A 1-gallon can of house paint equals 3.79 L, while a 2-gallon garden sprayer holds 7.57 L.',
+      },
+    ],
     commonMistakes: [
       {
         title: 'Multiplying by 4.546 when converting American containers',
@@ -697,24 +773,24 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many liters are in 1 US gallon?',
+        question: 'Is a gallon the same in the US and UK?',
         answer:
-          'There are exactly 3.785411784 liters (about 3.79 L) in 1 US liquid gallon.',
+          'No. A US liquid gallon equals 3.7854 liters (128 US fl oz), while a UK Imperial gallon is about 20% larger at 4.5461 liters (160 Imperial fl oz).',
       },
       {
-        question: 'How many liters is a half gallon of milk?',
+        question: 'How many liters are in 1 US gallon?',
         answer:
-          'A half gallon (0.5 gal) equals 1.8927 liters, or 1,892.7 milliliters.',
+          'There are 3.785411784 liters (about 3.79 liters) in 1 US liquid gallon.',
+      },
+      {
+        question: 'How many liters is a 5-gallon water jug or bucket?',
+        answer:
+          'A standard 5-gallon US water cooler jug or utility bucket holds 18.93 liters (18.9271 L exact).',
       },
       {
         question: 'How many 500 mL water bottles equal 1 US gallon?',
         answer:
-          'Because 1 US gallon is 3,785.4 mL, it equals approximately 7.57 standard 500 mL (0.5 L) water bottles.',
-      },
-      {
-        question: 'What is 5 gallons in liters?',
-        answer:
-          'Five US gallons equals 18.9271 liters, which is the standard size of office water-cooler jugs.',
+          'Because 1 US gallon equals 3,785.4 milliliters, it takes about 7.57 standard 500 mL (16.9 fl oz) water bottles to make 1 gallon.',
       },
     ],
     relatedSlugs: ['liter-to-gallon', 'gallon-to-ml', 'liter-to-ml', 'ml-to-liter'],
@@ -781,17 +857,35 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'ounce-to-gram',
     whatIsHeading: 'What Is Ounces to Grams Conversion',
     whatIsParagraphs: [
-      'Ounces to grams conversion transforms imperial and US customary weight measurements in ounces (oz) into metric grams (g). Home bakers switching from American cup-and-ounce cookbooks to a precision 1-gram digital kitchen scale, nutritionists logging macronutrients, and jewelers or postal clerks weighing small parcels depend on this exact conversion.',
-      'Under the international avoirdupois system, 1 ounce is defined as 1/16 of a pound (0.0625 lb). Because 1 pound is fixed at 453.59237 grams, 1 ounce equals exactly 28.349523125 grams. Converting from ounces to grams lets you measure ingredients with nearly 30 times finer resolution on a digital scale.',
+      'Ounces to grams conversion changes US customary weight in ounces (oz) into metric grams (g). Americans use ounces daily for food packaging, baking ingredients, meat portions, and USPS mail, while digital kitchen scales and nutrition trackers often give sharper accuracy in grams.',
+      'There are 16 standard (avoirdupois) ounces in 1 pound, making 1 ounce equal to exactly 28.349523125 grams. Because 1 ounce is almost 28.35 grams, switching to grams lets home cooks weigh flour, butter, and coffee beans with much better consistency.',
     ],
     howToHeading: 'How to Convert Ounces to Grams',
     howToIntro:
-      'To convert a weight in ounces to grams, multiply the number of ounces by 28.349523125. For everyday cooking and postal weighing, multiplying by 28.35 gives results accurate to two decimal places.',
+      'Multiply your weight in ounces by 28.3495231 to get grams. For quick kitchen or mailing calculations, multiplying by 28.35 gives an accurate result.',
     formulaBox: 'grams (g) = ounces (oz) × 28.3495231',
-    workedExampleTitle: 'Worked Example: Convert an 8-Ounce Steak to Grams',
+    workedExampleTitle: 'Step-by-Step Worked Example: Convert 8 Ounces of Steak to Grams',
     workedExampleBody:
-      'A nutrition plan specifies an 8-ounce portion of sirloin steak, and your kitchen scale is set to grams. Multiply 8 by 28.3495231: 8 × 28.3495231 = 226.7962 g. An 8-ounce (half-pound) portion weighs 226.8 grams.',
+      'Step 1: Start with an 8-ounce portion of steak or chocolate chips. Step 2: Multiply 8 by 28.3495231 (8 × 28.3495231 = 226.7962 g). Step 3: Round to one decimal place—8 ounces (half a pound) equals 226.8 grams.',
     quickRefValues: [0.5, 1, 2, 4, 6, 8, 10, 12, 16, 32],
+    commonUses: [
+      {
+        title: 'Cooking & baking',
+        example: 'American baking scales work great in grams: one 4-oz stick of US butter weighs 113.4 g and 8 oz of cream cheese is 226.8 g.',
+      },
+      {
+        title: 'Postage & mail shipping',
+        example: 'When checking international postage tiers, a 3-oz letter weighs 85.05 g and a 12-oz small package weighs 340.2 g.',
+      },
+      {
+        title: 'Meal prep & nutrition',
+        example: 'Food trackers frequently use grams; a 6-oz chicken breast weighs 170.1 g and a 1-oz serving of almonds is 28.35 g.',
+      },
+      {
+        title: 'Coffee brewing',
+        example: 'Pour-over and espresso recipes rely on gram scales: 1 oz of whole coffee beans equals 28.35 g.',
+      },
+    ],
     commonMistakes: [
       {
         title: 'Weighing dry ounces as milliliters on a liquid measuring cup',
@@ -811,27 +905,27 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many grams are in 1 ounce?',
+        question: 'How many grams is 1 ounce?',
         answer:
-          'There are 28.349523125 grams (usually rounded to 28.35 grams) in 1 standard ounce.',
+          'One standard US ounce (avoirdupois) is 28.3495 grams, usually rounded to 28.35 grams on kitchen and postal scales.',
+      },
+      {
+        question: 'How many grams is 8 ounces (half a pound)?',
+        answer:
+          '8 ounces equals 226.8 grams (226.796 g exact). Keep in mind that 8 fluid ounces on a liquid measuring cup is volume (237 mL), not dry weight.',
       },
       {
         question: 'How many grams is 4 ounces (one stick of US butter)?',
         answer:
-          'Four ounces equals 113.398 grams, which is why recipes usually list 1 stick of butter as 113 g.',
+          'Four ounces equals 113.4 grams (113.398 g), which is why US butter wrappers mark one full stick as 113 g.',
       },
       {
-        question: 'How many grams is 16 ounces (1 pound)?',
+        question: 'Is an ounce of gold the same grams as a food ounce?',
         answer:
-          '16 ounces equals 453.5924 grams (just under half a kilogram).',
-      },
-      {
-        question: 'Why do some food packages list 1 oz as 28g?',
-        answer:
-          'FDA nutrition labeling guidelines permit rounding 28.3495 g to the nearest whole gram (28 g) on serving size declarations for consumer simplicity.',
+          'No. Food and mail use the avoirdupois ounce (28.35 g), whereas precious metals like gold and silver use the heavier troy ounce (31.1035 g).',
       },
     ],
-    relatedSlugs: ['gram-to-ounce', 'ounce-to-pounds', 'pounds-to-ounce', 'kg-to-ounce'],
+    relatedSlugs: ['gram-to-ounce', 'ounce-to-pounds', 'pounds-to-ounce', 'pounds-to-kg'],
   },
 
   'yard-to-meter': {
