@@ -16,7 +16,8 @@ import {
 } from '../src/pages/InfoPages';
 
 export const BASE_URL = 'https://unitswift.org';
-export const DEFAULT_OG_IMAGE = `${BASE_URL}/pwa-512x512.png`;
+export const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
+export const DEFAULT_OG_IMAGE_ALT = 'UnitSwift - Free Unit Converters';
 
 interface RouteMeta {
   title: string;
@@ -233,12 +234,32 @@ export function injectRouteMeta(html: string, rawPath: string, includePrerendere
     `<meta property="og:url" content="${canonicalAttr}" />`
   );
   out = out.replace(
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:image" content="${DEFAULT_OG_IMAGE}" />`
+  );
+  out = out.replace(
+    /<meta\s+property="og:image:width"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:image:width" content="1200" />`
+  );
+  out = out.replace(
+    /<meta\s+property="og:image:height"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:image:height" content="630" />`
+  );
+  out = out.replace(
+    /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:image:alt" content="${DEFAULT_OG_IMAGE_ALT}" />`
+  );
+  out = out.replace(
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
     `<meta name="twitter:title" content="${titleAttr}" />`
   );
   out = out.replace(
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
     `<meta name="twitter:description" content="${descAttr}" />`
+  );
+  out = out.replace(
+    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/,
+    `<meta name="twitter:image" content="${DEFAULT_OG_IMAGE}" />`
   );
 
   const webAppSchema = safeJsonLd({

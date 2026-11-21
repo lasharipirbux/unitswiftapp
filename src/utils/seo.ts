@@ -1,5 +1,6 @@
 export const BASE_URL = 'https://unitswift.org';
-export const DEFAULT_OG_IMAGE = `${BASE_URL}/pwa-512x512.png`;
+export const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
+export const DEFAULT_OG_IMAGE_ALT = 'UnitSwift - Free Unit Converters';
 
 export interface PageSEO {
   title: string;
@@ -38,7 +39,9 @@ export function updatePageSEO({ title, description, path, noindex, breadcrumbs, 
   setMeta('meta[property="og:description"]', 'property', 'og:description', description);
   setMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
   setMeta('meta[property="og:image"]', 'property', 'og:image', DEFAULT_OG_IMAGE);
-  setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', title);
+  setMeta('meta[property="og:image:width"]', 'property', 'og:image:width', '1200');
+  setMeta('meta[property="og:image:height"]', 'property', 'og:image:height', '630');
+  setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', DEFAULT_OG_IMAGE_ALT);
   setMeta('meta[property="og:type"]', 'property', 'og:type', 'website');
   setMeta('meta[property="og:site_name"]', 'property', 'og:site_name', 'UnitSwift');
   setMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
