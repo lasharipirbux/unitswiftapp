@@ -3,7 +3,7 @@ import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { ConverterPage } from './pages/ConverterPage';
 import { BulkConverterPage } from './pages/BulkConverterPage';
-import { AboutPage, ContactPage, PrivacyPolicyPage } from './pages/InfoPages';
+import { AboutPage, ContactPage, PrivacyPolicyPage, TermsPage } from './pages/InfoPages';
 import { CATEGORIES, CONVERTERS, findConverterBySlug } from './data/converters';
 import { RICH_CONVERTER_CONTENT } from './data/richConverterContent';
 import { updatePageSEO } from './utils/seo';
@@ -42,7 +42,8 @@ function getInitialPath(): string {
         normalizedSaved === '/bulk-converter' ||
         normalizedSaved === '/about' ||
         normalizedSaved === '/contact' ||
-        normalizedSaved === '/privacy-policy'
+        normalizedSaved === '/privacy-policy' ||
+        normalizedSaved === '/terms'
       ) {
         return normalizedSaved;
       }
@@ -184,7 +185,7 @@ export default function App() {
     if (currentPath === '/') {
       updatePageSEO({
         title: `UnitSwift – Convert Any Unit | ${CONVERTERS.length} Free Converters`,
-        description: 'UnitSwift is a free unit converter with 105 converters, no personal data, no sign up.',
+        description: `UnitSwift is a free unit converter with ${CONVERTERS.length} converters across weight, length, temperature, volume, speed, area, data, and local units. Instant, private, no sign up.`,
         path: '/',
       });
     } else if (activeConverter) {
@@ -245,6 +246,17 @@ export default function App() {
           { name: 'Privacy Policy', path: '/privacy-policy' },
         ],
       });
+    } else if (currentPath === '/terms') {
+      updatePageSEO({
+        title: 'Terms of Service – UnitSwift Free Online Unit Converter',
+        description:
+          `Read the UnitSwift Terms of Service for using our ${CONVERTERS.length} free browser-based unit conversion calculators.`,
+        path: '/terms',
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: 'Terms of Service', path: '/terms' },
+        ],
+      });
     } else {
       updatePageSEO({
         title: 'Page Not Found – UnitSwift',
@@ -278,6 +290,8 @@ export default function App() {
         <ContactPage navigate={navigate} />
       ) : currentPath === '/privacy-policy' ? (
         <PrivacyPolicyPage navigate={navigate} />
+      ) : currentPath === '/terms' ? (
+        <TermsPage navigate={navigate} />
       ) : (
         <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-20 text-center space-y-4">
           <p className="text-xs font-mono-tabular font-semibold text-[#1F2A44]/60 dark:text-[#F2C94C]">

@@ -1,7 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 import { CATEGORIES, CONVERTERS, findConverterBySlug } from '../src/data/converters';
 import { RICH_CONVERTER_CONTENT } from '../src/data/richConverterContent';
+import { Layout } from '../src/components/Layout';
+import { HomePage } from '../src/pages/HomePage';
+import { ConverterPage } from '../src/pages/ConverterPage';
+import { BulkConverterPage } from '../src/pages/BulkConverterPage';
+import {
+  AboutPage,
+  ContactPage,
+  PrivacyPolicyPage,
+  TermsPage,
+} from '../src/pages/InfoPages';
 
 export const BASE_URL = 'https://unitswift.org';
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/pwa-512x512.png`;
@@ -50,7 +62,7 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
   if (currentPath === '/') {
     return {
       title: `UnitSwift – Convert Any Unit | ${CONVERTERS.length} Free Converters`,
-      description: `UnitSwift is a free unit converter with ${CONVERTERS.length} converters, no personal data, no sign up.`,
+      description: `UnitSwift is a free unit converter with ${CONVERTERS.length} converters across weight, length, temperature, volume, speed, area, data, and local units. Instant, private, no sign up.`,
       canonicalUrl: `${BASE_URL}/`,
     };
   }
@@ -124,6 +136,18 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     };
   }
 
+  if (currentPath === '/terms') {
+    return {
+      title: 'Terms of Service – UnitSwift Free Online Unit Converter',
+      description: `Read the UnitSwift Terms of Service for using our ${CONVERTERS.length} free browser-based unit conversion calculators.`,
+      canonicalUrl: `${BASE_URL}/terms`,
+      breadcrumbs: [
+        { name: 'Home', path: '/' },
+        { name: 'Terms of Service', path: '/terms' },
+      ],
+    };
+  }
+
   return {
     title: 'Page Not Found – UnitSwift',
     description: `Explore all ${CONVERTERS.length} free unit converters on UnitSwift.`,
@@ -132,7 +156,48 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
   };
 }
 
-export function injectRouteMeta(html: string, rawPath: string): string {
+export function renderRouteBodyHtml(rawPath: string): string {
+  const currentPath = normalizeRoutePath(rawPath);
+  const noopNavigate = () => {};
+  const noopToggleTheme = () => {};
+
+  const slug = currentPath.slice(1);
+  const activeConverter = findConverterBySlug(slug);
+
+  let pageNode: React.ReactNode;
+  if (currentPath === '/') {
+    pageNode = React.createElement(HomePage, { navigate: noopNavigate });
+  } else if (activeConverter) {
+    pageNode = React.createElement(ConverterPage, {
+      converter: activeConverter,
+      navigate: noopNavigate,
+    });
+  } else if (currentPath === '/bulk-converter') {
+    pageNode = React.createElement(BulkConverterPage, { navigate: noopNavigate });
+  } else if (currentPath === '/about') {
+    pageNode = React.createElement(AboutPage, { navigate: noopNavigate });
+  } else if (currentPath === '/contact') {
+    pageNode = React.createElement(ContactPage, { navigate: noopNavigate });
+  } else if (currentPath === '/privacy-policy') {
+    pageNode = React.createElement(PrivacyPolicyPage, { navigate: noopNavigate });
+  } else if (currentPath === '/terms') {
+    pageNode = React.createElement(TermsPage, { navigate: noopNavigate });
+  } else {
+    pageNode = React.createElement(HomePage, { navigate: noopNavigate });
+  }
+
+  return renderToString(
+    React.createElement(Layout, {
+      currentPath,
+      navigate: noopNavigate,
+      isDark: false,
+      onToggleTheme: noopToggleTheme,
+      children: pageNode,
+    })
+  );
+}
+
+export function injectRouteMeta(html: string, rawPath: string, includePrerenderedBody = false): string {
   const meta = resolveRouteMeta(rawPath);
   const titleAttr = escapeHtmlAttr(meta.title);
   const titleText = escapeHtmlText(meta.title);
@@ -247,6 +312,11 @@ export function injectRouteMeta(html: string, rawPath: string): string {
     out = out.replace('</head>', `${extraScripts.join('\n')}\n  </head>`);
   }
 
+  if (includePrerenderedBody) {
+    const renderedHtml = renderRouteBodyHtml(rawPath);
+    out = out.replace('<div id="root"></div>', () => `<div id="root">${renderedHtml}</div>`);
+  }
+
   return out;
 }
 
@@ -256,8 +326,8 @@ export function prerenderAllRouteHtml(distDir: string): number {
 
   const baseHtml = fs.readFileSync(baseHtmlPath, 'utf8');
 
-  // Update root dist/index.html as well so home route has canonical & count synced
-  fs.writeFileSync(baseHtmlPath, injectRouteMeta(baseHtml, '/'), 'utf8');
+  // Pre-render root dist/index.html with full React HTML + canonical & metadata
+  fs.writeFileSync(baseHtmlPath, injectRouteMeta(baseHtml, '/', true), 'utf8');
 
   const routePaths = [
     ...CONVERTERS.map((c) => `/${c.slug}`),
@@ -265,13 +335,19 @@ export function prerenderAllRouteHtml(distDir: string): number {
     '/about',
     '/contact',
     '/privacy-policy',
+    '/terms',
   ];
 
   for (const routePath of routePaths) {
     const slugDir = path.join(distDir, routePath.slice(1));
     fs.mkdirSync(slugDir, { recursive: true });
-    fs.writeFileSync(path.join(slugDir, 'index.html'), injectRouteMeta(baseHtml, routePath), 'utf8');
+    fs.writeFileSync(
+      path.join(slugDir, 'index.html'),
+      injectRouteMeta(baseHtml, routePath, true),
+      'utf8'
+    );
   }
 
   return routePaths.length;
 }
+

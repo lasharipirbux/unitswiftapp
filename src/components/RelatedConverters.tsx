@@ -55,23 +55,6 @@ export function getRelatedConvertersForPage(currentConverter: ConverterPageConfi
       .slice(0, RELATED_COUNT);
   }
 
-  const US_FOUR_RELATED_SLUGS = new Set([
-    'pounds-to-kg',
-    'gallon-to-liter',
-    'celsius-to-fahrenheit',
-    'feet-to-meter',
-    'ounce-to-gram',
-  ]);
-  if (US_FOUR_RELATED_SLUGS.has(currentConverter.slug)) {
-    const curated = RICH_CONVERTER_CONTENT[currentConverter.slug]?.relatedSlugs || [];
-    const mapped = curated
-      .map((s) => CONVERTERS.find((c) => c.slug === s))
-      .filter((c): c is ConverterPageConfig => Boolean(c));
-    if (mapped.length >= 4) {
-      return mapped.slice(0, 4);
-    }
-  }
-
   const currentDim = getDimensionKey(currentConverter);
   const richRelatedSlugs = RICH_CONVERTER_CONTENT[currentConverter.slug]?.relatedSlugs || [];
 

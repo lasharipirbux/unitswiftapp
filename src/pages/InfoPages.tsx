@@ -37,7 +37,7 @@ export const AboutPage: React.FC<InfoPageProps> = ({ navigate }) => {
         <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
         <div className="p-6 sm:p-8 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
           <p>
-            UnitSwift is a free unit converter with 105 converters across weight, length, temperature, volume, speed, area, local units, and data. Built by Naseeb, it runs directly in your browser with no sign-up required and no tracking of personal data.
+            UnitSwift is a free unit converter with {CONVERTERS.length} converters across weight, length, temperature, volume, speed, area, local units, and data. Built by Naseeb, it runs directly in your browser with no sign-up required and no tracking of personal data.
           </p>
         </div>
       </div>
@@ -199,3 +199,49 @@ export const PrivacyPolicyPage: React.FC<InfoPageProps> = ({ navigate }) => {
     </div>
   );
 };
+
+export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
+  return (
+    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
+      >
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate('/');
+          }}
+          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
+        >
+          Home
+        </a>
+        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+        <span className="font-semibold text-[#1F2A44] dark:text-white">Terms of Service</span>
+      </nav>
+
+      <header className="space-y-2">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
+          Terms of Service
+        </h1>
+      </header>
+
+      <div className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
+        <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
+        <div className="p-6 sm:p-8 space-y-4 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
+          <p>
+            UnitSwift provides {CONVERTERS.length} free browser-based unit conversion calculators for everyday, educational, real estate, and reference use at no cost.
+          </p>
+          <p>
+            While conversion factors are verified against international and regional standards, results are provided as-is. Always verify critical legal, engineering, medical, or property measurements against official source documents.
+          </p>
+          <p>
+            If you spot a conversion issue or have feedback, reach out via the Contact page.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
