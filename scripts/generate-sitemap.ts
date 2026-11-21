@@ -85,34 +85,6 @@ export function generateSitemapXml(lastmod = getTodayDateString()): { xml: strin
   return { xml, totalUrls: entries.length };
 }
 
-export function updateIndexHtmlNoscript(rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')) {
-  const indexHtmlPath = path.join(rootDir, 'index.html');
-  if (!fs.existsSync(indexHtmlPath)) return;
-
-  let html = fs.readFileSync(indexHtmlPath, 'utf8');
-
-  const links = [
-    '<li><a href="/">Home – UnitSwift Unit Converter</a></li>',
-    '<li><a href="/bulk-converter">Bulk Convert (CSV)</a></li>',
-    '<li><a href="/about">About UnitSwift</a></li>',
-    '<li><a href="/contact">Contact UnitSwift</a></li>',
-    '<li><a href="/privacy-policy">Privacy Policy</a></li>',
-    '<li><a href="/terms">Terms of Service</a></li>',
-    ...CONVERTERS.map(c => `<li><a href="/${c.slug}">${escapeXml(c.title)}</a></li>`)
-  ].join('\n      ');
-
-  const noscriptBlock = `<noscript id="unitswift-noscript-nav">\n  <nav aria-label="Sitemap Navigation">\n    <ul>\n      ${links}\n    </ul>\n  </nav>\n</noscript>`;
-
-  const noscriptRegex = /<noscript id="unitswift-noscript-nav">[\s\S]*?<\/noscript>/;
-  if (noscriptRegex.test(html)) {
-    html = html.replace(noscriptRegex, noscriptBlock);
-  } else {
-    html = html.replace('</body>', `  ${noscriptBlock}\n</body>`);
-  }
-
-  fs.writeFileSync(indexHtmlPath, html, 'utf8');
-}
-
 export function writeSitemapFile(rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')): {
   outputPath: string;
   totalUrls: number;
@@ -125,8 +97,6 @@ export function writeSitemapFile(rootDir = path.resolve(path.dirname(fileURLToPa
 
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, xml, 'utf8');
-
-  updateIndexHtmlNoscript(rootDir);
 
   return {
     outputPath,
