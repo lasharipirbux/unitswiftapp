@@ -96,12 +96,12 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
 
   const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
     e.preventDefault();
-    navigate(`/${slug}`);
+    navigate(`/${slug}/`);
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && filteredConverters.length > 0) {
-      navigate(`/${filteredConverters[0].slug}`);
+      navigate(`/${filteredConverters[0].slug}/`);
     }
   };
 
@@ -196,7 +196,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               return (
                 <a
                   key={conv.slug}
-                  href={`/${conv.slug}`}
+                  href={`/${conv.slug}/`}
                   onClick={(e) => handleCardClick(e, conv.slug)}
                   className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                 >
@@ -229,7 +229,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               <p className="text-xs sm:text-sm text-[#1F2A44]/75 dark:text-slate-300 mt-1">
                 Popular local land and weight tools including our{' '}
                 <a
-                  href="/marla-to-sqft"
+                  href="/marla-to-sqft/"
                   onClick={(e) => handleCardClick(e, 'marla-to-sqft')}
                   className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline underline-offset-4 hover:opacity-80"
                 >
@@ -237,7 +237,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                 </a>{' '}
                 (1 marla = 272.25 sq ft) and{' '}
                 <a
-                  href="/marla-to-sqft"
+                  href="/marla-to-sqft/"
                   onClick={(e) => handleCardClick(e, 'marla-to-sqft')}
                   className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline underline-offset-4 hover:opacity-80"
                 >
@@ -254,7 +254,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               return (
                 <a
                   key={conv.slug}
-                  href={`/${conv.slug}`}
+                  href={`/${conv.slug}/`}
                   onClick={(e) => handleCardClick(e, conv.slug)}
                   className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                 >
@@ -346,7 +346,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     {categoryConverters.map((conv) => (
                       <a
                         key={conv.slug}
-                        href={`/${conv.slug}`}
+                        href={`/${conv.slug}/`}
                         onClick={(e) => handleCardClick(e, conv.slug)}
                         className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                       >

@@ -2893,7 +2893,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
       realLifeExample:
         'If gold is sold per tola in Pakistan, 5 tola = 58.32 grams (58.319 g exact) when verified on a jeweler’s digital scale.',
       regionalNote:
-        'Regional difference: While 1 tola = 11.6638 grams is standard across bullion markets in Pakistan, some neighborhood jewelry receipts round slightly to 11.664 grams, and rural spice or silver traders historically used slightly heavier 12-gram local tolas.',
+        'Regional difference: While 1 tola = 11.6638 grams is standard across bullion markets in Pakistan, some neighborhood jewelry receipts round slightly to 11.664 grams.',
     },
     relatedSlugs: ['gram-to-tola', 'gram-to-ounce', 'ounce-to-gram', 'gram-to-kg'],
   },

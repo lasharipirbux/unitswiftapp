@@ -240,10 +240,10 @@ export const BulkConverterPage: React.FC<BulkConverterPageProps> = ({ navigate }
 
             {matchingConverter && (
               <a
-                href={`/${matchingConverter.slug}`}
+                href={`/${matchingConverter.slug}/`}
                 onClick={(e) => {
                   e.preventDefault();
-                  navigate(`/${matchingConverter.slug}`);
+                  navigate(`/${matchingConverter.slug}/`);
                 }}
                 className="inline-flex items-center gap-1 font-bold text-[#1F2A44] dark:text-[#F2C94C] hover:underline underline-offset-4"
               >

@@ -95,7 +95,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
   const handleSwap = () => {
     setSwapRotation((prev) => prev + 180);
     if (converter.reverseSlug && !isReversedInPlace) {
-      navigate(`/${converter.reverseSlug}`, { preserveInput: inputValue });
+      navigate(`/${converter.reverseSlug}/`, { preserveInput: inputValue });
     } else {
       setIsReversedInPlace((prev) => !prev);
     }
@@ -149,9 +149,9 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
             &gt;
           </span>
           <a
-            href={`/${converter.slug}`}
+            href={`/${converter.slug}/`}
             aria-current="page"
-            onClick={(e) => handleLinkClick(e, `/${converter.slug}`)}
+            onClick={(e) => handleLinkClick(e, `/${converter.slug}/`)}
             className="font-semibold text-[#1F2A44] dark:text-white hover:underline underline-offset-4 transition-colors"
           >
             {converter.shortTitle}

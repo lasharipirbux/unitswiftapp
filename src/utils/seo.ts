@@ -30,8 +30,8 @@ export function updatePageSEO({ title, description, path, noindex, breadcrumbs, 
     el.setAttribute('content', content);
   };
 
-  const normalizedPath = path === '/' ? '/' : path.startsWith('/') ? path : `/${path}`;
-  const canonicalUrl = normalizedPath === '/' ? `${BASE_URL}/` : `${BASE_URL}${normalizedPath}`;
+  const cleaned = path.replace(/^\/+|\/+$/g, '');
+  const canonicalUrl = cleaned === '' ? `${BASE_URL}/` : `${BASE_URL}/${cleaned}/`;
 
   setMeta('meta[name="robots"]', 'name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
   setMeta('meta[name="description"]', 'name', 'description', description);
@@ -94,7 +94,12 @@ export function updatePageSEO({ title, description, path, noindex, breadcrumbs, 
         '@type': 'ListItem',
         position: index + 1,
         name: crumb.name,
-        item: crumb.path === '/' ? `${BASE_URL}/` : `${BASE_URL}${crumb.path.startsWith('/') ? crumb.path : `/${crumb.path}`}`,
+        item:
+          crumb.path === '/'
+            ? `${BASE_URL}/`
+            : crumb.path.startsWith('/#')
+              ? `${BASE_URL}${crumb.path}`
+              : `${BASE_URL}/${crumb.path.replace(/^\/+|\/+$/g, '')}/`,
       })),
     });
   } else if (breadcrumbScript) {

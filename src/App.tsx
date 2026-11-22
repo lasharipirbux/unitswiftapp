@@ -21,6 +21,10 @@ function normalizePath(rawPath: string): string {
   return normalized;
 }
 
+function toBrowserPath(normalizedPath: string): string {
+  return normalizedPath === '/' ? '/' : `${normalizedPath}/`;
+}
+
 function getInitialPath(): string {
   const urlPath = normalizePath(window.location.pathname);
   if (urlPath !== '/') {
@@ -90,13 +94,14 @@ export default function App() {
   // Ensure initial history entry and URL match currentPath on mount, and listen to browser Back / Forward buttons
   useEffect(() => {
     const initialNormalized = normalizePath(currentPath);
+    const initialBrowserPath = toBrowserPath(initialNormalized);
     try {
       sessionStorage.setItem(SESSION_PATH_KEY, initialNormalized);
-      if (normalizePath(window.location.pathname) !== initialNormalized || !window.history.state?.path) {
+      if (window.location.pathname !== initialBrowserPath || !window.history.state?.path) {
         window.history.replaceState(
           { path: initialNormalized, scrollToId: window.history.state?.scrollToId },
           '',
-          initialNormalized
+          initialBrowserPath
         );
       }
     } catch {
@@ -148,13 +153,13 @@ export default function App() {
       }
 
       setCurrentPath((prevPath) => {
-        const currentUrlPath = normalizePath(window.location.pathname);
-        if (targetPath !== prevPath || targetPath !== currentUrlPath) {
+        const targetBrowserPath = toBrowserPath(targetPath);
+        if (targetPath !== prevPath || window.location.pathname !== targetBrowserPath) {
           try {
             window.history.pushState(
               { path: targetPath, scrollToId: scrollTargetId },
               '',
-              targetPath
+              targetBrowserPath
             );
           } catch {
             // Ignore pushState errors

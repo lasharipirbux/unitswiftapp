@@ -161,8 +161,8 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
           return (
             <a
               key={item.slug}
-              href={`/${item.slug}`}
-              onClick={(e) => handleLinkClick(e, `/${item.slug}`)}
+              href={`/${item.slug}/`}
+              onClick={(e) => handleLinkClick(e, `/${item.slug}/`)}
               className="group flex flex-col justify-between p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 hover:border-[#1F2A44] dark:hover:border-[#F2C94C] shadow-xs hover:shadow-md transition-all duration-200"
             >
               <div>

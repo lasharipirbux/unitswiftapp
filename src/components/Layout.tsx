@@ -218,8 +218,8 @@ export const Layout: React.FC<LayoutProps> = ({
               );
             })}
             <a
-              href="/bulk-converter"
-              onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+              href="/bulk-converter/"
+              onClick={(e) => handleLinkClick(e, '/bulk-converter/')}
               className={`inline-flex items-center px-1.5 xl:px-2 py-2 rounded-lg text-xs xl:text-[13px] font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                 currentPath === '/bulk-converter'
                   ? 'bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 text-[#1F2A44] dark:text-[#F2C94C]'
@@ -233,8 +233,8 @@ export const Layout: React.FC<LayoutProps> = ({
           {/* Far Right: Tablet Bulk CSV + Optional Install App Button + Dark Mode Button + Mobile/Tablet (<1024px) Menu Button */}
           <div className="flex items-center gap-1.5 lg:gap-2 shrink-0">
             <a
-              href="/bulk-converter"
-              onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+              href="/bulk-converter/"
+              onClick={(e) => handleLinkClick(e, '/bulk-converter/')}
               className={`hidden md:inline-flex lg:hidden items-center px-2.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
                 currentPath === '/bulk-converter'
                   ? 'bg-[#F2C94C]/25 dark:bg-[#F2C94C]/15 text-[#1F2A44] dark:text-[#F2C94C]'
@@ -327,8 +327,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 {activeCategoryConverters.map((conv) => (
                   <a
                     key={conv.slug}
-                    href={`/${conv.slug}`}
-                    onClick={(e) => handleLinkClick(e, `/${conv.slug}`)}
+                    href={`/${conv.slug}/`}
+                    onClick={(e) => handleLinkClick(e, `/${conv.slug}/`)}
                     className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#0F1626] border border-[#1F2A44]/12 dark:border-white/10 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                   >
                     <span className="text-sm font-semibold text-[#1F2A44] dark:text-white">
@@ -385,8 +385,8 @@ export const Layout: React.FC<LayoutProps> = ({
                         {catConverters.map((conv) => (
                           <a
                             key={conv.slug}
-                            href={`/${conv.slug}`}
-                            onClick={(e) => handleLinkClick(e, `/${conv.slug}`)}
+                            href={`/${conv.slug}/`}
+                            onClick={(e) => handleLinkClick(e, `/${conv.slug}/`)}
                             className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#0F1626] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] transition-colors"
                           >
                             <span className="text-sm font-semibold text-[#1F2A44] dark:text-white">
@@ -405,8 +405,8 @@ export const Layout: React.FC<LayoutProps> = ({
               })}
               <div className="bg-white dark:bg-[#0F1626]">
                 <a
-                  href="/bulk-converter"
-                  onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+                  href="/bulk-converter/"
+                  onClick={(e) => handleLinkClick(e, '/bulk-converter/')}
                   className="w-full flex items-center justify-between px-4 sm:px-6 py-3.5 text-left text-sm font-bold text-[#1F2A44] dark:text-[#F2C94C] hover:bg-[#F8FAFC] dark:hover:bg-white/5 transition-colors"
                 >
                   <span>Bulk Convert (CSV)</span>
@@ -445,9 +445,6 @@ export const Layout: React.FC<LayoutProps> = ({
               <p className="text-sm text-[#D1D5DB] leading-relaxed">
                 Convert any unit in a swift. Pure client-side precision math with zero popups, zero tracking, and instant results on any device.
               </p>
-              <p className="text-sm font-bold text-white pt-1">
-                By Naseeb
-              </p>
             </div>
 
             {/* Column 2: All Converters Directory (Home Page Only) */}
@@ -462,8 +459,8 @@ export const Layout: React.FC<LayoutProps> = ({
                     return (
                       <a
                         key={conv.slug}
-                        href={`/${conv.slug}`}
-                        onClick={(e) => handleLinkClick(e, `/${conv.slug}`)}
+                        href={`/${conv.slug}/`}
+                        onClick={(e) => handleLinkClick(e, `/${conv.slug}/`)}
                         className={`py-1 sm:py-0.5 transition-colors break-words ${
                           isActive
                             ? 'font-bold text-white underline decoration-[#38BDF8] decoration-2 underline-offset-4'
@@ -495,8 +492,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 </li>
                 <li>
                   <a
-                    href="/bulk-converter"
-                    onClick={(e) => handleLinkClick(e, '/bulk-converter')}
+                    href="/bulk-converter/"
+                    onClick={(e) => handleLinkClick(e, '/bulk-converter/')}
                     className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Bulk Convert (CSV)
@@ -504,8 +501,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 </li>
                 <li>
                   <a
-                    href="/about"
-                    onClick={(e) => handleLinkClick(e, '/about')}
+                    href="/about/"
+                    onClick={(e) => handleLinkClick(e, '/about/')}
                     className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     About
@@ -513,8 +510,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 </li>
                 <li>
                   <a
-                    href="/contact"
-                    onClick={(e) => handleLinkClick(e, '/contact')}
+                    href="/contact/"
+                    onClick={(e) => handleLinkClick(e, '/contact/')}
                     className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Contact
@@ -522,8 +519,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 </li>
                 <li>
                   <a
-                    href="/privacy-policy"
-                    onClick={(e) => handleLinkClick(e, '/privacy-policy')}
+                    href="/privacy-policy/"
+                    onClick={(e) => handleLinkClick(e, '/privacy-policy/')}
                     className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Privacy Policy
@@ -531,8 +528,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 </li>
                 <li>
                   <a
-                    href="/terms"
-                    onClick={(e) => handleLinkClick(e, '/terms')}
+                    href="/terms/"
+                    onClick={(e) => handleLinkClick(e, '/terms/')}
                     className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
                     Terms

@@ -35,7 +35,7 @@ export function buildSitemapEntries(lastmod = getTodayDateString()): SitemapEntr
 
   const addEntry = (rawPath: string, changefreq: SitemapEntry['changefreq'], priority: string) => {
     const cleanPath = rawPath === '/' ? '/' : `/${rawPath.replace(/^\/+|\/+$/g, '')}`;
-    const loc = cleanPath === '/' ? `${BASE_URL}/` : `${BASE_URL}${cleanPath}`;
+    const loc = cleanPath === '/' ? `${BASE_URL}/` : `${BASE_URL}${cleanPath}/`;
 
     if (loc.includes('://www.')) {
       throw new Error(`Invalid sitemap URL contains www: ${loc}`);
