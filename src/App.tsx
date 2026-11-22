@@ -3,8 +3,8 @@ import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { ConverterPage } from './pages/ConverterPage';
 import { BulkConverterPage } from './pages/BulkConverterPage';
-import { AboutPage, ContactPage, PrivacyPolicyPage, TermsPage } from './pages/InfoPages';
-import { CATEGORIES, CONVERTERS, findConverterBySlug } from './data/converters';
+import { AboutPage, ContactPage, PrivacyPolicyPage, TermsPage, DisclaimerPage } from './pages/InfoPages';
+import { CATEGORIES, CONVERTERS, findConverterBySlug, getConverterSeoTitle, getConverterSeoDescription } from './data/converters';
 import { RICH_CONVERTER_CONTENT } from './data/richConverterContent';
 import { updatePageSEO } from './utils/seo';
 
@@ -47,7 +47,8 @@ function getInitialPath(): string {
         normalizedSaved === '/about' ||
         normalizedSaved === '/contact' ||
         normalizedSaved === '/privacy-policy' ||
-        normalizedSaved === '/terms'
+        normalizedSaved === '/terms' ||
+        normalizedSaved === '/disclaimer'
       ) {
         return normalizedSaved;
       }
@@ -189,16 +190,16 @@ export default function App() {
   useEffect(() => {
     if (currentPath === '/') {
       updatePageSEO({
-        title: `UnitSwift – Convert Any Unit | ${CONVERTERS.length} Free Converters`,
-        description: `UnitSwift is a free unit converter with ${CONVERTERS.length} converters across weight, length, temperature, volume, speed, area, data, and local units. Instant, private, no sign up.`,
+        title: `UnitSwift – ${CONVERTERS.length} Free Online Unit Converters & Pakistani Land/Weight Calculators`,
+        description: `Convert weight, length, area, temperature, data, and Pakistani local units (Marla, Kanal, Tola, Seer, Maund, Gaz) instantly. ${CONVERTERS.length} free, fast, client-side converters with Bulk CSV support.`,
         path: '/',
       });
     } else if (activeConverter) {
       const richContent = RICH_CONVERTER_CONTENT[activeConverter.slug];
       const categoryObj = CATEGORIES.find((c) => c.id === activeConverter.category);
       updatePageSEO({
-        title: activeConverter.seoTitle,
-        description: activeConverter.seoDescription,
+        title: getConverterSeoTitle(activeConverter),
+        description: getConverterSeoDescription(activeConverter),
         path: `/${activeConverter.slug}`,
         breadcrumbs: [
           { name: 'Home', path: '/' },
@@ -262,6 +263,17 @@ export default function App() {
           { name: 'Terms of Service', path: '/terms' },
         ],
       });
+    } else if (currentPath === '/disclaimer') {
+      updatePageSEO({
+        title: 'Disclaimer – UnitSwift Free Online Unit Converter',
+        description:
+          'Read the UnitSwift Disclaimer regarding informational calculations, regional unit variations like Marla and Tola, and reference accuracy.',
+        path: '/disclaimer',
+        breadcrumbs: [
+          { name: 'Home', path: '/' },
+          { name: 'Disclaimer', path: '/disclaimer' },
+        ],
+      });
     } else {
       updatePageSEO({
         title: 'Page Not Found – UnitSwift',
@@ -297,6 +309,8 @@ export default function App() {
         <PrivacyPolicyPage navigate={navigate} />
       ) : currentPath === '/terms' ? (
         <TermsPage navigate={navigate} />
+      ) : currentPath === '/disclaimer' ? (
+        <DisclaimerPage navigate={navigate} />
       ) : (
         <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-20 text-center space-y-4">
           <p className="text-xs font-mono-tabular font-semibold text-[#1F2A44]/60 dark:text-[#F2C94C]">

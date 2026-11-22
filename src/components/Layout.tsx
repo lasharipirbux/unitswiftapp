@@ -426,13 +426,7 @@ export const Layout: React.FC<LayoutProps> = ({
       {/* Soft Dark Charcoal (#1F2937) Footer with Thin Accent Top Border, White Headings, and Light Gray (#D1D5DB) Text */}
       <footer className="bg-[#1F2937] text-[#D1D5DB] border-t-2 border-[#38BDF8] mt-20">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-12">
-          <div
-            className={`grid grid-cols-1 ${
-              currentPath === '/'
-                ? 'md:grid-cols-[1.1fr_2.2fr_0.9fr]'
-                : 'md:grid-cols-[1.4fr_1fr]'
-            } gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/10`}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/10">
             {/* Column 1: Brand & Author */}
             <div className="min-w-0 space-y-3">
               <a
@@ -446,34 +440,6 @@ export const Layout: React.FC<LayoutProps> = ({
                 Convert any unit in a swift. Pure client-side precision math with zero popups, zero tracking, and instant results on any device.
               </p>
             </div>
-
-            {/* Column 2: All Converters Directory (Home Page Only) */}
-            {currentPath === '/' && (
-              <div className="min-w-0">
-                <h2 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5">
-                  All {CONVERTERS.length} Unit Converters
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-xs">
-                  {CONVERTERS.map((conv) => {
-                    const isActive = currentPath === `/${conv.slug}`;
-                    return (
-                      <a
-                        key={conv.slug}
-                        href={`/${conv.slug}/`}
-                        onClick={(e) => handleLinkClick(e, `/${conv.slug}/`)}
-                        className={`py-1 sm:py-0.5 transition-colors break-words ${
-                          isActive
-                            ? 'font-bold text-white underline decoration-[#38BDF8] decoration-2 underline-offset-4'
-                            : 'font-medium text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4'
-                        }`}
-                      >
-                        {conv.shortTitle}
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
 
             {/* Column 3: Navigation Column (Home, About, Contact, Privacy Policy, Terms) */}
             <div className="min-w-[130px] space-y-2.5">
@@ -532,7 +498,16 @@ export const Layout: React.FC<LayoutProps> = ({
                     onClick={(e) => handleLinkClick(e, '/terms/')}
                     className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
                   >
-                    Terms
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/disclaimer/"
+                    onClick={(e) => handleLinkClick(e, '/disclaimer/')}
+                    className="text-[#D1D5DB] hover:text-[#38BDF8] hover:underline underline-offset-4 transition-colors inline-block py-0.5"
+                  >
+                    Disclaimer
                   </a>
                 </li>
               </ul>

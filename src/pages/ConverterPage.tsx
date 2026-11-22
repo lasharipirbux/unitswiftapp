@@ -21,8 +21,11 @@ interface ConverterPageProps {
   navigate: (to: string, options?: { preserveInput?: string; scrollToId?: string }) => void;
 }
 
-const TABLE_VALUES = [1, 5, 10, 50, 100];
-const QUICK_REF_STANDARD_VALUES = [1, 5, 10, 50, 100, 500, 1000];
+const TABLE_VALUES = [1, 5, 10, 25, 50, 100];
+const LAND_UNIT_IDS = new Set(['marla', 'kanal', 'sqft', 'sqm', 'sqyd', 'acre', 'hectare', 'gaz', 'cent']);
+const LAND_MARLA_TABLE_VALUES = [1, 3, 5, 10, 20, 25, 50, 100];
+const LAND_GENERAL_TABLE_VALUES = [1, 3, 5, 10, 25, 50, 100];
+const QUICK_REF_STANDARD_VALUES = [1, 5, 10, 25, 50, 100, 500, 1000];
 const US_CUSTOM_QUICK_REF_SLUGS = new Set([
   'pounds-to-kg',
   'gallon-to-liter',
@@ -91,6 +94,15 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
   const unitRate = useMemo(() => {
     return formatConvertedNumber(activeConvertFn(1));
   }, [activeConvertFn]);
+
+  const isLandConverter =
+    LAND_UNIT_IDS.has(activeFromUnit?.id || '') || LAND_UNIT_IDS.has(activeToUnit?.id || '');
+
+  const quickTableValues = useMemo(() => {
+    if (activeFromUnit?.id === 'marla') return LAND_MARLA_TABLE_VALUES;
+    if (isLandConverter) return LAND_GENERAL_TABLE_VALUES;
+    return TABLE_VALUES;
+  }, [activeFromUnit?.id, isLandConverter]);
 
   const handleSwap = () => {
     setSwapRotation((prev) => prev + 180);
@@ -332,7 +344,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
           </div>
         </div>
 
-        {/* Conversion Table of 1, 5, 10, 50, 100 Converted */}
+        {/* Conversion Table of Quick Reference Values */}
         <div className="lg:col-span-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
           <div className="px-6 py-4 border-b border-[#1F2A44]/10 dark:border-white/10 flex items-center justify-between">
             <div>
@@ -340,7 +352,9 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                 {activeFromUnit?.pluralName} to {activeToUnit?.pluralName} Table
               </h2>
               <p className="text-xs text-[#1F2A44]/65 dark:text-slate-400">
-                Standard 1, 5, 10, 50, 100 reference values
+                {activeFromUnit?.id === 'marla'
+                  ? 'Includes 3, 5, 10 Marla & 1 Kanal (20 Marla) plot sizes'
+                  : 'Standard 1, 5, 10, 25, 50, 100 reference values'}
               </p>
             </div>
             <span className="text-xs font-mono-tabular text-[#1F2A44]/60 dark:text-slate-400">
@@ -357,9 +371,10 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
-                {TABLE_VALUES.map((rowVal) => {
+                {quickTableValues.map((rowVal) => {
                   const rowConverted = formatConvertedNumber(activeConvertFn(rowVal));
                   const isSelected = parseFloat(inputValue) === rowVal;
+                  const isOneKanalInMarla = activeFromUnit?.id === 'marla' && rowVal === 20;
 
                   return (
                     <tr
@@ -374,6 +389,11 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                     >
                       <td className="py-3 px-6 text-[#1F2A44] dark:text-white">
                         {rowVal} {activeFromUnit?.symbol}
+                        {isOneKanalInMarla && (
+                          <span className="ml-1.5 text-xs font-sans font-medium text-[#1F2A44]/65 dark:text-slate-400">
+                            (1 Kanal)
+                          </span>
+                        )}
                       </td>
                       <td className="py-3 px-6 text-right font-semibold text-[#1F2A44] dark:text-[#F2C94C]">
                         {rowConverted} {activeToUnit?.symbol}
@@ -404,7 +424,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
 
       {converter.slug === 'marla-to-sqft' ? (() => {
         const rich = RICH_CONVERTER_CONTENT['marla-to-sqft'];
-        const refMarlaValues = [1, 2, 3, 5, 7, 10, 12, 20, 50, 100, 500, 1000];
+        const refMarlaValues = [1, 2, 3, 5, 7, 10, 12, 20, 25, 50, 100, 500, 1000];
         const commonPlotSizes = [
           {
             size: '3 Marla',

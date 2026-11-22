@@ -245,3 +245,48 @@ export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
   );
 };
 
+export const DisclaimerPage: React.FC<InfoPageProps> = ({ navigate }) => {
+  return (
+    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
+      >
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate('/');
+          }}
+          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
+        >
+          Home
+        </a>
+        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+        <span className="font-semibold text-[#1F2A44] dark:text-white">Disclaimer</span>
+      </nav>
+
+      <header className="space-y-2">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
+          Disclaimer
+        </h1>
+      </header>
+
+      <div className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 overflow-hidden">
+        <div className="h-2 bg-[#F2C94C] measuring-tape-ticks" aria-hidden="true" />
+        <div className="p-6 sm:p-8 space-y-4 text-base text-[#1F2A44]/85 dark:text-slate-200 leading-relaxed">
+          <p>
+            All {CONVERTERS.length} calculators, conversion tables, and formulas on UnitSwift are provided strictly for general informational, educational, and everyday reference purposes.
+          </p>
+          <p>
+            Regional land and weight units—such as Marla (272.25 sq ft revenue standard vs. 225 or 250 sq ft in some private housing societies), Kanal, Gaz, Tola, Seer, and Maund—can vary by city, housing authority, or local trade convention. Always cross-check legal property deeds, engineering blueprints, precious metal invoices, and medical measurements against official records.
+          </p>
+          <p>
+            UnitSwift makes no warranties regarding completeness or suitability for any specific legal, financial, or engineering transaction, and assumes no liability for decisions made based on calculator outputs.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+

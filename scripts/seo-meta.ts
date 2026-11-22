@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { CATEGORIES, CONVERTERS, findConverterBySlug } from '../src/data/converters';
+import { CATEGORIES, CONVERTERS, findConverterBySlug, getConverterSeoTitle, getConverterSeoDescription } from '../src/data/converters';
 import { RICH_CONVERTER_CONTENT } from '../src/data/richConverterContent';
 import { Layout } from '../src/components/Layout';
 import { HomePage } from '../src/pages/HomePage';
@@ -13,6 +13,7 @@ import {
   ContactPage,
   PrivacyPolicyPage,
   TermsPage,
+  DisclaimerPage,
 } from '../src/pages/InfoPages';
 
 export const BASE_URL = 'https://unitswift.org';
@@ -62,8 +63,8 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
 
   if (currentPath === '/') {
     return {
-      title: `UnitSwift – Convert Any Unit | ${CONVERTERS.length} Free Converters`,
-      description: `UnitSwift is a free unit converter with ${CONVERTERS.length} converters across weight, length, temperature, volume, speed, area, data, and local units. Instant, private, no sign up.`,
+      title: `UnitSwift – ${CONVERTERS.length} Free Online Unit Converters & Pakistani Land/Weight Calculators`,
+      description: `Convert weight, length, area, temperature, data, and Pakistani local units (Marla, Kanal, Tola, Seer, Maund, Gaz) instantly. ${CONVERTERS.length} free, fast, client-side converters with Bulk CSV support.`,
       canonicalUrl: `${BASE_URL}/`,
     };
   }
@@ -74,8 +75,8 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     const rich = RICH_CONVERTER_CONTENT[converter.slug];
     const categoryObj = CATEGORIES.find((c) => c.id === converter.category);
     return {
-      title: converter.seoTitle,
-      description: converter.seoDescription,
+      title: getConverterSeoTitle(converter),
+      description: getConverterSeoDescription(converter),
       canonicalUrl: `${BASE_URL}/${converter.slug}/`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
@@ -149,6 +150,18 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     };
   }
 
+  if (currentPath === '/disclaimer') {
+    return {
+      title: 'Disclaimer – UnitSwift Free Online Unit Converter',
+      description: `Read the UnitSwift Disclaimer regarding informational calculations, regional unit variations like Marla and Tola, and reference accuracy.`,
+      canonicalUrl: `${BASE_URL}/disclaimer/`,
+      breadcrumbs: [
+        { name: 'Home', path: '/' },
+        { name: 'Disclaimer', path: '/disclaimer/' },
+      ],
+    };
+  }
+
   return {
     title: 'Page Not Found – UnitSwift',
     description: `Explore all ${CONVERTERS.length} free unit converters on UnitSwift.`,
@@ -183,6 +196,8 @@ export function renderRouteBodyHtml(rawPath: string): string {
     pageNode = React.createElement(PrivacyPolicyPage, { navigate: noopNavigate });
   } else if (currentPath === '/terms') {
     pageNode = React.createElement(TermsPage, { navigate: noopNavigate });
+  } else if (currentPath === '/disclaimer') {
+    pageNode = React.createElement(DisclaimerPage, { navigate: noopNavigate });
   } else {
     pageNode = React.createElement(HomePage, { navigate: noopNavigate });
   }
@@ -359,6 +374,7 @@ export function prerenderAllRouteHtml(distDir: string): number {
     '/contact',
     '/privacy-policy',
     '/terms',
+    '/disclaimer',
   ];
 
   for (const routePath of routePaths) {

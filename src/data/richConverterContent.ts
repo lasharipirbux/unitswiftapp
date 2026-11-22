@@ -2647,7 +2647,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'marla-to-sqft',
     whatIsHeading: 'What Is a Marla and Why Convert It to Square Feet?',
     whatIsParagraphs: [
-      'A marla is the most common traditional unit used to measure land in Pakistan. In official government land records, one standard marla is a square with each side measuring 16.5 feet (5.5 yards), which equals 272.25 square feet. While property ads, housing societies, and land registries list plot sizes in marla and kanal, architects, builders, and homeowners work in square feet when drawing house plans, calculating covered area, or estimating construction costs. Converting marla to square feet helps buyers and builders know the exact ground space available before buying a plot or starting construction.',
+      'A marla is the most common traditional unit used to measure land in Pakistan. In official government land records, our marla to square feet converter for Pakistan uses the 272.25 sq ft benchmark—a square with each side measuring 16.5 feet (5.5 yards). Property buyers often check 3, 5, 10 marla plot size in sq ft (816.75, 1,361.25, and 2,722.5 sq ft) alongside 1 kanal (20 marla = 5,445 sq ft) when drawing house plans, calculating covered area, or estimating construction costs.',
     ],
     howToHeading: 'How to convert marla to square feet',
     howToIntro:
@@ -2676,9 +2676,14 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many sq ft in 1 marla?',
+        question: 'How many sq ft in 1 marla in Pakistan (272.25 standard)?',
         answer:
           'There are 272.25 square feet in 1 standard marla in Pakistan. In some housing societies and cities, a smaller marla of 250 sq ft or 225 sq ft is also used.',
+      },
+      {
+        question: 'What is 3, 5, and 10 marla plot size in sq ft?',
+        answer:
+          'At 272.25 sq ft per marla, a 3 marla plot is 816.75 sq ft, a 5 marla plot is 1,361.25 sq ft, and a 10 marla plot is 2,722.5 sq ft. A 1 kanal plot (20 marla) equals 5,445 sq ft.',
       },
       {
         question: 'How many marla in 1 kanal?',
@@ -2694,11 +2699,6 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
         question: 'What is the difference between a marla and a sq yard?',
         answer:
           'A marla is a traditional land unit equal to 272.25 sq ft, while a square yard (also called a gaz) is a 3 ft by 3 ft square equal to 9 sq ft. One standard marla equals 30.25 square yards.',
-      },
-      {
-        question: 'How many sq ft in a 10 marla plot?',
-        answer:
-          'A standard 10 marla plot in Pakistan is 2,722.5 square feet (10 × 272.25). This also equals 302.5 square yards or 252.93 square meters.',
       },
       {
         question: 'How do I convert square feet back to marla?',
@@ -2777,7 +2777,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'kanal-to-marla',
     whatIsHeading: 'What Is Kanal to Marla Conversion',
     whatIsParagraphs: [
-      'Kanal to marla conversion links the two primary residential and farm land units used across Pakistan. By rule, 1 kanal always equals 20 marla, and 8 kanals make 1 acre (160 marla).',
+      'This 1 kanal to marla calculator for Pakistan links the two primary residential and farm land units used across the country. By rule, 1 kanal always equals 20 marla (or 5,445 sq ft using a kanal to square feet converter), and 8 kanals make 1 acre (160 marla).',
       'Property dealers dividing 1-kanal or 2-kanal estates into smaller plots and families splitting agricultural inheritance rely on this simple × 20 multiplier.',
     ],
     howToHeading: 'How to Convert Kanal to Marla',
@@ -2807,19 +2807,19 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many marla are in 1 kanal?',
+        question: 'How many marla are in 1 kanal in Pakistan?',
         answer:
-          'There are exactly 20 marla in 1 kanal.',
+          'Using a 1 kanal to marla calculator in Pakistan, 1 kanal always equals 20 marla (5,445 sq ft under the 272.25 sq ft marla standard).',
       },
       {
         question: 'How many marla is half a kanal (0.5 kanal)?',
         answer:
-          'Half a kanal equals 10 marla.',
+          'Half a kanal equals 10 marla, or 2,722.5 square feet.',
       },
       {
-        question: 'How many marla are in 2 kanal?',
+        question: 'How many square feet are in 1 kanal?',
         answer:
-          '2 kanal equal 40 marla.',
+          '1 standard revenue kanal equals 5,445 square feet (20 marla × 272.25 sq ft).',
       },
       {
         question: 'How many kanal and marla are in 1 acre?',
@@ -2834,8 +2834,8 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'tola-to-gram',
     whatIsHeading: 'What Is Tola to Grams Conversion',
     whatIsParagraphs: [
-      'Tola to grams conversion converts traditional South Asian bullion weights into metric grams for jewelry and gold trading. Under the standard benchmark used in Pakistan, 1 tola equals 11.6638 grams.',
-      'Jewelers in sarafa markets and families buying gold sets convert tola quotes into grams to verify electronic scale weights.',
+      'This tola to gram gold weight converter for Pakistan translates traditional South Asian bullion weights into metric grams for jewelry and gold trading. In any 1 tola in grams calculator used across Pakistani sarafa markets, 1 standard tola equals 11.6638 grams (12 mashas or 96 rattis).',
+      'Jewelers and families buying gold sets convert tola quotes into grams to verify electronic scale weights accurately.',
     ],
     howToHeading: 'How to Convert Tola to Grams',
     howToIntro:
@@ -2866,7 +2866,7 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
       {
         question: 'How many grams are in 1 tola in Pakistan?',
         answer:
-          '1 standard tola equals 11.6638 grams.',
+          'Using a 1 tola in grams calculator, 1 standard tola equals 11.6638 grams for gold weight in Pakistan.',
       },
       {
         question: 'How many grams are in 5 tola of gold?',
@@ -2879,9 +2879,9 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
           '10 tola equals 116.638 grams.',
       },
       {
-        question: 'How many grams is half a tola (0.5 tola)?',
+        question: 'How many masha and ratti are in 1 tola?',
         answer:
-          'Half a tola (6 mashas) equals 5.8319 grams.',
+          'One tola contains 12 mashas (0.972 g each) or 96 rattis (0.1215 g each), and half a tola (6 mashas) equals 5.8319 grams.',
       },
     ],
     pakistaniUnitGuide: {
@@ -2970,8 +2970,8 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'seer-to-kg',
     whatIsHeading: 'What Is Seer to Kilograms Conversion',
     whatIsParagraphs: [
-      'Seer to kilograms conversion aligns the traditional South Asian commodity unit—the seer—with metric kilograms. In modern Pakistan, 1 maund equals 40 seer and 40 kg, making 1 seer equal to 1 kilogram (1,000 grams).',
-      'Grain mandis, milk sellers, flour mills, and shoppers convert seers into kilograms when reading digital market scales.',
+      'This seer to kg calculator aligns the traditional South Asian commodity unit—the seer—with metric kilograms. In modern Pakistan, 1 maund equals 40 seer and 40 kg, making 1 seer equal to 1 kilogram (1,000 grams).',
+      'Grain mandis, milk sellers, flour mills, and shoppers use a seer to kg calculator when reading digital market scales.',
     ],
     howToHeading: 'How to Convert Seer to Kilograms',
     howToIntro:
@@ -3141,8 +3141,8 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'square-yards-to-marla',
     whatIsHeading: 'What Is Square Yards to Marla Conversion',
     whatIsParagraphs: [
-      'Square yards to marla conversion translates property sizes measured in square yards (sq yd, locally called gaz) into Pakistani marlas. Under the revenue standard of 272.25 sq ft per marla and 9 sq ft per square yard, 1 marla equals exactly 30.25 square yards.',
-      'Real estate agents use this calculation when comparing Karachi square-yard plots with Lahore or Rawalpindi marla homes.',
+      'Our square yards to marla calculator translates property sizes measured in square yards (sq yd, locally called gaz) into Pakistani marlas. Under the revenue standard of 272.25 sq ft per marla and 9 sq ft per square yard, 1 marla equals exactly 30.25 square yards.',
+      'Real estate agents use this square yards to marla calculator when comparing Karachi square-yard plots with Lahore or Rawalpindi marla homes.',
     ],
     howToHeading: 'How to Convert Square Yards to Marla',
     howToIntro:
@@ -3722,8 +3722,8 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'gaz-to-feet',
     whatIsHeading: 'What Is Gaz to Feet Conversion',
     whatIsParagraphs: [
-      'Gaz to feet conversion converts traditional South Asian linear gaz (gaj) measurements into standard feet (ft). In Pakistan, 1 linear gaz matches 1 international yard, meaning 1 gaz equals exactly 3 feet (36 inches).',
-      'Tailors cutting lawn cloth, carpet fitters, and masons marking boundary walls use this conversion throughout the day.',
+      'This gaz to feet land converter for Pakistan turns traditional South Asian linear gaz (gaj) measurements into standard feet (ft). In Pakistan, 1 linear gaz matches 1 international yard, meaning 1 gaz equals exactly 3 feet (36 inches).',
+      'Tailors cutting lawn cloth, carpet fitters, and masons marking plot frontages use a gaz to feet land converter throughout the day.',
     ],
     howToHeading: 'How to Convert Gaz to Feet',
     howToIntro:
@@ -5065,8 +5065,8 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'maund-to-kg',
     whatIsHeading: 'What Is Maund to Kilograms Conversion',
     whatIsParagraphs: [
-      'Maund to kilograms conversion expands traditional Pakistani crop weights in maunds (mann) into metric kilograms (kg). In grain mandis across Punjab and Sindh, 1 standard maund equals exactly 40 kilograms.',
-      'Wheat farmers and flour mills convert maund totals into kilograms when reconciling harvest slips with weighbridge receipts.',
+      'This 1 maund to kg converter for Pakistan (40 kg standard) expands traditional crop weights in maunds (mann) into metric kilograms (kg). In grain mandis across Punjab and Sindh, 1 standard maund equals exactly 40 kilograms (40 seer).',
+      'Wheat farmers and flour mills use a 1 maund to kg converter in Pakistan when reconciling harvest slips with weighbridge receipts.',
     ],
     howToHeading: 'How to Convert Maund to Kilograms',
     howToIntro:
@@ -5714,8 +5714,8 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     slug: 'kanal-to-sqft',
     whatIsHeading: 'What Is Kanal to Square Feet Conversion',
     whatIsParagraphs: [
-      'Kanal to square feet conversion turns Pakistani kanal land holdings into exact square feet (sq ft) for house blueprints. Under the statutory standard of 20 marlas per kanal and 272.25 sq ft per marla, 1 kanal equals exactly 5,445 square feet.',
-      'Architects and property buyers calculate plot square footage before checking municipal building bylaws and covered area limits.',
+      'This kanal to square feet converter turns Pakistani kanal land holdings into exact square feet (sq ft) for house blueprints. Under the statutory standard of 20 marlas per kanal (1 kanal to marla = 20) and 272.25 sq ft per marla, 1 kanal equals exactly 5,445 square feet.',
+      'Architects and property buyers use a kanal to square feet converter before checking municipal building bylaws and covered area limits.',
     ],
     howToHeading: 'How to Convert Kanal to Square Feet',
     howToIntro:
