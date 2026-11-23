@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ChevronRight, ArrowLeftRight, ArrowUpRight } from 'lucide-react';
+import { ArrowLeftRight, ArrowUpRight } from 'lucide-react';
 import {
   UNITS,
   CONVERTERS,
@@ -98,22 +98,34 @@ export const BulkConverterPage: React.FC<BulkConverterPageProps> = ({ navigate }
       {/* Breadcrumb Navigation */}
       <nav
         aria-label="Breadcrumb"
-        className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
+        className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#1F2A44] dark:text-slate-300"
       >
         <a
           href="/"
           onClick={(e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
             e.preventDefault();
             navigate('/');
           }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
+          className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
         >
           Home
         </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white">
-          Bulk Convert (CSV)
+        <span aria-hidden="true" className="text-[#1F2A44]/50 dark:text-slate-400">
+          &gt;
         </span>
+        <a
+          href="/bulk-converter/"
+          aria-current="page"
+          onClick={(e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+            e.preventDefault();
+            navigate('/bulk-converter/');
+          }}
+          className="font-semibold text-[#1F2A44] dark:text-white hover:underline underline-offset-4 transition-colors"
+        >
+          Bulk Convert (CSV)
+        </a>
       </nav>
 
       {/* Page Header */}
@@ -242,6 +254,7 @@ export const BulkConverterPage: React.FC<BulkConverterPageProps> = ({ navigate }
               <a
                 href={`/${matchingConverter.slug}/`}
                 onClick={(e) => {
+                  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
                   e.preventDefault();
                   navigate(`/${matchingConverter.slug}/`);
                 }}

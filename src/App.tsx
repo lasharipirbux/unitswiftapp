@@ -323,13 +323,17 @@ export default function App() {
             The URL <code className="font-mono-tabular">{currentPath}</code> doesn&rsquo;t match one of our {CONVERTERS.length} unit converters.
           </p>
           <div className="pt-2">
-            <button
-              type="button"
-              onClick={() => navigate('/')}
-              className="px-5 py-2.5 text-sm font-bold rounded-xl bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
+            <a
+              href="/"
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault();
+                navigate('/');
+              }}
+              className="inline-block px-5 py-2.5 text-sm font-bold rounded-xl bg-[#F2C94C] text-[#1F2A44] hover:brightness-95 transition-all cursor-pointer"
             >
               Browse All {CONVERTERS.length} Converters
-            </button>
+            </a>
           </div>
         </div>
       )}

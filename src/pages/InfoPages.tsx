@@ -1,31 +1,53 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronRight, Mail, Copy, Check } from 'lucide-react';
+import { Mail, Copy, Check } from 'lucide-react';
 import { CONVERTERS } from '../data/converters';
 
 interface InfoPageProps {
   navigate: (to: string) => void;
 }
 
+const InfoBreadcrumb: React.FC<{ label: string; href: string; navigate: (to: string) => void }> = ({
+  label,
+  href,
+  navigate,
+}) => {
+  const handleLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    navigate(path);
+  };
+
+  return (
+    <nav
+      aria-label="Breadcrumb"
+      className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#1F2A44] dark:text-slate-300"
+    >
+      <a
+        href="/"
+        onClick={(e) => handleLink(e, '/')}
+        className="text-[#2D3E63] dark:text-slate-300 hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4 transition-colors"
+      >
+        Home
+      </a>
+      <span aria-hidden="true" className="text-[#1F2A44]/50 dark:text-slate-400">
+        &gt;
+      </span>
+      <a
+        href={href}
+        aria-current="page"
+        onClick={(e) => handleLink(e, href)}
+        className="font-semibold text-[#1F2A44] dark:text-white hover:underline underline-offset-4 transition-colors"
+      >
+        {label}
+      </a>
+    </nav>
+  );
+};
+
 export const AboutPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <nav
-        aria-label="Breadcrumb"
-        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
-      >
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/');
-          }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
-        >
-          Home
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white">About</span>
-      </nav>
+      <InfoBreadcrumb label="About" href="/about/" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -94,23 +116,7 @@ export const ContactPage: React.FC<InfoPageProps> = ({ navigate }) => {
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <nav
-        aria-label="Breadcrumb"
-        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
-      >
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/');
-          }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
-        >
-          Home
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white">Contact</span>
-      </nav>
+      <InfoBreadcrumb label="Contact" href="/contact/" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -158,23 +164,7 @@ export const ContactPage: React.FC<InfoPageProps> = ({ navigate }) => {
 export const PrivacyPolicyPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <nav
-        aria-label="Breadcrumb"
-        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
-      >
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/');
-          }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
-        >
-          Home
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white">Privacy Policy</span>
-      </nav>
+      <InfoBreadcrumb label="Privacy Policy" href="/privacy-policy/" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -203,23 +193,7 @@ export const PrivacyPolicyPage: React.FC<InfoPageProps> = ({ navigate }) => {
 export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <nav
-        aria-label="Breadcrumb"
-        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
-      >
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/');
-          }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
-        >
-          Home
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white">Terms of Service</span>
-      </nav>
+      <InfoBreadcrumb label="Terms of Service" href="/terms/" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -237,7 +211,19 @@ export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
             While conversion factors are verified against international and regional standards, results are provided as-is. Always verify critical legal, engineering, medical, or property measurements against official source documents.
           </p>
           <p>
-            If you spot a conversion issue or have feedback, reach out via the Contact page.
+            If you spot a conversion issue or have feedback, reach out via the{' '}
+            <a
+              href="/contact/"
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault();
+                navigate('/contact/');
+              }}
+              className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+            >
+              Contact page
+            </a>
+            .
           </p>
         </div>
       </div>
@@ -248,23 +234,7 @@ export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
 export const DisclaimerPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <nav
-        aria-label="Breadcrumb"
-        className="flex items-center gap-1.5 text-xs font-medium text-[#1F2A44]/70 dark:text-slate-400"
-      >
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate('/');
-          }}
-          className="hover:text-[#1F2A44] dark:hover:text-[#F2C94C] hover:underline underline-offset-4"
-        >
-          Home
-        </a>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-        <span className="font-semibold text-[#1F2A44] dark:text-white">Disclaimer</span>
-      </nav>
+      <InfoBreadcrumb label="Disclaimer" href="/disclaimer/" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">

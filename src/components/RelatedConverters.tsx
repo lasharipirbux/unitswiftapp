@@ -13,7 +13,7 @@ interface RelatedConvertersProps {
   navigate?: (to: string, options?: { preserveInput?: string; scrollToId?: string }) => void;
 }
 
-const RELATED_COUNT = 5;
+const RELATED_COUNT = 8;
 
 function getDimensionKey(conv: ConverterPageConfig): string {
   const fromU = UNITS[conv.fromUnitId];
@@ -32,52 +32,33 @@ const DIMENSION_LABELS: Record<string, string> = {
   time: 'time',
 };
 
-export function getRelatedConvertersForPage(currentConverter: ConverterPageConfig): ConverterPageConfig[] {
-  if (currentConverter.slug === 'tola-to-gram') {
-    const preferred = ['gram-to-tola', 'kg-to-pounds', 'ounce-to-gram', 'maund-to-kg', 'tola-to-kg'];
-    return preferred
-      .map((s) => CONVERTERS.find((c) => c.slug === s))
-      .filter((c): c is ConverterPageConfig => Boolean(c))
-      .slice(0, RELATED_COUNT);
-  }
-
-  if (currentConverter.slug === 'marla-to-sqft') {
-    const preferred = [
-      'sqft-to-marla',
-      'kanal-to-marla',
-      'marla-to-square-yards',
-      'marla-to-square-meter',
-      'acre-to-kanal',
-    ];
-    return preferred
-      .map((s) => CONVERTERS.find((c) => c.slug === s))
-      .filter((c): c is ConverterPageConfig => Boolean(c))
-      .slice(0, RELATED_COUNT);
-  }
-
-  const currentDim = getDimensionKey(currentConverter);
-  const richRelatedSlugs = RICH_CONVERTER_CONTENT[currentConverter.slug]?.relatedSlugs || [];
-
-  const reverseConverter = CONVERTERS.find(
+export function getReverseConverter(currentConverter: ConverterPageConfig): ConverterPageConfig | undefined {
+  return CONVERTERS.find(
     (c) =>
       c.slug !== currentConverter.slug &&
       (c.slug === currentConverter.reverseSlug ||
         (c.fromUnitId === currentConverter.toUnitId && c.toUnitId === currentConverter.fromUnitId))
   );
+}
+
+export function getRelatedConvertersForPage(currentConverter: ConverterPageConfig): ConverterPageConfig[] {
+  const currentDim = getDimensionKey(currentConverter);
+  const richRelatedSlugs = RICH_CONVERTER_CONTENT[currentConverter.slug]?.relatedSlugs || [];
+  const reverseConverter = getReverseConverter(currentConverter);
 
   const candidates = CONVERTERS.filter((c) => c.slug !== currentConverter.slug);
 
   const scored = candidates.map((c) => {
     let score = 0;
     if (reverseConverter && c.slug === reverseConverter.slug) {
+      score += 100000;
+    }
+    if (c.category === currentConverter.category) {
       score += 10000;
     }
     const cDim = getDimensionKey(c);
     if (cDim === currentDim) {
       score += 1000;
-    }
-    if (c.category === currentConverter.category) {
-      score += 200;
     }
     const sharesUnit =
       c.fromUnitId === currentConverter.fromUnitId ||
@@ -85,11 +66,11 @@ export function getRelatedConvertersForPage(currentConverter: ConverterPageConfi
       c.fromUnitId === currentConverter.toUnitId ||
       c.toUnitId === currentConverter.fromUnitId;
     if (sharesUnit) {
-      score += 150;
+      score += 300;
     }
     const richIndex = richRelatedSlugs.indexOf(c.slug);
     if (richIndex !== -1) {
-      score += 80 - richIndex * 10;
+      score += 100 - richIndex * 10;
     }
     if (c.popular) {
       score += 25;
@@ -98,7 +79,17 @@ export function getRelatedConvertersForPage(currentConverter: ConverterPageConfi
   });
 
   scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, RELATED_COUNT).map((item) => item.converter);
+
+  const unique: ConverterPageConfig[] = [];
+  const seen = new Set<string>([currentConverter.slug]);
+  for (const item of scored) {
+    if (!seen.has(item.converter.slug)) {
+      seen.add(item.converter.slug);
+      unique.push(item.converter);
+      if (unique.length === RELATED_COUNT) break;
+    }
+  }
+  return unique;
 }
 
 export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
@@ -116,6 +107,7 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
   );
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     if (navigate) {
       e.preventDefault();
       navigate(path);
@@ -148,11 +140,7 @@ export const RelatedConverters: React.FC<RelatedConvertersProps> = ({
         </a>
       </div>
 
-      <div
-        className={`grid grid-cols-1 sm:grid-cols-2 ${
-          relatedConverters.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5'
-        } gap-3 sm:gap-3.5`}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3.5">
         {relatedConverters.map((item) => {
           const fromU = UNITS[item.fromUnitId];
           const toU = UNITS[item.toUnitId];

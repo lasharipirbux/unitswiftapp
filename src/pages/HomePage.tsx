@@ -95,6 +95,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
   }, []);
 
   const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
     navigate(`/${slug}/`);
   };
@@ -227,23 +228,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                 Pakistani Units
               </h2>
               <p className="text-xs sm:text-sm text-[#1F2A44]/75 dark:text-slate-300 mt-1">
-                Popular local land and weight tools including our{' '}
-                <a
-                  href="/marla-to-sqft/"
-                  onClick={(e) => handleCardClick(e, 'marla-to-sqft')}
-                  className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline underline-offset-4 hover:opacity-80"
-                >
-                  Marla to Square Feet converter
-                </a>{' '}
-                (1 marla = 272.25 sq ft) and{' '}
-                <a
-                  href="/marla-to-sqft/"
-                  onClick={(e) => handleCardClick(e, 'marla-to-sqft')}
-                  className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline underline-offset-4 hover:opacity-80"
-                >
-                  3, 5, 10 Marla &amp; 1 Kanal plot size table
-                </a>
-                .
+                Popular local land and weight tools including Marla to Square Feet (1 marla = 272.25 sq ft) and 3, 5, 10 Marla &amp; 1 Kanal plot size tables.
               </p>
             </div>
           </div>

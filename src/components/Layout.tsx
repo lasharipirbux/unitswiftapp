@@ -118,6 +118,7 @@ export const Layout: React.FC<LayoutProps> = ({
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, scrollToId?: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
     clearCloseTimer();
     setActiveDesktopCategory(null);

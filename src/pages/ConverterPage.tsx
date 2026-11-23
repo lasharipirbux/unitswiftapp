@@ -9,10 +9,16 @@ import {
   ConverterPageConfig,
   CATEGORIES,
   UNITS,
+  findConverterBySlug,
   formatConvertedNumber,
 } from '../data/converters';
 import { RICH_CONVERTER_CONTENT } from '../data/richConverterContent';
-import { RelatedConverters } from '../components/RelatedConverters';
+import {
+  RelatedConverters,
+  getRelatedConvertersForPage,
+  getReverseConverter,
+} from '../components/RelatedConverters';
+import { PopularPakistaniConverters } from '../components/PopularPakistaniConverters';
 import { BulkConvertTool } from '../components/BulkConvertTool';
 
 interface ConverterPageProps {
@@ -106,7 +112,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
 
   const handleSwap = () => {
     setSwapRotation((prev) => prev + 180);
-    if (converter.reverseSlug && !isReversedInPlace) {
+    if (converter.reverseSlug && !isReversedInPlace && findConverterBySlug(converter.reverseSlug)) {
       navigate(`/${converter.reverseSlug}/`, { preserveInput: inputValue });
     } else {
       setIsReversedInPlace((prev) => !prev);
@@ -124,11 +130,33 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
     return CATEGORIES.find((c) => c.id === converter.category);
   }, [converter.category]);
 
+  const reverseConverter = useMemo(() => getReverseConverter(converter), [converter]);
+  const contextualLinks = useMemo(
+    () => getRelatedConvertersForPage(converter).slice(0, 3),
+    [converter]
+  );
+  const inlineLink1 = contextualLinks[0];
+  const inlineLink2 = contextualLinks[1];
+  const inlineLink3 = contextualLinks[2];
+  const inlineLink1IsReverse = Boolean(
+    reverseConverter && inlineLink1 && inlineLink1.slug === reverseConverter.slug
+  );
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, scrollToId?: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
     navigate(path, { scrollToId });
   };
+
+  const renderInlineConverterLink = (target: ConverterPageConfig) => (
+    <a
+      href={`/${target.slug}/`}
+      onClick={(e) => handleLinkClick(e, `/${target.slug}/`)}
+      className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+    >
+      {target.shortTitle}
+    </a>
+  );
 
   const displayTitle = isReversedInPlace
     ? `${activeFromUnit?.pluralName} to ${activeToUnit?.pluralName} Converter`
@@ -461,7 +489,25 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
               </h2>
               <div className="space-y-3 text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
                 {rich.whatIsParagraphs.map((para, idx) => (
-                  <p key={idx}>{para}</p>
+                  <p key={idx}>
+                    {para}
+                    {idx === rich.whatIsParagraphs.length - 1 && inlineLink1 && inlineLink2 && (
+                      <>
+                        {' '}
+                        {inlineLink1IsReverse ? (
+                          <>
+                            For the reverse calculation, use our {renderInlineConverterLink(inlineLink1)} converter, or check{' '}
+                            {renderInlineConverterLink(inlineLink2)} for related measurements.
+                          </>
+                        ) : (
+                          <>
+                            For related measurements, you can also use our {renderInlineConverterLink(inlineLink1)} converter or{' '}
+                            {renderInlineConverterLink(inlineLink2)} calculator.
+                          </>
+                        )}
+                      </>
+                    )}
+                  </p>
                 ))}
               </div>
             </section>
@@ -600,6 +646,21 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                     </h3>
                     <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
                       {faq.answer}
+                      {idx === 0 && inlineLink3 && (
+                        <>
+                          {' '}
+                          {inlineLink3.category === converter.category ? (
+                            <>
+                              For another {categoryInfo?.id === 'local' ? 'local unit' : (categoryInfo?.name.toLowerCase() || 'unit')} conversion, try our{' '}
+                              {renderInlineConverterLink(inlineLink3)} calculator.
+                            </>
+                          ) : (
+                            <>
+                              You can also try our {renderInlineConverterLink(inlineLink3)} calculator for related conversions.
+                            </>
+                          )}
+                        </>
+                      )}
                     </p>
                   </div>
                 ))}
@@ -682,7 +743,25 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   </h2>
                   <div className="space-y-3 text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
                     {rich.whatIsParagraphs.map((para, idx) => (
-                      <p key={idx}>{para}</p>
+                      <p key={idx}>
+                        {para}
+                        {idx === rich.whatIsParagraphs.length - 1 && inlineLink1 && inlineLink2 && (
+                          <>
+                            {' '}
+                            {inlineLink1IsReverse ? (
+                              <>
+                                For the reverse calculation, use our {renderInlineConverterLink(inlineLink1)} converter, or check{' '}
+                                {renderInlineConverterLink(inlineLink2)} for related measurements.
+                              </>
+                            ) : (
+                              <>
+                                For related measurements, you can also use our {renderInlineConverterLink(inlineLink1)} converter or{' '}
+                                {renderInlineConverterLink(inlineLink2)} calculator.
+                              </>
+                            )}
+                          </>
+                        )}
+                      </p>
                     ))}
                   </div>
                 </section>
@@ -881,6 +960,21 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                         </h3>
                         <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
                           {faq.answer}
+                          {idx === 0 && inlineLink3 && (
+                            <>
+                              {' '}
+                              {inlineLink3.category === converter.category ? (
+                                <>
+                                  For another {categoryInfo?.id === 'local' ? 'local unit' : (categoryInfo?.name.toLowerCase() || 'unit')} conversion, try our{' '}
+                                  {renderInlineConverterLink(inlineLink3)} calculator.
+                                </>
+                              ) : (
+                                <>
+                                  You can also try our {renderInlineConverterLink(inlineLink3)} calculator for related conversions.
+                                </>
+                              )}
+                            </>
+                          )}
                         </p>
                       </div>
                     ))}
@@ -892,9 +986,15 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
         </>
       )}
 
-      {/* RELATED CONVERTERS SECTION (6 Clean Same-Category Tiles) */}
+      {/* RELATED CONVERTERS SECTION (8 Same-Category Links + Reverse Converter) */}
       <RelatedConverters
         currentConverter={converter}
+        navigate={navigate}
+      />
+
+      {/* POPULAR PAKISTANI CONVERTERS SECTION (6 Key Local Links) */}
+      <PopularPakistaniConverters
+        currentSlug={converter.slug}
         navigate={navigate}
       />
     </div>
