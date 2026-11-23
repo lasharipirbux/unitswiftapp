@@ -1375,14 +1375,14 @@ export const CONVERTERS = [
   },
   {
     slug: 'kanal-to-marla',
-    title: 'Kanal to Marla Calculator Pakistan (1 Kanal = 20 Marla)',
+    title: 'Kanal to Marla Calculator Pakistan',
     shortTitle: 'kanal to marla',
-    descriptionLine1: 'Use our 1 kanal to marla calculator for Pakistan housing society plots, agricultural holdings, and estate transfers.',
-    descriptionLine2: 'Under standard land measurement rules, 1 kanal equals exactly 20 marla (5,445 sq ft in our kanal to square feet converter).',
-    descriptionLine3: 'Multiply your kanal value by 20 to calculate the equivalent number of marlas immediately.',
-    note: 'Based on the standard value used in Pakistan; local values can vary slightly.',
-    seoTitle: 'Kanal to Marla Converter – Free Online Calculator & Chart | UnitSwift',
-    seoDescription: 'Convert Kanal to Marla instantly with our free online calculator. Includes exact conversion formula, quick reference table, and accurate results.',
+    descriptionLine1: 'Convert kanal to marla quickly for Pakistani plots, houses, and farmland.',
+    descriptionLine2: 'One kanal always equals 20 marla, which is 5,445 sq ft under the standard 272.25 sq ft marla.',
+    descriptionLine3: 'Type any kanal value below to get the marla total right away.',
+    note: 'Uses the standard 272.25 sq ft marla (1 kanal = 5,445 sq ft). Some housing societies use a different marla size.',
+    seoTitle: 'Kanal to Marla Calculator Pakistan | UnitSwift',
+    seoDescription: 'Free Kanal to Marla calculator for Pakistan. 1 kanal = 20 marla (5,445 sq ft at 272.25 sq ft/marla). Instant converter, quick table, and FAQs.',
     category: 'local',
     fromUnitId: 'kanal',
     toUnitId: 'marla',
@@ -3499,6 +3499,9 @@ export const POPULAR_CONVERTER_SLUGS = [
 ];
 
 export function getConverterSeoTitle(converter: ConverterPageConfig): string {
+  if (converter.slug === 'kanal-to-marla') {
+    return converter.seoTitle;
+  }
   const fromUnit = UNITS[converter.fromUnitId];
   const toUnit = UNITS[converter.toUnitId];
   const unitA = fromUnit?.pluralName || converter.title.replace(/\s+Converter.*$/i, '');
@@ -3508,6 +3511,9 @@ export function getConverterSeoTitle(converter: ConverterPageConfig): string {
 }
 
 export function getConverterSeoDescription(converter: ConverterPageConfig): string {
+  if (converter.slug === 'kanal-to-marla') {
+    return converter.seoDescription;
+  }
   const fromUnit = UNITS[converter.fromUnitId];
   const toUnit = UNITS[converter.toUnitId];
   const unitA = fromUnit?.pluralName || converter.shortTitle;

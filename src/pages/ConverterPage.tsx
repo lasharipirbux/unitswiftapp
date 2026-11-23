@@ -668,6 +668,158 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
             </section>
           </article>
         );
+      })() : converter.slug === 'kanal-to-marla' ? (() => {
+        const rich = RICH_CONVERTER_CONTENT['kanal-to-marla'];
+        const kanalTableValues = [1, 2, 3, 5, 10];
+
+        return (
+          <article className="space-y-10 pt-6 border-t border-[#1F2A44]/10 dark:border-white/10">
+            {/* 1. Original intro in simple English with links to Marla to Sqft and Acre to Kanal */}
+            <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                {rich.whatIsHeading}
+              </h2>
+              <div className="space-y-3 text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
+                <p>{rich.whatIsParagraphs[0]}</p>
+                <p>
+                  {rich.whatIsParagraphs[1]}{' '}
+                  To check plot sizes in square feet, open our{' '}
+                  <a
+                    href="/marla-to-sqft/"
+                    onClick={(e) => handleLinkClick(e, '/marla-to-sqft/')}
+                    className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+                  >
+                    Marla to Sqft
+                  </a>{' '}
+                  converter, or use{' '}
+                  <a
+                    href="/acre-to-kanal/"
+                    onClick={(e) => handleLinkClick(e, '/acre-to-kanal/')}
+                    className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+                  >
+                    Acre to Kanal
+                  </a>{' '}
+                  for larger farmland deeds.
+                </p>
+              </div>
+            </section>
+
+            {/* 2. How to convert Kanal to Marla + worked example + 272.25 sq ft / society note */}
+            <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                {rich.howToHeading}
+              </h2>
+              <p className="text-sm sm:text-base text-[#1F2A44]/85 dark:text-slate-300 leading-relaxed">
+                {rich.howToIntro}
+              </p>
+
+              <div className="p-4 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/15 dark:border-white/15">
+                <span className="block text-xs font-semibold uppercase tracking-wider text-[#1F2A44]/65 dark:text-slate-400 mb-1">
+                  Conversion Formula
+                </span>
+                <code className="text-base sm:text-lg font-bold font-mono-tabular text-[#1F2A44] dark:text-[#F2C94C]">
+                  {rich.formulaBox}
+                </code>
+              </div>
+
+              <div className="p-5 rounded-xl bg-[#F2C94C]/15 dark:bg-[#19253D] border border-[#F2C94C]/50 dark:border-[#F2C94C]/30 space-y-1.5">
+                <h3 className="text-sm sm:text-base font-bold text-[#1F2A44] dark:text-[#F2C94C]">
+                  {rich.workedExampleTitle}
+                </h3>
+                <p className="text-sm text-[#1F2A44]/90 dark:text-slate-200 leading-relaxed">
+                  {rich.workedExampleBody}
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-[#F2C94C]/20 dark:bg-[#F2C94C]/10 border border-[#F2C94C]/60 dark:border-[#F2C94C]/40 text-xs sm:text-sm font-medium text-[#1F2A44] dark:text-[#F2C94C]">
+                <strong>Note:</strong> Calculations use the standard 272.25 sq ft marla (5,445 sq ft per kanal). Some housing societies use a smaller marla such as 225 sq ft, so always check your property papers.
+              </div>
+            </section>
+
+            {/* 3. Quick table for 1, 2, 3, 5, 10 kanal in marla and square feet */}
+            <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 overflow-hidden">
+              <div className="p-6 sm:px-8 border-b border-[#1F2A44]/10 dark:border-white/10">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                  Quick Kanal to Marla and Square Feet Table
+                </h2>
+                <p className="text-xs sm:text-sm text-[#1F2A44]/70 dark:text-slate-400 mt-1">
+                  Standard values for 1, 2, 3, 5, and 10 kanal based on 1 kanal = 20 marla and 1 marla = 272.25 sq ft.
+                </p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-[#1F2A44]/10 dark:border-white/10 bg-[#F6F8FA] dark:bg-[#0F1626]/70 text-xs font-semibold text-[#1F2A44] dark:text-slate-300">
+                      <th className="py-3 px-6 sm:px-8">Kanal</th>
+                      <th className="py-3 px-6 sm:px-8">Marla</th>
+                      <th className="py-3 px-6 sm:px-8 text-right">Square Feet (sq ft)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#1F2A44]/10 dark:divide-white/10 text-sm font-mono-tabular">
+                    {kanalTableValues.map((val) => {
+                      const marlaVal = formatConvertedNumber(converter.convert(val));
+                      const sqFtVal = formatConvertedNumber(val * 20 * 272.25);
+                      return (
+                        <tr
+                          key={val}
+                          onClick={() => setInputValue(String(val))}
+                          className="hover:bg-[#F6F8FA] dark:hover:bg-[#0F1626]/50 cursor-pointer transition-colors"
+                          title={`Click to load ${val} kanal into calculator`}
+                        >
+                          <td className="py-3 px-6 sm:px-8 font-medium text-[#1F2A44] dark:text-white">
+                            {val} kanal
+                          </td>
+                          <td className="py-3 px-6 sm:px-8 font-bold text-[#1F2A44] dark:text-[#F2C94C]">
+                            {marlaVal} marla
+                          </td>
+                          <td className="py-3 px-6 sm:px-8 text-right text-[#1F2A44]/85 dark:text-slate-200">
+                            {sqFtVal} sq ft
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* 4. 6 FAQs with Marla to Kanal reverse link */}
+            <section className="rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/12 dark:border-white/10 p-6 sm:p-8 space-y-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#1F2A44] dark:text-white">
+                Frequently Asked Questions (FAQs)
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {rich.faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-xl bg-[#F6F8FA] dark:bg-[#0F1626] border border-[#1F2A44]/10 dark:border-white/10 space-y-2"
+                  >
+                    <h3 className="text-sm sm:text-base font-bold text-[#1F2A44] dark:text-white">
+                      {faq.question}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#1F2A44]/80 dark:text-slate-300 leading-relaxed">
+                      {faq.answer}
+                      {idx === 5 && (
+                        <>
+                          {' '}
+                          Try our{' '}
+                          <a
+                            href="/marla-to-kanal/"
+                            onClick={(e) => handleLinkClick(e, '/marla-to-kanal/')}
+                            className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+                          >
+                            Marla to Kanal
+                          </a>{' '}
+                          converter for instant results.
+                        </>
+                      )}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </article>
+        );
       })() : (
         <>
           {/* Small Table of 8 Common Values for that Unit Pair */}

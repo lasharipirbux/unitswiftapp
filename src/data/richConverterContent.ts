@@ -2775,19 +2775,19 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
 
   'kanal-to-marla': {
     slug: 'kanal-to-marla',
-    whatIsHeading: 'What Is Kanal to Marla Conversion',
+    whatIsHeading: 'Kanal and Marla Land Units in Pakistan',
     whatIsParagraphs: [
-      'This 1 kanal to marla calculator for Pakistan links the two primary residential and farm land units used across the country. By rule, 1 kanal always equals 20 marla (or 5,445 sq ft using a kanal to square feet converter), and 8 kanals make 1 acre (160 marla).',
-      'Property dealers dividing 1-kanal or 2-kanal estates into smaller plots and families splitting agricultural inheritance rely on this simple × 20 multiplier.',
+      'A kanal is a common land unit across Punjab, Khyber Pakhtunkhwa, Islamabad, and Azad Kashmir. People use it for large houses, farmhouses, and fields. In every city, 1 kanal equals 20 marla.',
+      'Knowing the marla count helps when comparing plot rates or splitting family land.',
     ],
     howToHeading: 'How to Convert Kanal to Marla',
     howToIntro:
-      'Multiply the number of kanals by 20 to obtain marlas. Divide marlas by 20 to convert back to kanals.',
+      'Multiply the kanal value by 20 to get marlas. Since a marla is smaller than a kanal, the marla figure is always twenty times larger.',
     formulaBox: 'marla = kanal × 20',
-    workedExampleTitle: 'Worked Example: Convert 2.5 Kanal of Land to Marla',
+    workedExampleTitle: 'Example: Convert 3.5 Kanal to Marla',
     workedExampleBody:
-      'An inheritance deed lists 2.5 kanal of agricultural land in Punjab that needs to be split into marlas. Multiply 2.5 by 20: 2.5 × 20 = 50 marla.',
-    quickRefValues: [0.5, 1, 1.5, 2, 3, 4, 5, 8, 10, 20],
+      'If a family owns 3.5 kanal of land, multiply 3.5 by 20 to get 70 marla. At 272.25 sq ft per marla, that equals 19,057.5 sq ft.',
+    quickRefValues: [1, 2, 3, 5, 10],
     commonMistakes: [
       {
         title: 'Thinking 10 marla equals 1 kanal',
@@ -2807,27 +2807,37 @@ export const RICH_CONVERTER_CONTENT: Record<string, RichConverterContent> = {
     ],
     faqs: [
       {
-        question: 'How many marla are in 1 kanal in Pakistan?',
+        question: 'How many marla in 1 kanal?',
         answer:
-          'Using a 1 kanal to marla calculator in Pakistan, 1 kanal always equals 20 marla (5,445 sq ft under the 272.25 sq ft marla standard).',
+          'There are 20 marla in 1 kanal across Pakistan.',
       },
       {
-        question: 'How many marla is half a kanal (0.5 kanal)?',
+        question: 'How many marla in 2 kanal?',
         answer:
-          'Half a kanal equals 10 marla, or 2,722.5 square feet.',
+          'There are 40 marla in 2 kanal (2 × 20 = 40 marla), or 10,890 sq ft at 272.25 sq ft per marla.',
       },
       {
-        question: 'How many square feet are in 1 kanal?',
+        question: 'How many square feet in 1 kanal?',
         answer:
-          '1 standard revenue kanal equals 5,445 square feet (20 marla × 272.25 sq ft).',
+          'One standard kanal equals 5,445 square feet (20 × 272.25 sq ft). In a 225 sq ft marla society, 1 kanal is 4,500 sq ft.',
       },
       {
-        question: 'How many kanal and marla are in 1 acre?',
+        question: 'How many marla in half kanal?',
         answer:
-          '1 acre equals 8 kanal, or 160 marla.',
+          'Half a kanal (0.5 kanal) equals 10 marla, which is 2,722.5 sq ft under the standard marla size.',
+      },
+      {
+        question: 'What is the difference between 272.25 sq ft marla and 225 sq ft marla?',
+        answer:
+          'A 272.25 sq ft marla is the official revenue size (5,445 sq ft per kanal). A 225 sq ft marla is used in many private societies (4,500 sq ft per kanal), a difference of 945 sq ft per kanal.',
+      },
+      {
+        question: 'How do I convert marla to kanal?',
+        answer:
+          'Divide marlas by 20 to get kanals (for example, 40 marla ÷ 20 = 2 kanal).',
       },
     ],
-    relatedSlugs: ['marla-to-sqft', 'sqft-to-marla', 'acre-to-sqft', 'sqft-to-sqm'],
+    relatedSlugs: ['marla-to-kanal', 'marla-to-sqft', 'acre-to-kanal', 'kanal-to-sqft'],
   },
 
   'tola-to-gram': {
