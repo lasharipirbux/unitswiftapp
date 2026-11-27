@@ -47,7 +47,7 @@ const InfoBreadcrumb: React.FC<{ label: string; href: string; navigate: (to: str
 export const AboutPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <InfoBreadcrumb label="About" href="/about/" navigate={navigate} />
+      <InfoBreadcrumb label="About" href="/about" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -116,7 +116,7 @@ export const ContactPage: React.FC<InfoPageProps> = ({ navigate }) => {
 
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <InfoBreadcrumb label="Contact" href="/contact/" navigate={navigate} />
+      <InfoBreadcrumb label="Contact" href="/contact" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -164,7 +164,7 @@ export const ContactPage: React.FC<InfoPageProps> = ({ navigate }) => {
 export const PrivacyPolicyPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <InfoBreadcrumb label="Privacy Policy" href="/privacy-policy/" navigate={navigate} />
+      <InfoBreadcrumb label="Privacy Policy" href="/privacy-policy" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -193,7 +193,7 @@ export const PrivacyPolicyPage: React.FC<InfoPageProps> = ({ navigate }) => {
 export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <InfoBreadcrumb label="Terms of Service" href="/terms/" navigate={navigate} />
+      <InfoBreadcrumb label="Terms of Service" href="/terms" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">
@@ -213,11 +213,11 @@ export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
           <p>
             If you spot a conversion issue or have feedback, reach out via the{' '}
             <a
-              href="/contact/"
+              href="/contact"
               onClick={(e) => {
                 if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
                 e.preventDefault();
-                navigate('/contact/');
+                navigate('/contact');
               }}
               className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
             >
@@ -234,7 +234,7 @@ export const TermsPage: React.FC<InfoPageProps> = ({ navigate }) => {
 export const DisclaimerPage: React.FC<InfoPageProps> = ({ navigate }) => {
   return (
     <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-      <InfoBreadcrumb label="Disclaimer" href="/disclaimer/" navigate={navigate} />
+      <InfoBreadcrumb label="Disclaimer" href="/disclaimer" navigate={navigate} />
 
       <header className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1F2A44] dark:text-white">

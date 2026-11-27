@@ -35,7 +35,7 @@ export function buildSitemapEntries(lastmod = getTodayDateString()): SitemapEntr
 
   const addEntry = (rawPath: string, changefreq: SitemapEntry['changefreq'], priority: string) => {
     const cleanPath = rawPath === '/' ? '/' : `/${rawPath.replace(/^\/+|\/+$/g, '')}`;
-    const loc = cleanPath === '/' ? `${BASE_URL}/` : `${BASE_URL}${cleanPath}/`;
+    const loc = cleanPath === '/' ? `${BASE_URL}/` : `${BASE_URL}${cleanPath}`;
 
     if (loc.includes('://www.')) {
       throw new Error(`Invalid sitemap URL contains www: ${loc}`);
@@ -107,6 +107,14 @@ export function writeSitemapFile(rootDir = path.resolve(path.dirname(fileURLToPa
   };
 }
 
+export function writeRobotsFile(rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')): string {
+  const robotsPath = path.join(rootDir, 'public', 'robots.txt');
+  const robotsTxt = `User-agent: *\nAllow: /\n\nSitemap: ${BASE_URL}/sitemap.xml\n`;
+  fs.mkdirSync(path.dirname(robotsPath), { recursive: true });
+  fs.writeFileSync(robotsPath, robotsTxt, 'utf8');
+  return robotsPath;
+}
+
 const isDirectExecution =
   typeof process !== 'undefined' &&
   Array.isArray(process.argv) &&
@@ -115,7 +123,8 @@ const isDirectExecution =
 
 if (isDirectExecution) {
   const result = writeSitemapFile();
+  writeRobotsFile();
   console.log(
-    `Generated sitemap.xml with ${result.totalUrls} URLs (${result.converterCount} converters + 4 static pages, lastmod ${result.lastmod})`
+    `Generated sitemap.xml with ${result.totalUrls} URLs (${result.converterCount} converters + 6 static pages + home, lastmod ${result.lastmod})`
   );
 }

@@ -115,12 +115,12 @@ export const BulkConverterPage: React.FC<BulkConverterPageProps> = ({ navigate }
           &gt;
         </span>
         <a
-          href="/bulk-converter/"
+          href="/bulk-converter"
           aria-current="page"
           onClick={(e) => {
             if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
             e.preventDefault();
-            navigate('/bulk-converter/');
+            navigate('/bulk-converter');
           }}
           className="font-semibold text-[#1F2A44] dark:text-white hover:underline underline-offset-4 transition-colors"
         >
@@ -252,11 +252,11 @@ export const BulkConverterPage: React.FC<BulkConverterPageProps> = ({ navigate }
 
             {matchingConverter && (
               <a
-                href={`/${matchingConverter.slug}/`}
+                href={`/${matchingConverter.slug}`}
                 onClick={(e) => {
                   if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
                   e.preventDefault();
-                  navigate(`/${matchingConverter.slug}/`);
+                  navigate(`/${matchingConverter.slug}`);
                 }}
                 className="inline-flex items-center gap-1 font-bold text-[#1F2A44] dark:text-[#F2C94C] hover:underline underline-offset-4"
               >

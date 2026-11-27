@@ -97,12 +97,12 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
   const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
-    navigate(`/${slug}/`);
+    navigate(`/${slug}`);
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && filteredConverters.length > 0) {
-      navigate(`/${filteredConverters[0].slug}/`);
+      navigate(`/${filteredConverters[0].slug}`);
     }
   };
 
@@ -197,7 +197,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               return (
                 <a
                   key={conv.slug}
-                  href={`/${conv.slug}/`}
+                  href={`/${conv.slug}`}
                   onClick={(e) => handleCardClick(e, conv.slug)}
                   className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                 >
@@ -239,7 +239,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               return (
                 <a
                   key={conv.slug}
-                  href={`/${conv.slug}/`}
+                  href={`/${conv.slug}`}
                   onClick={(e) => handleCardClick(e, conv.slug)}
                   className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                 >
@@ -331,7 +331,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     {categoryConverters.map((conv) => (
                       <a
                         key={conv.slug}
-                        href={`/${conv.slug}/`}
+                        href={`/${conv.slug}`}
                         onClick={(e) => handleCardClick(e, conv.slug)}
                         className="group flex flex-col justify-between gap-4 p-5 rounded-2xl bg-white dark:bg-[#151F33] border border-[#1F2A44]/15 dark:border-white/15 hover:border-[#F2C94C] dark:hover:border-[#F2C94C] transition-colors"
                       >

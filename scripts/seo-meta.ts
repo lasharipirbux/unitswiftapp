@@ -77,11 +77,11 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     return {
       title: getConverterSeoTitle(converter),
       description: getConverterSeoDescription(converter),
-      canonicalUrl: `${BASE_URL}/${converter.slug}/`,
+      canonicalUrl: `${BASE_URL}/${converter.slug}`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
         { name: categoryObj?.name || converter.category, path: `/#category-${converter.category}` },
-        { name: converter.shortTitle, path: `/${converter.slug}/` },
+        { name: converter.shortTitle, path: `/${converter.slug}` },
       ],
       faqs: rich?.faqs,
     };
@@ -92,10 +92,10 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
       title: 'Bulk Unit Converter (CSV) – Convert Many Values at Once | UnitSwift',
       description:
         'Convert many unit values at once with UnitSwift Bulk Converter. Upload a CSV file or paste numbers for any unit pair and download the result CSV in your browser.',
-      canonicalUrl: `${BASE_URL}/bulk-converter/`,
+      canonicalUrl: `${BASE_URL}/bulk-converter`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
-        { name: 'Bulk Convert (CSV)', path: '/bulk-converter/' },
+        { name: 'Bulk Convert (CSV)', path: '/bulk-converter' },
       ],
     };
   }
@@ -104,10 +104,10 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     return {
       title: 'About UnitSwift – Free Unit Converter Built by Naseeb',
       description: `UnitSwift is a free unit converter with ${CONVERTERS.length} calculators built by Naseeb, offering instant browser conversions with no sign-up and no personal tracking.`,
-      canonicalUrl: `${BASE_URL}/about/`,
+      canonicalUrl: `${BASE_URL}/about`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
-        { name: 'About', path: '/about/' },
+        { name: 'About', path: '/about' },
       ],
     };
   }
@@ -117,10 +117,10 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
       title: 'Contact UnitSwift – Report an Issue or Request a Unit',
       description:
         'Found a wrong conversion value or want a new converter added to UnitSwift? Write to us directly by email to share feedback or unit requests.',
-      canonicalUrl: `${BASE_URL}/contact/`,
+      canonicalUrl: `${BASE_URL}/contact`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
-        { name: 'Contact', path: '/contact/' },
+        { name: 'Contact', path: '/contact' },
       ],
     };
   }
@@ -130,10 +130,10 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
       title: 'Privacy Policy – UnitSwift Free Online Unit Converter',
       description:
         'Read the UnitSwift Privacy Policy. We do not collect personal data, all calculations happen in your browser, and future analytics or ads may use cookies.',
-      canonicalUrl: `${BASE_URL}/privacy-policy/`,
+      canonicalUrl: `${BASE_URL}/privacy-policy`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
-        { name: 'Privacy Policy', path: '/privacy-policy/' },
+        { name: 'Privacy Policy', path: '/privacy-policy' },
       ],
     };
   }
@@ -142,10 +142,10 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     return {
       title: 'Terms of Service – UnitSwift Free Online Unit Converter',
       description: `Read the UnitSwift Terms of Service for using our ${CONVERTERS.length} free browser-based unit conversion calculators.`,
-      canonicalUrl: `${BASE_URL}/terms/`,
+      canonicalUrl: `${BASE_URL}/terms`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
-        { name: 'Terms of Service', path: '/terms/' },
+        { name: 'Terms of Service', path: '/terms' },
       ],
     };
   }
@@ -154,10 +154,10 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
     return {
       title: 'Disclaimer – UnitSwift Free Online Unit Converter',
       description: `Read the UnitSwift Disclaimer regarding informational calculations, regional unit variations like Marla and Tola, and reference accuracy.`,
-      canonicalUrl: `${BASE_URL}/disclaimer/`,
+      canonicalUrl: `${BASE_URL}/disclaimer`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
-        { name: 'Disclaimer', path: '/disclaimer/' },
+        { name: 'Disclaimer', path: '/disclaimer' },
       ],
     };
   }
@@ -165,7 +165,7 @@ export function resolveRouteMeta(rawPath: string): RouteMeta {
   return {
     title: 'Page Not Found – UnitSwift',
     description: `Explore all ${CONVERTERS.length} free unit converters on UnitSwift.`,
-    canonicalUrl: `${BASE_URL}${currentPath}/`,
+    canonicalUrl: `${BASE_URL}${currentPath}`,
     noindex: true,
   };
 }
@@ -228,10 +228,17 @@ export function injectRouteMeta(html: string, rawPath: string, includePrerendere
     /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/,
     `<meta name="robots" content="${robotsContent}" />`
   );
-  out = out.replace(
-    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
-    `<link rel="canonical" href="${canonicalAttr}" />`
-  );
+  const canonicalTag = `<link rel="canonical" href="${canonicalAttr}" />`;
+  if (/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i.test(out)) {
+    out = out.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i, canonicalTag);
+  } else if (/<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/i.test(out)) {
+    out = out.replace(
+      /(<meta\s+name="robots"\s+content="[^"]*"\s*\/?>)/i,
+      `$1\n    ${canonicalTag}`
+    );
+  } else {
+    out = out.replace('</head>', `    ${canonicalTag}\n  </head>`);
+  }
   out = out.replace(
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
     `<meta name="description" content="${descAttr}" />`
@@ -320,7 +327,7 @@ export function injectRouteMeta(html: string, rawPath: string, includePrerendere
             ? `${BASE_URL}/`
             : crumb.path.startsWith('/#')
               ? `${BASE_URL}${crumb.path}`
-              : `${BASE_URL}/${crumb.path.replace(/^\/+|\/+$/g, '')}/`,
+              : `${BASE_URL}/${crumb.path.replace(/^\/+|\/+$/g, '')}`,
       })),
     });
     extraScripts.push(
@@ -378,13 +385,18 @@ export function prerenderAllRouteHtml(distDir: string): number {
   ];
 
   for (const routePath of routePaths) {
-    const slugDir = path.join(distDir, routePath.slice(1));
-    fs.mkdirSync(slugDir, { recursive: true });
+    const slug = routePath.slice(1);
+    const routeHtmlPath = path.join(distDir, `${slug}.html`);
     fs.writeFileSync(
-      path.join(slugDir, 'index.html'),
+      routeHtmlPath,
       injectRouteMeta(baseHtml, routePath, true),
       'utf8'
     );
+
+    const legacyDir = path.join(distDir, slug);
+    if (fs.existsSync(legacyDir) && fs.statSync(legacyDir).isDirectory()) {
+      fs.rmSync(legacyDir, { recursive: true, force: true });
+    }
   }
 
   return routePaths.length;

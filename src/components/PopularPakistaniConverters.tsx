@@ -50,9 +50,9 @@ export const PopularPakistaniConverters: React.FC<PopularPakistaniConvertersProp
           return (
             <a
               key={item.slug}
-              href={`/${item.slug}/`}
+              href={`/${item.slug}`}
               aria-current={isCurrent ? 'page' : undefined}
-              onClick={(e) => handleLinkClick(e, `/${item.slug}/`)}
+              onClick={(e) => handleLinkClick(e, `/${item.slug}`)}
               className={`group flex items-center justify-between gap-2 px-3.5 py-3 rounded-xl border transition-all duration-200 ${
                 isCurrent
                   ? 'bg-[#F2C94C]/15 dark:bg-[#F2C94C]/10 border-[#F2C94C] text-[#1F2A44] dark:text-[#F2C94C]'

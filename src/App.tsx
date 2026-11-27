@@ -22,7 +22,7 @@ function normalizePath(rawPath: string): string {
 }
 
 function toBrowserPath(normalizedPath: string): string {
-  return normalizedPath === '/' ? '/' : `${normalizedPath}/`;
+  return normalizedPath;
 }
 
 function getInitialPath(): string {

@@ -113,7 +113,7 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
   const handleSwap = () => {
     setSwapRotation((prev) => prev + 180);
     if (converter.reverseSlug && !isReversedInPlace && findConverterBySlug(converter.reverseSlug)) {
-      navigate(`/${converter.reverseSlug}/`, { preserveInput: inputValue });
+      navigate(`/${converter.reverseSlug}`, { preserveInput: inputValue });
     } else {
       setIsReversedInPlace((prev) => !prev);
     }
@@ -150,8 +150,8 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
 
   const renderInlineConverterLink = (target: ConverterPageConfig) => (
     <a
-      href={`/${target.slug}/`}
-      onClick={(e) => handleLinkClick(e, `/${target.slug}/`)}
+      href={`/${target.slug}`}
+      onClick={(e) => handleLinkClick(e, `/${target.slug}`)}
       className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
     >
       {target.shortTitle}
@@ -189,9 +189,9 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
             &gt;
           </span>
           <a
-            href={`/${converter.slug}/`}
+            href={`/${converter.slug}`}
             aria-current="page"
-            onClick={(e) => handleLinkClick(e, `/${converter.slug}/`)}
+            onClick={(e) => handleLinkClick(e, `/${converter.slug}`)}
             className="font-semibold text-[#1F2A44] dark:text-white hover:underline underline-offset-4 transition-colors"
           >
             {converter.shortTitle}
@@ -685,16 +685,16 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                   {rich.whatIsParagraphs[1]}{' '}
                   To check plot sizes in square feet, open our{' '}
                   <a
-                    href="/marla-to-sqft/"
-                    onClick={(e) => handleLinkClick(e, '/marla-to-sqft/')}
+                    href="/marla-to-sqft"
+                    onClick={(e) => handleLinkClick(e, '/marla-to-sqft')}
                     className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
                   >
                     Marla to Sqft
                   </a>{' '}
                   converter, or use{' '}
                   <a
-                    href="/acre-to-kanal/"
-                    onClick={(e) => handleLinkClick(e, '/acre-to-kanal/')}
+                    href="/acre-to-kanal"
+                    onClick={(e) => handleLinkClick(e, '/acre-to-kanal')}
                     className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
                   >
                     Acre to Kanal
@@ -804,8 +804,8 @@ export const ConverterPage: React.FC<ConverterPageProps> = ({
                           {' '}
                           Try our{' '}
                           <a
-                            href="/marla-to-kanal/"
-                            onClick={(e) => handleLinkClick(e, '/marla-to-kanal/')}
+                            href="/marla-to-kanal"
+                            onClick={(e) => handleLinkClick(e, '/marla-to-kanal')}
                             className="font-semibold text-[#1F2A44] dark:text-[#F2C94C] underline decoration-[#F2C94C] decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
                           >
                             Marla to Kanal
